@@ -118,16 +118,16 @@ const entityMap = {
   '=': '&#x3D;'
 };
 
-function escapeHtml (string) {
+function escapeHtml(string) {
   return String(string).replace(/[&<>"'`=\/]/g, (s) => {
     return entityMap[s];
   });
 }
 
 function renderAlbum(id, artist, name, albumArtFile, year) {
-  return `<div ${year ? `data-year="${year}"` : '' } ${artist ? `data-artist="${artist}"` : '' } ${id ? `data-album="${id}"` : '' } class="albumz flex" onclick="getAlbumsOnClick(this);">
+  return `<div ${year ? `data-year="${year}"` : ''} ${artist ? `data-artist="${artist}"` : ''} ${id ? `data-album="${id}"` : ''} class="albumz flex" onclick="getAlbumsOnClick(this);">
     <img class="album-art-box" 
-      ${albumArtFile ? `data-original="album-art/${albumArtFile}?token=${MSTREAMAPI.currentServer.token}"`: 'src="assets/img/default.png"'}
+      ${albumArtFile ? `data-original="album-art/${albumArtFile}?token=${MSTREAMAPI.currentServer.token}"` : 'src="assets/img/default.png"'}
     >
     <div>
       <span class="explorer-label-1"><b>${name}</b> ${year ? `<br>[${year}]` : ''}</span><br>
@@ -394,7 +394,7 @@ function printdir(response, cb) {
   // Post the html to the filelist div
   document.getElementById('filelist').innerHTML = filelist;
 
-  if(cb) { cb(); }
+  if (cb) { cb(); }
 }
 
 function getFileExplorerPath() {
@@ -403,7 +403,7 @@ function getFileExplorerPath() {
 
 function getDirectoryString2(component) {
   var newString = getFileExplorerPath() + component.getAttribute("data-directory");
-  if (newString.substring(0,1) !== '/') {
+  if (newString.substring(0, 1) !== '/') {
     newString = "/" + newString
   }
 
@@ -416,7 +416,7 @@ function addAllSongs(res) {
   }
 }
 
-function handleDirClick(el){
+function handleDirClick(el) {
   fileExplorerArray.push(el.getAttribute('data-directory'));
   programState.push({
     state: 'fileExplorer',
@@ -452,16 +452,16 @@ function recursiveAddDir(el) {
   const directoryString = getDirectoryString2(el);
   MSTREAMAPI.recursiveScan(directoryString, (res, err) => {
     if (err !== false) {
-      return boilerplateFailure(res, err);        
+      return boilerplateFailure(res, err);
     }
     addAllSongs(res);
   });
 }
 
 function addFileplaylist(el) {
-  MSTREAMAPI.loadFileplaylist(getDirectoryString2(el),(res, err) => {
+  MSTREAMAPI.loadFileplaylist(getDirectoryString2(el), (res, err) => {
     if (err !== false) {
-      return boilerplateFailure(res, err);        
+      return boilerplateFailure(res, err);
     }
 
     const translatedList = [];
@@ -478,7 +478,7 @@ function getAllPlaylists(el, cb) {
   setBrowserRootPanel(el, 'Playlists', 'scrollBoxHeight1');
   document.getElementById('filelist').innerHTML = getLoadingSvg();
   document.getElementById('directoryName').innerHTML = '<input style="height:24px;" value="New Playlist" type="button" onclick="openNewPlaylistModal();">';
-  programState = [ {state: 'allPlaylists' }];
+  programState = [{ state: 'allPlaylists' }];
 
   MSTREAMAPI.getAllPlaylists((response, error) => {
     if (error !== false) {
@@ -500,7 +500,7 @@ function getAllPlaylists(el, cb) {
     });
 
     document.getElementById('filelist').innerHTML = playlists;
-    if(cb) { cb(); }
+    if (cb) { cb(); }
   });
 }
 
@@ -518,18 +518,18 @@ function deletePlaylist(el) {
     title: `Delete '${playlistname}'?`,
     position: 'center',
     buttons: [
-        ['<button><b>Delete</b></button>', (instance, toast) => {
-          MSTREAMAPI.deletePlaylist(playlistname, (response, error) => {
-            if (error !== false) {
-              return boilerplateFailure(response, error);
-            }
-            document.querySelector('div[data-playlistname="'+encodeURIComponent(playlistname)+'"]').remove();
-          });
-          instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
-        }, true],
-        ['<button>Go Back</button>', (instance, toast) => {
-          instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
-        }],
+      ['<button><b>Delete</b></button>', (instance, toast) => {
+        MSTREAMAPI.deletePlaylist(playlistname, (response, error) => {
+          if (error !== false) {
+            return boilerplateFailure(response, error);
+          }
+          document.querySelector('div[data-playlistname="' + encodeURIComponent(playlistname) + '"]').remove();
+        });
+        instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
+      }, true],
+      ['<button>Go Back</button>', (instance, toast) => {
+        instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
+      }],
     ]
   });
 }
@@ -585,7 +585,7 @@ function removePlaylistSong(el) {
     }
 
     // remove from currentBrowsingList
-    currentBrowsingList = currentBrowsingList.filter(item =>{
+    currentBrowsingList = currentBrowsingList.filter(item => {
       return item.lokiId !== lokiId
     });
 
@@ -608,10 +608,10 @@ function newPlaylist() {
       timeout: 3000
     });
 
-    document.getElementById("newPlaylistForm").reset(); 
-    VUEPLAYER.playlists.push({ name: title, type: 'playlist'});
+    document.getElementById("newPlaylistForm").reset();
+    VUEPLAYER.playlists.push({ name: title, type: 'playlist' });
     document.getElementById('pop-f').innerHTML += `<div class="pop-list-item" onclick="addToPlaylistUI('${title}')">&#8226; ${title}</div>`;
-  
+
     if (programState[0].state === 'allPlaylists') {
       getAllPlaylists();
     }
@@ -654,7 +654,7 @@ function savePlaylist() {
       getAllPlaylists();
     }
 
-    VUEPLAYER.playlists.push({ name: title, type: 'playlist'});
+    VUEPLAYER.playlists.push({ name: title, type: 'playlist' });
     document.getElementById('pop-f').innerHTML += `<div class="pop-list-item" onclick="addToPlaylistUI('${title}')">&#8226; ${title}</div>`;
   });
 }
@@ -680,7 +680,7 @@ function getAllArtists(el, cb) {
 
     document.getElementById('filelist').innerHTML = artists;
 
-    if(cb) { cb(); }
+    if (cb) { cb(); }
   });
 }
 
@@ -722,7 +722,7 @@ function getArtistsAlbums(artist, cb) {
     // update lazy load plugin
     ll.update();
 
-    if(cb) { cb(); }
+    if (cb) { cb(); }
   });
 }
 
@@ -730,7 +730,7 @@ function getArtistsAlbums(artist, cb) {
 function getAllAlbums(el, cb) {
   setBrowserRootPanel(el, 'Albums', 'scrollBoxHeight1');
   document.getElementById('filelist').innerHTML = getLoadingSvg();
-  
+
   programState = [{ state: 'allAlbums' }];
 
   MSTREAMAPI.albums((response, error) => {
@@ -756,7 +756,7 @@ function getAllAlbums(el, cb) {
     // update lazy load plugin
     ll.update();
 
-    if(cb) { cb(); }
+    if (cb) { cb(); }
   });
 }
 
@@ -811,7 +811,7 @@ function getRecentlyAdded(el) {
 
 function redoRecentlyAdded() {
   currentBrowsingList = [];
-  programState = [{ state: 'recentlyAdded'}];
+  programState = [{ state: 'recentlyAdded' }];
 
   MSTREAMAPI.getRecentlyAdded(document.getElementById('recently-added-limit').value, (response, error) => {
     if (error !== false) {
@@ -828,8 +828,8 @@ function redoRecentlyAdded() {
       });
 
       filelist += createMusicFileHtml(el.filepath,
-        el.metadata.title ? `${el.metadata.title}`: el.filepath.split("/").pop(),
-        el.metadata['album-art'] ? `data-original="album-art/${el.metadata['album-art']}?token=${MSTREAMAPI.currentServer.token}"` : `src="assets/img/default.png"`, 
+        el.metadata.title ? `${el.metadata.title}` : el.filepath.split("/").pop(),
+        el.metadata['album-art'] ? `data-original="album-art/${el.metadata['album-art']}?token=${MSTREAMAPI.currentServer.token}"` : `src="assets/img/default.png"`,
         undefined,
         el.metadata.artist ? `<span style="font-size:15px;">${el.metadata.artist}</span>` : undefined);
     });
@@ -872,8 +872,8 @@ function getRatedSongs(el) {
       });
 
       files += createMusicFileHtml(value.filepath,
-        value.metadata.title ? value.metadata.title : value.filepath.split('/').pop(), 
-        value.metadata['album-art'] ? `data-original="album-art/${value.metadata['album-art']}?token=${MSTREAMAPI.currentServer.token}"` : `src="assets/img/default.png"`, 
+        value.metadata.title ? value.metadata.title : value.filepath.split('/').pop(),
+        value.metadata['album-art'] ? `data-original="album-art/${value.metadata['album-art']}?token=${MSTREAMAPI.currentServer.token}"` : `src="assets/img/default.png"`,
         rating,
         value.metadata.artist ? `<span style="font-size:15px;">${value.metadata.artist}</span>` : undefined);
     });
@@ -979,16 +979,16 @@ function autoDjPanel(el) {
 
   newHtml += '</p><h3>Minimum Rating</h3> <select onchange="updateAutoDJRatings(this)" id="autodj-ratings">';
   for (let i = 0; i < 11; i++) {
-    newHtml += `<option ${(Number(MSTREAMPLAYER.minRating) === i) ? 'selected' : ''} value="${i}">${(i ===0) ? 'Disabled' : +(i/2).toFixed(1)}</option>`;
+    newHtml += `<option ${(Number(MSTREAMPLAYER.minRating) === i) ? 'selected' : ''} value="${i}">${(i === 0) ? 'Disabled' : +(i / 2).toFixed(1)}</option>`;
   }
   newHtml += '</select>';
   newHtml += '<br><br><br><p><input type="button" value="Toggle Auto DJ" onclick="MSTREAMPLAYER.toggleAutoDJ();"></p>'
-  
+
   document.getElementById('filelist').innerHTML = newHtml;
 }
 
 ///////////////// Transcode
-function setupTranscodePanel(el){
+function setupTranscodePanel(el) {
   setBrowserRootPanel(el, 'Transcode', 'scrollBoxHeight2');
   document.getElementById('directory_bar').style.display = 'none';
 
@@ -1007,11 +1007,11 @@ function setupTranscodePanel(el){
 }
 
 /////////////////////////////   Mobile Stuff
-function getMobilePanel(el){
+function getMobilePanel(el) {
   setBrowserRootPanel(el, 'Mobile Apps', 'scrollBoxHeight2');
   document.getElementById('directory_bar').style.display = 'none';
 
-  document.getElementById('filelist').innerHTML = 
+  document.getElementById('filelist').innerHTML =
     `<div class='mobile-links'>
       <a target='_blank' href='https://play.google.com/store/apps/details?id=mstream.music&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png'/></a>
       <div class='mobile-placeholder'>&nbsp;</div>
@@ -1022,7 +1022,7 @@ function getMobilePanel(el){
 }
 
 //////////////////////// Transcode
-function toggleTranscoding(el, manual){
+function toggleTranscoding(el, manual) {
   // checkbox button while we convert the playlist
   if (el) { el.disabled = true; }
 
@@ -1032,7 +1032,7 @@ function toggleTranscoding(el, manual){
   const b = checked ? 'transcode/' : 'media/';
 
   document.getElementById("ffmpeg-logo").style.stroke = checked ? '#388E3C' : '#DDD';
-  MSTREAMAPI.transcodeOptions.frontendEnabled  = checked ? true : false;
+  MSTREAMAPI.transcodeOptions.frontendEnabled = checked ? true : false;
 
   localStorage.setItem('transcode', checked ? true : false);
 
@@ -1087,7 +1087,7 @@ function setupSearchPanel(searchTerm, el, cb) {
   let valString = '';
   if (searchTerm) { valString = 'value="' + searchTerm + '"'; }
 
-  document.getElementById('filelist').innerHTML = 
+  document.getElementById('filelist').innerHTML =
     `<div>
       <form id="db-search" action="javascript:submitSearchForm()">
         <input ${valString} id="search-term" required type="text" placeholder="Search Database">
@@ -1114,7 +1114,7 @@ function setupSearchPanel(searchTerm, el, cb) {
 function submitSearchForm(cb) {
   document.getElementById('search-results').innerHTML += '<div class="loading-screen"><svg class="spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg"><circle class="spinner-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle></svg></div>'
 
-  var postObject = { search: document.getElementById('search-term').value};
+  var postObject = { search: document.getElementById('search-term').value };
   if (document.getElementById("search-in-artists") && document.getElementById("search-in-artists").checked === false) { postObject.noArtists = true; }
   searchToggles.artists = document.getElementById("search-in-artists").checked;
   if (document.getElementById("search-in-albums") && document.getElementById("search-in-albums").checked === false) { postObject.noAlbums = true; }
@@ -1127,7 +1127,7 @@ function submitSearchForm(cb) {
   // Send AJAX Request
   MSTREAMAPI.search(postObject, (res, error) => {
     if (error !== false) {
-      document.getElementById('search-results').innerHTML= '<div>Server call failed</div>';
+      document.getElementById('search-results').innerHTML = '<div>Server call failed</div>';
       return boilerplateFailure(res, error);
     }
 
@@ -1144,8 +1144,7 @@ function submitSearchForm(cb) {
           <div onclick="${searchMap[key].func}(this);" data-${searchMap[key].data}="${value.filepath ? value.filepath : value.name}" class="${searchMap[key].class} left">
             <b>${searchMap[key].name}:</b> ${value.name}
           </div>
-          ${
-            key === 'files' || key === 'title' ? `<div class="song-button-box">
+          ${key === 'files' || key === 'title' ? `<div class="song-button-box">
             <span title="Play Now" onclick="playNow(this);" data-file_location="${value.filepath}" class="songDropdown">
               <svg xmlns="http://www.w3.org/2000/svg" height="12" width="12" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M15.5 5H11l5 7-5 7h4.5l5-7z"/><path d="M8.5 5H4l5 7-5 7h4.5l5-7z"/></svg>
             </span>
@@ -1164,7 +1163,7 @@ function submitSearchForm(cb) {
 
     document.getElementById('search-results').innerHTML = searchList;
 
-    if(cb) { cb(); }
+    if (cb) { cb(); }
   });
 }
 
@@ -1185,7 +1184,7 @@ function runLocalSearch(el) {
       } else if (x.type === 'playlist') {
         filelist += renderPlaylist(x.name);
       } else if (x.type === 'album') {
-        const albumString = x.name  ? x.name  : 'SINGLES';
+        const albumString = x.name ? x.name : 'SINGLES';
         filelist += renderAlbum(x.name, x.name === null ? x.artist : null, albumString, x.album_art_file);
       } else if (x.type === 'artist') {
         filelist += `<div data-artist="${x.name}" class="artistz" onclick="getArtistz(this)">${x.name}</div>`;
@@ -1203,7 +1202,7 @@ function runLocalSearch(el) {
     }
   });
 
-  document.getElementById('filelist').innerHTML= filelist;
+  document.getElementById('filelist').innerHTML = filelist;
   ll.update();
 }
 
@@ -1235,7 +1234,7 @@ function downloadPlaylist() {
 
   // Use key if necessary
   document.getElementById('downform').action = "/api/v1/download/zip?token=" + MSTREAMAPI.currentServer.token;
-  
+
   let input = document.createElement("INPUT");
   input.type = 'hidden';
   input.name = 'fileArray';
@@ -1266,7 +1265,7 @@ function recursiveFileDownload(el) {
 
 function downloadFileplaylist(el) {
   document.getElementById('downform').action = "/api/v1/download/m3u?token=" + MSTREAMAPI.currentServer.token;
-  
+
   const input = document.createElement("INPUT");
   input.type = 'hidden';
   input.name = 'path';
@@ -1317,7 +1316,7 @@ function onBackButton() {
 
   const cb = () => {
     // Fill in Search Bar
-    if (backState.state !== 'searchPanel' &&  thisState.previousSearch) {
+    if (backState.state !== 'searchPanel' && thisState.previousSearch) {
       document.getElementById('search_folders').value = thisState.previousSearch;
       document.getElementById('search_folders').dispatchEvent(new Event('keyup'));
     }
@@ -1404,7 +1403,7 @@ new Vue({
 
 function testIt() {
   var token;
-  if (typeof(Storage) !== "undefined") {
+  if (typeof (Storage) !== "undefined") {
     token = localStorage.getItem("token");
   }
 
@@ -1414,7 +1413,7 @@ function testIt() {
 
   MSTREAMAPI.ping((response, error) => {
     if (error) {
-      window.location.href = 'login';
+      window.location.href = 'home';
       return;
     }
 
@@ -1444,18 +1443,18 @@ function testIt() {
       const ivp = JSON.parse(localStorage.getItem('ignoreVPaths'));
       if (Array.isArray(ivp) || !(ivp instanceof Object)) { throw 'bad!'; }
       MSTREAMPLAYER.ignoreVPaths = ivp;
-    } catch (e) {}
+    } catch (e) { }
 
     try {
       // forced to an array to assure we're not stuffing nul values in here
       MSTREAMPLAYER.minRating = JSON.parse(localStorage.getItem('minRating'))[0];
-    } catch (e) {}
+    } catch (e) { }
 
     try {
-      if(localStorage.getItem('transcode') === 'true') {
+      if (localStorage.getItem('transcode') === 'true') {
         toggleTranscoding(undefined, true);
       }
-    } catch (e) {}
+    } catch (e) { }
   });
 }
 
@@ -1499,7 +1498,7 @@ function callOnStart() {
 const myParam = window.location.pathname.split("/").pop()
   || new URLSearchParams(window.location.search).get('code')
   || false;
-if(myParam) {
+if (myParam) {
   JUKEBOX.createWebsocket(MSTREAMAPI.currentServer.token, myParam, () => {
     iziToast.success({
       title: 'Jukebox Connected',

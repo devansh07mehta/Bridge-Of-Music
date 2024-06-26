@@ -8,7 +8,7 @@ const storageJoi = Joi.object({
   albumArtDirectory: Joi.string().default(path.join(__dirname, '../../image-cache')),
   dbDirectory: Joi.string().default(path.join(__dirname, '../../save/db')),
   logsDirectory: Joi.string().default(path.join(__dirname, '../../save/logs')),
-  syncConfigDirectory:  Joi.string().default(path.join(__dirname, '../../save/sync')),
+  syncConfigDirectory: Joi.string().default(path.join(__dirname, '../../save/sync')),
 });
 
 const scanOptions = Joi.object({
@@ -69,7 +69,7 @@ const schema = Joi.object({
   writeLogs: Joi.boolean().default(false),
   lockAdmin: Joi.boolean().default(false),
   storage: storageJoi.default(storageJoi.validate({}).value),
-  webAppDirectory: Joi.string().default(path.join(__dirname, '../../webapp')),
+  webAppDirectory: Joi.string().default(path.join(__dirname, '../../webapp/')),/**Add yousician.com/lp/ */
   rpn: rpnOptions.default(rpnOptions.validate({}).value),
   transcode: transcodeOptions.default(transcodeOptions.validate({}).value),
   secret: Joi.string().optional(),
@@ -113,7 +113,7 @@ exports.setup = async configFile => {
   // Create config if none exists
   try {
     await fs.access(configFile);
-  } catch(err) {
+  } catch (err) {
     winston.info('Config File does not exist. Attempting to create file');
     await fs.writeFile(configFile, JSON.stringify({}), 'utf8');
   }

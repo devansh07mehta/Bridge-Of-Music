@@ -1,11 +1,13 @@
 const winston = require('winston');
 const express = require('express');
+const bodyParser = require('body-parser');
+const dotenv = require('dotenv');
 const fs = require('fs');
 const path = require('path');
 const Joi = require('joi');
 const cookieParser = require('cookie-parser');
 const jwt = require('jsonwebtoken');
-
+const send = require('send');
 require('./util/async-error');
 
 const dbApi = require('./api/db');
@@ -22,12 +24,15 @@ const logger = require('./logger');
 const transode = require('./api/transcode');
 const dbManager = require('./db/manager');
 const syncthing = require('./state/syncthing');
-const federationApi = require('./api/federation');
 const scannerApi = require('./api/scanner');
 const WebError = require('./util/web-error');
+const defaultjson = require('../save/conf/default.json')
+
 
 let mstream;
 let server;
+
+dotenv.config();
 
 exports.serveIt = async configFile => {
   mstream = express();
@@ -62,6 +67,10 @@ exports.serveIt = async configFile => {
     server = require('http').createServer();
   }
 
+  // Middleware
+  mstream.use(bodyParser.json());
+  mstream.use(bodyParser.urlencoded({ extended: true }));
+
   // Magic Middleware Things
   mstream.use(cookieParser());
   mstream.use(express.json({ limit: config.program.maxRequestSize }));
@@ -75,6 +84,17 @@ exports.serveIt = async configFile => {
   // Setup DB
   dbManager.initLoki();
 
+  function silentSend(req, res, path) {
+    send(req, path)
+      .on('error', (err) => {
+        // Ignore the error or handle it silently
+        // For example, you can log it silently to a file if needed
+        // or simply do nothing to suppress the error
+        // console.log(`Silent error handler: ${err.message}`);  // Optionally log to console for debug
+      })
+      .pipe(res);
+  }
+
   // remove trailing slashes, needed for relative URLs on the webapp
   mstream.get('*', (req, res, next) => {
     // check if theres more than one slash at the end of the URL
@@ -83,7 +103,7 @@ exports.serveIt = async configFile => {
       const matchEnd = req.path.match(/(\/)+$/g);
       const queryString = req.url.match(/(\?.*)/g) === null ? '' : req.url.match(/(\?.*)/g);
       // redirect to a more sane URL
-      return res.redirect(302, req.path.slice(0, (matchEnd[0].length - 1)*-1) + queryString);
+      return res.redirect(302, req.path.slice(0, (matchEnd[0].length - 1) * -1) + queryString);
     }
     next();
   });
@@ -91,15 +111,15 @@ exports.serveIt = async configFile => {
   // Block access to admin page if necessary
   mstream.get('/admin', (req, res, next) => {
     if (config.program.lockAdmin === true) { return res.send('<p>Admin Page Disabled</p>'); }
-    if (Object.keys(config.program.users).length === 0){
+    if (Object.keys(config.program.users).length === 0) {
       return next();
     }
 
     try {
       jwt.verify(req.cookies['x-access-token'], config.program.secret);
       next();
-    } catch(err) {
-      return res.redirect(302, '/login');
+    } catch (err) {
+      return res.redirect(302, '/home');
     }
   });
 
@@ -109,28 +129,116 @@ exports.serveIt = async configFile => {
   });
 
   mstream.get('/', (req, res, next) => {
-    if (Object.keys(config.program.users).length === 0){
+    if (Object.keys(config.program.users).length === 0) {
+
       return next();
     }
 
     try {
       jwt.verify(req.cookies['x-access-token'], config.program.secret);
       next();
-    } catch(err) {
-      return res.redirect(302, '/login');
+      // return res.redirect(302, '..');
+    } catch (err) {
+      return res.redirect(302, '/');
+      // next();
     }
   });
 
-  mstream.get('/login', (req, res, next) => {
-    if (Object.keys(config.program.users).length === 0){
+  mstream.get('/home', (req, res, next) => {
+    if (Object.keys(config.program.users).length === 0) {
+
       return res.redirect(302, '..');
     }
 
     try {
       jwt.verify(req.cookies['x-access-token'], config.program.secret);
       return res.redirect(302, '..');
-    } catch(err) {
+
+    } catch (err) {
       next();
+    }
+  });
+
+  mstream.post('/home', async (req, res) => {
+    const { action, firstname, lastname, email, username, password, confirmpsd } = req.body;
+
+    // const { action1, username1, password1 } = req.body;
+
+    const newUser = new User({ firstname, lastname, email, username, password, confirmpsd });
+
+
+    if (Object.keys(config.program.users).length === 0) {
+      return res.redirect(302, '..');
+    }
+
+    try {
+
+
+      if (action === 'register') {
+
+        await newUser.save();
+        res.send(`
+            <script>
+                window.location.href = "/home/";
+                alert("User Registered Successfully!!!");    
+
+            </script>
+        `);// Log success message
+        // const token = jwt.sign({ username: req.body.username }, config.program.secret);
+        // console.log(token);
+
+        // res.cookie('x-access-token', token, {
+        //   maxAge: 157784630000, // 5 years in ms
+        // });
+        // return res.redirect(302, '..');
+      }
+      // else if (action1 === 'login') {
+      //   User.findOne({ username: username1 })
+      //     .then(user => {
+      //       // if (err) {
+      //       //   console.error(err);
+      //       //   return res.status(500).send('Internal Server Error');
+      //       // }
+
+      //       if (!user) {
+      //         return res.status(401).send('User not registered!!');
+      //       }
+
+      //       if (password1 === user.password) {
+      //         // Passwords match
+      //         const token = jwt.sign({ username: username1 }, config.program.secret);
+      //         console.log(token);
+
+      //         res.cookie('x-access-token', token, {
+      //           maxAge: 157784630000, // 5 years in ms
+      //           sameSite: 'Strict',
+      //         });
+
+      //         // res.json({
+      //         //   vpaths: config.program.users[username1].vpaths,
+      //         //   token: token
+      //         // });
+      //         // jwt.verify(req.cookies['x-access-token'], config.program.secret);
+      //         console.log("Password: " + password1);
+      //         return res.redirect(302, '..');
+      //       } else {
+      //         // Passwords don't match
+      //         return res.status(401).send('password is incorrect');
+      //       }
+      //     });
+      // }
+      else {
+        res.status(400).send('Invalid action');
+      }
+      // res.redirect(302, '/home/');
+      // res.end();
+
+    } catch (err) {
+      console.log(err);
+      console.error('Error saving user:', err); // Log error
+      // res.status(400).send('Error registering user');
+      res.send(err);
+      // next();
     }
   });
 
@@ -143,7 +251,7 @@ exports.serveIt = async configFile => {
 
   // Everything below this line requires authentication
   authApi.setup(mstream);
- 
+
   scannerApi.setup(mstream)
   adminApi.setup(mstream);
   dbApi.setup(mstream);
@@ -155,7 +263,6 @@ exports.serveIt = async configFile => {
   remoteApi.setupAfterAuth(mstream, server);
   sharedApi.setupAfterSecurity(mstream);
   syncthing.setup();
-  federationApi.setup(mstream);
 
   // Versioned APIs
   mstream.get('/api/', (req, res) => res.json({ "server": require('../package.json').version, "apiVersions": ["1"] }));
@@ -176,7 +283,7 @@ exports.serveIt = async configFile => {
   //   next();
   // });
 
-  Object.keys(config.program.folders).forEach( key => {
+  Object.keys(config.program.folders).forEach(key => {
     mstream.use('/media/' + key + '/', express.static(config.program.folders[key].root));
   });
 
@@ -188,7 +295,7 @@ exports.serveIt = async configFile => {
     if (error instanceof Joi.ValidationError) {
       return res.status(403).json({ error: error.message });
     }
-    
+
     if (error instanceof WebError) {
       return res.status(error.status).json({ error: error.message });
     }
@@ -200,7 +307,7 @@ exports.serveIt = async configFile => {
   server.on('request', mstream);
   server.listen(config.program.port, config.program.address, () => {
     const protocol = config.program.ssl && config.program.ssl.cert && config.program.ssl.key ? 'https' : 'http';
-    winston.info(`Access mStream locally: ${protocol}://localhost:${config.program.port}`);
+    winston.info(`Access VibeStream locally: ${protocol}://localhost:${config.program.port}/home`);
 
     require('./db/task-queue').runAfterBoot();
   });
@@ -213,15 +320,13 @@ exports.reboot = async () => {
     scrobblerApi.reset();
     transode.reset();
 
-    if (config.program.federation.enabled === false) {
-      syncthing.kill();
-    }
-  
+
+
     // Close the server
     server.close(() => {
       this.serveIt(config.configFile);
     });
-  }catch (err) {
+  } catch (err) {
     winston.error('Reboot Failed', { stack: err });
     process.exit(1);
   }

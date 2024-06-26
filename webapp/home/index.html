@@ -1,0 +1,1453 @@
+<!DOCTYPE html>
+
+
+<html class="no-js" lang="en" charset="UTF-8">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+  <title>VibeStream</title>
+  <meta http-equiv="content-language" content="en">
+
+
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Montserrat:ital,wght@0,400;0,500;0,700;0,800;1,400;1,500;1,700;1,800&display=swap" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Montserrat:ital,wght@0,400;0,500;0,700;0,800;1,400;1,500;1,700;1,800&display=swap"
+    media="print" onload="this.media='all'" />
+  <noscript>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Montserrat:ital,wght@0,400;0,500;0,700;0,800;1,400;1,500;1,700;1,800&display=swap" />
+  </noscript>
+  <link rel="preload" as="style" href="https://use.typekit.net/xsk6sbq.css" />
+  <link rel="stylesheet" href="https://use.typekit.net/xsk6sbq.css" media="print" onload="this.media='all'" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+
+  <noscript>
+    <link rel="stylesheet" href="https://use.typekit.net/xsk6sbq.css" />
+  </noscript>
+
+  <script src="../assets/js/lib/vue2.js"></script>
+  <script defer src="../assets/js/lib/axios.js"></script>
+  <script defer src="../assets/js/lib/izi-toast.js"></script>
+  <script defer src="../assets/js/api.js"></script>
+  <script defer src="index.js"></script>
+  <script defer src="../assets/js/lib/materialize.js"></script>
+
+  <link rel="stylesheet" href="../assets/css/izi-toast.css">
+  <link rel="stylesheet" href="assets/css/index.css">
+
+
+  <!-- additional -->
+  <!-- Google Tag Manager -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/3.0.1/js.cookie.min.js"></script>
+
+  <style type="text/css">
+    img.wp-smiley,
+    img.emoji {
+      display: inline !important;
+      border: none !important;
+      box-shadow: none !important;
+      height: 1em !important;
+      width: 1em !important;
+      margin: 0 0.07em !important;
+      vertical-align: -0.1em !important;
+      background: none !important;
+      padding: 0 !important;
+    }
+  </style>
+
+  <style id='classic-theme-styles-inline-css' type='text/css'>
+    /*! This file is auto-generated */
+
+    .wp-block-button__link {
+      color: #fff;
+      background-color: #32373c;
+      border-radius: 9999px;
+      box-shadow: none;
+      text-decoration: none;
+      padding: calc(.667em + 2px) calc(1.333em + 2px);
+      font-size: 1.125em
+    }
+
+    .wp-block-file__button {
+      background: #32373c;
+      color: #fff;
+      text-decoration: none
+    }
+  </style>
+
+  <link rel="icon" href="assets/images/Vibestream-logo.png" sizes="32x32" />
+  <link rel="icon" href="assets/images/Vibestream-logo.png" sizes="192x192" />
+  <link rel="apple-touch-icon" href="assets/images/Vibestream-logo.png" />
+
+
+</head>
+
+<body>
+
+
+  <header class="site-header-2021 " id="site-header">
+    <nav class="navigation">
+      <a class="navigation__logo navigation__logo-simpleNavigation" href="/home">
+        <div class="d-flex">
+          <img src="assets/images/Vibestream-txt-logo.png" alt="VibeStream Logo" class="extendedLogo" width="300">
+        </div>
+      </a>
+
+      <div class="navigation__menu">
+        <div class="navigation__simpleNavigationSlot">
+        </div>
+      </div>
+
+
+      <button id="button_header"
+        data-tracking='{"position":"navbar","name":"let_s-get-started","label":"Let_s get started","context":"","section_id":"header","page_hash":"1f40adb551a6439e1edf804f3082f99d"}'
+        data-hide-if-logged-in class="button -medium -filled -dark -endIcon navigation__cta " type="button"
+        data-bs-target="#loginModal" data-bs-toggle="modal">
+        Let's get started
+
+        <svg aria-hidden="true" focusable="false" width=16px height=16px viewBox="0 0 24 24" fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 12L7.47368 22.5L6 21.03L15.0526 12L6 2.97L7.47368 1.5L18 12Z" fill="#fff" />
+        </svg>
+      </button>
+
+
+    </nav>
+  </header>
+
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+    <div class="modal-dialog  modal-dialog-centered d-flex">
+      <div class="modal-content w-90">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel1">Sign In</h5>
+          <button type="button" data-bs-ripple-init class="btn-close" data-bs-dismiss="modal" onclick="resetfunc()"
+            aria-label="Close"></button>
+        </div>
+        <div class="modal-body pt-4 px-4">
+          <form id="login" autocomplete="off">
+            <!-- Username input -->
+            <div class="form-outline input-field mb-4">
+              <input type="text" name="username" id="email" class="form-control border-2" placeholder="Username"
+                pattern="^[a-zA-Z][a-zA-Z0-9]{2,12}$"
+                title="Username name must be of alphanumeric characters only ranging from 3 to 10 characters."
+                autocomplete="off" required />
+
+            </div>
+
+            <!-- Password input -->
+            <div class="form-outline input-field mb-4 eyebutton">
+              <input type="password" name="password" id="password" class="form-control border-2" placeholder="Password"
+                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,15}$"
+                title="Password must contain minimum eight characters, maximum 15 characters, at least one uppercase letter, one lowercase letter, one special character and one number."
+                autocomplete="new-password" required />
+
+              <span class="eyeIcons right10 position-absolute" onclick="password_show_hide_new();">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye"
+                  id="show_eye1" viewBox="0 0 16 16">
+                  <path
+                    d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z" />
+                  <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                  class="bi bi-eye-slash d-none" id="hide_eye1" viewBox="0 0 16 16">
+                  <path
+                    d="M13.359 11.238C15.06 9.72 16 8 16 8s-3-5.5-8-5.5a7 7 0 0 0-2.79.588l.77.771A6 6 0 0 1 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755q-.247.248-.517.486z" />
+                  <path
+                    d="M11.297 9.176a3.5 3.5 0 0 0-4.474-4.474l.823.823a2.5 2.5 0 0 1 2.829 2.829zm-2.943 1.299.822.822a3.5 3.5 0 0 1-4.474-4.474l.823.823a2.5 2.5 0 0 0 2.829 2.829" />
+                  <path
+                    d="M3.35 5.47q-.27.24-.518.487A13 13 0 0 0 1.172 8l.195.288c.335.48.83 1.12 1.465 1.755C4.121 11.332 5.881 12.5 8 12.5c.716 0 1.39-.133 2.02-.36l.77.772A7 7 0 0 1 8 13.5C3 13.5 0 8 0 8s.939-1.721 2.641-3.238l.708.709zm10.296 8.884-12-12 .708-.708 12 12z" />
+                </svg>
+
+              </span>
+
+            </div>
+
+            <!-- 2 column grid layout for inline styling -->
+            <div class="row mb-4">
+              <div class="col d-flex justify-content-center">
+                <!-- Checkbox -->
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="checked" id="form2Example31" checked />
+                  <label class="form-check-label" for="form2Example31"> Remember me </label>
+                </div>
+              </div>
+
+              <div class="col">
+                <!-- Simple link -->
+                <button type="button" id="forget" data-bs-dismiss="modal" data-bs-toggle="modal"
+                  data-bs-target="#forgetModal">Forgot password?</button>
+              </div>
+            </div>
+
+            <!-- Submit button -->
+            <div class="d-grid">
+              <button type="submit" class="btn btn-orange mb-4" id="form-submit" name="action">Sign
+                In</button>
+            </div>
+
+
+            <!-- Register buttons -->
+            <div class="text-center">
+              <p>Not a member? <button type="button" class="registerbtn" data-bs-dismiss="modal" data-bs-toggle="modal"
+                  data-bs-target="#RegisterModal">Register</button></p>
+
+            </div>
+
+
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal -->
+
+  <!-- Modal -->
+  <div class="modal fade" role="dialog" id="RegisterModal" tabindex="-1" aria-labelledby="exampleModalLabel1"
+    aria-hidden="true">
+    <div class="modal-dialog  modal-dialog-centered d-flex">
+      <div class="modal-content w-90">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel1">Sign Up</h5>
+          <button type="button" data-bs-ripple-init class="btn-close" data-bs-dismiss="modal" onclick="resetfunc()"
+            aria-label="Close"></button>
+        </div>
+        <div class="modal-body pt-4 px-4">
+          <form id="registerform" autocomplete="off">
+            <!-- <div class="form-outline mb-4">
+              <input type="hidden" name="action" value="register">
+              <input type="text" id="firstname" class="form-control border-2" placeholder="First Name" name="firstname"
+                pattern="^[A-Z][a-z]{2,12}$"
+                title="First Name must consist of alphabets only with first letter capital ranging from 3 to 12 alphabets in length."
+                required />
+
+            </div>
+
+            <div class="form-outline mb-4">
+              <input type="text" id="lastname" class="form-control border-2" placeholder="Last Name" name="lastname"
+                pattern="^[A-Z][a-z]{2,15}$"
+                title="Last Name must consist of alphabets only with first letter capital ranging from 4 to 15 alphabets in length."
+                required />
+
+            </div>
+            <div class="form-outline mb-4">
+              <input type="email" id="emailid" class="form-control border-2" placeholder="Email Id" name="email"
+                pattern="^[a-z0-9](\.?[a-z0-9]){5,}@g(oogle)?mail\.com$"
+                title="Email Id must match the following patterns: abc123@gmail.com or abc_123@gmail.com or abc.123@gmail.com or abc-123@gmail.com or abcabc@gmail.com"
+                required />
+
+            </div> -->
+            <!-- Username input -->
+            <div class="form-outline mb-4">
+              <input type="text" id="username" class="form-control border-2" placeholder="Username" name="username"
+                pattern="^[a-zA-Z][a-zA-Z0-9]{2,12}$"
+                title="Username name must be of alphanumeric characters only ranging from 3 to 10 characters."
+                autocomplete="off" required />
+
+            </div>
+
+            <!-- Password input -->
+            <div class="form-outline mb-4 eyebutton">
+              <input type="password" id="psw" class="form-control border-2" placeholder="Password" name="password"
+                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,15}$"
+                title="Password must contain minimum eight characters, maximum 15 characters, at least one uppercase letter, one lowercase letter, one special character and one number."
+                autocomplete="new-password" required />
+
+              <span class="eyeIcons right10 position-absolute" onclick="password_show_hide();">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye"
+                  id="show_eye" viewBox="0 0 16 16">
+                  <path
+                    d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z" />
+                  <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                  class="bi bi-eye-slash d-none" id="hide_eye" viewBox="0 0 16 16">
+                  <path
+                    d="M13.359 11.238C15.06 9.72 16 8 16 8s-3-5.5-8-5.5a7 7 0 0 0-2.79.588l.77.771A6 6 0 0 1 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755q-.247.248-.517.486z" />
+                  <path
+                    d="M11.297 9.176a3.5 3.5 0 0 0-4.474-4.474l.823.823a2.5 2.5 0 0 1 2.829 2.829zm-2.943 1.299.822.822a3.5 3.5 0 0 1-4.474-4.474l.823.823a2.5 2.5 0 0 0 2.829 2.829" />
+                  <path
+                    d="M3.35 5.47q-.27.24-.518.487A13 13 0 0 0 1.172 8l.195.288c.335.48.83 1.12 1.465 1.755C4.121 11.332 5.881 12.5 8 12.5c.716 0 1.39-.133 2.02-.36l.77.772A7 7 0 0 1 8 13.5C3 13.5 0 8 0 8s.939-1.721 2.641-3.238l.708.709zm10.296 8.884-12-12 .708-.708 12 12z" />
+                </svg>
+
+              </span>
+
+            </div>
+
+            <div class="form-outline mb-4 eyebutton">
+              <input type="password" id="confirmpsw" class="form-control border-2" placeholder="Confirm Password"
+                name="confirmpsd" autocomplete="new-password" required />
+
+              <span class="eyeIcons right10 position-absolute" onclick="password_show_hide_confirm_new();">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye"
+                  id="show" viewBox="0 0 16 16">
+                  <path
+                    d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z" />
+                  <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                  class="bi bi-eye-slash d-none" id="hide" viewBox="0 0 16 16">
+                  <path
+                    d="M13.359 11.238C15.06 9.72 16 8 16 8s-3-5.5-8-5.5a7 7 0 0 0-2.79.588l.77.771A6 6 0 0 1 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755q-.247.248-.517.486z" />
+                  <path
+                    d="M11.297 9.176a3.5 3.5 0 0 0-4.474-4.474l.823.823a2.5 2.5 0 0 1 2.829 2.829zm-2.943 1.299.822.822a3.5 3.5 0 0 1-4.474-4.474l.823.823a2.5 2.5 0 0 0 2.829 2.829" />
+                  <path
+                    d="M3.35 5.47q-.27.24-.518.487A13 13 0 0 0 1.172 8l.195.288c.335.48.83 1.12 1.465 1.755C4.121 11.332 5.881 12.5 8 12.5c.716 0 1.39-.133 2.02-.36l.77.772A7 7 0 0 1 8 13.5C3 13.5 0 8 0 8s.939-1.721 2.641-3.238l.708.709zm10.296 8.884-12-12 .708-.708 12 12z" />
+                </svg>
+
+              </span>
+            </div>
+
+
+
+            <!-- Submit button -->
+            <div class="d-grid ">
+              <button type="submit" class="btn btn-orange mb-4" id="registersubmit">Sign Up</button>
+            </div>
+
+
+            <!-- Register buttons -->
+            <div class="text-center">
+              <p>Already Registered? <button type="button" data-bs-dismiss="modal" data-bs-toggle="modal"
+                  data-bs-target="#loginModal">Login</button></p>
+
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal -->
+
+  <!-- Modal -->
+  <div class="modal fade" role="dialog" id="forgetModal" tabindex="-1" aria-labelledby="exampleModalLabel1"
+    aria-hidden="true">
+    <div class="modal-dialog  modal-dialog-centered d-flex">
+      <div class="modal-content w-90">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel1">Forgot Password</h5>
+          <button type="button" data-bs-ripple-init class="btn-close" data-bs-dismiss="modal" onclick="resetfunc()"
+            aria-label="Close"></button>
+        </div>
+        <div class="modal-body pt-4 px-4">
+          <form id="forgetform" autocomplete="off">
+            <!-- Username input -->
+            <div class="form-outline mb-4">
+              <input type="text" id="newusername" class="form-control border-2" placeholder="Username"
+                pattern="^[a-zA-Z][a-zA-Z0-9]{2,12}$"
+                title="Username name must be of alphanumeric characters only ranging from 3 to 10 characters."
+                autocomplete="off" required />
+
+            </div>
+
+            <!-- Password input -->
+            <div class="form-outline mb-4 eyebutton">
+              <input type="password" v-model="resetPassword" id="resetpassword" class="form-control border-2"
+                placeholder="New Password"
+                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,15}$"
+                title="Password must contain minimum eight characters, maximum 15 characters, at least one uppercase letter, one lowercase letter, one special character and one number."
+                autocomplete="new-password" required />
+
+              <span class="eyeIcons right10 position-absolute" onclick="password_show_hide_reset();">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye"
+                  id="shownew" viewBox="0 0 16 16">
+                  <path
+                    d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z" />
+                  <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                  class="bi bi-eye-slash d-none" id="hidenew" viewBox="0 0 16 16">
+                  <path
+                    d="M13.359 11.238C15.06 9.72 16 8 16 8s-3-5.5-8-5.5a7 7 0 0 0-2.79.588l.77.771A6 6 0 0 1 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755q-.247.248-.517.486z" />
+                  <path
+                    d="M11.297 9.176a3.5 3.5 0 0 0-4.474-4.474l.823.823a2.5 2.5 0 0 1 2.829 2.829zm-2.943 1.299.822.822a3.5 3.5 0 0 1-4.474-4.474l.823.823a2.5 2.5 0 0 0 2.829 2.829" />
+                  <path
+                    d="M3.35 5.47q-.27.24-.518.487A13 13 0 0 0 1.172 8l.195.288c.335.48.83 1.12 1.465 1.755C4.121 11.332 5.881 12.5 8 12.5c.716 0 1.39-.133 2.02-.36l.77.772A7 7 0 0 1 8 13.5C3 13.5 0 8 0 8s.939-1.721 2.641-3.238l.708.709zm10.296 8.884-12-12 .708-.708 12 12z" />
+                </svg>
+
+              </span>
+
+            </div>
+
+            <!--Confirm Password input -->
+            <div class="form-outline mb-4 eyebutton">
+              <input type="password" id="confirm" class="form-control border-2" placeholder="Confirm Password"
+                autocomplete="new-password" />
+
+              <span class="eyeIcons right10 position-absolute" onclick="password_show_hide_confirm();">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye"
+                  id="show1" viewBox="0 0 16 16">
+                  <path
+                    d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z" />
+                  <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                  class="bi bi-eye-slash d-none" id="hide1" viewBox="0 0 16 16">
+                  <path
+                    d="M13.359 11.238C15.06 9.72 16 8 16 8s-3-5.5-8-5.5a7 7 0 0 0-2.79.588l.77.771A6 6 0 0 1 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755q-.247.248-.517.486z" />
+                  <path
+                    d="M11.297 9.176a3.5 3.5 0 0 0-4.474-4.474l.823.823a2.5 2.5 0 0 1 2.829 2.829zm-2.943 1.299.822.822a3.5 3.5 0 0 1-4.474-4.474l.823.823a2.5 2.5 0 0 0 2.829 2.829" />
+                  <path
+                    d="M3.35 5.47q-.27.24-.518.487A13 13 0 0 0 1.172 8l.195.288c.335.48.83 1.12 1.465 1.755C4.121 11.332 5.881 12.5 8 12.5c.716 0 1.39-.133 2.02-.36l.77.772A7 7 0 0 1 8 13.5C3 13.5 0 8 0 8s.939-1.721 2.641-3.238l.708.709zm10.296 8.884-12-12 .708-.708 12 12z" />
+                </svg>
+
+              </span>
+
+
+            </div>
+
+
+
+            <!-- Submit button -->
+            <div class="d-grid ">
+              <button type="submit" id="forgetsubmit" class="btn btn-orange mb-4">Submit</button>
+            </div>
+
+
+            <!-- Register buttons -->
+            <div class="text-center">
+              <p>Changed Password? <button type="button" data-bs-dismiss="modal" data-bs-toggle="modal"
+                  data-bs-target="#loginModal">Login</button></p>
+
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal -->
+
+  <div class="searchDialogWrapper">
+    <div class="search__dialog " id="search-dialog">
+      <div class="searchForm">
+        <div>
+          <span class="searchIcon">search</span>
+          <form role="search" method="get" action="/">
+            <label>
+              <span class="screen-reader-text">Search for:
+              </span>
+              <input type="text" class="search-field" placeholder="Search Yousician.com
+" value="" name="s" autocomplete="on">
+            </label>
+          </form>
+          <button id='search-close-button'><span>close</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main role="main">
+    <div class="content-wrapper ">
+      <article class="post-type-page" id="post-9880">
+
+
+        <section class="section section-hero_image-2021 	heroImage -withPhone
+ section_mb_2">
+          <div class="heroImage__main
+    -alignRight
+    
+    
+	">
+            <div class="heroImage__imageBackdrop
+         -alignCenter">
+              <video poster="https://assets.yousician.com/app/uploads/2021/02/23073002/hero-guitar-1-scaled.jpg"
+                playsinline="" autoplay="" muted="" loop="">
+                <source
+                  src="https://assets.yousician.com/app/uploads/2021/02/19115431/YS-landing-page-demo-2-compressed.mp4"
+                  type="video/mp4">
+              </video>
+            </div>
+
+            <div class="heroImage__colorBackdrop -purple"></div>
+            <div class="heroImage__text  -whiteText">
+              <h1 class="heroImage__textHeading -big">Ready to level up your guitar game?🚀
+              </h1>
+              <div class="heroImage__textBody">Add some serious style to your strumming with lead and
+                rhythm guitar. Say goodbye to basic chords and hello to epic solos. Let's
+                rock it, dude 🎸🤘
+              </div>
+
+              <div class="heroImage__cta">
+
+
+
+
+                <a id="button_9880_0_8f259a6cb30e7834cf0ab369329a5e31"
+                  data-tracking='{"position":"hero-banner","name":"let_s-get-started","label":"Let_s get started","context":"let_s-get-started","type":"button","section_id":"9880_0_8f259a6cb30e7834cf0ab369329a5e31","page_hash":"1f40adb551a6439e1edf804f3082f99d"}'
+                  class="button -large -outlined -dark -endIcon -colorBackground" data-bs-target="#loginModal"
+                  data-bs-toggle="modal">
+                  Let's get started
+
+
+
+
+                  <svg aria-hidden="true" focusable="false" width=16px height=16px viewBox="0 0 24 24" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 12L7.47368 22.5L6 21.03L15.0526 12L6 2.97L7.47368 1.5L18 12Z" fill="" />
+                  </svg> </a>
+              </div>
+            </div>
+
+
+
+          </div>
+        </section>
+
+
+        <section class="section section-50-50-2021 section5050 section_mb_2">
+          <div class="section5050__item -media -alignRight ">
+            <img src="assets/images/learn-guitar-woman-cropped-1000x809.jpg" alt="learn-guitar-woman-cropped"
+              data-sizes="auto" class="lazyload" />
+          </div>
+
+          <div class="section5050__item -text -alignLeft ">
+            <div class="section5050__freeTextContainer">
+
+              <h2 class="section5050__heading -main">Learn and play music<br>
+                <em>your</em> way
+              </h2>
+
+              <div class="section5050__bodyText">When it comes to music, we don&rsquo;t believe
+                there&rsquo;s a best way to learn. But we do believe there&rsquo;s a best way for
+                <b>you</b> to learn. Find your unique path and stay on it with VibeStream.
+                <br><br>
+                <ul>
+                  <li>Lessons for guitar</li>
+                  <li>Start learning at any skill level</li>
+                  <li>Play on a real instrument</li>
+                  <li>Works on iOS, Android, PC &amp; Mac</li>
+                  <li>No additional accessories needed</li>
+                </ul>
+              </div>
+            </div>
+
+            <div>
+
+
+
+
+              <a id="button_9880_1_ac6b019deefac58f8270eb8cb0103522"
+                data-tracking='{"position":"50-50-2021","name":"let_s-get-started","label":"Let_s get started","context":"","type":"button","section_id":"9880_1_ac6b019deefac58f8270eb8cb0103522","page_hash":"1f40adb551a6439e1edf804f3082f99d"}'
+                class="button -large -filled -light -endIcon " data-bs-target="#loginModal" data-bs-toggle="modal">
+                Let's get started
+
+
+
+
+                <svg aria-hidden="true" focusable="false" width=16px height=16px viewBox="0 0 24 24" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path d="M18 12L7.47368 22.5L6 21.03L15.0526 12L6 2.97L7.47368 1.5L18 12Z" fill="" />
+                </svg> </a>
+              <div>
+              </div>
+        </section>
+
+
+        <section class="section section-benefits_stats-2021 benefits_stats section_mb_7">
+
+        </section>
+
+
+        <section class="section section-promotion_with_image-2021 promotion section_mb_7">
+
+          <div class="container-big">
+            <div class="text">
+              <h2> Magic of VibeStream </h2>
+              <div class="body-text -withSeparators">
+                <ul>
+                  <li>Explore a full library of structured lessons
+                  </li>
+                  <li>Access interactive sheet music and tablature
+                  </li>
+                  <li>Enjoy unlimited practice time
+                  </li>
+                  <li>Utilize practice tracks with a metronome for enhanced learning</li>
+                  <li> Fretboard integration for comprehensive understanding
+                  </li>
+                  <li>Loop measures for focused practice on specific sections</li>
+                </ul>
+              </div>
+              <div>
+
+              </div>
+            </div>
+            <img class="img-fluid -alignCenter -ratioDefaultDecorative -focusAreaCenter lazyload"
+              srcset="assets/images/mockup_circle2-1-1000x825.png" alt="mockup_circle2" /></noscript>
+          </div>
+
+        </section>
+
+
+        <section class="section section-benefits_stats-2021 benefits_stats section_mb_2">
+          <div class="bg-white">
+            <div class="container-big">
+
+
+              <div class="columns-text-wrap d-flex flex-row flex-wrap benefits">
+
+                <div class="column-item text-center">
+
+                  <img class="img-fluid lazyload" srcset="assets/images/media-icon-522-1.png" alt="media-icon-522
+" sizes="(max-width: 699px) 95%, 30%" data-eio="l" /></noscript>
+
+
+                  <div>"Every minute spent practicing is an investment in your future as a musician." - Steve Va</div>
+
+                </div>
+                <div class="column-item text-center">
+
+                  <img class="img-fluid lazyload" srcset="assets/images/wired.png" alt="Wired" data-sizes="auto" />
+
+
+                  <div>“Music doesn’t lie. If there is something to be changed in this world, then it can only happen
+                    through music.” - Jimi Hendrix</div>
+
+                </div>
+                <div class="column-item text-center">
+
+                  <img class="img-fluid lazyload" srcset="assets/images/variety.png" alt="Variety" data-sizes="auto" />
+
+
+                  <div>"Rockstar comes and go. musician play until they die." - Eddie Van Halen</div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section section-testimonials-quotes testimonialQuotes section_mb_2">
+          <div class="testimonialQuotes__watermark lazyload" style="background-color:#e7374c;"
+            data-back="/app/themes/yousician/assets/images/quote.png">
+            <div class="testimonialQuotes__wrapper">
+
+              <h2 class="testimonialQuotes__heading">User testimonials</h2>
+
+              <ul class="testimonialQuotes__slider keen-slider">
+                <li class="testimonialQuotes__slide keen-slider__slide number-slide1">
+                  <div class="testimonialQuotes__quote-wrapper">
+                    <div class="testimonialQuotes__quote">
+                      <div class="testimonialQuotes__quote-title">A great, fresh and modern way to
+                        learn!</div>
+
+                      <div class="testimonialQuotes__quote-content">I have been playing musical
+                        instruments for years. I am interested in improving my guitar
+                        playing. This is a very novel approach to
+                        learning an instrument. The app, interface
+                        and methodology for following and learning is fresh.</div>
+                    </div>
+                    <div class="testimonialQuotes__author">
+
+
+                      <div class="testimonialQuotes__author-info">
+                        <div class="testimonialQuotes__author-name">Hetal Bhanushali</div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="testimonialQuotes__slide keen-slider__slide number-slide2">
+                  <div class="testimonialQuotes__quote-wrapper">
+                    <div class="testimonialQuotes__quote">
+                      <div class="testimonialQuotes__quote-title">Unique way to learn</div>
+
+                      <div class="testimonialQuotes__quote-content">I tried to learn guitar by
+                        myself through YouTube videos. Nothing to compare with VibeStream! The
+                        concept makes you learn step by step while enjoying playing some
+                        bollywood
+                        classics. The best way to learn guitar online
+                        I&rsquo;ve found so far.</div>
+                    </div>
+                    <div class="testimonialQuotes__author
+						">
+
+
+                      <div class="testimonialQuotes__author-info">
+                        <div class="testimonialQuotes__author-name">Prabodh Karnik</div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="testimonialQuotes__slide keen-slider__slide number-slide4">
+                  <div class="testimonialQuotes__quote-wrapper">
+                    <div class="testimonialQuotes__quote">
+                      <div class="testimonialQuotes__quote-title">Highly Recommend VibeStream
+                      </div>
+
+                      <div class="testimonialQuotes__quote-content">The beginner-friendly Hindi
+                        song sheet music lessons are exceptional due to their clear,
+                        step-by-step instructions. They offer an accessible pathway for
+                        learners, making it easy to grasp and progress through the material.
+                        This structured approach ensures that even those with limited experience
+                        can effectively learn and enjoy playing Hindi songs on their
+                        instrument of choice.
+                      </div>
+                    </div>
+                    <div class="testimonialQuotes__author">
+
+
+                      <div class="testimonialQuotes__author-info">
+                        <div class="testimonialQuotes__author-name">Madhavi Pandey</div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+
+              <div id="testimonialQuotes__dots" class="testimonialQuotes__dots"></div>
+
+              <script>
+                /**
+                 * keen-slider 5.5.0
+                 * The HTML touch slider carousel with the most native feeling you will get.
+                 * https://keen-slider.io
+                 * Copyright 2020-2021 Eric Beyer <contact@ericbeyer.de>
+                 * License: MIT
+                 * Released on: 2021-06-07
+                 */
+
+                ! function (t, e) {
+                  "object" == typeof exports && "undefined" != typeof module ? module.exports = e() : "function" == typeof define && define.amd ? define(e) : (t = "undefined" != typeof globalThis ? globalThis : t || self).KeenSlider = e()
+                }(this, (function () {
+                  "use strict";
+
+                  function t(t, e, n) {
+                    return e in t ? Object.defineProperty(t, e, {
+                      value: n,
+                      enumerable: !0,
+                      configurable: !0,
+                      writable: !0
+                    }) : t[e] = n, t
+                  }
+
+                  function e(t, e) {
+                    var n = Object.keys(t);
+                    if (Object.getOwnPropertySymbols) {
+                      var r = Object.getOwnPropertySymbols(t);
+                      e && (r = r.filter((function (e) {
+                        return Object.getOwnPropertyDescriptor(t, e).enumerable
+                      }))), n.push.apply(n, r)
+                    }
+                    return n
+                  }
+
+                  function n(n) {
+                    for (var r = 1; r < arguments.length; r++) {
+                      var i = null != arguments[r] ? arguments[r] : {};
+                      r % 2 ? e(Object(i), !0).forEach((function (e) {
+                        t(n, e, i[e])
+                      })) : Object.getOwnPropertyDescriptors ? Object.defineProperties(n, Object.getOwnPropertyDescriptors(i)) : e(Object(i)).forEach((function (t) {
+                        Object.defineProperty(n, t, Object.getOwnPropertyDescriptor(i, t))
+                      }))
+                    }
+                    return n
+                  }
+
+                  function r(t) {
+                    return function (t) {
+                      if (Array.isArray(t)) return i(t)
+                    }(t) || function (t) {
+                      if ("undefined" != typeof Symbol && Symbol.iterator in Object(t)) return Array.from(t)
+                    }(t) || function (t, e) {
+                      if (!t) return;
+                      if ("string" == typeof t) return i(t, e);
+                      var n = Object.prototype.toString.call(t).slice(8, -1);
+                      "Object" === n && t.constructor && (n = t.constructor.name);
+                      if ("Map" === n || "Set" === n) return Array.from(t);
+                      if ("Arguments" === n || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return i(t, e)
+                    }(t) || function () {
+                      throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")
+                    }()
+                  }
+
+                  function i(t, e) {
+                    (null == e || e > t.length) && (e = t.length);
+                    for (var n = 0, r = new Array(e); n < e; n++) r[n] = t[n];
+                    return r
+                  }
+
+                  function o(t) {
+                    return Array.prototype.slice.call(t)
+                  }
+
+                  function a(t) {
+                    var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : document;
+                    return "function" == typeof t ? o(t()) : "string" == typeof t ? o(e.querySelectorAll(t)) : t instanceof HTMLElement != !1 ? [t] : t instanceof NodeList != !1 ? t : []
+                  }
+
+                  function u(t, e, n) {
+                    return Math.min(Math.max(t, e), n)
+                  }
+                  return Math.sign || (Math.sign = function (t) {
+                    return (t > 0) - (t < 0) || +t
+                  }),
+                    function (t) {
+                      var e, i, o, c, f, s, l, d, h, v, p, m, b, g, w, y, M, O, S, j, A, x, k, P, E, T, D, C, L, V, X, Y, z, H, I = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {},
+                        q = "data-keen-slider-moves",
+                        F = "data-keen-slider-v",
+                        W = [],
+                        _ = null,
+                        K = !1,
+                        N = !1,
+                        R = 0,
+                        U = [];
+
+                      function $(t, e, n) {
+                        var r = arguments.length > 3 && void 0 !== arguments[3] ? arguments[3] : {};
+                        t.addEventListener(e, n, r), W.push([t, e, n, r])
+                      }
+
+                      function B(t) {
+                        if (O && S === Z(t) && ft()) {
+                          var n = et(t).x;
+                          if (!rt(t) && P) return J(t);
+                          P && (Kt(), j = n, P = !1), t.cancelable && t.preventDefault();
+                          var r = j - n;
+                          E += Math.abs(r), !T && E > 5 && (T = !0, e.setAttribute(q, !0)), Yt(k(r, Gt) * (lt() ? -1 : 1), t.timeStamp), j = n
+                        }
+                      }
+
+                      function G(t) {
+                        O || !ft() || nt(t.target) || (O = !0, P = !0, S = Z(t), T = !1, E = 0, rt(t), pt(), M = v, j = et(t).x, Yt(0, t.timeStamp), ut("dragStart"))
+                      }
+
+                      function J(t) {
+                        O && S === Z(t, !0) && ft() && (e.removeAttribute(q), O = !1, gt(), ut("dragEnd"))
+                      }
+
+                      function Q(t) {
+                        return t.changedTouches
+                      }
+
+                      function Z(t) {
+                        var e = arguments.length > 1 && void 0 !== arguments[1] && arguments[1],
+                          n = e ? Q(t) : tt(t);
+                        return n ? n[0] ? n[0].identifier : "error" : "default"
+                      }
+
+                      function tt(t) {
+                        return t.targetTouches
+                      }
+
+                      function et(t) {
+                        var e = tt(t);
+                        return {
+                          x: ht() ? e ? e[0].screenY : t.pageY : e ? e[0].screenX : t.pageX,
+                          timestamp: t.timeStamp
+                        }
+                      }
+
+                      function nt(t) {
+                        return t.hasAttribute(y.preventEvent)
+                      }
+
+                      function rt(t) {
+                        var e = tt(t);
+                        if (!e) return !0;
+                        var n = e[0],
+                          r = ht() ? n.clientY : n.clientX,
+                          i = ht() ? n.clientX : n.clientY,
+                          o = void 0 !== A && void 0 !== x && Math.abs(x - i) <= Math.abs(A - r);
+                        return A = r, x = i, o
+                      }
+
+                      function it(t) {
+                        ft() && O && t.preventDefault()
+                      }
+
+                      function ot() {
+                        $(window, "orientationchange", Dt), $(window, "resize", (function () {
+                          return Tt()
+                        })), $(e, "dragstart", (function (t) {
+                          ft() && t.preventDefault()
+                        })), $(e, "mousedown", G), $(y.cancelOnLeave ? e : window, "mousemove", B), y.cancelOnLeave && $(e, "mouseleave", J), $(window, "mouseup", J), $(e, "touchstart", G, {
+                          passive: !0
+                        }), $(e, "touchmove", B, {
+                          passive: !1
+                        }), $(e, "touchend", J, {
+                          passive: !0
+                        }), $(e, "touchcancel", J, {
+                          passive: !0
+                        }), $(window, "wheel", it, {
+                          passive: !1
+                        })
+                      }
+
+                      function at() {
+                        W.forEach((function (t) {
+                          t[0].removeEventListener(t[1], t[2], t[3])
+                        })), W = []
+                      }
+
+                      function ut(t) {
+                        y[t] && y[t](Gt)
+                      }
+
+                      function ct() {
+                        return y.centered
+                      }
+
+                      function ft() {
+                        return void 0 !== i ? i : y.controls
+                      }
+
+                      function st() {
+                        return y.loop && o > 1
+                      }
+
+                      function lt() {
+                        return y.rtl
+                      }
+
+                      function dt() {
+                        return !y.loop && y.rubberband
+                      }
+
+                      function ht() {
+                        return !!y.vertical
+                      }
+
+                      function vt() {
+                        D = window.requestAnimationFrame(mt)
+                      }
+
+                      function pt() {
+                        D && (window.cancelAnimationFrame(D), D = null), C = null
+                      }
+
+                      function mt(t) {
+                        C || (C = t);
+                        var e = t - C,
+                          n = bt(e);
+                        if (e >= V) return Yt(L - Y, !1), H ? H() : void ut("afterChange");
+                        var r = zt(n);
+                        if (0 === r || st() || dt() || z) {
+                          if (0 !== r && dt() && !z) return St();
+                          Y += n, Yt(n, !1), vt()
+                        } else Yt(n - r, !1)
+                      }
+
+                      function bt(t) {
+                        return L * X(t / V) - Y
+                      }
+
+                      function gt() {
+                        switch (ut("beforeChange"), y.mode) {
+                          case "free":
+                            Mt();
+                            break;
+                          case "free-snap":
+                            Ot();
+                            break;
+                          case "snap":
+                          default:
+                            wt()
+                        }
+                      }
+
+                      function wt() {
+                        yt((1 === l && 0 !== p ? M : v) + Math.sign(p))
+                      }
+
+                      function yt(t, e) {
+                        var n = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : y.duration,
+                          r = arguments.length > 3 && void 0 !== arguments[3] && arguments[3],
+                          i = arguments.length > 4 && void 0 !== arguments[4] && arguments[4],
+                          o = function (t) {
+                            return 1 + --t * t * t * t * t
+                          };
+                        jt(Ft(t = qt(t, r, i)), n, o, e)
+                      }
+
+                      function Mt() {
+                        if (0 === b) return !(!zt(0) || st()) && yt(v);
+                        var t = y.friction / Math.pow(Math.abs(b), -.5);
+                        jt(Math.pow(b, 2) / t * Math.sign(b), 6 * Math.abs(b / t), (function (t) {
+                          return 1 - Math.pow(1 - t, 5)
+                        }))
+                      }
+
+                      function Ot() {
+                        if (0 === b) return yt(v);
+                        var t = y.friction / Math.pow(Math.abs(b), -.5),
+                          e = Math.pow(b, 2) / t * Math.sign(b),
+                          n = 6 * Math.abs(b / t),
+                          r = (R + e) / (s / l);
+                        jt((-1 === p ? Math.floor(r) : Math.ceil(r)) * (s / l) - R, n, (function (t) {
+                          return 1 - Math.pow(1 - t, 5)
+                        }))
+                      }
+
+                      function St() {
+                        if (pt(), 0 === b) return yt(v, !0);
+                        var t = .04 / Math.pow(Math.abs(b), -.5),
+                          e = Math.pow(b, 2) / t * Math.sign(b),
+                          n = function (t) {
+                            return --t * t * t + 1
+                          },
+                          r = b;
+                        jt(e, 3 * Math.abs(r / t), n, !0, (function () {
+                          jt(Ft(qt(v)), 500, n, !0)
+                        }))
+                      }
+
+                      function jt(t, e, n, r, i) {
+                        pt(), L = t, Y = 0, V = e, X = n, z = r, H = i, C = null, vt()
+                      }
+
+                      function At(n) {
+                        var r = a(t);
+                        r.length && (e = r[0], Tt(n), ot(), ut("mounted"))
+                      }
+
+                      function xt() {
+                        var t, e = I.breakpoints || [];
+                        for (var r in e) window.matchMedia(r).matches && (t = r);
+                        if (t === _) return !0;
+                        var i = (_ = t) ? e[_] : I;
+                        i.breakpoints && _ && delete i.breakpoints, y = n(n(n({}, Bt), I), i), K = !0, h = null, ut("optionsChanged"), Et()
+                      }
+
+                      function kt(t) {
+                        if ("function" == typeof t) return t();
+                        var e = y.autoAdjustSlidesPerView;
+                        e || (o = Math.max(t, o));
+                        var n = st() && e ? o - 1 : o;
+                        return u(t, 1, Math.max(n, 1))
+                      }
+
+                      function Pt() {
+                        xt(), N = !0, ut("created")
+                      }
+
+                      function Et(t, e) {
+                        t && (I = t), e && (_ = null), Ct(), At(e)
+                      }
+
+                      function Tt(t) {
+                        var n = window.innerWidth;
+                        if (xt() && (n !== h || t)) {
+                          h = n;
+                          var r = y.slides;
+                          "number" == typeof r ? (f = null, o = r) : (f = a(r, e), o = f ? f.length : 0);
+                          var i = y.dragSpeed;
+                          k = "function" == typeof i ? i : function (t) {
+                            return t * i
+                          }, s = ht() ? e.offsetHeight : e.offsetWidth, l = kt(y.slidesPerView), d = u(y.spacing, 0, s / (l - 1) - 1), s += d, c = ct() ? (s / 2 - s / l / 2) / s : 0, Vt();
+                          var p = !N || K && y.resetSlide ? y.initial : v;
+                          $t(st() ? p : Ht(p)), ht() && e.setAttribute(F, !0), K = !1
+                        }
+                      }
+
+                      function Dt(t) {
+                        Tt(), setTimeout(Tt, 500), setTimeout(Tt, 2e3)
+                      }
+
+                      function Ct() {
+                        at(), Xt(), e && e.hasAttribute(F) && e.removeAttribute(F), ut("destroyed")
+                      }
+
+                      function Lt() {
+                        f && f.forEach((function (t, e) {
+                          var n = g[e].distance * s - e * (s / l - d / l - d / l * (l - 1)),
+                            r = ht() ? 0 : n,
+                            i = ht() ? n : 0,
+                            o = "translate3d(".concat(r, "px, ").concat(i, "px, 0)");
+                          t.style.transform = o, t.style["-webkit-transform"] = o
+                        }))
+                      }
+
+                      function Vt() {
+                        f && f.forEach((function (t) {
+                          var e = "calc(".concat(100 / l, "% - ").concat(d / l * (l - 1), "px)");
+                          ht() ? (t.style["min-height"] = e, t.style["max-height"] = e) : (t.style["min-width"] = e, t.style["max-width"] = e)
+                        }))
+                      }
+
+                      function Xt() {
+                        if (f) {
+                          var t = ["transform", "-webkit-transform"];
+                          t = [].concat(r(t), ht ? ["min-height", "max-height"] : ["min-width", "max-width"]), f.forEach((function (e) {
+                            t.forEach((function (t) {
+                              e.style.removeProperty(t)
+                            }))
+                          }))
+                        }
+                      }
+
+                      function Yt(t) {
+                        var e = !(arguments.length > 1 && void 0 !== arguments[1]) || arguments[1],
+                          n = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : Date.now();
+                        _t(t, n), e && (t = Rt(t)), R += t, Nt()
+                      }
+
+                      function zt(t) {
+                        var e = s * (o - 1 * (ct() ? 1 : l)) / l,
+                          n = R + t;
+                        return n > e ? n - e : n < 0 ? n : 0
+                      }
+
+                      function Ht(t) {
+                        return u(t, 0, o - 1 - (ct() ? 0 : l - 1))
+                      }
+
+                      function It() {
+                        var t = Math.abs(w),
+                          e = R < 0 ? 1 - t : t;
+                        return {
+                          direction: p,
+                          progressTrack: e,
+                          progressSlides: e * o / (o - 1),
+                          positions: g,
+                          position: R,
+                          speed: b,
+                          relativeSlide: (v % o + o) % o,
+                          absoluteSlide: v,
+                          size: o,
+                          slidesPerView: l,
+                          widthOrHeight: s
+                        }
+                      }
+
+                      function qt(t) {
+                        var e = arguments.length > 1 && void 0 !== arguments[1] && arguments[1],
+                          n = arguments.length > 2 && void 0 !== arguments[2] && arguments[2];
+                        return st() ? e ? Wt(t, n) : t : Ht(t)
+                      }
+
+                      function Ft(t) {
+                        return -(-s / l * t + R)
+                      }
+
+                      function Wt(t, e) {
+                        var n = (v % o + o) % o,
+                          r = n < (t = (t % o + o) % o) ? -n - o + t : -(n - t),
+                          i = n > t ? o - n + t : t - n,
+                          a = e ? Math.abs(r) <= i ? r : i : t < n ? r : i;
+                        return v + a
+                      }
+
+                      function _t(t, e) {
+                        clearTimeout(m);
+                        var n = Math.sign(t);
+                        if (n !== p && Kt(), p = n, U.push({
+                          distance: t,
+                          time: e
+                        }), m = setTimeout((function () {
+                          U = [], b = 0
+                        }), 50), (U = U.slice(-6)).length <= 1 || 0 === p) return b = 0;
+                        var r = U.slice(0, -1).reduce((function (t, e) {
+                          return t + e.distance
+                        }), 0),
+                          i = U[U.length - 1].time,
+                          o = U[0].time;
+                        b = u(r / (i - o), -10, 10)
+                      }
+
+                      function Kt() {
+                        U = []
+                      }
+
+                      function Nt() {
+                        w = st() ? R % (s * o / l) / (s * o / l) : R / (s * o / l), Ut();
+                        for (var t = [], e = 0; e < o; e++) {
+                          var n = (1 / o * e - (w < 0 && st() ? w + 1 : w)) * o / l + c;
+                          st() && (n += n > (o - 1) / l ? -o / l : n < -o / l + 1 ? o / l : 0);
+                          var r = 1 / l,
+                            i = n + r,
+                            a = i < r ? i / r : i > 1 ? 1 - (i - 1) * l / 1 : 1;
+                          t.push({
+                            portion: a < 0 || a > 1 ? 0 : a,
+                            distance: lt() ? -1 * n + 1 - r : n
+                          })
+                        }
+                        g = t, Lt(), ut("move")
+                      }
+
+                      function Rt(t) {
+                        if (st()) return t;
+                        var e = zt(t);
+                        if (!dt()) return t - e;
+                        if (0 === e) return t;
+                        var n;
+                        return t * (n = e / s, (1 - Math.abs(n)) * (1 - Math.abs(n)))
+                      }
+
+                      function Ut() {
+                        var t = Math.round(R / (s / l));
+                        t !== v && (!st() && (t < 0 || t > o - 1) || (v = t, ut("slideChanged")))
+                      }
+
+                      function $t(t) {
+                        ut("beforeChange"), Yt(Ft(t), !1), ut("afterChange")
+                      }
+                      var Bt = {
+                        autoAdjustSlidesPerView: !0,
+                        centered: !1,
+                        breakpoints: null,
+                        controls: !0,
+                        dragSpeed: 1,
+                        friction: .0025,
+                        loop: !1,
+                        initial: 0,
+                        duration: 500,
+                        preventEvent: "data-keen-slider-pe",
+                        slides: ".keen-slider__slide",
+                        vertical: !1,
+                        resetSlide: !1,
+                        slidesPerView: 1,
+                        spacing: 0,
+                        mode: "snap",
+                        rtl: !1,
+                        rubberband: !0,
+                        cancelOnLeave: !0
+                      },
+                        Gt = {
+                          controls: function (t) {
+                            i = t
+                          },
+                          destroy: Ct,
+                          refresh: function (t) {
+                            Et(t, !0)
+                          },
+                          next: function () {
+                            yt(v + 1, !0)
+                          },
+                          prev: function () {
+                            yt(v - 1, !0)
+                          },
+                          moveToSlide: function (t, e) {
+                            yt(t, !0, e)
+                          },
+                          moveToSlideRelative: function (t) {
+                            var e = arguments.length > 1 && void 0 !== arguments[1] && arguments[1],
+                              n = arguments.length > 2 ? arguments[2] : void 0;
+                            yt(t, !0, n, !0, e)
+                          },
+                          resize: function () {
+                            Tt(!0)
+                          },
+                          details: function () {
+                            return It()
+                          },
+                          options: function () {
+                            var t = n({}, y);
+                            return delete t.breakpoints, t
+                          }
+                        };
+                      return Pt(), Gt
+                    }
+                }));
+
+                let slider = new KeenSlider(".testimonialQuotes__slider", {
+                  slidesPerView: 3,
+                  spacing: 30,
+                  rubberband: false,
+                  created: function (instance) {
+                    let dots_wrapper = document.getElementById("testimonialQuotes__dots")
+                    let slides = document.querySelectorAll(".keen-slider__slide")
+                    slides.forEach(function (t, idx) {
+                      var dot = document.createElement("button")
+                      dot.classList.add("testimonialQuotes__dot")
+                      dots_wrapper.appendChild(dot)
+                      dot.addEventListener("click", function () {
+                        instance.moveToSlide(idx)
+                      })
+                    })
+                    updateClasses(instance)
+                  },
+                  slideChanged(instance) {
+                    updateClasses(instance)
+                  },
+                  breakpoints: {
+                    '(min-width: 1251px)': {
+                      slidesPerView: 3,
+                    },
+                    '(min-width: 901px) and (max-width: 1250px)': {
+                      slidesPerView: 2,
+                    },
+                    '(max-width: 900px)': {
+                      slidesPerView: 1,
+                    }
+                  },
+                })
+
+                function updateClasses(instance) {
+                  let slide = instance.details().relativeSlide
+                  let dots = document.querySelectorAll(".testimonialQuotes__dot")
+                  dots.forEach(function (dot, idx) {
+                    idx === slide ?
+                      dot.classList.add("-active") :
+                      dot.classList.remove("-active")
+                  })
+                }
+
+                function countDots(instance) {
+                  const dotsContainer = document.getElementById("testimonialQuotes__dots")
+                  let dotsAmount = document.getElementsByClassName("testimonialQuotes__dot").length
+                  dotsContainer.setAttribute("data-dots", dotsAmount)
+                }
+
+                window.addEventListener('load', countDots);
+              </script>
+            </div>
+          </div>
+        </section>
+
+
+
+
+
+        <section class="section section-expandable-items sectionExpandableItems section_mb_7">
+          <h2 class="sectionExpandableItems__title -center">
+            <p style="font-weight: 500;font-size: 48px;">FAQs</p>
+          </h2>
+          <ul class="sectionExpandableItems__grid">
+            <li class="sectionExpandableItems__item">
+              <button class="sectionExpandableItems__itemTitle" aria-expanded="false"
+                id="sectionExpandableItems__trigger_1" aria-controls="sectionExpandableItems__region_1">
+                <span class="sectionExpandableItems__itemIcon" role="img" aria-label="Expand"></span>
+                <h3>What is VibeStream?</h3>
+              </button>
+              <div class="sectionExpandableItems__itemContent" id="sectionExpandableItems__region_1">
+                VibeStream is a learning platform where musicians can practice guitar tracks by reading
+                & learning through sheet music & tabs and can explore different functionalities of our
+                system.
+              </div>
+            </li>
+            <li class="sectionExpandableItems__item">
+              <button class="sectionExpandableItems__itemTitle" aria-expanded="false"
+                id="sectionExpandableItems__trigger_2" aria-controls="sectionExpandableItems__region_2">
+                <span class="sectionExpandableItems__itemIcon" role="img" aria-label="Expand"></span>
+                <h3>How does VibeStream work?</h3>
+              </button>
+              <div class="sectionExpandableItems__itemContent" id="sectionExpandableItems__region_2">
+                Vibestream offers a comprehensive platform for learning music through structured
+                lessons, interactive sheet music, and tablature. Users can explore a full library of
+                lessons designed to enhance their musical skills. With unlimited practice time, learners
+                can progress at their own pace and master each concept. Additionally, practice tracks
+                with a metronome provide rhythm and timing guidance.
+              </div>
+            </li>
+            <li class="sectionExpandableItems__item">
+              <button class="sectionExpandableItems__itemTitle" aria-expanded="false"
+                id="sectionExpandableItems__trigger_3" aria-controls="sectionExpandableItems__region_3">
+                <span class="sectionExpandableItems__itemIcon" role="img" aria-label="Expand"></span>
+                <h3>What will I learn with VibeStream?</h3>
+              </button>
+              <div class="sectionExpandableItems__itemContent" id="sectionExpandableItems__region_3">
+                Vibestream offers a diverse range of Indian guitar pieces not easily found online. With
+                its built-in metronome, users can practice accurately, improving their skills. It caters
+                to all levels, providing a comprehensive learning experience and expanding
+                musical horizons.
+              </div>
+            </li>
+
+            <li class="sectionExpandableItems__item">
+              <button class="sectionExpandableItems__itemTitle" aria-expanded="false"
+                id="sectionExpandableItems__trigger_6" aria-controls="sectionExpandableItems__region_6">
+                <span class="sectionExpandableItems__itemIcon" role="img" aria-label="Expand"></span>
+                <h3>Is VibeStream available for free?</h3>
+              </button>
+              <div class="sectionExpandableItems__itemContent" id="sectionExpandableItems__region_6">
+                Yes, Vibestream is available for free. It’s designed to teach guitar using high-quality
+                Indian music, occasionally incorporating Western music, all presented
+                with staff notations & tabs.
+              </div>
+            </li>
+
+          </ul>
+
+        </section>
+
+
+        <section class="section section-get_started_end_card-2021 get_started_end_card section_mb_0">
+
+    </div>
+    </section>
+    </article>
+    </div>
+    <!-- /content-wrapper -->
+  </main>
+
+
+
+  <div class="site-footer__container">
+    <footer class="site-footer ">
+
+      <section class="site-footer__credits">
+
+
+        <span class="site-footer-creditsItem copyright">
+          Copyright &copy; 2024 VibeStream. All rights reserved.
+        </span>
+      </section>
+
+
+    </footer>
+  </div>
+
+  <script>
+
+    function urlMatches(baseUrl) {
+      const patterns = [
+        "account.yousician.com",
+      ];
+      for (let i = 0; i < patterns.length; i++) {
+        if (baseUrl.match(patterns[i])) {
+          return true;
+        }
+      }
+      return false;
+    }
+
+
+    function resetfunc() {
+      document.getElementById("registerform").reset();
+      document.getElementById("forgetform").reset();
+      document.getElementById("login").reset();
+    }
+
+
+  </script>
+
+
+  <script id="eio-lazy-load-js-before" type="text/javascript">
+    var eio_lazy_vars = {
+      "exactdn_domain": "",
+      "skip_autoscale": 0,
+      "threshold": 0
+    };
+  </script>
+  <script type='text/javascript' id='toc-front-js-extra'>
+    /*
+    <![CDATA[ */
+    var tocplus = {
+      "smooth_scroll": "1",
+      "smooth_scroll_offset": "120"
+    };
+    /* ]]> */
+  </script>
+
+  <script type='text/javascript' src="assets/scripts/headScripts.6c7e0381ee8d8769fdf2.js"></script>
+  <script type='text/javascript' src="assets/scripts/main-2021.ebaab4131046730323f4.js"></script>
+
+</body>
+
+
+</html>

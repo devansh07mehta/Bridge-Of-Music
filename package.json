@@ -1,7 +1,7 @@
 {
-  "name": "mstream",
+  "name": "vibestream",
   "version": "5.11.4",
-  "description": "music streaming server",
+  "description": "music streaming and learning platform",
   "main": "cli-boot-wrapper.js",
   "bin": {
     "mstream": "cli-boot-wrapper.js"
@@ -15,19 +15,9 @@
     "dist": "electron-builder",
     "wizard": "npm install --only=prod && node cli-boot-wrapper.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/IrosTheBeggar/mStream"
-  },
-  "author": {
-    "name": "Paul Sori",
-    "email": "paul@mstream.io"
-  },
-  "homepage": "https://mstream.io/",
-  "license": "GPL-3.0",
   "build": {
-    "appId": "io.mstream.server",
-    "productName": "mStream Server",
+    "appId": "io.vibestream.server",
+    "productName": "vibestream Server",
     "electronVersion": "16.0.7",
     "asar": false,
     "files": [
@@ -35,7 +25,7 @@
       "!docs/*",
       "!dist/*",
       "!image-cache/*",
-      "!save/*",
+      "save/*",
       "!bin/*",
       "!.git/*",
       "!.vscode/*",
@@ -82,22 +72,19 @@
           ]
         }
       ]
-    },
-    "publish": {
-      "provider": "github",
-      "repo": "mStream",
-      "owner": "IrosTheBeggar"
     }
   },
   "dependencies": {
     "archiver": "^6.0.1",
     "axios": "^1.6.0",
+    "body-parser": "^1.20.2",
     "busboy": "^1.6.0",
     "commander": "^9.5.0",
     "cookie-parser": "^1.4.6",
+    "dotenv": "^16.4.5",
     "electron-updater": "^6.1.4",
     "escape-string-regexp": "^4.0.0",
-    "express": "^4.18.2",
+    "express": "^4.19.2",
     "fast-xml-parser": "^4.3.2",
     "ffbinaries": "^1.1.5",
     "fluent-ffmpeg": "^2.1.2",
@@ -109,14 +96,18 @@
     "m3u8-parser": "^6.0.0",
     "make-dir": "^3.1.0",
     "mime-types": "^2.1.35",
+    "mongoose": "^8.4.0",
     "music-metadata": "^7.14.0",
     "nanoid": "^3.3.4",
+    "node-localstorage": "^3.0.5",
     "tree-kill": "^1.2.2",
     "winston": "^3.11.0",
     "winston-daily-rotate-file": "^4.7.1",
     "ws": "^8.14.2"
   },
   "devDependencies": {
-    "electron-builder": "24.6.4"
+    "electron-builder": "24.6.4",
+    "http-server": "^14.1.1"
   }
+  
 }

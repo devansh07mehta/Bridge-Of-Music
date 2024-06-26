@@ -16,7 +16,7 @@ const MSTREAMPLAYER = (() => {
   mstreamModule.positionCache = { val: -1 };
   mstreamModule.playlist = [];
   const cacheTimeout = 30000;
-  
+
   var currentReplayGainAmp = 1.0;
 
   mstreamModule.editSongMetadata = function (key, value, songIndex) {
@@ -43,8 +43,8 @@ const MSTREAMPLAYER = (() => {
   let scrobbleTimer;
   mstreamModule.scrobble = () => {
     MSTREAMAPI.scrobbleByFilePath(
-      mstreamModule.getCurrentSong().rawFilePath, 
-      (response, error) => {});
+      mstreamModule.getCurrentSong().rawFilePath,
+      (response, error) => { });
   }
 
   // The audioData looks like this
@@ -77,13 +77,13 @@ const MSTREAMPLAYER = (() => {
           return mstreamModule.ignoreVPaths[vpath] === true;
         })
       };
-  
+
       const res = await MSTREAMAPI.getRandomSong(params);
       autoDjIgnoreArray = res.ignoreList;
 
       VUEPLAYERCORE.addSongWizard(res.songs[0].filepath, res.songs[0].metadata);
 
-    }catch (err) {
+    } catch (err) {
       console.log(err);
       iziToast.warning({
         title: 'Auto DJ Failed',
@@ -105,10 +105,10 @@ const MSTREAMPLAYER = (() => {
     // TODO: Check if we are at the end of the playlist and nothing is playing.
 
     // Cache song if appropriate
-    if ((!cacheTimer) && mstreamModule.playlist.length > mstreamModule.positionCache.val + 1 && mstreamModule.positionCache.val === mstreamModule.playlist.length -2) {
+    if ((!cacheTimer) && mstreamModule.playlist.length > mstreamModule.positionCache.val + 1 && mstreamModule.positionCache.val === mstreamModule.playlist.length - 2) {
       clearTimeout(cacheTimer);
-      cacheTimer = setTimeout(function () { 
-        setCachedSong(mstreamModule.positionCache.val + 1); 
+      cacheTimer = setTimeout(function () {
+        setCachedSong(mstreamModule.positionCache.val + 1);
         cacheTimer = undefined;
       }, cacheTimeout);
     }
@@ -236,15 +236,15 @@ const MSTREAMPLAYER = (() => {
       // Lower position cache by 1 if necessary
       mstreamModule.positionCache.val--;
     } else if (position === (mstreamModule.positionCache.val + 1)) {
-      if(mstreamModule.positionCache.val === (mstreamModule.playlist.length - 1) && mstreamModule.playerStats.autoDJ === true) {
-          autoDJ();
+      if (mstreamModule.positionCache.val === (mstreamModule.playlist.length - 1) && mstreamModule.playerStats.autoDJ === true) {
+        autoDJ();
       }
 
       // If the next song is removed, reset cache
       clearTimeout(cacheTimer);
       cacheTimer = setTimeout(function () {
         cacheTimer = undefined;
-        if(mstreamModule.playerStats.shuffle === true) {
+        if (mstreamModule.playerStats.shuffle === true) {
           // TODO: This doesn't actually get triggered if remove the next shuffle song
           // if(shuffleCache[0]) {
           //   for (var i = 0; i < mstreamModule.playlist.length; i++) {
@@ -257,13 +257,13 @@ const MSTREAMPLAYER = (() => {
         } else if (mstreamModule.playerStats.shouldLoop === true) {
           if (mstreamModule.positionCache.val === (mstreamModule.playlist.length - 1)) {
             setCachedSong(0);
-          }  else {
+          } else {
             setCachedSong(mstreamModule.positionCache.val + 1);
           }
         } else {
           setCachedSong(mstreamModule.positionCache.val + 1);
         }
-  
+
       }, cacheTimeout);
     }
   }
@@ -428,7 +428,7 @@ const MSTREAMPLAYER = (() => {
     }
 
     mstreamModule.resetCurrentMetadata();
-    
+
     // connect to visualizer
     if (typeof VIZ !== 'undefined') {
       var audioCtx = VIZ.get();
@@ -442,7 +442,7 @@ const MSTREAMPLAYER = (() => {
           VIZ.connect(analyser);
           audioNode.previouslyConnectedViz = true;
         }
-      } catch( err) {
+      } catch (err) {
         console.log(err);
       }
     }
@@ -452,10 +452,10 @@ const MSTREAMPLAYER = (() => {
     clearTimeout(cacheTimer);
     cacheTimer = setTimeout(function () {
       cacheTimer = undefined;
-      if(mstreamModule.playerStats.shuffle === true) {
-        if(shuffleCache[0]) {
+      if (mstreamModule.playerStats.shuffle === true) {
+        if (shuffleCache[0]) {
           for (var i = 0; i < mstreamModule.playlist.length; i++) {
-            if(mstreamModule.playlist[i] === shuffleCache[shuffleCache.length - 1]) {
+            if (mstreamModule.playlist[i] === shuffleCache[shuffleCache.length - 1]) {
               setCachedSong(i);
               break;
             }
@@ -464,7 +464,7 @@ const MSTREAMPLAYER = (() => {
       } else if (mstreamModule.playerStats.shouldLoop === true) {
         if (position === (mstreamModule.playlist.length - 1)) {
           setCachedSong(0);
-        }  else {
+        } else {
           setCachedSong(position + 1);
         }
       } else {
@@ -483,7 +483,7 @@ const MSTREAMPLAYER = (() => {
   mstreamModule.resetCurrentMetadata = () => {
     const curSong = getCurrentPlayer().songObject;
     mstreamModule.playerStats.metadata.artist = curSong.metadata && curSong.metadata.artist ? curSong.metadata.artist : "";
-    mstreamModule.playerStats.metadata.album = curSong.metadata && curSong.metadata.album  ? curSong.metadata.album : "";
+    mstreamModule.playerStats.metadata.album = curSong.metadata && curSong.metadata.album ? curSong.metadata.album : "";
     mstreamModule.playerStats.metadata.track = curSong.metadata && curSong.metadata.track ? curSong.metadata.track : "";
     mstreamModule.playerStats.metadata.title = curSong.metadata && curSong.metadata.title ? curSong.metadata.title : "";
     mstreamModule.playerStats.metadata.year = curSong.metadata && curSong.metadata.year ? curSong.metadata.year : "";
@@ -499,12 +499,12 @@ const MSTREAMPLAYER = (() => {
         artwork: [] //TODO: Get album art working here
       });
     }
-    
-    let pageTitle = (mstreamModule.playerStats.metadata.title) ? 
-    mstreamModule.playerStats.metadata.title + ' - ' + mstreamModule.playerStats.metadata.artist : // if metadata exists
-        (mstreamModule.playerStats.metadata.filepath ? mstreamModule.playerStats.metadata.filepath.split('/').pop() : 'mStream Music');
+
+    let pageTitle = (mstreamModule.playerStats.metadata.title) ?
+      mstreamModule.playerStats.metadata.title + ' - ' + mstreamModule.playerStats.metadata.artist : // if metadata exists
+      (mstreamModule.playerStats.metadata.filepath ? mstreamModule.playerStats.metadata.filepath.split('/').pop() : 'VibeStream');
     document.title = pageTitle; // set page title when song is playing
-    
+
     mstreamModule.updateReplayGainFromSong(curSong);
   }
 
@@ -533,7 +533,7 @@ const MSTREAMPLAYER = (() => {
     } else {
       currentReplayGainAmp = 1.0;
     }
-    
+
     mstreamModule.changeVolume(mstreamModule.playerStats.volume);
   }
 
@@ -574,15 +574,15 @@ const MSTREAMPLAYER = (() => {
     if (localPlayer.playerObject.paused === false) {
       mstreamModule.playerStats.playing = false;
       localPlayer.playerObject.pause();
-      document.title = "mStream Music"
+      document.title = "VibeStream"
     } else {
       localPlayer.playerObject.play();
-      
-      let pageTitle = (mstreamModule.playerStats.metadata.title) ? 
+
+      let pageTitle = (mstreamModule.playerStats.metadata.title) ?
         mstreamModule.playerStats.metadata.title + ' - ' + mstreamModule.playerStats.metadata.artist : // if metadata exists
-        (mstreamModule.playerStats.metadata.filepath ? mstreamModule.playerStats.metadata.filepath.split('/').pop() : 'mStream Music');
+        (mstreamModule.playerStats.metadata.filepath ? mstreamModule.playerStats.metadata.filepath.split('/').pop() : 'VibeStream');
       document.title = pageTitle; // set page title when song is playing
-      
+
       mstreamModule.playerStats.playing = true;
     }
   }
@@ -591,7 +591,7 @@ const MSTREAMPLAYER = (() => {
 
   function clearEnd() {
     const localPlayer = getCurrentPlayer();
-    localPlayer.playerObject.onended = () => {};
+    localPlayer.playerObject.onended = () => { };
   }
 
   // Player
@@ -613,7 +613,7 @@ const MSTREAMPLAYER = (() => {
 
     const lPlayer = getCurrentPlayer();
     lPlayer.playerObject.playbackRate = newRate;
-    
+
     const oPlayer = getOtherPlayer();
     oPlayer.playerObject.playbackRate = newRate;
   }
@@ -641,8 +641,8 @@ const MSTREAMPLAYER = (() => {
 
   function makeNewPlayer(playerObj) {
     playerObj.playerObject = new Audio();
-    playerObj.playerObject.volume = mstreamModule.playerStats.volume/100;
-    playerObj.playerObject.playbackRate =  mstreamModule.playerStats.playbackRate;
+    playerObj.playerObject.volume = mstreamModule.playerStats.volume / 100;
+    playerObj.playerObject.playbackRate = mstreamModule.playerStats.playbackRate;
 
     playerObj.playerObject.addEventListener('error', err => {
       console.log(err)
@@ -657,11 +657,11 @@ const MSTREAMPLAYER = (() => {
 
       if (playerObj === getCurrentPlayer()) {
         goToNextSong();
-      }else {
+      } else {
         // Invalidate cache
         const newOtherPlayerObject = getOtherPlayer();
         newOtherPlayerObject.songObject = false;
-        playerObj.playerObject.onended = () => {};
+        playerObj.playerObject.onended = () => { };
       }
     });
 
@@ -687,7 +687,7 @@ const MSTREAMPLAYER = (() => {
 
   function setMedia(song, player, play) {
     let url = song.url;
-    if(mstreamModule.transcodeOptions.serverEnabled === true && mstreamModule.transcodeOptions.frontendEnabled === true) {
+    if (mstreamModule.transcodeOptions.serverEnabled === true && mstreamModule.transcodeOptions.frontendEnabled === true) {
       if (mstreamModule.transcodeOptions.selectedBitrate !== null) {
         url += `&bitrate=${mstreamModule.transcodeOptions.selectedBitrate}`;
       }
@@ -703,7 +703,7 @@ const MSTREAMPLAYER = (() => {
     player.songObject = song;
     player.playerObject.load();
     player.playerObject.playbackRate = mstreamModule.playerStats.playbackRate;
-    
+
     player.playerObject.onended = () => {
       callMeOnStreamEnd();
     }
@@ -734,12 +734,12 @@ const MSTREAMPLAYER = (() => {
 
   mstreamModule.goForwardSeek = (forwardBy) => {
     const lPlayer = getCurrentPlayer();
-    if (lPlayer.playerObject.currentTime > (lPlayer.playerObject.duration - 5) ) {
+    if (lPlayer.playerObject.currentTime > (lPlayer.playerObject.duration - 5)) {
       return;
     }
 
     let seekTo = lPlayer.playerObject.currentTime + forwardBy;
-    if (seekTo >  (lPlayer.playerObject.duration - 5)) {
+    if (seekTo > (lPlayer.playerObject.duration - 5)) {
       seekTo = lPlayer.playerObject.duration - 5;
     }
 
@@ -811,7 +811,7 @@ const MSTREAMPLAYER = (() => {
     mstreamModule.playerStats.shuffle = newValue;
     mstreamModule.playerStats.shuffle === true ? newShuffle() : turnShuffleOff();
   }
-  
+
   mstreamModule.toggleShuffle = () => {
     if (mstreamModule.playerStats.autoDJ === true) { return; }
     mstreamModule.playerStats.shuffle = !mstreamModule.playerStats.shuffle;
@@ -889,14 +889,14 @@ const MSTREAMPLAYER = (() => {
 
   // Setup Media Session
   if ('mediaSession' in navigator) {
-    navigator.mediaSession.setActionHandler('play', function() { howlPlayerPlay(); });
-    navigator.mediaSession.setActionHandler('pause', function() { howlPlayerPause(); });
-    navigator.mediaSession.setActionHandler('stop', function() { howlPlayerPause(); });
+    navigator.mediaSession.setActionHandler('play', function () { howlPlayerPlay(); });
+    navigator.mediaSession.setActionHandler('pause', function () { howlPlayerPause(); });
+    navigator.mediaSession.setActionHandler('stop', function () { howlPlayerPause(); });
     // navigator.mediaSession.setActionHandler('seekbackward', function() { /* Code excerpted. */ });
     // navigator.mediaSession.setActionHandler('seekforward', function() { /* Code excerpted. */ });
     // navigator.mediaSession.setActionHandler('seekto', function() { /* Code excerpted. */ });
-    navigator.mediaSession.setActionHandler('previoustrack', function() { goToPreviousSong(); });
-    navigator.mediaSession.setActionHandler('nexttrack', function() { goToNextSong() });
+    navigator.mediaSession.setActionHandler('previoustrack', function () { goToPreviousSong(); });
+    navigator.mediaSession.setActionHandler('nexttrack', function () { goToNextSong() });
   }
 
   // Return an object that is assigned to Module

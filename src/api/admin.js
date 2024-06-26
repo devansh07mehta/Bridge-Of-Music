@@ -1,3 +1,4 @@
+const jwt = require('jsonwebtoken');
 const path = require('path');
 const child = require('child_process');
 const os = require('os');
@@ -52,7 +53,7 @@ exports.setup = (mstream) => {
     joiValidate(schema, req.body);
 
     // Handle home directory
-    let thisDirectory = req.body.directory; 
+    let thisDirectory = req.body.directory;
     if (req.body.directory === '~') {
       thisDirectory = require('os').homedir();
     }
@@ -110,7 +111,7 @@ exports.setup = (mstream) => {
 
   mstream.post("/api/v1/admin/db/params/pause", async (req, res) => {
     const schema = Joi.object({
-      pause:  Joi.number().integer().min(0).required()
+      pause: Joi.number().integer().min(0).required()
     });
     joiValidate(schema, req.body);
 
@@ -120,7 +121,7 @@ exports.setup = (mstream) => {
 
   mstream.post("/api/v1/admin/db/params/boot-scan-delay", async (req, res) => {
     const schema = Joi.object({
-      bootScanDelay:  Joi.number().integer().min(0).required()
+      bootScanDelay: Joi.number().integer().min(0).required()
     });
     joiValidate(schema, req.body);
 
@@ -130,7 +131,7 @@ exports.setup = (mstream) => {
 
   mstream.post("/api/v1/admin/db/params/max-concurrent-scans", async (req, res) => {
     const schema = Joi.object({
-      maxConcurrentTasks:  Joi.number().integer().min(0).required()
+      maxConcurrentTasks: Joi.number().integer().min(0).required()
     });
     joiValidate(schema, req.body);
 
@@ -140,7 +141,7 @@ exports.setup = (mstream) => {
 
   mstream.post("/api/v1/admin/db/params/compress-image", async (req, res) => {
     const schema = Joi.object({
-      compressImage:  Joi.boolean().required()
+      compressImage: Joi.boolean().required()
     });
     joiValidate(schema, req.body);
 
@@ -152,7 +153,7 @@ exports.setup = (mstream) => {
     // Scrub passwords
     const memClone = JSON.parse(JSON.stringify(config.program.users));
     Object.keys(memClone).forEach(key => {
-      if(key === 'password' || key === 'salt') {
+      if (key === 'password' || key === 'salt') {
         delete memClone[key];
       }
     });
@@ -179,7 +180,7 @@ exports.setup = (mstream) => {
 
     try {
       dbQueue.scanVPath(input.value.vpath);
-    }catch (err) {
+    } catch (err) {
       winston.error('/api/v1/admin/directory failed to add ', { stack: err });
     }
   });
@@ -211,7 +212,33 @@ exports.setup = (mstream) => {
     );
     res.json({});
   });
-  
+
+  mstream.put("/api/v1/admin/users/new", async (req, res) => {
+    const schema = Joi.object({
+      firstname: Joi.string().required(),
+      lastname: Joi.string().required(),
+      emailid: Joi.string().required(),
+      username: Joi.string().required(),
+      password: Joi.string().required(),
+      confirmpassword: Joi.string().required(),
+      vpaths: Joi.array().items(Joi.string()).required(),
+      admin: Joi.boolean().optional().default(false)
+    });
+    const input = joiValidate(schema, req.body);
+
+    await admin.registerUser(
+      input.value.firstname,
+      input.value.lastname,
+      input.value.emailid,
+      input.value.username,
+      input.value.password,
+      input.value.confirmpassword,
+      input.value.admin,
+      input.value.vpaths
+    );
+    res.json({});
+  });
+
   mstream.post("/api/v1/admin/db/force-compress-images", (req, res) => {
     res.json({ started: imageCompress.run() });
   });
@@ -228,7 +255,7 @@ exports.setup = (mstream) => {
         total += db.getFileCollection().count({ 'vpath': vpath })
       }
     }
-    
+
     res.json({
       fileCount: total
     });
@@ -251,6 +278,14 @@ exports.setup = (mstream) => {
     });
     joiValidate(schema, req.body);
 
+    // const token = jwt.sign({ username: req.body.username }, config.program.secret);
+
+    // res.cookie('x-access-token', token, {
+    //   maxAge: 157784630000, // 5 years in ms
+    //   sameSite: 'Strict',
+    // });
+
+    // console.log(token);
     await admin.editUserPassword(req.body.username, req.body.password);
     res.json({});
   });
@@ -462,12 +497,12 @@ exports.setup = (mstream) => {
 
     if (enableFederationDebouncer === true) { throw new Error('Debouncer Enabled'); }
     await admin.enableFederation(req.body.enable);
-    
+
     enableFederationDebouncer = true;
     setTimeout(() => {
       enableFederationDebouncer = false;
     }, 5000);
-    
+
     res.json({});
   });
 

@@ -26,8 +26,8 @@ exports.addDirectory = async (directory, vpath, autoAccess, isAudioBooks, mstrea
   if (config.program.folders[vpath]) { throw `'${vpath}' is already loaded into memory`; }
 
   // This extra step is so we can handle the process like a SQL transaction
-    // The new var is a copy so the original program isn't touched
-    // Once the file save is complete, the new user will be added
+  // The new var is a copy so the original program isn't touched
+  // Once the file save is complete, the new user will be added
   const memClone = JSON.parse(JSON.stringify(config.program.folders));
   memClone[vpath] = { root: directory };
   if (isAudioBooks) { memClone[vpath].type = 'audio-books'; }
@@ -84,7 +84,7 @@ exports.removeDirectory = async (vpath) => {
 
 exports.addUser = async (username, password, admin, vpaths) => {
   if (config.program.users[username]) { throw `'${username}' is already loaded into memory`; }
-  
+
   // hash password
   const hash = await auth.hashPassword(password);
 
@@ -96,8 +96,39 @@ exports.addUser = async (username, password, admin, vpaths) => {
   };
 
   // This extra step is so we can handle the process like a SQL transaction
-    // The new var is a copy so the original program isn't touched
-    // Once the file save is complete, the new user will be added
+  // The new var is a copy so the original program isn't touched
+  // Once the file save is complete, the new user will be added
+  const memClone = JSON.parse(JSON.stringify(config.program.users));
+  memClone[username] = newUser;
+
+  const loadConfig = await this.loadFile(config.configFile);
+  loadConfig.users = memClone;
+  await this.saveFile(loadConfig, config.configFile);
+
+  config.program.users[username] = newUser;
+
+  // TODO: add user from scrobbler
+}
+
+exports.registerUser = async (firstname, lastname, emailid, username, password, confirmpassword, admin, vpaths) => {
+  if (config.program.users[username]) { throw `'${username}' is already loaded into memory`; }
+
+  // hash password
+  const hash = await auth.hashPassword(password);
+
+  const newUser = {
+    firstname: firstname,
+    lastname: lastname,
+    emailid: emailid,
+    vpaths: vpaths,
+    password: hash.hashPassword,
+    salt: hash.salt,
+    admin: admin
+  };
+
+  // This extra step is so we can handle the process like a SQL transaction
+  // The new var is a copy so the original program isn't touched
+  // Once the file save is complete, the new user will be added
   const memClone = JSON.parse(JSON.stringify(config.program.users));
   memClone[username] = newUser;
 
@@ -379,12 +410,12 @@ function testSSL(jsonLoad) {
 }
 
 exports.setSSL = async (cert, key) => {
-    const sslObj = { key, cert };
-    await testSSL(sslObj);
-    const loadConfig = await this.loadFile(config.configFile);
-    loadConfig.ssl = sslObj;
-    await this.saveFile(loadConfig, config.configFile);
-  
-    config.program.ssl = sslObj;
-    mStreamServer.reboot();
+  const sslObj = { key, cert };
+  await testSSL(sslObj);
+  const loadConfig = await this.loadFile(config.configFile);
+  loadConfig.ssl = sslObj;
+  await this.saveFile(loadConfig, config.configFile);
+
+  config.program.ssl = sslObj;
+  mStreamServer.reboot();
 }

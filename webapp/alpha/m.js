@@ -111,7 +111,7 @@ const entityMap = {
   '=': '&#x3D;'
 };
 
-function escapeHtml (string) {
+function escapeHtml(string) {
   return String(string).replace(/[&<>"'`=\/]/g, (s) => {
     return entityMap[s];
   });
@@ -119,10 +119,10 @@ function escapeHtml (string) {
 
 function renderAlbum(id, artist, name, albumArtFile, year) {
   return `<li class="collection-item">
-    <div ${year ? `data-year="${year}"` : '' } ${artist ? `data-artist="${artist}"` : '' } ${id ? `data-album="${id}"` : '' } class="albumz flex2" onclick="getAlbumsOnClick(this);">
-        ${albumArtFile ? 
-          `<img class="album-art-box" loading="lazy" src="${MSTREAMAPI.currentServer.host}album-art/${albumArtFile}?compress=s&token=${MSTREAMAPI.currentServer.token}">`: 
-          '<svg xmlns="http://www.w3.org/2000/svg" class="album-art-box" viewBox="0 0 512 512" xml:space="preserve"><path d="M437 75C390.7 28.6 326.7 0 256 0 114.6 0 0 114.6 0 256c0 70.7 28.6 134.7 75 181s110.3 75 181 75c141.4 0 256-114.6 256-256 0-70.7-28.6-134.7-75-181zM256 477.9c-122.3 0-221.9-99.5-221.9-221.9S133.7 34.1 256 34.1 477.9 133.7 477.9 256 378.3 477.9 256 477.9z"/><path d="M256 145.1c-61.3 0-110.9 49.7-110.9 110.9S194.7 366.9 256 366.9 366.9 317.3 366.9 256c0-61.2-49.7-110.9-110.9-110.9zm0 187.7c-42.4 0-76.8-34.4-76.8-76.8s34.4-76.8 76.8-76.8 76.8 34.4 76.8 76.8-34.4 76.8-76.8 76.8z"/><path d="M238.9 238.9H273V273h-34.1zM256 102.4V68.3h-.6c-31 0-60.1 7.6-85.8 21l1-.5c-26 13.5-47.7 31.9-64.5 54.2l-.3.5 27.3 20.5c28.1-37.5 72.4-61.5 122.3-61.5l.6-.1z"/></svg>'}
+    <div ${year ? `data-year="${year}"` : ''} ${artist ? `data-artist="${artist}"` : ''} ${id ? `data-album="${id}"` : ''} class="albumz flex2" onclick="getAlbumsOnClick(this);">
+        ${albumArtFile ?
+      `<img class="album-art-box" loading="lazy" src="${MSTREAMAPI.currentServer.host}album-art/${albumArtFile}?compress=s&token=${MSTREAMAPI.currentServer.token}">` :
+      '<svg xmlns="http://www.w3.org/2000/svg" class="album-art-box" viewBox="0 0 512 512" xml:space="preserve"><path d="M437 75C390.7 28.6 326.7 0 256 0 114.6 0 0 114.6 0 256c0 70.7 28.6 134.7 75 181s110.3 75 181 75c141.4 0 256-114.6 256-256 0-70.7-28.6-134.7-75-181zM256 477.9c-122.3 0-221.9-99.5-221.9-221.9S133.7 34.1 256 34.1 477.9 133.7 477.9 256 378.3 477.9 256 477.9z"/><path d="M256 145.1c-61.3 0-110.9 49.7-110.9 110.9S194.7 366.9 256 366.9 366.9 317.3 366.9 256c0-61.2-49.7-110.9-110.9-110.9zm0 187.7c-42.4 0-76.8-34.4-76.8-76.8s34.4-76.8 76.8-76.8 76.8 34.4 76.8 76.8-34.4 76.8-76.8 76.8z"/><path d="M238.9 238.9H273V273h-34.1zM256 102.4V68.3h-.6c-31 0-60.1 7.6-85.8 21l1-.5c-26 13.5-47.7 31.9-64.5 54.2l-.3.5 27.3 20.5c28.1-37.5 72.4-61.5 122.3-61.5l.6-.1z"/></svg>'}
         <span><b>${name}</b> ${year ? `<br>[${year}]` : ''}</span>
     </div>
   </li>`;
@@ -136,13 +136,16 @@ function renderArtist(artist) {
 
 function renderFileWithMetadataHtml(filepath, lokiId, metadata) {
   return `<li data-lokiid="${lokiId}" class="collection-item">
-    <div data-file_location="${filepath}" class="filez flex" onclick="onFileClick(this);">
+    
+    <div data-file_location="${filepath}" class="filez flex">
+    
       <img class="album-art-box" loading="lazy" ${metadata['album-art'] ? `src="${MSTREAMAPI.currentServer.host}album-art/${metadata['album-art']}?compress=s&token=${MSTREAMAPI.currentServer.token}"` : 'src="assets/img/default.png"'}>
       <div>
         <b><span>${(!metadata || !metadata.title) ? filepath.split("/").pop() : `${metadata.title}`}</span></b>
         ${metadata.artist ? `</b><br><span style="font-size:15px;">${metadata.artist}</span>` : ''}
       </div>
     </div>
+  
     <div class="song-button-box">
       <span title="Play Now" onclick="playNow(this);" data-file_location="${filepath}" class="songDropdown">
         <svg xmlns="http://www.w3.org/2000/svg" height="14" width="14" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M15.5 5H11l5 7-5 7h4.5l5-7z"/><path d="M8.5 5H4l5 7-5 7h4.5l5-7z"/></svg>
@@ -154,7 +157,7 @@ function renderFileWithMetadataHtml(filepath, lokiId, metadata) {
 
 function createMusicFileHtml(fileLocation, title, aa, rating, subtitle) {
   return `<li class="collection-item">
-    <div data-file_location="${fileLocation}" class="filez ${aa ? 'flex2' : ''}" onclick="onFileClick(this);">
+    <div data-file_location="${fileLocation}" class="filez ${aa ? 'flex2' : ''}"  id="newfileLocation" onclick="onFileClick(this);">
       ${aa ? `<img loading="lazy" class="album-art-box" ${aa}>` : '<svg class="music-image" height="18" width="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><path d="M9 37.5c-3.584 0-6.5-2.916-6.5-6.5s2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V5.429l25-3.846V29c0 3.584-2.916 6.5-6.5 6.5s-6.5-2.916-6.5-6.5 2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V11.023l-19 2.931V31c0 3.584-2.916 6.5-6.5 6.5z" fill="#8bb7f0"/><path d="M37 2.166V29c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V10.441l-1.152.178-18 2.776-.848.13V31c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V5.858l24-3.692M38 1L12 5v19.683A6.962 6.962 0 009 24a7 7 0 107 7V14.383l18-2.776v11.076A6.962 6.962 0 0031 22a7 7 0 107 7V1z" fill="#4e7ab5"/></svg>'} 
       <span>
         ${subtitle !== undefined ? `<b>` : ''}
@@ -221,9 +224,9 @@ function getLoadingSvg() {
 }
 
 function setBrowserRootPanel(panelName, showBar) {
-  if(showBar === false) {
+  if (showBar === false) {
     document.getElementById('directory_bar').style.display = 'none';
-  }else {
+  } else {
     document.getElementById('directory_bar').style.display = '';
   }
 
@@ -243,6 +246,16 @@ function loadFileExplorer() {
   setBrowserRootPanel('File Explorer');
   programState = [{ state: 'fileExplorer' }];
 
+  document.getElementById('mstream-player').style.display = 'block';
+  document.getElementById('filelist').style.display = 'block';
+  document.getElementById('playlist').style.display = 'block';
+  document.getElementById('header_tab').style.display = 'block';
+  document.getElementById('backbtn').style.display = 'block';
+  document.getElementById('local_search_btn').style.display = 'block';
+  document.getElementById('add_all').style.display = 'block';
+  document.getElementById('newcontent').style.display = 'none';
+  document.getElementById('content').style.display = 'flex';
+
   // Reset file explorer vars
   fileExplorerArray = [];
   //send this directory to be parsed and displayed
@@ -258,7 +271,7 @@ async function senddir(root) {
     const response = await MSTREAMAPI.dirparser(directoryString);
     document.getElementById('directoryName').innerHTML = response.path;
 
-    if(root === true && response.path.length > 1) {
+    if (root === true && response.path.length > 1) {
       fileExplorerArray.push(response.path.replaceAll('/', ''));
       programState.push({
         state: 'fileExplorer',
@@ -267,7 +280,7 @@ async function senddir(root) {
       });
     }
     printdir(response);
-  } catch(err) {
+  } catch (err) {
     boilerplateFailure(err);
   }
 }
@@ -310,18 +323,18 @@ function getFileExplorerPath() {
 
 function getDirectoryString2(component) {
   var newString = getFileExplorerPath() + component.getAttribute("data-directory");
-  if (newString.substring(0,1) !== '/') {
+  if (newString.substring(0, 1) !== '/') {
     newString = "/" + newString
   }
 
   return newString;
 }
 
-if (typeof(Storage) !== "undefined" && localStorage.getItem("token")) {
+if (typeof (Storage) !== "undefined" && localStorage.getItem("token")) {
   MSTREAMAPI.currentServer.token = localStorage.getItem("token");
 }
 
-function handleDirClick(el){
+function handleDirClick(el) {
   fileExplorerArray.push(el.getAttribute('data-directory'));
   programState.push({
     state: 'fileExplorer',
@@ -348,6 +361,8 @@ function boilerplateFailure(err) {
 
 function onFileClick(el) {
   VUEPLAYERCORE.addSongWizard(el.getAttribute("data-file_location"), {}, true);
+  // return `<iframe src="https://www.soundslice.com/slices/XLslc/embed/" width="100%" height="500" frameBorder="0"
+  // allowfullscreen></iframe>`;
 }
 
 async function recursiveAddDir(el) {
@@ -355,8 +370,8 @@ async function recursiveAddDir(el) {
     const directoryString = getDirectoryString2(el);
     const res = await MSTREAMAPI.recursiveScan(directoryString);
     addAllSongs(res);
-  } catch(err) {
-    boilerplateFailure(err);   
+  } catch (err) {
+    boilerplateFailure(err);
   }
 }
 
@@ -369,13 +384,13 @@ async function onFilePlaylistClick(el) {
       previousSearch: document.getElementById('search_folders').value
     });
     const directoryString = getFileExplorerPath();
-  
+
     document.getElementById('directoryName').innerHTML = '/' + directoryString.substring(0, directoryString.length - 1);
-    document.getElementById('filelist').innerHTML = getLoadingSvg();  
+    document.getElementById('filelist').innerHTML = getLoadingSvg();
 
     const response = await MSTREAMAPI.loadFileplaylist(directoryString);
     printdir(response);
-  }catch(err) {
+  } catch (err) {
     boilerplateFailure(err);
 
   }
@@ -391,8 +406,8 @@ async function addFilePlaylist(el) {
     })
 
     addAllSongs(translatedList);
-  }catch(err) {
-     boilerplateFailure(err);
+  } catch (err) {
+    boilerplateFailure(err);
   }
 }
 
@@ -430,9 +445,9 @@ async function init() {
       MSTREAMPLAYER.transcodeOptions.serverEnabled = true;
       MSTREAMPLAYER.transcodeOptions.defaultCodec = response.transcode.defaultCodec;
       MSTREAMPLAYER.transcodeOptions.defaultBitrate = response.transcode.defaultBitrate;
-      MSTREAMPLAYER.transcodeOptions.defaultAlgo = response.transcode.defaultAlgorithm;      
+      MSTREAMPLAYER.transcodeOptions.defaultAlgo = response.transcode.defaultAlgorithm;
     }
-  }catch (err) {
+  } catch (err) {
     // window.location.href = 'login';
   }
 
@@ -441,23 +456,23 @@ async function init() {
     const ivp = JSON.parse(localStorage.getItem('ignoreVPaths'));
     if (Array.isArray(ivp) || !(ivp instanceof Object)) { throw 'bad!'; }
     MSTREAMPLAYER.ignoreVPaths = ivp;
-  } catch (e) {}
+  } catch (e) { }
 
   try {
     // forced to an array to assure we're not stuffing nul values in here
     MSTREAMPLAYER.minRating = JSON.parse(localStorage.getItem('minRating'))[0];
-  } catch (e) {}
+  } catch (e) { }
 
   try {
-    if(localStorage.getItem('transcode') === 'true' && MSTREAMPLAYER.transcodeOptions.serverEnabled === true) {
+    if (localStorage.getItem('transcode') === 'true' && MSTREAMPLAYER.transcodeOptions.serverEnabled === true) {
       toggleTranscoding(undefined, true);
     }
     MSTREAMPLAYER.transcodeOptions.selectedCodec = localStorage.getItem('trans-codec-select');
     MSTREAMPLAYER.transcodeOptions.selectedBitrate = localStorage.getItem('trans-bitrate-select');
     MSTREAMPLAYER.transcodeOptions.selectedAlgo = localStorage.getItem('trans-algo-select');
-  } catch (e) {}
+  } catch (e) { }
 
-  try{
+  try {
     VUEPLAYERCORE.livePlaylist.name = localStorage.getItem('live-playlist-auto-start') ? localStorage.getItem('live-playlist-auto-start') : false;
 
     if (VUEPLAYERCORE.livePlaylist.name) {
@@ -476,7 +491,7 @@ async function init() {
       document.getElementById('live-playlist-hide-these').hidden = true;
     }
 
-  }catch(err) {}
+  } catch (err) { }
 
   dbStatus();
 }
@@ -504,7 +519,7 @@ async function dbStatus() {
     // Update status
     document.getElementById('scan-status').innerHTML = 'Scan In Progress';
     document.getElementById('scan-status-files').innerHTML = response.totalFileCount + ' files in DB';
-  }catch(err) {
+  } catch (err) {
     document.getElementById('scan-status').innerHTML = '';
     document.getElementById('scan-status-files').innerHTML = '';
     clearInterval(startInterval);
@@ -589,7 +604,7 @@ function openMetadataModal(metadata, fp) {
   } else {
     document.getElementById('meta--aa').href = '#';
   }
-  
+
   myModal.open('#metadataModel');
 }
 
@@ -607,7 +622,7 @@ async function addToPlaylistUI(playlist) {
       position: 'topCenter',
       timeout: 3500
     });
-  }catch(err) {
+  } catch (err) {
     iziToast.error({
       title: 'Failed to add song',
       position: 'topCenter',
@@ -630,7 +645,7 @@ function downloadPlaylist() {
 
   // Use key if necessary
   document.getElementById('downform').action = "api/v1/download/zip?token=" + MSTREAMAPI.currentServer.token;
-  
+
   let input = document.createElement("INPUT");
   input.type = 'hidden';
   input.name = 'fileArray';
@@ -661,7 +676,7 @@ function recursiveFileDownload(el) {
 
 function downloadFileplaylist(el) {
   document.getElementById('downform').action = "api/v1/download/m3u?token=" + MSTREAMAPI.currentServer.token;
-  
+
   const input = document.createElement("INPUT");
   input.type = 'hidden';
   input.name = 'path';
@@ -712,7 +727,7 @@ async function onBackButton() {
   }
 
   // Fill in Search Bar
-  if (backState.state !== 'searchPanel' &&  thisState.previousSearch) {
+  if (backState.state !== 'searchPanel' && thisState.previousSearch) {
     document.getElementById('localSearchBar').value = thisState.previousSearch;
     document.getElementById('localSearchBar').dispatchEvent(new Event('keyup'));
   }
@@ -727,8 +742,17 @@ async function onBackButton() {
 async function getAllPlaylists() {
   setBrowserRootPanel('Playlists');
   document.getElementById('filelist').innerHTML = getLoadingSvg();
+  document.getElementById('mstream-player').style.display = 'block';
+  document.getElementById('filelist').style.display = 'block';
+  document.getElementById('playlist').style.display = 'block';
+  document.getElementById('header_tab').style.display = 'block';
+  document.getElementById('backbtn').style.display = 'block';
+  document.getElementById('local_search_btn').style.display = 'block';
+  document.getElementById('add_all').style.display = 'block';
+  document.getElementById('newcontent').style.display = 'none';
+  document.getElementById('content').style.display = 'flex';
   document.getElementById('directoryName').innerHTML = '<input class="newPlaylistButton btn green" style="height:24px;" value="New Playlist" type="button" onclick="openNewPlaylistModal();">';
-  programState = [ {state: 'allPlaylists' }];
+  programState = [{ state: 'allPlaylists' }];
 
   try {
     const response = await MSTREAMAPI.getAllPlaylists();
@@ -749,7 +773,7 @@ async function getAllPlaylists() {
     playlists += '</ul>'
 
     document.getElementById('filelist').innerHTML = playlists;
-  }catch (err) {
+  } catch (err) {
     document.getElementById('filelist').innerHTML = '<div>Server call failed</div>';
     return boilerplateFailure(err);
   }
@@ -769,18 +793,18 @@ function deletePlaylist(el) {
     title: `Delete '${playlistname}'?`,
     position: 'center',
     buttons: [
-        ['<button><b>Delete</b></button>', async (instance, toast) => {
-          try {
-            await MSTREAMAPI.deletePlaylist(playlistname)
-            document.querySelector('li[data-playlistname="'+encodeURIComponent(playlistname)+'"]').remove();
-          }catch(err) {
-            boilerplateFailure(err);
-          }
-          instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
-        }, true],
-        ['<button>Go Back</button>', (instance, toast) => {
-          instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
-        }],
+      ['<button><b>Delete</b></button>', async (instance, toast) => {
+        try {
+          await MSTREAMAPI.deletePlaylist(playlistname)
+          document.querySelector('li[data-playlistname="' + encodeURIComponent(playlistname) + '"]').remove();
+        } catch (err) {
+          boilerplateFailure(err);
+        }
+        instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
+      }, true],
+      ['<button>Go Back</button>', (instance, toast) => {
+        instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
+      }],
     ]
   });
 }
@@ -817,7 +841,7 @@ async function onPlaylistClick(el) {
     });
 
     document.getElementById('filelist').innerHTML = files;
-  }catch(err) {
+  } catch (err) {
     document.getElementById('filelist').innerHTML = '<div>Server call failed</div>';
     boilerplateFailure(response, error);
   }
@@ -829,12 +853,12 @@ function removePlaylistSong(el) {
     MSTREAMAPI.removePlaylistSong(lokiId);
 
     // remove from currentBrowsingList
-    currentBrowsingList = currentBrowsingList.filter(item =>{
+    currentBrowsingList = currentBrowsingList.filter(item => {
       return item.lokiId !== lokiId
     });
 
     document.querySelector(`li[data-lokiid="${lokiId}"]`).remove();
-  }catch(err) {
+  } catch (err) {
     return boilerplateFailure(err);
   }
 }
@@ -851,22 +875,22 @@ async function newPlaylist() {
       timeout: 3000
     });
 
-    document.getElementById("newPlaylistForm").reset(); 
-    VUEPLAYERCORE.playlists.push({ name: title, type: 'playlist'});
+    document.getElementById("newPlaylistForm").reset();
+    VUEPLAYERCORE.playlists.push({ name: title, type: 'playlist' });
     document.getElementById('pop-f').innerHTML += `<div class="pop-list-item" onclick="addToPlaylistUI('${title}')">&#8226; ${title}</div>`;
     document.getElementById('live-playlist-select').innerHTML += `<option value="${title}">${title}</option>`;
-  
+
     if (programState[0].state === 'allPlaylists') {
       getAllPlaylists();
     }
-  }catch (err) {
+  } catch (err) {
     boilerplateFailure(err);
   }
   document.getElementById('new_playlist').disabled = false;
 }
 
 async function setLivePlaylist() {
-  try{
+  try {
     document.getElementById('set_live_playlist').disabled = true;
 
     if (VUEPLAYERCORE.livePlaylist.name !== false) {
@@ -877,7 +901,7 @@ async function setLivePlaylist() {
       document.getElementById('live-playlist-hide-these').hidden = false;
       myModal.close();
       return;
-    } 
+    }
 
     let livePlaylistName;
 
@@ -898,7 +922,7 @@ async function setLivePlaylist() {
     }
 
     // check if checkbox is checked
-    if(document.getElementById('persist_live_queue').checked === true) {
+    if (document.getElementById('persist_live_queue').checked === true) {
       localStorage.setItem('live-playlist-auto-start', livePlaylistName)
     } else {
       localStorage.removeItem('live-playlist-auto-start');
@@ -915,7 +939,7 @@ async function setLivePlaylist() {
       MSTREAMPLAYER.clearPlaylist();
       response.forEach(value => {
         VUEPLAYERCORE.addSongWizard(value.filepath, value.metadata, false, undefined, false, true);
-      });  
+      });
     } else {
       // save current queue
       const songs = [];
@@ -932,7 +956,7 @@ async function setLivePlaylist() {
 
     // close modal
     myModal.close();
-  } catch(err) {
+  } catch (err) {
     boilerplateFailure(err);
   } finally {
     document.getElementById('set_live_playlist').disabled = false;
@@ -952,14 +976,14 @@ async function savePlaylist() {
   try {
     document.getElementById('save_playlist').disabled = true;
     const title = document.getElementById('playlist_name').value;
-  
+
     //loop through array and add each file to the playlist
     const songs = [];
     for (let i = 0; i < MSTREAMPLAYER.playlist.length; i++) {
       songs.push(MSTREAMPLAYER.playlist[i].filepath);
     }
 
-    MSTREAMAPI.savePlaylist(title,songs);
+    MSTREAMAPI.savePlaylist(title, songs);
 
     myModal.close();
     iziToast.success({
@@ -972,10 +996,10 @@ async function savePlaylist() {
       getAllPlaylists();
     }
 
-    VUEPLAYERCORE.playlists.push({ name: title, type: 'playlist'});
+    VUEPLAYERCORE.playlists.push({ name: title, type: 'playlist' });
     document.getElementById('pop-f').innerHTML += `<div class="pop-list-item" onclick="addToPlaylistUI('${title}')">&#8226; ${title}</div>`;
     document.getElementById('live-playlist-select').innerHTML += `<option value="${title}">${title}</option>`;
-  }catch(err) {
+  } catch (err) {
     boilerplateFailure(err);
   } finally {
     document.getElementById('save_playlist').disabled = false;
@@ -1004,7 +1028,7 @@ async function getAllArtists() {
     artists += '</ul>';
 
     document.getElementById('filelist').innerHTML = artists;
-  }catch(err) {
+  } catch (err) {
     document.getElementById('filelist').innerHTML = '<div>Server call failed</div>';
     boilerplateFailure(response, error);
   }
@@ -1047,7 +1071,7 @@ async function getArtistsAlbums(artist) {
     albums += '</ul>';
 
     document.getElementById('filelist').innerHTML = albums;
-  }catch(err) {
+  } catch (err) {
     document.getElementById('filelist').innerHTML = '<div>Server call failed</div>';
     boilerplateFailure(response, error);
   }
@@ -1057,7 +1081,7 @@ async function getArtistsAlbums(artist) {
 async function getAllAlbums() {
   setBrowserRootPanel('Albums');
   document.getElementById('filelist').innerHTML = getLoadingSvg();
-  
+
   programState = [{ state: 'allAlbums' }];
 
   try {
@@ -1081,7 +1105,7 @@ async function getAllAlbums() {
     albums += '</ul>'
 
     document.getElementById('filelist').innerHTML = albums;
-  }catch (err) {
+  } catch (err) {
     document.getElementById('filelist').innerHTML = '<div>Server call failed</div>';
     return boilerplateFailure(err);
   }
@@ -1119,7 +1143,7 @@ async function getAlbumSongs(album, artist, year) {
         return MSTREAMPLAYER.ignoreVPaths[vpath] === true;
       })
     });
-  
+
     //parse through the json array and make an array of corresponding divs
     let files = '<ul class="collection">';
     response.forEach(song => {
@@ -1129,7 +1153,7 @@ async function getAlbumSongs(album, artist, year) {
     files += '</ul>';
 
     document.getElementById('filelist').innerHTML = files;
-  }catch(err) {
+  } catch (err) {
     document.getElementById('filelist').innerHTML = '<div>Server call failed</div>';
     boilerplateFailure(err);
   }
@@ -1139,6 +1163,13 @@ async function getAlbumSongs(album, artist, year) {
 async function getRatedSongs() {
   setBrowserRootPanel('Starred');
   document.getElementById('filelist').innerHTML = getLoadingSvg();
+  document.getElementById('mstream-player').style.display = 'block';
+  document.getElementById('filelist').style.display = 'block';
+  document.getElementById('playlist').style.display = 'block';
+  document.getElementById('header_tab').style.display = 'block';
+  document.getElementById('backbtn').style.display = 'block';
+  document.getElementById('local_search_btn').style.display = 'block';
+  document.getElementById('add_all').style.display = 'block';
   programState = [{ state: 'allRated' }];
 
   try {
@@ -1162,14 +1193,14 @@ async function getRatedSongs() {
       });
 
       files += createMusicFileHtml(value.filepath,
-        value.metadata.title ? value.metadata.title : value.filepath.split('/').pop(), 
-        value.metadata['album-art'] ? `src="${MSTREAMAPI.currentServer.host}album-art/${value.metadata['album-art']}?compress=s&token=${MSTREAMAPI.currentServer.token}"` : `src="assets/img/default.png"`, 
+        value.metadata.title ? value.metadata.title : value.filepath.split('/').pop(),
+        value.metadata['album-art'] ? `src="${MSTREAMAPI.currentServer.host}album-art/${value.metadata['album-art']}?compress=s&token=${MSTREAMAPI.currentServer.token}"` : `src="assets/img/default.png"`,
         rating,
         value.metadata.artist ? `<span style="font-size:15px;">${value.metadata.artist}</span>` : '');
     });
 
     document.getElementById('filelist').innerHTML = files;
-  }catch (err) {
+  } catch (err) {
     document.getElementById('filelist').innerHTML = '<div>Server call failed</div>';
     return boilerplateFailure(err);
   }
@@ -1179,6 +1210,15 @@ async function getRatedSongs() {
 function getRecentlyPlayed() {
   setBrowserRootPanel('Recently Played');
   document.getElementById('filelist').innerHTML = getLoadingSvg();
+  document.getElementById('mstream-player').style.display = 'block';
+  document.getElementById('filelist').style.display = 'block';
+  document.getElementById('playlist').style.display = 'block';
+  document.getElementById('header_tab').style.display = 'block';
+  document.getElementById('backbtn').style.display = 'block';
+  document.getElementById('local_search_btn').style.display = 'block';
+  document.getElementById('add_all').style.display = 'block';
+  document.getElementById('newcontent').style.display = 'none';
+  document.getElementById('content').style.display = 'flex';
   document.getElementById('directoryName').innerHTML = 'Get last &nbsp;&nbsp;<input onkeydown="submitRecentlyPlayed();" onfocusout="redoRecentlyPlayed();" id="recently-played-limit" class="recently-added-input" type="number" min="1" step="1" value="100">&nbsp;&nbsp; songs';
 
   redoRecentlyPlayed();
@@ -1186,7 +1226,7 @@ function getRecentlyPlayed() {
 
 async function redoRecentlyPlayed() {
   currentBrowsingList = [];
-  programState = [{ state: 'recentlyPlayed'}];
+  programState = [{ state: 'recentlyPlayed' }];
 
   try {
     const response = await MSTREAMAPI.getRecentlyPlayed(
@@ -1204,16 +1244,16 @@ async function redoRecentlyPlayed() {
       });
 
       filelist += createMusicFileHtml(el.filepath,
-        el.metadata.title ? `${el.metadata.title}`: el.filepath.split("/").pop(),
-        el.metadata['album-art'] ? `src="${MSTREAMAPI.currentServer.host}album-art/${el.metadata['album-art']}?compress=s&token=${MSTREAMAPI.currentServer.token}"` : `src="assets/img/default.png"`, 
+        el.metadata.title ? `${el.metadata.title}` : el.filepath.split("/").pop(),
+        el.metadata['album-art'] ? `src="${MSTREAMAPI.currentServer.host}album-art/${el.metadata['album-art']}?compress=s&token=${MSTREAMAPI.currentServer.token}"` : `src="assets/img/default.png"`,
         undefined,
         el.metadata.artist ? `<span style="font-size:15px;">${el.metadata.artist}</span>` : '');
     });
 
     filelist += '</ul>'
-  
+
     document.getElementById('filelist').innerHTML = filelist;
-  }catch(err) {
+  } catch (err) {
     document.getElementById('filelist').innerHTML = '<div>Server call failed</div>';
     return boilerplateFailure(err);
   }
@@ -1229,6 +1269,15 @@ function submitRecentlyPlayed() {
 function getMostPlayed() {
   setBrowserRootPanel('Most Played');
   document.getElementById('filelist').innerHTML = getLoadingSvg();
+  document.getElementById('mstream-player').style.display = 'block';
+  document.getElementById('filelist').style.display = 'block';
+  document.getElementById('playlist').style.display = 'block';
+  document.getElementById('header_tab').style.display = 'block';
+  document.getElementById('backbtn').style.display = 'block';
+  document.getElementById('local_search_btn').style.display = 'block';
+  document.getElementById('add_all').style.display = 'block';
+  document.getElementById('newcontent').style.display = 'none';
+  document.getElementById('content').style.display = 'flex';
   document.getElementById('directoryName').innerHTML = 'Get last &nbsp;&nbsp;<input onkeydown="submitMostPlayed();" onfocusout="redoMostPlayed();" id="most-played-limit" class="recently-added-input" type="number" min="1" step="1" value="100">&nbsp;&nbsp; songs';
 
   redoMostPlayed();
@@ -1236,7 +1285,7 @@ function getMostPlayed() {
 
 async function redoMostPlayed() {
   currentBrowsingList = [];
-  programState = [{ state: 'mostPlayed'}];
+  programState = [{ state: 'mostPlayed' }];
 
   try {
     const response = await MSTREAMAPI.getMostPlayed(
@@ -1254,16 +1303,16 @@ async function redoMostPlayed() {
       });
 
       filelist += createMusicFileHtml(el.filepath,
-        el.metadata.title ? `${el.metadata.title}`: el.filepath.split("/").pop(),
-        el.metadata['album-art'] ? `src="${MSTREAMAPI.currentServer.host}album-art/${el.metadata['album-art']}?compress=s&token=${MSTREAMAPI.currentServer.token}"` : `src="assets/img/default.png"`, 
+        el.metadata.title ? `${el.metadata.title}` : el.filepath.split("/").pop(),
+        el.metadata['album-art'] ? `src="${MSTREAMAPI.currentServer.host}album-art/${el.metadata['album-art']}?compress=s&token=${MSTREAMAPI.currentServer.token}"` : `src="assets/img/default.png"`,
         undefined,
         el.metadata.artist ? `<span style="font-size:15px;">${el.metadata.artist} [${el.metadata['play-count']} plays]</span>` : `<span style="font-size:15px;">[${el.metadata['play-count']} plays]</span>`);
     });
 
     filelist += '</ul>'
-  
+
     document.getElementById('filelist').innerHTML = filelist;
-  }catch(err) {
+  } catch (err) {
     document.getElementById('filelist').innerHTML = '<div>Server call failed</div>';
     return boilerplateFailure(err);
   }
@@ -1279,6 +1328,15 @@ function submitMostPlayed() {
 function getRecentlyAdded() {
   setBrowserRootPanel('Recently Added');
   document.getElementById('filelist').innerHTML = getLoadingSvg();
+  document.getElementById('mstream-player').style.display = 'block';
+  document.getElementById('filelist').style.display = 'block';
+  document.getElementById('playlist').style.display = 'block';
+  document.getElementById('header_tab').style.display = 'block';
+  document.getElementById('backbtn').style.display = 'block';
+  document.getElementById('local_search_btn').style.display = 'block';
+  document.getElementById('add_all').style.display = 'block';
+  document.getElementById('newcontent').style.display = 'none';
+  document.getElementById('content').style.display = 'flex';
   document.getElementById('directoryName').innerHTML = 'Get last &nbsp;&nbsp;<input onkeydown="submitRecentlyAdded();" onfocusout="redoRecentlyAdded();" id="recently-added-limit" class="recently-added-input" type="number" min="1" step="1" value="100">&nbsp;&nbsp; songs';
 
   redoRecentlyAdded();
@@ -1286,7 +1344,7 @@ function getRecentlyAdded() {
 
 async function redoRecentlyAdded() {
   currentBrowsingList = [];
-  programState = [{ state: 'recentlyAdded'}];
+  programState = [{ state: 'recentlyAdded' }];
 
   try {
     const response = await MSTREAMAPI.getRecentlyAdded(
@@ -1304,16 +1362,16 @@ async function redoRecentlyAdded() {
       });
 
       filelist += createMusicFileHtml(el.filepath,
-        el.metadata.title ? `${el.metadata.title}`: el.filepath.split("/").pop(),
-        el.metadata['album-art'] ? `src="${MSTREAMAPI.currentServer.host}album-art/${el.metadata['album-art']}?compress=s&token=${MSTREAMAPI.currentServer.token}"` : `src="assets/img/default.png"`, 
+        el.metadata.title ? `${el.metadata.title}` : el.filepath.split("/").pop(),
+        el.metadata['album-art'] ? `src="${MSTREAMAPI.currentServer.host}album-art/${el.metadata['album-art']}?compress=s&token=${MSTREAMAPI.currentServer.token}"` : `src="assets/img/default.png"`,
         undefined,
         el.metadata.artist ? `<span style="font-size:15px;">${el.metadata.artist}</span>` : '');
     });
 
     filelist += '</ul>'
-  
+
     document.getElementById('filelist').innerHTML = filelist;
-  }catch(err) {
+  } catch (err) {
     document.getElementById('filelist').innerHTML = '<div>Server call failed</div>';
     return boilerplateFailure(err);
   }
@@ -1326,7 +1384,7 @@ function submitRecentlyAdded() {
 }
 
 ///////////////// Transcode
-function setupTranscodePanel(){
+function setupTranscodePanel() {
   setBrowserRootPanel('Transcode', false);
 
   if (!MSTREAMPLAYER.transcodeOptions.serverEnabled) {
@@ -1396,7 +1454,7 @@ function changeTranscodeAlgo() {
   value ? localStorage.setItem('trans-algo-select', value) : localStorage.removeItem('trans-algo-select');
 }
 
-function toggleTranscoding(el, manual){
+function toggleTranscoding(el, manual) {
   // checkbox button while we convert the playlist
   if (el) { el.disabled = true; }
 
@@ -1406,7 +1464,7 @@ function toggleTranscoding(el, manual){
   const b = checked ? 'transcode/' : 'media/';
 
   document.getElementById("ffmpeg-logo").style.stroke = checked ? '#388E3C' : '#DDD';
-  MSTREAMPLAYER.transcodeOptions.frontendEnabled  = checked ? true : false;
+  MSTREAMPLAYER.transcodeOptions.frontendEnabled = checked ? true : false;
 
   localStorage.setItem('transcode', checked ? true : false);
 
@@ -1420,10 +1478,10 @@ function toggleTranscoding(el, manual){
 }
 
 ///////////////////////////// Mobile Stuff
-function getMobilePanel(){
+function getMobilePanel() {
   setBrowserRootPanel('Mobile Apps', false);
 
-  document.getElementById('filelist').innerHTML = 
+  document.getElementById('filelist').innerHTML =
     `<div class="mobile-links pad-6">
       <a target="_blank" href="https://play.google.com/store/apps/details?id=mstream.music&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1">
         <img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png'/>
@@ -1445,22 +1503,22 @@ async function submitShareForm() {
   try {
     document.getElementById('share_it').disabled = true;
     const shareTimeInDays = document.getElementById('share_time').value;
-  
+
     //loop through array and add each file to the playlist
     const stuff = [];
     for (let i = 0; i < MSTREAMPLAYER.playlist.length; i++) {
       stuff.push(MSTREAMPLAYER.playlist[i].filepath);
     }
-  
+
     if (stuff.length == 0) {
       document.getElementById('share_it').disabled = false;
       return;
     }
-    
+
     const response = await MSTREAMAPI.makeShared(stuff, shareTimeInDays);
     const adrs = window.location.protocol + '//' + window.location.host + '/shared/' + response.playlistId;
     document.getElementById('share-textarea').value = adrs;
-  }catch (err) {
+  } catch (err) {
     boilerplateFailure(err);
   }
 
@@ -1488,11 +1546,11 @@ function autoDjPanel() {
 
   newHtml += '<h5>Minimum Rating</h5> <select class="browser-default" onchange="updateAutoDJRatings(this)" id="autodj-ratings">';
   for (let i = 0; i < 11; i++) {
-    newHtml += `<option ${(Number(MSTREAMPLAYER.minRating) === i) ? 'selected' : ''} value="${i}">${(i ===0) ? 'Disabled' : +(i/2).toFixed(1)}</option>`;
+    newHtml += `<option ${(Number(MSTREAMPLAYER.minRating) === i) ? 'selected' : ''} value="${i}">${(i === 0) ? 'Disabled' : +(i / 2).toFixed(1)}</option>`;
   }
   newHtml += '</select>';
   newHtml += '<br><p><input type="button" class="btn blue" value="Toggle Auto DJ" onclick="MSTREAMPLAYER.toggleAutoDJ();"></p></div>'
-  
+
   document.getElementById('filelist').innerHTML = newHtml;
 }
 
@@ -1547,9 +1605,9 @@ function createJukeboxPanel() {
   }
 
   let address = '';
-  if(MSTREAMAPI.currentServer.host) {
+  if (MSTREAMAPI.currentServer.host) {
     address = `${MSTREAMAPI.currentServer.host}remote/${JUKEBOX.stats.adminCode}`;
-  }else {
+  } else {
     address = `${window.location.protocol}//${window.location.host}/remote/${JUKEBOX.stats.adminCode}`;
   }
 
@@ -1589,7 +1647,7 @@ function runLocalSearch(el) {
       } else if (x.type === 'playlist') {
         filelist += renderPlaylist(x.name);
       } else if (x.type === 'album') {
-        const albumString = x.name  ? x.name  : 'SINGLES';
+        const albumString = x.name ? x.name : 'SINGLES';
         filelist += renderAlbum(x.name, x.name === null ? x.artist : null, albumString, x.album_art_file);
       } else if (x.type === 'artist') {
         filelist += renderArtist(x.name);
@@ -1607,7 +1665,7 @@ function runLocalSearch(el) {
     }
   });
 
-  document.getElementById('filelist').innerHTML= filelist;
+  document.getElementById('filelist').innerHTML = filelist;
 }
 
 //////////////////////// Search
@@ -1648,12 +1706,21 @@ const searchMap = {
 function setupSearchPanel(searchTerm) {
   setBrowserRootPanel('Search DB');
   document.getElementById('local_search_btn').style.display = 'none';
+  document.getElementById('mstream-player').style.display = 'block';
+  document.getElementById('filelist').style.display = 'block';
+  document.getElementById('playlist').style.display = 'block';
+  document.getElementById('header_tab').style.display = 'block';
+  document.getElementById('backbtn').style.display = 'block';
+  document.getElementById('local_search_btn').style.display = 'block';
+  document.getElementById('add_all').style.display = 'block';
+  document.getElementById('newcontent').style.display = 'none';
+  document.getElementById('content').style.display = 'flex';
   programState = [{ state: 'searchPanel' }];
 
   let valString = '';
   if (searchTerm) { valString = `value="${searchTerm}"`; }
 
-  document.getElementById('filelist').innerHTML = 
+  document.getElementById('filelist').innerHTML =
     `<div>
       <form id="db-search" action="javascript:submitSearchForm()" class="flex">
         <input ${valString} id="search-term" required type="text" placeholder="Search Database">
@@ -1700,7 +1767,7 @@ async function submitSearchForm() {
         return MSTREAMPLAYER.ignoreVPaths[vpath] === true;
       })
     };
-    
+
     if (document.getElementById("search-in-artists") && document.getElementById("search-in-artists").checked === false) { postObject.noArtists = true; }
     searchToggles.artists = document.getElementById("search-in-artists").checked;
     if (document.getElementById("search-in-albums") && document.getElementById("search-in-albums").checked === false) { postObject.noAlbums = true; }
@@ -1729,8 +1796,7 @@ async function submitSearchForm() {
           <div onclick="${searchMap[key].func}(this);" data-${searchMap[key].data}="${value.filepath ? value.filepath : value.name}" class="${searchMap[key].class} left">
             <b>${searchMap[key].name}:</b> ${value.name}
           </div>
-          ${
-            key === 'files' || key === 'title' ? `<div class="song-button-box">
+          ${key === 'files' || key === 'title' ? `<div class="song-button-box">
             <span title="Play Now" onclick="playNow(this);" data-file_location="${value.filepath}" class="songDropdown">
               <svg xmlns="http://www.w3.org/2000/svg" height="12" width="12" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M15.5 5H11l5 7-5 7h4.5l5-7z"/><path d="M8.5 5H4l5 7-5 7h4.5l5-7z"/></svg>
             </span>
@@ -1744,13 +1810,13 @@ async function submitSearchForm() {
     });
 
     searchList += '</ul>'
-    
+
     if (noResultsFlag === true) {
       searchList = '<h5>No Results Found</h5>';
     }
 
     document.getElementById('search-results').innerHTML = searchList;
-  }catch(err) {
+  } catch (err) {
     boilerplateFailure(err);
   }
 }
@@ -1762,7 +1828,7 @@ function advancedConfig() {
   let newHtml = `<div class="pad-6">
     <h5>Use Folders</h5>
     <p>Unchecked folders will be ignored in all DB queries (including Auto DJ)</p>`;
-  
+
   for (let i = 0; i < MSTREAMAPI.currentServer.vpaths.length; i++) {
     let checkedString = '';
     if (!MSTREAMPLAYER.ignoreVPaths[MSTREAMAPI.currentServer.vpaths[i]]) {
@@ -1826,9 +1892,19 @@ function setupLayoutPanel() {
         </label>
       </div> -->
     </div>`;
-  
+
   // Add the content
   document.getElementById('filelist').innerHTML = newHtml;
+  document.getElementById('local_search_btn').style.display = 'none';
+  document.getElementById('mstream-player').style.display = 'block';
+  document.getElementById('filelist').style.display = 'block';
+  document.getElementById('playlist').style.display = 'block';
+  document.getElementById('header_tab').style.display = 'block';
+  document.getElementById('backbtn').style.display = 'block';
+  document.getElementById('local_search_btn').style.display = 'block';
+  document.getElementById('add_all').style.display = 'block';
+  document.getElementById('newcontent').style.display = 'none';
+  document.getElementById('content').style.display = 'flex';
 }
 
 function tglMoveMetadata() {
@@ -1845,7 +1921,7 @@ function flipPlayer() {
   VUEPLAYERCORE.altLayout.flipPlayer = !VUEPLAYERCORE.altLayout.flipPlayer;
   document.getElementById('content').classList.toggle('col-rev');
   document.getElementById('flip-me').classList.toggle('col-rev');
-  
+
   localStorage.setItem('altLayout', JSON.stringify(VUEPLAYERCORE.altLayout));
 }
 
@@ -1869,13 +1945,14 @@ async function updateServer() {
     myModal.close();
 
     init();
-    loadFileExplorer();
-    localStorage.setItem('current-server', JSON.stringify(MSTREAMAPI.currentServer)); 
+    loadinstruction();
+    // loadFileExplorer();
+    localStorage.setItem('current-server', JSON.stringify(MSTREAMAPI.currentServer));
     document.getElementById('server_password').value = '';
-  }catch(err) {
+  } catch (err) {
     console.log(err)
     boilerplateFailure(err);
-  }finally {
+  } finally {
     document.getElementById('save_server').disabled = false;
   }
 }
@@ -1883,17 +1960,17 @@ async function updateServer() {
 function isElectron() {
   // Renderer process
   if (typeof window !== 'undefined' && typeof window.process === 'object' && window.process.type === 'renderer') {
-      return true;
+    return true;
   }
 
   // Main process
   if (typeof process !== 'undefined' && typeof process.versions === 'object' && !!process.versions.electron) {
-      return true;
+    return true;
   }
 
   // Detect the user agent when the `nodeIntegration` option is set to true
   if (typeof navigator === 'object' && typeof navigator.userAgent === 'string' && navigator.userAgent.indexOf('Electron') >= 0) {
-      return true;
+    return true;
   }
 
   return false;
@@ -1903,8 +1980,8 @@ function initElectron() {
   const navEl = document.getElementById('sidenav');
 
   // remove links
-  navEl.removeChild( document.querySelector('#admin-side-link'));
-  navEl.removeChild( document.querySelector('#logout-side-link'));
+  navEl.removeChild(document.querySelector('#admin-side-link'));
+  navEl.removeChild(document.querySelector('#logout-side-link'));
 
   // add link to edit server
   navEl.innerHTML += `<div class="side-nav-item my-waves" onclick="changeView(openEditModal, this);">
@@ -1920,21 +1997,1045 @@ function initElectron() {
       MSTREAMAPI.currentServer.token = curServer.token;
       MSTREAMAPI.currentServer.username = curServer.username;
     }
-  }catch(err) {}
+  } catch (err) { }
 
   // check if server
   if (!MSTREAMAPI.currentServer.host) {
     openEditModal();
-  }else {
+  } else {
     loadFileExplorer();
     init();
   }
-    // if not edit server panel
+  // if not edit server panel
 }
 
 if (isElectron()) {
   initElectron();
 } else {
   init();
-  loadFileExplorer();
+  loadinstruction();
+  // loadFileExplorer();
+}
+
+function loadIframe() {
+  var fileLocation = document.getElementById("newfileLocation").getAttribute("data-file-location");
+  location.href = 'iframe.html';
+  //file=' + encodeURIComponent(fileLocation);
+}
+
+function loadmusicTab() {
+  // document.getElementsByClassName('row-x grow').style.display = 'none';
+  setBrowserRootPanel('Music Lessons');
+  const musictab = `<div class="row row-x grow">
+  <div id="browser1" class="col col-x s12 m12 h1 flex-x">
+      <div class="header-tab hide-on-small-only">
+          <h4 class="panel_one_name" style="color: #ffffff; margin: 30px 0 0 10px;">Music
+              Lessons</h4>
+      </div>
+      <div id="directory_bar1" class="level-2 flex">
+
+
+          <div id="search_folders1" class="super-hide">
+              <input id="localSearchBar1" onkeyup="runLocalSearch(this)" type="text" placeholder="Search List"
+                  autocomplete="off">
+          </div>
+
+      </div>
+      <div class="upload-progress-bar">
+          <div style="width:0%" id="upload-progress-inner1" class="upload-progress-inner"></div>
+      </div>
+      <div id="filelist1" style="width:100%; margin:20px 0; display: flex; gap:150px">
+          <ul class="collection" style="width:50%">
+              <li class="collection-item">
+                  <div data-file_location="/music-tracks/Abhi Na Jao.mp3" class="filez " id="newfileLocation1"
+                      onclick="changeView(loadfirstiframe, this)">
+                      <svg class="music-image" height="18" width="18" xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 40 40">
+                          <path
+                              d="M9 37.5c-3.584 0-6.5-2.916-6.5-6.5s2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V5.429l25-3.846V29c0 3.584-2.916 6.5-6.5 6.5s-6.5-2.916-6.5-6.5 2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V11.023l-19 2.931V31c0 3.584-2.916 6.5-6.5 6.5z"
+                              fill="#8bb7f0"></path>
+                          <path
+                              d="M37 2.166V29c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V10.441l-1.152.178-18 2.776-.848.13V31c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V5.858l24-3.692M38 1L12 5v19.683A6.962 6.962 0 009 24a7 7 0 107 7V14.383l18-2.776v11.076A6.962 6.962 0 0031 22a7 7 0 107 7V1z"
+                              fill="#4e7ab5"></path>
+                      </svg>
+                      <span>
+
+                          <span class="item-text">LESSON NO. 1 - C MAJOR SCALE</span>
+
+                      </span>
+                  </div>
+                  
+              </li>
+              <li class="collection-item">
+                  <div data-file_location="/music-tracks/Ae mere watan.mp3" class="filez "
+                      id="newfileLocation" onclick="changeView(loadsecondiframe, this)">
+                      <svg class="music-image" height="18" width="18" xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 40 40">
+                          <path
+                              d="M9 37.5c-3.584 0-6.5-2.916-6.5-6.5s2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V5.429l25-3.846V29c0 3.584-2.916 6.5-6.5 6.5s-6.5-2.916-6.5-6.5 2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V11.023l-19 2.931V31c0 3.584-2.916 6.5-6.5 6.5z"
+                              fill="#8bb7f0"></path>
+                          <path
+                              d="M37 2.166V29c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V10.441l-1.152.178-18 2.776-.848.13V31c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V5.858l24-3.692M38 1L12 5v19.683A6.962 6.962 0 009 24a7 7 0 107 7V14.383l18-2.776v11.076A6.962 6.962 0 0031 22a7 7 0 107 7V1z"
+                              fill="#4e7ab5"></path>
+                      </svg>
+                      <span>
+
+                          <span class="item-text">LESSON NO. 2 - JINGLE BELLS</span>
+
+                      </span>
+                  </div>
+                  
+              </li>
+              <li class="collection-item">
+                  <div data-file_location="/music-tracks/Chukar mere maan ko guiar tab sheet.mp3"
+                      class="filez " id="newfileLocation" onclick="changeView(loadthirdiframe, this);">
+                      <svg class="music-image" height="18" width="18" xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 40 40">
+                          <path
+                              d="M9 37.5c-3.584 0-6.5-2.916-6.5-6.5s2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V5.429l25-3.846V29c0 3.584-2.916 6.5-6.5 6.5s-6.5-2.916-6.5-6.5 2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V11.023l-19 2.931V31c0 3.584-2.916 6.5-6.5 6.5z"
+                              fill="#8bb7f0"></path>
+                          <path
+                              d="M37 2.166V29c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V10.441l-1.152.178-18 2.776-.848.13V31c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V5.858l24-3.692M38 1L12 5v19.683A6.962 6.962 0 009 24a7 7 0 107 7V14.383l18-2.776v11.076A6.962 6.962 0 0031 22a7 7 0 107 7V1z"
+                              fill="#4e7ab5"></path>
+                      </svg>
+                      <span>
+
+                          <span class="item-text">LESSON NO. 3 - FIVE HUNDRED MILES</span>
+
+                      </span>
+                  </div>
+                  
+              </li>
+              <li class="collection-item">
+                  <div data-file_location="/music-tracks/Five Hundred Miles.mp3" class="filez "
+                      id="newfileLocation" onclick="changeView(loadfourthiframe, this);">
+                      <svg class="music-image" height="18" width="18" xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 40 40">
+                          <path
+                              d="M9 37.5c-3.584 0-6.5-2.916-6.5-6.5s2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V5.429l25-3.846V29c0 3.584-2.916 6.5-6.5 6.5s-6.5-2.916-6.5-6.5 2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V11.023l-19 2.931V31c0 3.584-2.916 6.5-6.5 6.5z"
+                              fill="#8bb7f0"></path>
+                          <path
+                              d="M37 2.166V29c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V10.441l-1.152.178-18 2.776-.848.13V31c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V5.858l24-3.692M38 1L12 5v19.683A6.962 6.962 0 009 24a7 7 0 107 7V14.383l18-2.776v11.076A6.962 6.962 0 0031 22a7 7 0 107 7V1z"
+                              fill="#4e7ab5"></path>
+                      </svg>
+                      <span>
+
+                          <span class="item-text">LESSON NO. 4 - YEH SHAAM MASTANI</span>
+
+                      </span>
+                  </div>
+                  
+              </li>
+              <li class="collection-item">
+                  <div data-file_location="/music-tracks/GOT Theme.mp3" class="filez " id="newfileLocation"
+                      onclick="changeView(loadfifthiframe, this);">
+                      <svg class="music-image" height="18" width="18" xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 40 40">
+                          <path
+                              d="M9 37.5c-3.584 0-6.5-2.916-6.5-6.5s2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V5.429l25-3.846V29c0 3.584-2.916 6.5-6.5 6.5s-6.5-2.916-6.5-6.5 2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V11.023l-19 2.931V31c0 3.584-2.916 6.5-6.5 6.5z"
+                              fill="#8bb7f0"></path>
+                          <path
+                              d="M37 2.166V29c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V10.441l-1.152.178-18 2.776-.848.13V31c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V5.858l24-3.692M38 1L12 5v19.683A6.962 6.962 0 009 24a7 7 0 107 7V14.383l18-2.776v11.076A6.962 6.962 0 0031 22a7 7 0 107 7V1z"
+                              fill="#4e7ab5"></path>
+                      </svg>
+                      <span>
+
+                          <span class="item-text">LESSON NO. 5 - MERE SAPNO KI RANI</span>
+
+                      </span>
+                  </div>
+                  
+              </li>
+              <li class="collection-item">
+                  <div data-file_location="/music-tracks/JINGLE BELLS SHEET.mp3" class="filez "
+                      id="newfileLocation" onclick="changeView(loadsixthiframe, this);">
+                      <svg class="music-image" height="18" width="18" xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 40 40">
+                          <path
+                              d="M9 37.5c-3.584 0-6.5-2.916-6.5-6.5s2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V5.429l25-3.846V29c0 3.584-2.916 6.5-6.5 6.5s-6.5-2.916-6.5-6.5 2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V11.023l-19 2.931V31c0 3.584-2.916 6.5-6.5 6.5z"
+                              fill="#8bb7f0"></path>
+                          <path
+                              d="M37 2.166V29c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V10.441l-1.152.178-18 2.776-.848.13V31c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V5.858l24-3.692M38 1L12 5v19.683A6.962 6.962 0 009 24a7 7 0 107 7V14.383l18-2.776v11.076A6.962 6.962 0 0031 22a7 7 0 107 7V1z"
+                              fill="#4e7ab5"></path>
+                      </svg>
+                      <span>
+
+                          <span class="item-text">LESSON NO. 6 - NATIONAL ANTHEM</span>
+
+                      </span>
+                  </div>
+                  
+              </li>
+              <li class="collection-item">
+                  <div data-file_location="/music-tracks/JINGLE BELLS SHEET.mp3" class="filez "
+                      id="newfileLocation" onclick="changeView(loadseventhiframe, this);">
+                      <svg class="music-image" height="18" width="18" xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 40 40">
+                          <path
+                              d="M9 37.5c-3.584 0-6.5-2.916-6.5-6.5s2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V5.429l25-3.846V29c0 3.584-2.916 6.5-6.5 6.5s-6.5-2.916-6.5-6.5 2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V11.023l-19 2.931V31c0 3.584-2.916 6.5-6.5 6.5z"
+                              fill="#8bb7f0"></path>
+                          <path
+                              d="M37 2.166V29c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V10.441l-1.152.178-18 2.776-.848.13V31c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V5.858l24-3.692M38 1L12 5v19.683A6.962 6.962 0 009 24a7 7 0 107 7V14.383l18-2.776v11.076A6.962 6.962 0 0031 22a7 7 0 107 7V1z"
+                              fill="#4e7ab5"></path>
+                      </svg>
+                      <span>
+
+                          <span class="item-text">LESSON NO. 7 - CHUKAR MERE MANN KO</span>
+
+                      </span>
+                  </div>
+                 
+              </li>
+              <li class="collection-item">
+                  <div data-file_location="/music-tracks/JINGLE BELLS SHEET.mp3" class="filez "
+                      id="newfileLocation" onclick="changeView(loadeightiframe, this);">
+                      <svg class="music-image" height="18" width="18" xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 40 40">
+                          <path
+                              d="M9 37.5c-3.584 0-6.5-2.916-6.5-6.5s2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V5.429l25-3.846V29c0 3.584-2.916 6.5-6.5 6.5s-6.5-2.916-6.5-6.5 2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V11.023l-19 2.931V31c0 3.584-2.916 6.5-6.5 6.5z"
+                              fill="#8bb7f0"></path>
+                          <path
+                              d="M37 2.166V29c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V10.441l-1.152.178-18 2.776-.848.13V31c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V5.858l24-3.692M38 1L12 5v19.683A6.962 6.962 0 009 24a7 7 0 107 7V14.383l18-2.776v11.076A6.962 6.962 0 0031 22a7 7 0 107 7V1z"
+                              fill="#4e7ab5"></path>
+                      </svg>
+                      <span>
+
+                          <span class="item-text">LESSON NO. 8 - TU JOH MILA</span>
+
+                      </span>
+                  </div>
+                  
+              </li>
+              <li class="collection-item">
+                  <div data-file_location="/music-tracks/JINGLE BELLS SHEET.mp3" class="filez "
+                      id="newfileLocation" onclick="changeView(loadninthiframe, this);">
+                      <svg class="music-image" height="18" width="18" xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 40 40">
+                          <path
+                              d="M9 37.5c-3.584 0-6.5-2.916-6.5-6.5s2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V5.429l25-3.846V29c0 3.584-2.916 6.5-6.5 6.5s-6.5-2.916-6.5-6.5 2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V11.023l-19 2.931V31c0 3.584-2.916 6.5-6.5 6.5z"
+                              fill="#8bb7f0"></path>
+                          <path
+                              d="M37 2.166V29c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V10.441l-1.152.178-18 2.776-.848.13V31c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V5.858l24-3.692M38 1L12 5v19.683A6.962 6.962 0 009 24a7 7 0 107 7V14.383l18-2.776v11.076A6.962 6.962 0 0031 22a7 7 0 107 7V1z"
+                              fill="#4e7ab5"></path>
+                      </svg>
+                      <span>
+
+                          <span class="item-text">LESSON NO. 9 - TUJSE NARAJ NAHI ZINDAGI</span>
+
+                      </span>
+                  </div>
+                  
+              </li>
+              <li class="collection-item">
+                  <div data-file_location="/music-tracks/JINGLE BELLS SHEET.mp3" class="filez "
+                      id="newfileLocation" onclick="changeView(loadtenthiframe, this);">
+                      <svg class="music-image" height="18" width="18" xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 40 40">
+                          <path
+                              d="M9 37.5c-3.584 0-6.5-2.916-6.5-6.5s2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V5.429l25-3.846V29c0 3.584-2.916 6.5-6.5 6.5s-6.5-2.916-6.5-6.5 2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V11.023l-19 2.931V31c0 3.584-2.916 6.5-6.5 6.5z"
+                              fill="#8bb7f0"></path>
+                          <path
+                              d="M37 2.166V29c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V10.441l-1.152.178-18 2.776-.848.13V31c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V5.858l24-3.692M38 1L12 5v19.683A6.962 6.962 0 009 24a7 7 0 107 7V14.383l18-2.776v11.076A6.962 6.962 0 0031 22a7 7 0 107 7V1z"
+                              fill="#4e7ab5"></path>
+                      </svg>
+                      <span>
+
+                          <span class="item-text">LESSON NO. 10 - AANE WALA PAL</span>
+
+                      </span>
+                  </div>
+                  
+              </li>
+              <li class="collection-item">
+                  <div data-file_location="/music-tracks/JINGLE BELLS SHEET.mp3" class="filez "
+                      id="newfileLocation" onclick="changeView(loadeleventhiframe, this);">
+                      <svg class="music-image" height="18" width="18" xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 40 40">
+                          <path
+                              d="M9 37.5c-3.584 0-6.5-2.916-6.5-6.5s2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V5.429l25-3.846V29c0 3.584-2.916 6.5-6.5 6.5s-6.5-2.916-6.5-6.5 2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V11.023l-19 2.931V31c0 3.584-2.916 6.5-6.5 6.5z"
+                              fill="#8bb7f0"></path>
+                          <path
+                              d="M37 2.166V29c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V10.441l-1.152.178-18 2.776-.848.13V31c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V5.858l24-3.692M38 1L12 5v19.683A6.962 6.962 0 009 24a7 7 0 107 7V14.383l18-2.776v11.076A6.962 6.962 0 0031 22a7 7 0 107 7V1z"
+                              fill="#4e7ab5"></path>
+                      </svg>
+                      <span>
+
+                          <span class="item-text">LESSON NO. 11 - JEENA JEENA</span>
+
+                      </span>
+                  </div>
+                  
+              </li>
+              <li class="collection-item">
+                  <div data-file_location="/music-tracks/JINGLE BELLS SHEET.mp3" class="filez "
+                      id="newfileLocation" onclick="changeView(loadtwelvthiframe, this);">
+                      <svg class="music-image" height="18" width="18" xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 40 40">
+                          <path
+                              d="M9 37.5c-3.584 0-6.5-2.916-6.5-6.5s2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V5.429l25-3.846V29c0 3.584-2.916 6.5-6.5 6.5s-6.5-2.916-6.5-6.5 2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V11.023l-19 2.931V31c0 3.584-2.916 6.5-6.5 6.5z"
+                              fill="#8bb7f0"></path>
+                          <path
+                              d="M37 2.166V29c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V10.441l-1.152.178-18 2.776-.848.13V31c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V5.858l24-3.692M38 1L12 5v19.683A6.962 6.962 0 009 24a7 7 0 107 7V14.383l18-2.776v11.076A6.962 6.962 0 0031 22a7 7 0 107 7V1z"
+                              fill="#4e7ab5"></path>
+                      </svg>
+                      <span>
+
+                          <span class="item-text">LESSON NO. 12 - KAKAAN</span>
+
+                      </span>
+                  </div>
+                  
+              </li>
+          </ul>
+          <ul class="collection" style="width:50%;">
+              <li class="collection-item">
+                  <div data-file_location="/music-tracks/Abhi Na Jao.mp3" class="filez " id="newfileLocation1"
+                      onclick="changeView(load13thiframe, this)">
+                      <svg class="music-image" height="18" width="18" xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 40 40">
+                          <path
+                              d="M9 37.5c-3.584 0-6.5-2.916-6.5-6.5s2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V5.429l25-3.846V29c0 3.584-2.916 6.5-6.5 6.5s-6.5-2.916-6.5-6.5 2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V11.023l-19 2.931V31c0 3.584-2.916 6.5-6.5 6.5z"
+                              fill="#8bb7f0"></path>
+                          <path
+                              d="M37 2.166V29c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V10.441l-1.152.178-18 2.776-.848.13V31c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V5.858l24-3.692M38 1L12 5v19.683A6.962 6.962 0 009 24a7 7 0 107 7V14.383l18-2.776v11.076A6.962 6.962 0 0031 22a7 7 0 107 7V1z"
+                              fill="#4e7ab5"></path>
+                      </svg>
+                      <span>
+
+                          <span class="item-text">LESSON NO. 13 - LO MAAN LIYA</span>
+
+                      </span>
+                  </div>
+                  
+              </li>
+              <li class="collection-item">
+                  <div data-file_location="/music-tracks/Ae mere watan.mp3" class="filez "
+                      id="newfileLocation" onclick="changeView(load14thiframe, this)">
+                      <svg class="music-image" height="18" width="18" xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 40 40">
+                          <path
+                              d="M9 37.5c-3.584 0-6.5-2.916-6.5-6.5s2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V5.429l25-3.846V29c0 3.584-2.916 6.5-6.5 6.5s-6.5-2.916-6.5-6.5 2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V11.023l-19 2.931V31c0 3.584-2.916 6.5-6.5 6.5z"
+                              fill="#8bb7f0"></path>
+                          <path
+                              d="M37 2.166V29c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V10.441l-1.152.178-18 2.776-.848.13V31c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V5.858l24-3.692M38 1L12 5v19.683A6.962 6.962 0 009 24a7 7 0 107 7V14.383l18-2.776v11.076A6.962 6.962 0 0031 22a7 7 0 107 7V1z"
+                              fill="#4e7ab5"></path>
+                      </svg>
+                      <span>
+
+                          <span class="item-text">LESSON NO. 14 - ZINDA HU YAAR</span>
+
+                      </span>
+                  </div>
+                  
+              </li>
+              <li class="collection-item">
+                  <div data-file_location="/music-tracks/Chukar mere maan ko guiar tab sheet.mp3"
+                      class="filez " id="newfileLocation" onclick="changeView(load15thiframe, this);">
+                      <svg class="music-image" height="18" width="18" xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 40 40">
+                          <path
+                              d="M9 37.5c-3.584 0-6.5-2.916-6.5-6.5s2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V5.429l25-3.846V29c0 3.584-2.916 6.5-6.5 6.5s-6.5-2.916-6.5-6.5 2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V11.023l-19 2.931V31c0 3.584-2.916 6.5-6.5 6.5z"
+                              fill="#8bb7f0"></path>
+                          <path
+                              d="M37 2.166V29c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V10.441l-1.152.178-18 2.776-.848.13V31c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V5.858l24-3.692M38 1L12 5v19.683A6.962 6.962 0 009 24a7 7 0 107 7V14.383l18-2.776v11.076A6.962 6.962 0 0031 22a7 7 0 107 7V1z"
+                              fill="#4e7ab5"></path>
+                      </svg>
+                      <span>
+
+                          <span class="item-text">LESSON NO. 15 - ZINDAGI DO PAL KI</span>
+
+                      </span>
+                  </div>
+                  
+              </li>
+              <li class="collection-item">
+                  <div data-file_location="/music-tracks/Five Hundred Miles.mp3" class="filez "
+                      id="newfileLocation" onclick="changeView(load16thiframe, this);">
+                      <svg class="music-image" height="18" width="18" xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 40 40">
+                          <path
+                              d="M9 37.5c-3.584 0-6.5-2.916-6.5-6.5s2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V5.429l25-3.846V29c0 3.584-2.916 6.5-6.5 6.5s-6.5-2.916-6.5-6.5 2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V11.023l-19 2.931V31c0 3.584-2.916 6.5-6.5 6.5z"
+                              fill="#8bb7f0"></path>
+                          <path
+                              d="M37 2.166V29c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V10.441l-1.152.178-18 2.776-.848.13V31c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V5.858l24-3.692M38 1L12 5v19.683A6.962 6.962 0 009 24a7 7 0 107 7V14.383l18-2.776v11.076A6.962 6.962 0 0031 22a7 7 0 107 7V1z"
+                              fill="#4e7ab5"></path>
+                      </svg>
+                      <span>
+
+                          <span class="item-text">LESSON NO. 16 - TU HAR LAMHA</span>
+
+                      </span>
+                  </div>
+                  
+              </li>
+              <li class="collection-item">
+                  <div data-file_location="/music-tracks/GOT Theme.mp3" class="filez " id="newfileLocation"
+                      onclick="changeView(load17thiframe, this);">
+                      <svg class="music-image" height="18" width="18" xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 40 40">
+                          <path
+                              d="M9 37.5c-3.584 0-6.5-2.916-6.5-6.5s2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V5.429l25-3.846V29c0 3.584-2.916 6.5-6.5 6.5s-6.5-2.916-6.5-6.5 2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V11.023l-19 2.931V31c0 3.584-2.916 6.5-6.5 6.5z"
+                              fill="#8bb7f0"></path>
+                          <path
+                              d="M37 2.166V29c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V10.441l-1.152.178-18 2.776-.848.13V31c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V5.858l24-3.692M38 1L12 5v19.683A6.962 6.962 0 009 24a7 7 0 107 7V14.383l18-2.776v11.076A6.962 6.962 0 0031 22a7 7 0 107 7V1z"
+                              fill="#4e7ab5"></path>
+                      </svg>
+                      <span>
+
+                          <span class="item-text">LESSON NO. 17 - TUMHI JAKE BHALO BASO</span>
+
+                      </span>
+                  </div>
+                  
+              </li>
+              <li class="collection-item">
+                  <div data-file_location="/music-tracks/JINGLE BELLS SHEET.mp3" class="filez "
+                      id="newfileLocation" onclick="changeView(load18thiframe, this);">
+                      <svg class="music-image" height="18" width="18" xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 40 40">
+                          <path
+                              d="M9 37.5c-3.584 0-6.5-2.916-6.5-6.5s2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V5.429l25-3.846V29c0 3.584-2.916 6.5-6.5 6.5s-6.5-2.916-6.5-6.5 2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V11.023l-19 2.931V31c0 3.584-2.916 6.5-6.5 6.5z"
+                              fill="#8bb7f0"></path>
+                          <path
+                              d="M37 2.166V29c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V10.441l-1.152.178-18 2.776-.848.13V31c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V5.858l24-3.692M38 1L12 5v19.683A6.962 6.962 0 009 24a7 7 0 107 7V14.383l18-2.776v11.076A6.962 6.962 0 0031 22a7 7 0 107 7V1z"
+                              fill="#4e7ab5"></path>
+                      </svg>
+                      <span>
+
+                          <span class="item-text">LESSON NO. 18 - TOMAKE CHUYE DILAN</span>
+
+                      </span>
+                  </div>
+                  
+              </li>
+              <li class="collection-item">
+                  <div data-file_location="/music-tracks/JINGLE BELLS SHEET.mp3" class="filez "
+                      id="newfileLocation" onclick="changeView(load19thiframe, this);">
+                      <svg class="music-image" height="18" width="18" xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 40 40">
+                          <path
+                              d="M9 37.5c-3.584 0-6.5-2.916-6.5-6.5s2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V5.429l25-3.846V29c0 3.584-2.916 6.5-6.5 6.5s-6.5-2.916-6.5-6.5 2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V11.023l-19 2.931V31c0 3.584-2.916 6.5-6.5 6.5z"
+                              fill="#8bb7f0"></path>
+                          <path
+                              d="M37 2.166V29c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V10.441l-1.152.178-18 2.776-.848.13V31c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V5.858l24-3.692M38 1L12 5v19.683A6.962 6.962 0 009 24a7 7 0 107 7V14.383l18-2.776v11.076A6.962 6.962 0 0031 22a7 7 0 107 7V1z"
+                              fill="#4e7ab5"></path>
+                      </svg>
+                      <span>
+
+                          <span class="item-text">LESSON NO. 19 - FULA RE FULLA</span>
+
+                      </span>
+                  </div>
+                  
+              </li>
+              <li class="collection-item">
+                  <div data-file_location="/music-tracks/JINGLE BELLS SHEET.mp3" class="filez "
+                      id="newfileLocation" onclick="changeView(load20thiframe, this);">
+                      <svg class="music-image" height="18" width="18" xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 40 40">
+                          <path
+                              d="M9 37.5c-3.584 0-6.5-2.916-6.5-6.5s2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V5.429l25-3.846V29c0 3.584-2.916 6.5-6.5 6.5s-6.5-2.916-6.5-6.5 2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V11.023l-19 2.931V31c0 3.584-2.916 6.5-6.5 6.5z"
+                              fill="#8bb7f0"></path>
+                          <path
+                              d="M37 2.166V29c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V10.441l-1.152.178-18 2.776-.848.13V31c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V5.858l24-3.692M38 1L12 5v19.683A6.962 6.962 0 009 24a7 7 0 107 7V14.383l18-2.776v11.076A6.962 6.962 0 0031 22a7 7 0 107 7V1z"
+                              fill="#4e7ab5"></path>
+                      </svg>
+                      <span>
+
+                          <span class="item-text">LESSON NO. 20 - AMAY PRASHNA KARE</span>
+
+                      </span>
+                  </div>
+                  
+              </li>
+              <li class="collection-item">
+                  <div data-file_location="/music-tracks/JINGLE BELLS SHEET.mp3" class="filez "
+                      id="newfileLocation" onclick="changeView(load21stiframe, this);">
+                      <svg class="music-image" height="18" width="18" xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 40 40">
+                          <path
+                              d="M9 37.5c-3.584 0-6.5-2.916-6.5-6.5s2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V5.429l25-3.846V29c0 3.584-2.916 6.5-6.5 6.5s-6.5-2.916-6.5-6.5 2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V11.023l-19 2.931V31c0 3.584-2.916 6.5-6.5 6.5z"
+                              fill="#8bb7f0"></path>
+                          <path
+                              d="M37 2.166V29c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V10.441l-1.152.178-18 2.776-.848.13V31c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V5.858l24-3.692M38 1L12 5v19.683A6.962 6.962 0 009 24a7 7 0 107 7V14.383l18-2.776v11.076A6.962 6.962 0 0031 22a7 7 0 107 7V1z"
+                              fill="#4e7ab5"></path>
+                      </svg>
+                      <span>
+
+                          <span class="item-text">LESSON NO. 21 - AMARO PARANO JAHA CHAY</span>
+
+                      </span>
+                  </div>
+                  
+              </li>
+              <li class="collection-item">
+                  <div data-file_location="/music-tracks/JINGLE BELLS SHEET.mp3" class="filez "
+                      id="newfileLocation" onclick="changeView(load22ndiframe, this);">
+                      <svg class="music-image" height="18" width="18" xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 40 40">
+                          <path
+                              d="M9 37.5c-3.584 0-6.5-2.916-6.5-6.5s2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V5.429l25-3.846V29c0 3.584-2.916 6.5-6.5 6.5s-6.5-2.916-6.5-6.5 2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V11.023l-19 2.931V31c0 3.584-2.916 6.5-6.5 6.5z"
+                              fill="#8bb7f0"></path>
+                          <path
+                              d="M37 2.166V29c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V10.441l-1.152.178-18 2.776-.848.13V31c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V5.858l24-3.692M38 1L12 5v19.683A6.962 6.962 0 009 24a7 7 0 107 7V14.383l18-2.776v11.076A6.962 6.962 0 0031 22a7 7 0 107 7V1z"
+                              fill="#4e7ab5"></path>
+                      </svg>
+                      <span>
+
+                          <span class="item-text">LESSON NO. 22 - LAICHHANA JAYAT</span>
+
+                      </span>
+                  </div>
+                  
+              </li>
+              <li class="collection-item">
+                  <div data-file_location="/music-tracks/JINGLE BELLS SHEET.mp3" class="filez "
+                      id="newfileLocation" onclick="changeView(load23rdiframe, this);">
+                      <svg class="music-image" height="18" width="18" xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 40 40">
+                          <path
+                              d="M9 37.5c-3.584 0-6.5-2.916-6.5-6.5s2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V5.429l25-3.846V29c0 3.584-2.916 6.5-6.5 6.5s-6.5-2.916-6.5-6.5 2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V11.023l-19 2.931V31c0 3.584-2.916 6.5-6.5 6.5z"
+                              fill="#8bb7f0"></path>
+                          <path
+                              d="M37 2.166V29c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V10.441l-1.152.178-18 2.776-.848.13V31c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V5.858l24-3.692M38 1L12 5v19.683A6.962 6.962 0 009 24a7 7 0 107 7V14.383l18-2.776v11.076A6.962 6.962 0 0031 22a7 7 0 107 7V1z"
+                              fill="#4e7ab5"></path>
+                      </svg>
+                      <span>
+
+                          <span class="item-text">LESSON NO. 23 - JASHN E BAHARA</span>
+
+                      </span>
+                  </div>
+                  
+              </li>
+              <li class="collection-item">
+                  <div data-file_location="/music-tracks/JINGLE BELLS SHEET.mp3" class="filez "
+                      id="newfileLocation" onclick="changeView(load24thiframe, this);">
+                      <svg class="music-image" height="18" width="18" xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 40 40">
+                          <path
+                              d="M9 37.5c-3.584 0-6.5-2.916-6.5-6.5s2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V5.429l25-3.846V29c0 3.584-2.916 6.5-6.5 6.5s-6.5-2.916-6.5-6.5 2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V11.023l-19 2.931V31c0 3.584-2.916 6.5-6.5 6.5z"
+                              fill="#8bb7f0"></path>
+                          <path
+                              d="M37 2.166V29c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V10.441l-1.152.178-18 2.776-.848.13V31c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V5.858l24-3.692M38 1L12 5v19.683A6.962 6.962 0 009 24a7 7 0 107 7V14.383l18-2.776v11.076A6.962 6.962 0 0031 22a7 7 0 107 7V1z"
+                              fill="#4e7ab5"></path>
+                      </svg>
+                      <span>
+
+                          <span class="item-text">LESSON NO. 24 - TUM HI HO</span>
+
+                      </span>
+                  </div>
+                  
+              </li>
+          </ul>
+      </div>
+      <div style="visibility:hidden; position: absolute;" class="pop-f" id="pop-f" role="tooltip">
+          <div class="pop-f pop-playlist">Add To Playlist:</div>
+          <div class="pop-list-item" onclick="addToPlaylistUI('Music Tracks')">• Music Tracks</div>
+          <div class="pop-list-item" onclick="addToPlaylistUI('Sample tracks')">• Sample tracks</div>
+      </div>
+  </div>
+
+
+</div>`
+  document.getElementById('mstream-player').style.display = 'none';
+  document.getElementById('filelist').style.display = 'none';
+  document.getElementById('playlist').style.display = 'none';
+  document.getElementById('header_tab').style.display = 'none';
+  document.getElementById('backbtn').style.display = 'none';
+  document.getElementById('local_search_btn').style.display = 'none';
+  document.getElementById('add_all').style.display = 'none';
+  document.getElementById('newcontent').style.display = 'flex';
+  document.getElementById('newcontent').style.flexBasis = 'auto';
+  document.getElementById('newcontent').innerHTML = musictab;
+  document.getElementById('content').style.display = 'flex';
+}
+
+function loadinstruction() {
+  // window.location.href = 'instruction.html';
+  const instruction = `
+  
+  <h5 style ="padding: 15px; font-weight: 600">Steps for beginner:</h5>
+  <h5 style = "padding: 15px;">Hello and welcome to 'VibeStream'. At 'VibeStream', we offer a comprehensive approach to learning guitar, with step-by-step lessons that build from basic to foundational levels. Before you begin, it's important to have some basic knowledge. If you're completely new to guitar and have no prior experience, please follow these initial steps:
+</h6>
+<h6 style ="padding: 15px">1. Learn to Tune Your Guitar Using an App: Using a tuning app is an easy and effective way to ensure your guitar is in tune.
+</h6>
+<iframe style="padding: 15px" width="700" height="400" src="https://www.youtube.com/embed/338d2XeGzww?si=NzKyAGZMTpONK2pN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<h6 style="padding: 15px">2. How to Hold Your Guitar: Properly holding your guitar is crucial for comfort and ease of playing.</h6>
+<iframe style = "padding: 15px" width="700" height="400" src="https://www.youtube.com/embed/dUpjh7CcY_0?si=DRQPjuzotP2Wen3k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<h6 style="padding: 15px">3. How to Hold a Plectrum: Knowing how to correctly hold a plectrum (pick) is important for effective strumming and picking.
+</h6>
+<iframe style="padding: 15px" width="700" height="400" src="https://www.youtube.com/embed/OT29cTu67L4?si=T6xkPz_paavuTeiN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<h6 style="padding:15px">4. How to Read Tabs: Understanding how to read guitar tablature (tabs) will help you play a wide variety of songs.
+</h6>
+<iframe style="padding: 15px" width="700" height="400" src="https://www.youtube.com/embed/pQC3JsbgaTw?si=ooBV7wj7DTLn02m7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<h5 style = "padding: 15px;">Note - "Please remember that things won't come easily at first; you need to give consistent effort and be patient to learn things properly. If you don't understand online videos, it's highly recommended to find an offline teacher to clarify doubts. After gaining some prior knowledge from an offline teacher, you can come back to our platform, VibeStream, to learn and enjoy our Indian music arrangements on guitar, designed by experienced teachers. These structured lessons are meant to improve your guitar playing. Wishing you happy practice! All the best."</h6>
+  `;
+  document.getElementById('mstream-player').style.display = 'none';
+  document.getElementById('filelist').style.display = 'none';
+  document.getElementById('playlist').style.display = 'none';
+  document.getElementById('header_tab').style.display = 'none';
+  document.getElementById('backbtn').style.display = 'none';
+  document.getElementById('local_search_btn').style.display = 'none';
+  document.getElementById('add_all').style.display = 'none';
+  document.getElementById('newcontent').style.display = 'block';
+  document.getElementById('newcontent').style.flexBasis = 'inherit';
+  document.getElementById('content').style.display = 'none';
+  document.getElementById('newcontent').innerHTML = instruction;
+}
+
+function loadfirstiframe() {
+  // window.location.href = 'abhinajao.html';
+  const first_iframe = `
+
+  <iframe src="https://www.soundslice.com/slices/cHWzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+
+  `;
+  document.getElementById('mstream-player').style.display = 'none';
+  document.getElementById('filelist').style.display = 'none';
+  document.getElementById('playlist').style.display = 'none';
+  document.getElementById('header_tab').style.display = 'none';
+  document.getElementById('backbtn').style.display = 'none';
+  document.getElementById('local_search_btn').style.display = 'none';
+  document.getElementById('add_all').style.display = 'none';
+  document.getElementById('newcontent').style.display = 'block';
+  document.getElementById('content').style.display = 'none';
+  document.getElementById('newcontent').innerHTML = first_iframe;
+}
+
+function loadsecondiframe() {
+  // window.location.href = 'abhinajao.html';
+  const first_iframe = `
+
+ <iframe src="https://www.soundslice.com/slices/hdWzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+
+
+  `;
+  document.getElementById('mstream-player').style.display = 'none';
+  document.getElementById('filelist').style.display = 'none';
+  document.getElementById('playlist').style.display = 'none';
+  document.getElementById('header_tab').style.display = 'none';
+  document.getElementById('backbtn').style.display = 'none';
+  document.getElementById('local_search_btn').style.display = 'none';
+  document.getElementById('add_all').style.display = 'none';
+  document.getElementById('newcontent').style.display = 'block';
+  document.getElementById('content').style.display = 'none';
+  document.getElementById('newcontent').innerHTML = first_iframe;
+}
+
+function loadthirdiframe() {
+  // window.location.href = 'abhinajao.html';
+  const first_iframe = `
+
+ <iframe src="https://www.soundslice.com/slices/xdWzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+
+
+  `;
+  document.getElementById('mstream-player').style.display = 'none';
+  document.getElementById('filelist').style.display = 'none';
+  document.getElementById('playlist').style.display = 'none';
+  document.getElementById('header_tab').style.display = 'none';
+  document.getElementById('backbtn').style.display = 'none';
+  document.getElementById('local_search_btn').style.display = 'none';
+  document.getElementById('add_all').style.display = 'none';
+  document.getElementById('newcontent').style.display = 'block';
+  document.getElementById('content').style.display = 'none';
+  document.getElementById('newcontent').innerHTML = first_iframe;
+}
+
+function loadfourthiframe() {
+  // window.location.href = 'fivehundredmiles.html';
+  const fourth_iframe = `
+
+    <iframe src="https://www.soundslice.com/slices/DJWzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+
+  `;
+  document.getElementById('mstream-player').style.display = 'none';
+  document.getElementById('filelist').style.display = 'none';
+  document.getElementById('playlist').style.display = 'none';
+  document.getElementById('header_tab').style.display = 'none';
+  document.getElementById('backbtn').style.display = 'none';
+  document.getElementById('local_search_btn').style.display = 'none';
+  document.getElementById('add_all').style.display = 'none';
+  document.getElementById('newcontent').style.display = 'block';
+  document.getElementById('content').style.display = 'none';
+  document.getElementById('newcontent').innerHTML = fourth_iframe;
+}
+
+function loadfifthiframe() {
+  // window.location.href = 'fivehundredmiles.html';
+  const fourth_iframe = `
+
+    <iframe src="https://www.soundslice.com/slices/nHWzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+
+  `;
+  document.getElementById('mstream-player').style.display = 'none';
+  document.getElementById('filelist').style.display = 'none';
+  document.getElementById('playlist').style.display = 'none';
+  document.getElementById('header_tab').style.display = 'none';
+  document.getElementById('backbtn').style.display = 'none';
+  document.getElementById('local_search_btn').style.display = 'none';
+  document.getElementById('add_all').style.display = 'none';
+  document.getElementById('newcontent').style.display = 'block';
+  document.getElementById('content').style.display = 'none';
+  document.getElementById('newcontent').innerHTML = fourth_iframe;
+}
+
+function loadsixthiframe() {
+  // window.location.href = 'fivehundredmiles.html';
+  const fourth_iframe = `
+
+    <iframe src="https://www.soundslice.com/slices/s7Wzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+
+  `;
+  document.getElementById('mstream-player').style.display = 'none';
+  document.getElementById('filelist').style.display = 'none';
+  document.getElementById('playlist').style.display = 'none';
+  document.getElementById('header_tab').style.display = 'none';
+  document.getElementById('backbtn').style.display = 'none';
+  document.getElementById('local_search_btn').style.display = 'none';
+  document.getElementById('add_all').style.display = 'none';
+  document.getElementById('newcontent').style.display = 'block';
+  document.getElementById('content').style.display = 'none';
+  document.getElementById('newcontent').innerHTML = fourth_iframe;
+}
+
+function loadseventhiframe() {
+  // window.location.href = 'fivehundredmiles.html';
+  const fourth_iframe = `
+
+    <iframe src="https://www.soundslice.com/slices/trWzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+
+  `;
+  document.getElementById('mstream-player').style.display = 'none';
+  document.getElementById('filelist').style.display = 'none';
+  document.getElementById('playlist').style.display = 'none';
+  document.getElementById('header_tab').style.display = 'none';
+  document.getElementById('backbtn').style.display = 'none';
+  document.getElementById('local_search_btn').style.display = 'none';
+  document.getElementById('add_all').style.display = 'none';
+  document.getElementById('newcontent').style.display = 'block';
+  document.getElementById('content').style.display = 'none';
+  document.getElementById('newcontent').innerHTML = fourth_iframe;
+}
+
+function loadeightiframe() {
+  // window.location.href = 'fivehundredmiles.html';
+  const fourth_iframe = `
+
+    <iframe src="https://www.soundslice.com/slices/prWzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+
+  `;
+  document.getElementById('mstream-player').style.display = 'none';
+  document.getElementById('filelist').style.display = 'none';
+  document.getElementById('playlist').style.display = 'none';
+  document.getElementById('header_tab').style.display = 'none';
+  document.getElementById('backbtn').style.display = 'none';
+  document.getElementById('local_search_btn').style.display = 'none';
+  document.getElementById('add_all').style.display = 'none';
+  document.getElementById('newcontent').style.display = 'block';
+  document.getElementById('content').style.display = 'none';
+  document.getElementById('newcontent').innerHTML = fourth_iframe;
+}
+
+function loadninthiframe() {
+  // window.location.href = 'fivehundredmiles.html';
+  const fourth_iframe = `
+
+    <iframe src="https://www.soundslice.com/slices/RhWzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+
+  `;
+  document.getElementById('mstream-player').style.display = 'none';
+  document.getElementById('filelist').style.display = 'none';
+  document.getElementById('playlist').style.display = 'none';
+  document.getElementById('header_tab').style.display = 'none';
+  document.getElementById('backbtn').style.display = 'none';
+  document.getElementById('local_search_btn').style.display = 'none';
+  document.getElementById('add_all').style.display = 'none';
+  document.getElementById('newcontent').style.display = 'block';
+  document.getElementById('content').style.display = 'none';
+  document.getElementById('newcontent').innerHTML = fourth_iframe;
+}
+
+function loadtenthiframe() {
+  // window.location.href = 'fivehundredmiles.html';
+  const fourth_iframe = `
+
+   <iframe src="https://www.soundslice.com/slices/xqWzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+
+  `;
+  document.getElementById('mstream-player').style.display = 'none';
+  document.getElementById('filelist').style.display = 'none';
+  document.getElementById('playlist').style.display = 'none';
+  document.getElementById('header_tab').style.display = 'none';
+  document.getElementById('backbtn').style.display = 'none';
+  document.getElementById('local_search_btn').style.display = 'none';
+  document.getElementById('add_all').style.display = 'none';
+  document.getElementById('newcontent').style.display = 'block';
+  document.getElementById('content').style.display = 'none';
+  document.getElementById('newcontent').innerHTML = fourth_iframe;
+}
+
+function loadeleventhiframe() {
+  // window.location.href = 'fivehundredmiles.html';
+  const fourth_iframe = `
+
+   <iframe src="https://www.soundslice.com/slices/WhWzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+
+  `;
+  document.getElementById('mstream-player').style.display = 'none';
+  document.getElementById('filelist').style.display = 'none';
+  document.getElementById('playlist').style.display = 'none';
+  document.getElementById('header_tab').style.display = 'none';
+  document.getElementById('backbtn').style.display = 'none';
+  document.getElementById('local_search_btn').style.display = 'none';
+  document.getElementById('add_all').style.display = 'none';
+  document.getElementById('newcontent').style.display = 'block';
+  document.getElementById('content').style.display = 'none';
+  document.getElementById('newcontent').innerHTML = fourth_iframe;
+}
+
+function loadtwelvthiframe() {
+  // window.location.href = 'fivehundredmiles.html';
+  const fourth_iframe = `
+
+    <iframe src="https://www.soundslice.com/slices/hhWzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+
+  `;
+  document.getElementById('mstream-player').style.display = 'none';
+  document.getElementById('filelist').style.display = 'none';
+  document.getElementById('playlist').style.display = 'none';
+  document.getElementById('header_tab').style.display = 'none';
+  document.getElementById('backbtn').style.display = 'none';
+  document.getElementById('local_search_btn').style.display = 'none';
+  document.getElementById('add_all').style.display = 'none';
+  document.getElementById('newcontent').style.display = 'block';
+  document.getElementById('content').style.display = 'none';
+  document.getElementById('newcontent').innerHTML = fourth_iframe;
+}
+
+function load13thiframe() {
+  // window.location.href = 'fivehundredmiles.html';
+  const iframe = `
+
+   <iframe src="https://www.soundslice.com/slices/zMjzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+  `;
+  document.getElementById('mstream-player').style.display = 'none';
+  document.getElementById('filelist').style.display = 'none';
+  document.getElementById('playlist').style.display = 'none';
+  document.getElementById('header_tab').style.display = 'none';
+  document.getElementById('backbtn').style.display = 'none';
+  document.getElementById('local_search_btn').style.display = 'none';
+  document.getElementById('add_all').style.display = 'none';
+  document.getElementById('newcontent').style.display = 'block';
+  document.getElementById('content').style.display = 'none';
+  document.getElementById('newcontent').innerHTML = iframe;
+}
+
+function load14thiframe() {
+  // window.location.href = 'fivehundredmiles.html';
+  const iframe = `
+
+   <iframe src="https://www.soundslice.com/slices/WMjzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+
+  `;
+  document.getElementById('mstream-player').style.display = 'none';
+  document.getElementById('filelist').style.display = 'none';
+  document.getElementById('playlist').style.display = 'none';
+  document.getElementById('header_tab').style.display = 'none';
+  document.getElementById('backbtn').style.display = 'none';
+  document.getElementById('local_search_btn').style.display = 'none';
+  document.getElementById('add_all').style.display = 'none';
+  document.getElementById('newcontent').style.display = 'block';
+  document.getElementById('content').style.display = 'none';
+  document.getElementById('newcontent').innerHTML = iframe;
+}
+
+function load15thiframe() {
+  // window.location.href = 'fivehundredmiles.html';
+  const iframe = `
+
+   <iframe src="https://www.soundslice.com/slices/PMjzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+
+  `;
+  document.getElementById('mstream-player').style.display = 'none';
+  document.getElementById('filelist').style.display = 'none';
+  document.getElementById('playlist').style.display = 'none';
+  document.getElementById('header_tab').style.display = 'none';
+  document.getElementById('backbtn').style.display = 'none';
+  document.getElementById('local_search_btn').style.display = 'none';
+  document.getElementById('add_all').style.display = 'none';
+  document.getElementById('newcontent').style.display = 'block';
+  document.getElementById('content').style.display = 'none';
+  document.getElementById('newcontent').innerHTML = iframe;
+}
+
+function load16thiframe() {
+  // window.location.href = 'fivehundredmiles.html';
+  const iframe = `
+
+  <iframe src="https://www.soundslice.com/slices/xMjzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+
+  `;
+  document.getElementById('mstream-player').style.display = 'none';
+  document.getElementById('filelist').style.display = 'none';
+  document.getElementById('playlist').style.display = 'none';
+  document.getElementById('header_tab').style.display = 'none';
+  document.getElementById('backbtn').style.display = 'none';
+  document.getElementById('local_search_btn').style.display = 'none';
+  document.getElementById('add_all').style.display = 'none';
+  document.getElementById('newcontent').style.display = 'block';
+  document.getElementById('content').style.display = 'none';
+  document.getElementById('newcontent').innerHTML = iframe;
+}
+
+function load17thiframe() {
+  // window.location.href = 'fivehundredmiles.html';
+  const iframe = `
+
+ <iframe src="https://www.soundslice.com/slices/gMjzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+
+  `;
+  document.getElementById('mstream-player').style.display = 'none';
+  document.getElementById('filelist').style.display = 'none';
+  document.getElementById('playlist').style.display = 'none';
+  document.getElementById('header_tab').style.display = 'none';
+  document.getElementById('backbtn').style.display = 'none';
+  document.getElementById('local_search_btn').style.display = 'none';
+  document.getElementById('add_all').style.display = 'none';
+  document.getElementById('newcontent').style.display = 'block';
+  document.getElementById('content').style.display = 'none';
+  document.getElementById('newcontent').innerHTML = iframe;
+}
+
+function load18thiframe() {
+  // window.location.href = 'fivehundredmiles.html';
+  const iframe = `
+
+ <iframe src="https://www.soundslice.com/slices/pMjzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+
+  `;
+  document.getElementById('mstream-player').style.display = 'none';
+  document.getElementById('filelist').style.display = 'none';
+  document.getElementById('playlist').style.display = 'none';
+  document.getElementById('header_tab').style.display = 'none';
+  document.getElementById('backbtn').style.display = 'none';
+  document.getElementById('local_search_btn').style.display = 'none';
+  document.getElementById('add_all').style.display = 'none';
+  document.getElementById('newcontent').style.display = 'block';
+  document.getElementById('content').style.display = 'none';
+  document.getElementById('newcontent').innerHTML = iframe;
+}
+
+function load19thiframe() {
+  // window.location.href = 'fivehundredmiles.html';
+  const iframe = `
+
+ <iframe src="https://www.soundslice.com/slices/fkjzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+
+  `;
+  document.getElementById('mstream-player').style.display = 'none';
+  document.getElementById('filelist').style.display = 'none';
+  document.getElementById('playlist').style.display = 'none';
+  document.getElementById('header_tab').style.display = 'none';
+  document.getElementById('backbtn').style.display = 'none';
+  document.getElementById('local_search_btn').style.display = 'none';
+  document.getElementById('add_all').style.display = 'none';
+  document.getElementById('newcontent').style.display = 'block';
+  document.getElementById('content').style.display = 'none';
+  document.getElementById('newcontent').innerHTML = iframe;
+}
+
+function load20thiframe() {
+  // window.location.href = 'fivehundredmiles.html';
+  const iframe = `
+
+ <iframe src="https://www.soundslice.com/slices/ykjzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+
+  `;
+  document.getElementById('mstream-player').style.display = 'none';
+  document.getElementById('filelist').style.display = 'none';
+  document.getElementById('playlist').style.display = 'none';
+  document.getElementById('header_tab').style.display = 'none';
+  document.getElementById('backbtn').style.display = 'none';
+  document.getElementById('local_search_btn').style.display = 'none';
+  document.getElementById('add_all').style.display = 'none';
+  document.getElementById('newcontent').style.display = 'block';
+  document.getElementById('content').style.display = 'none';
+  document.getElementById('newcontent').innerHTML = iframe;
+}
+
+function load21stiframe() {
+  // window.location.href = 'fivehundredmiles.html';
+  const iframe = `
+
+ <iframe src="https://www.soundslice.com/slices/2kjzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+
+  `;
+  document.getElementById('mstream-player').style.display = 'none';
+  document.getElementById('filelist').style.display = 'none';
+  document.getElementById('playlist').style.display = 'none';
+  document.getElementById('header_tab').style.display = 'none';
+  document.getElementById('backbtn').style.display = 'none';
+  document.getElementById('local_search_btn').style.display = 'none';
+  document.getElementById('add_all').style.display = 'none';
+  document.getElementById('newcontent').style.display = 'block';
+  document.getElementById('content').style.display = 'none';
+  document.getElementById('newcontent').innerHTML = iframe;
+}
+
+function load22ndiframe() {
+  // window.location.href = 'fivehundredmiles.html';
+  const iframe = `
+
+<iframe src="https://www.soundslice.com/slices/t4jzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+
+  `;
+  document.getElementById('mstream-player').style.display = 'none';
+  document.getElementById('filelist').style.display = 'none';
+  document.getElementById('playlist').style.display = 'none';
+  document.getElementById('header_tab').style.display = 'none';
+  document.getElementById('backbtn').style.display = 'none';
+  document.getElementById('local_search_btn').style.display = 'none';
+  document.getElementById('add_all').style.display = 'none';
+  document.getElementById('newcontent').style.display = 'block';
+  document.getElementById('content').style.display = 'none';
+  document.getElementById('newcontent').innerHTML = iframe;
+}
+
+function load23rdiframe() {
+  const twentythirdiframe = `
+
+    <iframe src="https://www.soundslice.com/slices/k6Lzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+
+  `;
+  document.getElementById('mstream-player').style.display = 'none';
+  document.getElementById('filelist').style.display = 'none';
+  document.getElementById('playlist').style.display = 'none';
+  document.getElementById('header_tab').style.display = 'none';
+  document.getElementById('backbtn').style.display = 'none';
+  document.getElementById('local_search_btn').style.display = 'none';
+  document.getElementById('add_all').style.display = 'none';
+  document.getElementById('newcontent').style.display = 'block';
+  document.getElementById('content').style.display = 'none';
+  document.getElementById('newcontent').innerHTML = twentythirdiframe;
+}
+
+function load24thiframe() {
+  const twentyfourthiframe = `
+
+    <iframe src="https://www.soundslice.com/slices/j6Lzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+
+  `;
+  document.getElementById('mstream-player').style.display = 'none';
+  document.getElementById('filelist').style.display = 'none';
+  document.getElementById('playlist').style.display = 'none';
+  document.getElementById('header_tab').style.display = 'none';
+  document.getElementById('backbtn').style.display = 'none';
+  document.getElementById('local_search_btn').style.display = 'none';
+  document.getElementById('add_all').style.display = 'none';
+  document.getElementById('newcontent').style.display = 'block';
+  document.getElementById('content').style.display = 'none';
+  document.getElementById('newcontent').innerHTML = twentyfourthiframe;
 }

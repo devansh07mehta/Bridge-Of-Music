@@ -1,7 +1,7 @@
 {
-  "name": "mstream-desktop-app",
+  "name": "vibstream",
   "version": "5.9.4",
-  "description": "mStream Desktop Player",
+  "description": "Music Streaming and Learning Platform",
   "main": "index.js",
   "scripts": {
     "start": "electron .",
@@ -10,24 +10,15 @@
   "engines": {
     "node": ">=10.0.0"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/IrosTheBeggar/mStream"
-  },
-  "author": {
-    "name": "Paul Sori",
-    "email": "paul@mstream.io"
-  },
-  "homepage": "https://mstream.io/",
-  "license": "GPL-3.0",
+  
   "build": {
-    "appId": "io.mstream.desktop",
-    "productName": "mStream Desktop",
+    "appId": "io.vibestream.desktop",
+    "productName": "vibestream Desktop",
     "electronVersion": "16.0.2",
     "files": [
       "**/*",
       "!admin/*",
-      "!login/*",
+      "!home/*",
       "!shared/*",
       "!package-lock.json"
     ],
@@ -60,4 +51,5 @@
   "devDependencies": {
     "electron-builder": "22.14.5"
   }
+  
 }

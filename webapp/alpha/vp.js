@@ -21,7 +21,7 @@ const VUEPLAYERCORE = (() => {
       document.getElementById('content').classList.add('col-rev');
       document.getElementById('flip-me').classList.add('col-rev');
     }
-  } catch (e) {}
+  } catch (e) { }
 
   const replayGainPreGainSettings = [
     -15.0,
@@ -33,17 +33,17 @@ const VUEPLAYERCORE = (() => {
 
   // Hide rating popover on click
   document.onmouseup = (e) => {
-    if(!e.target.classList.contains('pop-c')){
+    if (!e.target.classList.contains('pop-c')) {
       document.getElementById("pop").style.visibility = "hidden";
       currentPopperSongIndex = false;
     }
 
-    if(!e.target.classList.contains('pop-d')){
+    if (!e.target.classList.contains('pop-d')) {
       document.getElementById("pop-d").style.visibility = "hidden";
       cpsi = false;
     }
 
-    if(!e.target.classList.contains('pop-f')){
+    if (!e.target.classList.contains('pop-f')) {
       document.getElementById("pop-f").style.visibility = "hidden";
     }
   }
@@ -60,13 +60,13 @@ const VUEPLAYERCORE = (() => {
       },
     },
     methods: {
-      changeSpeed: function() {
+      changeSpeed: function () {
         const rect = this.$refs.progressWrapper.getBoundingClientRect();
         const x = event.clientX - rect.left; //x position within the element.
         const percentage = x / rect.width;
         MSTREAMPLAYER.changePlaybackRate(percentage * 3.75 + 0.25);
       },
-      changeSpeed2: function(speed) {
+      changeSpeed2: function (speed) {
         MSTREAMPLAYER.changePlaybackRate(speed);
       }
     }
@@ -102,18 +102,18 @@ const VUEPLAYERCORE = (() => {
       }
     },
     methods: {
-      getSongInfo: function() {
+      getSongInfo: function () {
         openMetadataModal(MSTREAMPLAYER.getCurrentSong().metadata, MSTREAMPLAYER.getCurrentSong().rawFilePath);
       },
-      gsi2: function() {
+      gsi2: function () {
         openMetadataModal(cps.metadata, cps.rawFilePath);
       },
-      goToArtist: function() {
+      goToArtist: function () {
         const el = document.createElement('DIV');
         el.setAttribute('data-artist', this.meta.artist);
         getArtistz(el);
       },
-      goToAlbum: function() {
+      goToAlbum: function () {
         const el = document.createElement('DIV');
         el.setAttribute('data-album', this.meta.album);
         el.setAttribute('data-year', this.meta.year);
@@ -127,14 +127,14 @@ const VUEPLAYERCORE = (() => {
           for (let i = 0; i < MSTREAMPLAYER.playlist.length; i++) {
             songs.push(MSTREAMPLAYER.playlist[i].filepath);
           }
-          MSTREAMAPI.savePlaylist(mstreamModule.livePlaylist.name,songs, true);
+          MSTREAMAPI.savePlaylist(mstreamModule.livePlaylist.name, songs, true);
         }
       },
       clearRating: async function () {
         try {
           await MSTREAMAPI.rateSong(currentPopperSong.rawFilePath, null);
           MSTREAMPLAYER.editSongMetadata('rating', null, currentPopperSongIndex2);
-        } catch(err) {
+        } catch (err) {
           iziToast.error({
             title: 'Failed to set rating',
             position: 'topCenter',
@@ -193,14 +193,14 @@ const VUEPLAYERCORE = (() => {
           for (let i = 0; i < MSTREAMPLAYER.playlist.length; i++) {
             songs.push(MSTREAMPLAYER.playlist[i].filepath);
           }
-          MSTREAMAPI.savePlaylist(mstreamModule.livePlaylist.name,songs, true);
+          MSTREAMAPI.savePlaylist(mstreamModule.livePlaylist.name, songs, true);
         }
       },
       downloadSong: function (event) {
         const link = document.createElement("a");
         link.download = '';
         link.href = this.song.url;
-        link.dispatchEvent(new MouseEvent('click', {bubbles: true, cancelable: true, view: window}));
+        link.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
       },
       createPopper: function (event) {
         if (currentPopperSongIndex === this.index) {
@@ -215,7 +215,7 @@ const VUEPLAYERCORE = (() => {
         currentPopperSong = this.song;
 
         showClearLink.val = false;
-        if (typeof MSTREAMPLAYER.playlist[currentPopperSongIndex2].metadata.rating === 'number'){
+        if (typeof MSTREAMPLAYER.playlist[currentPopperSongIndex2].metadata.rating === 'number') {
           showClearLink.val = true
         }
 
@@ -253,7 +253,7 @@ const VUEPLAYERCORE = (() => {
         cpsi = this.index;
 
         cps = this.song;
-  
+
         const pop = document.getElementById('pop-d');
         Popper.createPopper(ref, pop, {
           placement: 'bottom-end',
@@ -311,15 +311,15 @@ const VUEPLAYERCORE = (() => {
     template: '<div class="pop-list-item" v-on:click="addToPlaylist($event)">&#8226; {{playlistName}}</div>',
     props: ['index', 'playlist'],
     methods: {
-      addToPlaylist: async function(event) { 
+      addToPlaylist: async function (event) {
         try {
           await MSTREAMAPI.addToPlaylist(this.playlist.name, cps.filepath);
           iziToast.success({
             title: 'Song Added!',
             position: 'topCenter',
             timeout: 3500
-          }); 
-        }catch(err) {
+          });
+        } catch (err) {
           iziToast.error({
             title: 'Failed to add song',
             position: 'topCenter',
@@ -347,7 +347,7 @@ const VUEPLAYERCORE = (() => {
       altLayout: mstreamModule.altLayout
     },
     created: function () {
-      if (typeof(Storage) !== "undefined") {
+      if (typeof (Storage) !== "undefined") {
         const localVol = localStorage.getItem("volume");
         if (localVol !== null && !isNaN(localVol)) {
           MSTREAMPLAYER.changeVolume(parseInt(localVol));
@@ -359,11 +359,11 @@ const VUEPLAYERCORE = (() => {
       }
     },
     computed: {
-      playbackRate: function() {
+      playbackRate: function () {
         const rate = Number(this.playerStats.playbackRate);
         return rate.toFixed(2) + 'x'
       },
-      currentTime: function() {
+      currentTime: function () {
         if (!this.playerStats.duration) { return ''; }
 
         const minutes = Math.floor(this.playerStats.currentTime / 60);
@@ -371,7 +371,7 @@ const VUEPLAYERCORE = (() => {
         const currentText = minutes + ':' + (secondsToCalc.length < 2 ? '0' + secondsToCalc : secondsToCalc);
         return currentText;
       },
-      durationTime: function() {
+      durationTime: function () {
         if (!this.playerStats.duration) { return '0:00'; }
 
         const minutes = Math.floor(this.playerStats.duration / 60);
@@ -398,33 +398,33 @@ const VUEPLAYERCORE = (() => {
       }
     },
     methods: {
-      getSongInfo: function() {
+      getSongInfo: function () {
         openMetadataModal(MSTREAMPLAYER.getCurrentSong().metadata, MSTREAMPLAYER.getCurrentSong().rawFilePath);
       },
-      changeVol: function(event) {
+      changeVol: function (event) {
         const rect = this.$refs.volumeWrapper.getBoundingClientRect();
         const x = event.clientX - rect.left; //x position within the element.
         let percentage = (x / rect.width) * 100;
         if (percentage > 100) { percentage = 100; } // It's possible to 'drag' the progress bar to get over 100 percent
         if (percentage < 0) { percentage = 0; } // It's possible to 'drag' the progress bar to get over 100 percent
         MSTREAMPLAYER.changeVolume(percentage);
-        if (typeof(Storage) !== "undefined") {
+        if (typeof (Storage) !== "undefined") {
           localStorage.setItem("volume", percentage);
         }
       },
-      seekTo: function(event) {
+      seekTo: function (event) {
         const rect = this.$refs.progressWrapper.getBoundingClientRect();
         const x = event.clientX - rect.left; //x position within the element.
         const percentage = (x / rect.width) * 100;
         MSTREAMPLAYER.seekByPercentage(percentage);
       },
-      playPause: function() {
+      playPause: function () {
         MSTREAMPLAYER.playPause();
       },
-      previousSong: function() {
+      previousSong: function () {
         MSTREAMPLAYER.previousSong();
       },
-      nextSong: function() {
+      nextSong: function () {
         MSTREAMPLAYER.nextSong();
       },
       toggleRepeat: function () {
@@ -436,24 +436,26 @@ const VUEPLAYERCORE = (() => {
       toggleAutoDJ: function () {
         MSTREAMPLAYER.toggleAutoDJ();
       },
-      goToArtist: function() {
+      goToArtist: function () {
         const el = document.createElement('DIV');
         el.setAttribute('data-artist', this.meta.artist);
         getArtistz(el);
       },
-      goToAlbum: function() {
+      goToAlbum: function () {
         const el = document.createElement('DIV');
         el.setAttribute('data-album', this.meta.album);
         el.setAttribute('data-year', this.meta.year);
         getAlbumsOnClick(el);
       },
-      goForward: function(seconds) {
+      goForward: function (seconds) {
         MSTREAMPLAYER.goForwardSeek(seconds);
       },
-      goBack: function(seconds) {
+      goBack: function (seconds) {
         MSTREAMPLAYER.goBackSeek(seconds);
       },
       fadeOverlay: function () {
+        // return `<iframe src="https://www.soundslice.com/slices/XLslc/embed/" width="100%" height="500" frameBorder="0"
+        // allowfullscreen></iframe>`;
         VIZ.toggleDom();
       },
       toggleMute: function () {
@@ -468,7 +470,7 @@ const VUEPLAYERCORE = (() => {
         // With a series of clicks, allow the user to first activate ReplayGain, then progress through a list of
         // settings for the desired level of pre-gain, and then finally disable ReplayGain again.
         if (replayGainInfoTimeout) { clearTimeout(replayGainInfoTimeout); }
-        
+
         if (!this.playerStats.replayGain) {
           MSTREAMPLAYER.setReplayGainPreGainDb(replayGainPreGainSettings[0]);
           MSTREAMPLAYER.setReplayGainActive(true);
@@ -489,8 +491,8 @@ const VUEPLAYERCORE = (() => {
             this.replayGainToggle = false;
           }, 1000);
         }
-        
-        if (typeof(Storage) !== "undefined") {
+
+        if (typeof (Storage) !== "undefined") {
           localStorage.setItem("replayGain", this.playerStats.replayGain);
           localStorage.setItem("replayGainPreGainDb", this.playerStats.replayGainPreGainDb);
         }
@@ -523,7 +525,7 @@ const VUEPLAYERCORE = (() => {
       try {
         await MSTREAMAPI.rateSong(currentPopperSong.rawFilePath, parseInt(rating * 2));
         MSTREAMPLAYER.editSongMetadata('rating', parseInt(rating * 2), currentPopperSongIndex2);
-      }catch(err) {
+      } catch (err) {
         iziToast.error({
           title: 'Failed to set rating',
           position: 'topCenter',
@@ -569,7 +571,7 @@ const VUEPLAYERCORE = (() => {
         for (let i = 0; i < MSTREAMPLAYER.playlist.length; i++) {
           songs.push(MSTREAMPLAYER.playlist[i].filepath);
         }
-        MSTREAMAPI.savePlaylist(mstreamModule.livePlaylist.name,songs, true);
+        MSTREAMAPI.savePlaylist(mstreamModule.livePlaylist.name, songs, true);
       }
     } else {
       MSTREAMPLAYER.addSong(newSong, autoPlayOff);
@@ -589,14 +591,14 @@ const VUEPLAYERCORE = (() => {
     }
   };
 
-  mstreamModule.clearQueue = async() => {
+  mstreamModule.clearQueue = async () => {
     MSTREAMPLAYER.clearPlaylist();
     if (mstreamModule.livePlaylist.name) {
       const songs = [];
       for (let i = 0; i < MSTREAMPLAYER.playlist.length; i++) {
         songs.push(MSTREAMPLAYER.playlist[i].filepath);
       }
-      MSTREAMAPI.savePlaylist(mstreamModule.livePlaylist.name,songs, true);
+      MSTREAMAPI.savePlaylist(mstreamModule.livePlaylist.name, songs, true);
     }
   }
 

@@ -4,7 +4,8 @@ body, html {
 body {
   overflow: hidden;
   background: url(../img/struckaxiom.png) top left repeat;
-  background-position: fixed; }
+  background-position: fixed;
+}
 
 .clear {
   clear: both; }

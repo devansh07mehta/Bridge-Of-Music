@@ -31,4 +31,5 @@ frp/*.ini
 
 dist/*
 
-.env
+build/*
+Music-tracks/*

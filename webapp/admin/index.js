@@ -44,7 +44,7 @@ const ADMINDATA = (() => {
       url: `${API.url()}/api/v1/admin/db/shared`
     });
 
-    while(module.sharedPlaylists.length !== 0) {
+    while (module.sharedPlaylists.length !== 0) {
       module.sharedPlaylists.pop();
     }
 
@@ -72,7 +72,7 @@ const ADMINDATA = (() => {
     });
 
     // Clear playlist array since we no longer know it's state after this api call
-    while(module.sharedPlaylists.length !== 0) {
+    while (module.sharedPlaylists.length !== 0) {
       module.sharedPlaylists.pop();
     }
   };
@@ -84,7 +84,7 @@ const ADMINDATA = (() => {
     });
 
     // Clear playlist array since we no longer know it's state after this api call
-    while(module.sharedPlaylists.length !== 0) {
+    while (module.sharedPlaylists.length !== 0) {
       module.sharedPlaylists.pop();
     }
   };
@@ -95,7 +95,7 @@ const ADMINDATA = (() => {
       url: `${API.url()}/api/v1/admin/directories`
     });
 
-    Object.keys(res.data).forEach(key=>{
+    Object.keys(res.data).forEach(key => {
       module.folders[key] = res.data[key];
     });
 
@@ -108,7 +108,7 @@ const ADMINDATA = (() => {
       url: `${API.url()}/api/v1/admin/users`
     });
 
-    Object.keys(res.data).forEach(key=>{
+    Object.keys(res.data).forEach(key => {
       module.users[key] = res.data[key];
     });
 
@@ -121,7 +121,7 @@ const ADMINDATA = (() => {
       url: `${API.url()}/api/v1/admin/db/params`
     });
 
-    Object.keys(res.data).forEach(key=>{
+    Object.keys(res.data).forEach(key => {
       module.dbParams[key] = res.data[key];
     });
 
@@ -134,7 +134,7 @@ const ADMINDATA = (() => {
       url: `${API.url()}/api/v1/admin/config`
     });
 
-    Object.keys(res.data).forEach(key=>{
+    Object.keys(res.data).forEach(key => {
       module.serverParams[key] = res.data[key];
     });
 
@@ -147,7 +147,7 @@ const ADMINDATA = (() => {
       url: `${API.url()}/api/v1/admin/transcode`
     });
 
-    Object.keys(res.data).forEach(key=>{
+    Object.keys(res.data).forEach(key => {
       module.transcodeParams[key] = res.data[key];
     });
 
@@ -160,13 +160,13 @@ const ADMINDATA = (() => {
         method: 'GET',
         url: `${API.url()}/api/v1/federation/stats`
       });
-  
+
       module.federationEnabled.val = true;
 
-      Object.keys(res.data).forEach(key=>{
+      Object.keys(res.data).forEach(key => {
         module.federationParams[key] = res.data[key];
       });
-    }catch (err) {}
+    } catch (err) { }
 
     module.federationParamsUpdated.ts = Date.now();
   }
@@ -178,7 +178,7 @@ const ADMINDATA = (() => {
         url: `${API.url()}/api`
       });
       module.version.val = res.data.server;
-    }catch (err) {} 
+    } catch (err) { }
   }
 
   module.getWinDrives = async () => {
@@ -195,7 +195,7 @@ const ADMINDATA = (() => {
 
       console.log(res.data)
       return res;
-    }catch(err){}
+    } catch (err) { }
   }
 
   return module;
@@ -302,128 +302,128 @@ const foldersView = Vue.component('folders-view', {
         </div>
       </div>
     </div>`,
-    created: function() {
-      ADMINDATA.sharedSelect.value = '';
+  created: function () {
+    ADMINDATA.sharedSelect.value = '';
+  },
+  watch: {
+    'folder.value': function (newVal, oldVal) {
+      this.makeVPath(newVal);
+    }
+  },
+  methods: {
+    makeVPath(dir) {
+      const newName = dir.split(/[\\\/]/).pop().toLowerCase().replace(' ', '-').replace(/[^a-zA-Z0-9-]/g, "");
+
+      // TODO: Check that vpath doesn't already exist
+
+      this.dirName = newName;
+      this.$nextTick(() => {
+        M.updateTextFields();
+      });
     },
-    watch: {
-      'folder.value': function (newVal, oldVal) {
-        this.makeVPath(newVal);
+    maybeResetForm: function () {
+      if (this.dirName === '' && this.folder.value === '') {
+        document.getElementById("choose-directory-form").reset();
       }
     },
-    methods: {
-      makeVPath(dir) {
-        const newName = dir.split(/[\\\/]/).pop().toLowerCase().replace(' ', '-').replace(/[^a-zA-Z0-9-]/g, "");
-        
-        // TODO: Check that vpath doesn't already exist
+    addFolderDialog: function (event) {
+      modVM.currentViewModal = 'file-explorer-modal';
+      M.Modal.getInstance(document.getElementById('admin-modal')).open();
+    },
+    submitForm: async function () {
+      if (ADMINDATA.folders[this.dirName]) {
+        iziToast.warn({
+          title: 'Server Path already in use',
+          position: 'topCenter',
+          timeout: 3500
+        });
+        return;
+      }
 
-        this.dirName = newName;
+      try {
+        this.submitPending = true;
+
+        await API.axios({
+          method: 'PUT',
+          url: `${API.url()}/api/v1/admin/directory`,
+          data: {
+            directory: this.folder.value,
+            vpath: this.dirName,
+            autoAccess: document.getElementById('folder-auto-access').checked,
+            isAudioBooks: document.getElementById('folder-is-audiobooks').checked
+          }
+        });
+
+        if (document.getElementById('folder-auto-access').checked) {
+          Object.values(ADMINDATA.users).forEach(user => {
+            user.vpaths.push(this.dirName);
+          });
+        }
+
+        Vue.set(ADMINDATA.folders, this.dirName, { root: this.folder.value });
+        this.dirName = '';
+        this.folder.value = '';
         this.$nextTick(() => {
           M.updateTextFields();
         });
-      },
-      maybeResetForm: function() {
-        if (this.dirName === '' && this.folder.value === '') {
-          document.getElementById("choose-directory-form").reset();
-        }
-      },
-      addFolderDialog: function (event) {
-        modVM.currentViewModal = 'file-explorer-modal';
-        M.Modal.getInstance(document.getElementById('admin-modal')).open();
-      },
-      submitForm: async function () {
-        if (ADMINDATA.folders[this.dirName]) {
-          iziToast.warn({
-            title: 'Server Path already in use',
-            position: 'topCenter',
-            timeout: 3500
-          });
-          return;
-        }
-
-        try {
-          this.submitPending = true;
-
-          await API.axios({
-            method: 'PUT',
-            url: `${API.url()}/api/v1/admin/directory`,
-            data: {
-              directory: this.folder.value,
-              vpath: this.dirName,
-              autoAccess: document.getElementById('folder-auto-access').checked,
-              isAudioBooks: document.getElementById('folder-is-audiobooks').checked
-            }
-          });
-
-          if (document.getElementById('folder-auto-access').checked) {
-            Object.values(ADMINDATA.users).forEach(user => {
-              user.vpaths.push(this.dirName);
-            });
-          }
-
-          Vue.set(ADMINDATA.folders, this.dirName, { root: this.folder.value });
-          this.dirName = '';
-          this.folder.value = '';
-          this.$nextTick(() => {
-            M.updateTextFields();
-          });
-        }catch(err) {
-          iziToast.error({
-            title: 'Failed to add directory',
-            position: 'topCenter',
-            timeout: 3500
-          });
-        } finally {
-          this.submitPending = false;
-        }
-      },
-      removeFolder: async function(vpath, folder) {
-        iziToast.question({
-          timeout: 20000,
-          close: false,
-          overlayClose: true,
-          overlay: true,
-          displayMode: 'once',
-          id: 'question',
-          zindex: 99999,
-          layout: 2,
-          maxWidth: 600,
-          title: `Remove access to <b>${folder}</b>?`,
-          message: `No files will be deleted. Your server will need to reboot.`,
-          position: 'center',
-          buttons: [
-            ['<button><b>Remove</b></button>', (instance, toast) => {
-              instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
-              API.axios({
-                method: 'DELETE',
-                url: `${API.url()}/api/v1/admin/directory`,
-                data: { vpath: vpath }
-              }).then(() => {
-                iziToast.warning({
-                  title: 'Server Rebooting. Please wait 30s for the server to come back online',
-                  position: 'topCenter',
-                  timeout: 3500
-                });
-                Vue.delete(ADMINDATA.folders, vpath);
-                Object.values(ADMINDATA.users).forEach(user => {
-                  if (user.vpaths.includes(vpath)) {
-                    user.vpaths.splice(user.vpaths.indexOf(vpath), 1);
-                  }
-                });
-              }).catch(() => {
-                iziToast.error({
-                  title: 'Failed to remove folder',
-                  position: 'topCenter',
-                  timeout: 3500
-                });
-              });
-            }, true],
-            ['<button>Go Back</button>', (instance, toast) => {
-              instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
-            }],
-          ]
+      } catch (err) {
+        iziToast.error({
+          title: 'Failed to add directory',
+          position: 'topCenter',
+          timeout: 3500
         });
+      } finally {
+        this.submitPending = false;
       }
+    },
+    removeFolder: async function (vpath, folder) {
+      iziToast.question({
+        timeout: 20000,
+        close: false,
+        overlayClose: true,
+        overlay: true,
+        displayMode: 'once',
+        id: 'question',
+        zindex: 99999,
+        layout: 2,
+        maxWidth: 600,
+        title: `Remove access to <b>${folder}</b>?`,
+        message: `No files will be deleted. Your server will need to reboot.`,
+        position: 'center',
+        buttons: [
+          ['<button><b>Remove</b></button>', (instance, toast) => {
+            instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
+            API.axios({
+              method: 'DELETE',
+              url: `${API.url()}/api/v1/admin/directory`,
+              data: { vpath: vpath }
+            }).then(() => {
+              iziToast.warning({
+                title: 'Server Rebooting. Please wait 30s for the server to come back online',
+                position: 'topCenter',
+                timeout: 3500
+              });
+              Vue.delete(ADMINDATA.folders, vpath);
+              Object.values(ADMINDATA.users).forEach(user => {
+                if (user.vpaths.includes(vpath)) {
+                  user.vpaths.splice(user.vpaths.indexOf(vpath), 1);
+                }
+              });
+            }).catch(() => {
+              iziToast.error({
+                title: 'Failed to remove folder',
+                position: 'topCenter',
+                timeout: 3500
+              });
+            });
+          }, true],
+          ['<button>Go Back</button>', (instance, toast) => {
+            instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
+          }],
+        ]
+      });
     }
+  }
 });
 
 const usersView = Vue.component('users-view', {
@@ -447,14 +447,14 @@ const usersView = Vue.component('users-view', {
             <div class="card">
               <div class="card-content">
               <span class="card-title">Add User</span>
-                <form id="add-user-form" @submit.prevent="addUser">
+                <form id="add-user-form" @submit.prevent="addUser" autocomplete="off">
                   <div class="row">
                     <div class="input-field directory-name-field col s12 m6">
-                      <input @blur="maybeResetForm()" v-model="newUsername" id="new-username" required type="text" class="validate">
+                      <input @blur="maybeResetForm()" v-model="newUsername" id="new-username" required type="text" class="validate" autocomplete="off">
                       <label for="new-username">Username</label>
                     </div>
                     <div class="input-field directory-name-field col s12 m6">
-                      <input @blur="maybeResetForm()" v-model="newPassword" id="new-password" required type="password" class="validate">
+                      <input @blur="maybeResetForm()" v-model="newPassword" id="new-password" required type="password" class="validate" autocomplete="new-password">
                       <label for="new-password">Password</label>
                     </div>
                   </div>
@@ -475,7 +475,7 @@ const usersView = Vue.component('users-view', {
                       </label></div>
                     </div>
                     <!-- <div class="col s12 m6">
-                      <a v-on:click="openLastFmModal()" href="#!">Add last.fm account</a>
+                      <a v-on:click="openLastFmModal()" href="# ">Add last.fm account</a>
                     </div> -->
                   </div>
                   <div class="row">
@@ -531,125 +531,125 @@ const usersView = Vue.component('users-view', {
         </div>
       </div>
     </div>`,
-    mounted: function () {
-      this.selectInstance = M.FormSelect.init(document.querySelectorAll(".material-select"));
+  mounted: function () {
+    this.selectInstance = M.FormSelect.init(document.querySelectorAll(".material-select"));
+  },
+  beforeDestroy: function () {
+    this.selectInstance[0].destroy();
+  },
+  methods: {
+    openLastFmModal: function () {
+      modVM.currentViewModal = 'lastfm-modal';
+      M.Modal.getInstance(document.getElementById('admin-modal')).open();
     },
-    beforeDestroy: function() {
-      this.selectInstance[0].destroy();
-    },
-    methods: {
-      openLastFmModal: function() {
-        modVM.currentViewModal = 'lastfm-modal';
-        M.Modal.getInstance(document.getElementById('admin-modal')).open();
-      },
-      maybeResetForm: function() {
+    maybeResetForm: function () {
 
-      },
-      changeVPaths: function(username) {
-        ADMINDATA.selectedUser.value = username;
-        modVM.currentViewModal = 'user-vpaths-modal';
-        M.Modal.getInstance(document.getElementById('admin-modal')).open();
-      },
-      changeAccess: function(username) {
-        ADMINDATA.selectedUser.value = username;
-        modVM.currentViewModal = 'user-access-modal';
-        M.Modal.getInstance(document.getElementById('admin-modal')).open();
-      },
-      changePassword: function(username) {
-        ADMINDATA.selectedUser.value = username;
-        modVM.currentViewModal = 'user-password-modal';
-        M.Modal.getInstance(document.getElementById('admin-modal')).open();
-      },
-      deleteUser: function (username) {
-        iziToast.question({
-          timeout: 20000,
-          close: false,
-          overlayClose: true,
-          overlay: true,
-          displayMode: 'once',
-          id: 'question',
-          zindex: 99999,
-          title: `Delete <b>${username}</b>?`,
-          position: 'center',
-          buttons: [
-            ['<button><b>Delete</b></button>', async (instance, toast) => {
-              instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
-              try {
-                await API.axios({
-                  method: 'DELETE',
-                  url: `${API.url()}/api/v1/admin/users`,
-                  data: { username: username }
-                });
-                Vue.delete(ADMINDATA.users, username);
-              } catch (err) {
-                iziToast.error({
-                  title: 'Failed to delete user',
-                  position: 'topCenter',
-                  timeout: 3500
-                });
-              }
-            }, true],
-            ['<button>Go Back</button>', (instance, toast) => {
-              instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
-            }],
-          ]
+    },
+    changeVPaths: function (username) {
+      ADMINDATA.selectedUser.value = username;
+      modVM.currentViewModal = 'user-vpaths-modal';
+      M.Modal.getInstance(document.getElementById('admin-modal')).open();
+    },
+    changeAccess: function (username) {
+      ADMINDATA.selectedUser.value = username;
+      modVM.currentViewModal = 'user-access-modal';
+      M.Modal.getInstance(document.getElementById('admin-modal')).open();
+    },
+    changePassword: function (username) {
+      ADMINDATA.selectedUser.value = username;
+      modVM.currentViewModal = 'user-password-modal';
+      M.Modal.getInstance(document.getElementById('admin-modal')).open();
+    },
+    deleteUser: function (username) {
+      iziToast.question({
+        timeout: 20000,
+        close: false,
+        overlayClose: true,
+        overlay: true,
+        displayMode: 'once',
+        id: 'question',
+        zindex: 99999,
+        title: `Delete <b>${username}</b>?`,
+        position: 'center',
+        buttons: [
+          ['<button><b>Delete</b></button>', async (instance, toast) => {
+            instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
+            try {
+              await API.axios({
+                method: 'DELETE',
+                url: `${API.url()}/api/v1/admin/users`,
+                data: { username: username }
+              });
+              Vue.delete(ADMINDATA.users, username);
+            } catch (err) {
+              iziToast.error({
+                title: 'Failed to delete user',
+                position: 'topCenter',
+                timeout: 3500
+              });
+            }
+          }, true],
+          ['<button>Go Back</button>', (instance, toast) => {
+            instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
+          }],
+        ]
+      });
+    },
+    addUser: async function (event) {
+      try {
+        this.submitPending = true;
+
+        const selected = document.querySelectorAll('#new-user-dirs option:checked');
+
+        const data = {
+          username: this.newUsername,
+          password: this.newPassword,
+          vpaths: Array.from(selected).map(el => el.value),
+          admin: this.makeAdmin
+        };
+
+        await API.axios({
+          method: 'PUT',
+          url: `${API.url()}/api/v1/admin/users`,
+          data: data
         });
-      },
-      addUser: async function (event) {
-        try {
-          this.submitPending = true;
 
-          const selected = document.querySelectorAll('#new-user-dirs option:checked');
+        Vue.set(ADMINDATA.users, this.newUsername, { vpaths: data.vpaths, admin: data.admin });
+        this.newUsername = '';
+        this.newPassword = '';
 
-          const data = {
-            username: this.newUsername,
-            password: this.newPassword,
-            vpaths: Array.from(selected).map(el => el.value),
-            admin: this.makeAdmin
-          };
-
-          await API.axios({
-            method: 'PUT',
-            url: `${API.url()}/api/v1/admin/users`,
-            data: data
+        // if this is the first user, prompt user and take them to login page
+        if (Object.keys(ADMINDATA.users).length === 1) {
+          iziToast.question({
+            timeout: false,
+            close: false,
+            overlay: true,
+            displayMode: 'once',
+            id: 'question',
+            zindex: 99999,
+            title: 'You will be taken the login page',
+            position: 'center',
+            buttons: [['<button>Go!</button>', (instance, toast) => {
+              API.logout();
+              instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
+            }, true]],
           });
-
-          Vue.set(ADMINDATA.users, this.newUsername, { vpaths: data.vpaths, admin: data.admin });
-          this.newUsername = '';
-          this.newPassword = '';
-
-          // if this is the first user, prompt user and take them to login page
-          if (Object.keys(ADMINDATA.users).length === 1) {
-            iziToast.question({
-              timeout: false,
-              close: false,
-              overlay: true,
-              displayMode: 'once',
-              id: 'question',
-              zindex: 99999,
-              title: 'You will be taken the login page',
-              position: 'center',
-              buttons: [['<button>Go!</button>', (instance, toast) => {
-                API.logout();
-                instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
-              }, true]],
-            });
-          }
-
-          this.$nextTick(() => {
-            M.updateTextFields();
-          });
-        }catch(err) {
-          iziToast.error({
-            title: 'Failed to add user',
-            position: 'topCenter',
-            timeout: 3500
-          });
-        }finally {
-          this.submitPending = false;
         }
+
+        this.$nextTick(() => {
+          M.updateTextFields();
+        });
+      } catch (err) {
+        iziToast.error({
+          title: 'Failed to add user',
+          position: 'topCenter',
+          timeout: 3500
+        });
+      } finally {
+        this.submitPending = false;
       }
     }
+  }
 });
 
 const advancedView = Vue.component('advanced-view', {
@@ -718,45 +718,17 @@ const advancedView = Vue.component('advanced-view', {
               </div>
             </div>
           </div>
-          <div class="col s12">
-            <div class="card">
-              <div v-if="!params.ssl || !params.ssl.cert">
-                <div class="card-content">
-                  <span class="card-title">SSL Settings</span>
-                  <a v-on:click="openModal('edit-ssl-modal')" class="waves-effect waves-light btn">Add SSL Certs</a>
-                </div>
-              </div>
-              <div v-else>
-                <div class="card-content">
-                  <span class="card-title">SSL Settings</span>
-                  <table>
-                    <tbody>
-                      <tr>
-                        <td><b>Cert:</b> {{params.ssl.cert}}</td>
-                      </tr>
-                      <tr>
-                        <td><b>Key:</b> {{params.ssl.key}}</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-                <div class="card-action">
-                  <a v-on:click="openModal('edit-ssl-modal')" class="waves-effect waves-light btn">Edit SSL</a>
-                  <a v-on:click="removeSSL()" class="waves-effect waves-light btn">Remove SSL</a>
-                </div>
-              </div>
-            </div>
-          </div>
+          
         </div>
       </div>
     </div>
   `,
   methods: {
-    openModal: function(modalView) {
+    openModal: function (modalView) {
       modVM.currentViewModal = modalView;
       M.Modal.getInstance(document.getElementById('admin-modal')).open();
     },
-    removeSSL: function() {
+    removeSSL: function () {
       iziToast.question({
         timeout: 20000,
         close: false,
@@ -780,9 +752,9 @@ const advancedView = Vue.component('advanced-view', {
               });
 
               setTimeout(() => {
-                window.location.href = window.location.href.replace('https://', 'http://'); 
+                window.location.href = window.location.href.replace('https://', 'http://');
               }, 4000);
-      
+
               iziToast.success({
                 title: 'Certs Deleted. You will be redirected shortly',
                 position: 'topCenter',
@@ -802,11 +774,11 @@ const advancedView = Vue.component('advanced-view', {
         ]
       });
     },
-    openModal: function(modalView) {
+    openModal: function (modalView) {
       modVM.currentViewModal = modalView;
       M.Modal.getInstance(document.getElementById('admin-modal')).open();
     },
-    generateNewKey: function() {
+    generateNewKey: function () {
       iziToast.question({
         timeout: 20000,
         close: false,
@@ -843,7 +815,7 @@ const advancedView = Vue.component('advanced-view', {
         ]
       });
     },
-    toggleFileUpload: function() {
+    toggleFileUpload: function () {
       iziToast.question({
         timeout: 20000,
         close: false,
@@ -1021,7 +993,7 @@ const dbView = Vue.component('db-view', {
       </div>
     </div>`,
   methods: {
-    pullStats: async function() {
+    pullStats: async function () {
       try {
         this.isPullingStats = true;
         const res = await API.axios({
@@ -1040,7 +1012,7 @@ const dbView = Vue.component('db-view', {
         this.isPullingStats = false;
       }
     },
-    loadShared: async function() {
+    loadShared: async function () {
       try {
         this.isPullingShared = true;
         await ADMINDATA.getSharedPlaylists();
@@ -1054,7 +1026,7 @@ const dbView = Vue.component('db-view', {
         this.isPullingShared = false;
       }
     },
-    deletePlaylist: async function(playlistObj) {
+    deletePlaylist: async function (playlistObj) {
       iziToast.question({
         timeout: 20000,
         close: false,
@@ -1086,7 +1058,7 @@ const dbView = Vue.component('db-view', {
         ]
       });
     },
-    deleteUnxpShared: async function() {
+    deleteUnxpShared: async function () {
       iziToast.question({
         timeout: 20000,
         close: false,
@@ -1122,7 +1094,7 @@ const dbView = Vue.component('db-view', {
         ]
       });
     },
-    deleteExpiredShared: async function() {
+    deleteExpiredShared: async function () {
       try {
         this.isPullingShared = true;
         await ADMINDATA.deleteExpiredShared();
@@ -1137,7 +1109,7 @@ const dbView = Vue.component('db-view', {
         this.isPullingShared = false;
       }
     },
-    scanDB: async function() {
+    scanDB: async function () {
       try {
         await API.axios({
           method: 'POST',
@@ -1157,7 +1129,7 @@ const dbView = Vue.component('db-view', {
         });
       }
     },
-    recompressImages: function() {
+    recompressImages: function () {
       iziToast.question({
         timeout: 20000,
         close: false,
@@ -1174,7 +1146,7 @@ const dbView = Vue.component('db-view', {
         buttons: [
           [`<button><b>Start</b></button>`, async (instance, toast) => {
             instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
-            
+
             try {
               const res = await API.axios({
                 method: 'POST',
@@ -1209,7 +1181,7 @@ const dbView = Vue.component('db-view', {
         ]
       });
     },
-    toggleCompressImage: function() {
+    toggleCompressImage: function () {
       iziToast.question({
         timeout: 20000,
         close: false,
@@ -1252,7 +1224,7 @@ const dbView = Vue.component('db-view', {
         ]
       });
     },
-    toggleSkipImg: function() {
+    toggleSkipImg: function () {
       iziToast.question({
         timeout: 20000,
         close: false,
@@ -1295,7 +1267,7 @@ const dbView = Vue.component('db-view', {
         ]
       });
     },
-    openModal: function(modalView) {
+    openModal: function (modalView) {
       modVM.currentViewModal = modalView;
       M.Modal.getInstance(document.getElementById('admin-modal')).open();
     }
@@ -1421,14 +1393,14 @@ const rpnView = Vue.component('rpn-view', {
     this.tabs = M.Tabs.init(document.getElementById('tab-thing'), {});
     this.tabs.select('test1')
   },
-  beforeDestroy: function() {
+  beforeDestroy: function () {
     this.tabs.destroy();
   },
   methods: {
-    standardLogin: function() {
+    standardLogin: function () {
       console.log('STAND')
     },
-    advancedLogin: function() {
+    advancedLogin: function () {
       console.log('ADV')
     }
   }
@@ -1574,7 +1546,7 @@ const transcodeView = Vue.component('transcode-view', {
       </div>
     </div>`,
   methods: {
-    toggleEnabled: function() {
+    toggleEnabled: function () {
       iziToast.question({
         timeout: 20000,
         close: false,
@@ -1621,19 +1593,19 @@ const transcodeView = Vue.component('transcode-view', {
         ]
       });
     },
-    changeCodec: function() {
+    changeCodec: function () {
       modVM.currentViewModal = 'edit-transcode-codec-modal';
       M.Modal.getInstance(document.getElementById('admin-modal')).open();
     },
-    changeBitrate: function() {
+    changeBitrate: function () {
       modVM.currentViewModal = 'edit-transcode-bitrate-modal';
       M.Modal.getInstance(document.getElementById('admin-modal')).open();
     },
-    changeAlgorithm: function() {
+    changeAlgorithm: function () {
       modVM.currentViewModal = 'edit-transcode-algorithm-modal';
       M.Modal.getInstance(document.getElementById('admin-modal')).open();
     },
-    downloadFFMpeg: async function() {
+    downloadFFMpeg: async function () {
       if (this.downloadPending.val === true) {
         return;
       }
@@ -1656,11 +1628,11 @@ const transcodeView = Vue.component('transcode-view', {
           position: 'topCenter',
           timeout: 3500
         });
-      }finally {
+      } finally {
         this.downloadPending.val = false;
       }
     },
-    changeFolder: function() {
+    changeFolder: function () {
       iziToast.warning({
         title: 'Coming Soon',
         position: 'topCenter',
@@ -1764,15 +1736,15 @@ const federationMainPanel = Vue.component('federation-main-panel', {
       </div>
     </div>`,
   watch: {
-    'currentToken': function(val, preVal) {
+    'currentToken': function (val, preVal) {
       try {
-        if (!val) { 
+        if (!val) {
           return this.parsedTokenData = null;
         }
 
         const decoded = jwt_decode(val);
         this.parsedTokenData = decoded;
-      } catch(err) {
+      } catch (err) {
         console.log(err)
         this.parsedTokenData = null;
       }
@@ -1782,20 +1754,20 @@ const federationMainPanel = Vue.component('federation-main-panel', {
     this.tabs = M.Tabs.init(document.getElementById('syncthing-tabs'), {});
     this.tabs.select('test1')
   },
-  beforeDestroy: function() {
+  beforeDestroy: function () {
     this.tabs.destroy();
   },
   methods: {
-    editName: async function() {
+    editName: async function () {
 
     },
-    acceptInvite: async function() {
+    acceptInvite: async function () {
       try {
         const postData = {
           invite: this.currentToken,
           paths: {}
         };
-    
+
         const res = await API.axios({
           method: 'POST',
           url: `${API.url()}/api/v1/federation/invite/accept`,
@@ -1809,50 +1781,50 @@ const federationMainPanel = Vue.component('federation-main-panel', {
         });
       }
 
-  //   var folderNames = {};
+      //   var folderNames = {};
 
-  //   var decoded = jwt_decode($('#federation-invitation-code').val());
-  //   Object.keys(decoded.vPaths).forEach(function(key) {
-  //     if($("input[type=checkbox][value="+decoded.vPaths[key]+"]").is(":checked")){
-  //       folderNames[key] = $("#" + decoded.vPaths[key]).val();
-  //     }
-  //   });
+      //   var decoded = jwt_decode($('#federation-invitation-code').val());
+      //   Object.keys(decoded.vPaths).forEach(function(key) {
+      //     if($("input[type=checkbox][value="+decoded.vPaths[key]+"]").is(":checked")){
+      //       folderNames[key] = $("#" + decoded.vPaths[key]).val();
+      //     }
+      //   });
 
-  //   if (Object.keys(folderNames).length === 0) {
-  //     iziToast.error({
-  //       title: 'No directories selected',
-  //       position: 'topCenter',
-  //       timeout: 3500
-  //     });
-  //   }
+      //   if (Object.keys(folderNames).length === 0) {
+      //     iziToast.error({
+      //       title: 'No directories selected',
+      //       position: 'topCenter',
+      //       timeout: 3500
+      //     });
+      //   }
 
-    // var sendThis = {
-    //   invite: $('#federation-invitation-code').val(),
-    //   paths: folderNames
-    // };
+      // var sendThis = {
+      //   invite: $('#federation-invitation-code').val(),
+      //   paths: folderNames
+      // };
 
-  //   MSTREAMAPI.acceptFederationInvite(sendThis, function(res, err){
-  //     if (err !== false) {
-  //       boilerplateFailure(res, err);
-  //       return;
-  //     }
+      //   MSTREAMAPI.acceptFederationInvite(sendThis, function(res, err){
+      //     if (err !== false) {
+      //       boilerplateFailure(res, err);
+      //       return;
+      //     }
 
-  //     iziToast.success({
-  //       title: 'Federation Successful!',
-  //       position: 'topCenter',
-  //       timeout: 3500
-  //     });
-  //   });
+      //     iziToast.success({
+      //       title: 'Federation Successful!',
+      //       position: 'topCenter',
+      //       timeout: 3500
+      //     });
+      //   });
     },
-    setSyncthingUrl: function() {
+    setSyncthingUrl: function () {
       if (this.syncthingUrl !== '') { return; }
       this.syncthingUrl = '/api/v1/syncthing-proxy/?token=' + API.token();
     },
-    openFederationGenerateInviteModal: function() {
+    openFederationGenerateInviteModal: function () {
       modVM.currentViewModal = 'federation-generate-invite-modal';
       M.Modal.getInstance(document.getElementById('admin-modal')).open();
     },
-    enableFederation: function() {
+    enableFederation: function () {
       iziToast.question({
         timeout: 20000,
         close: false,
@@ -1869,7 +1841,7 @@ const federationMainPanel = Vue.component('federation-main-panel', {
           [`<button><b>${this.enabled.val === true ? 'Disable' : 'Enable'}</b></button>`, async (instance, toast) => {
             try {
               this.enablePending = true;
-      
+
               await API.axios({
                 method: 'POST',
                 url: `${API.url()}/api/v1/admin/federation/enable`,
@@ -1877,10 +1849,10 @@ const federationMainPanel = Vue.component('federation-main-panel', {
                   enable: !this.enabled.val,
                 }
               });
-      
+
               // update fronted data
               Vue.set(ADMINDATA.federationEnabled, 'val', !this.enabled.val);
-        
+
               instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
 
               iziToast.success({
@@ -1888,13 +1860,13 @@ const federationMainPanel = Vue.component('federation-main-panel', {
                 position: 'topCenter',
                 timeout: 3500
               });
-            } catch(err) {
+            } catch (err) {
               iziToast.error({
                 title: 'Toggle Failed',
                 position: 'topCenter',
                 timeout: 3500
               });
-            }finally {
+            } finally {
               this.enablePending = false;
             }
           }, true],
@@ -1931,7 +1903,7 @@ const federationView = Vue.component('federation-view', {
     <federation-main-panel v-else>
     </federation-main-panel>`,
   methods: {
-    enableFederation: async function() {
+    enableFederation: async function () {
       try {
         this.enablePending = true;
 
@@ -1945,19 +1917,19 @@ const federationView = Vue.component('federation-view', {
 
         // update fronted data
         Vue.set(ADMINDATA.federationEnabled, 'val', !this.enabled.val);
-  
+
         iziToast.success({
           title: `Syncthing ${this.enabled.val === true ? 'Enabled' : 'Disabled'}`,
           position: 'topCenter',
           timeout: 3500
         });
-      } catch(err) {
+      } catch (err) {
         iziToast.error({
           title: 'Toggle Failed',
           position: 'topCenter',
           timeout: 3500
         });
-      }finally {
+      } finally {
         this.enablePending = false;
       }
     }
@@ -2008,14 +1980,14 @@ const logsView = Vue.component('logs-view', {
       </div>
     </div>`,
   methods: {
-    changeLogsDir: function() {
+    changeLogsDir: function () {
       iziToast.warning({
         title: 'Coming Soon',
         position: 'topCenter',
         timeout: 3500
       });
     },
-    downloadLogs: async function() {
+    downloadLogs: async function () {
       try {
         const response = await API.axios({
           url: `${API.url()}/api/v1/admin/logs/download`, //your url
@@ -2038,7 +2010,7 @@ const logsView = Vue.component('logs-view', {
         });
       }
     },
-    toggleWriteLogs: function() {
+    toggleWriteLogs: function () {
       iziToast.question({
         timeout: 20000,
         close: false,
@@ -2103,44 +2075,44 @@ const lockView = Vue.component('lock-view', {
         <a class="waves-effect waves-light btn-large" v-on:click="disableAdmin()">Disable Admin Panel</a>
       </div>
     </div>`,
-    methods: {
-      disableAdmin: function() {
-        iziToast.question({
-          timeout: 20000,
-          close: false,
-          overlayClose: true,
-          overlay: true,
-          displayMode: 'once',
-          id: 'question',
-          zindex: 99999,
-          layout: 2,
-          maxWidth: 600,
-          title: '<b>Disable Admin Panel?</b>',
-          position: 'center',
-          buttons: [
-            [`<button><b>Disable</b></button>`, (instance, toast) => {
-              instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
-              API.axios({
-                method: 'POST',
-                url: `${API.url()}/api/v1/admin/lock-api`,
-                data: { lock: true }
-              }).then(() => {
-                window.location.reload();
-              }).catch(() => {
-                iziToast.error({
-                  title: 'Failed to disable admin panel',
-                  position: 'topCenter',
-                  timeout: 3500
-                });
+  methods: {
+    disableAdmin: function () {
+      iziToast.question({
+        timeout: 20000,
+        close: false,
+        overlayClose: true,
+        overlay: true,
+        displayMode: 'once',
+        id: 'question',
+        zindex: 99999,
+        layout: 2,
+        maxWidth: 600,
+        title: '<b>Disable Admin Panel?</b>',
+        position: 'center',
+        buttons: [
+          [`<button><b>Disable</b></button>`, (instance, toast) => {
+            instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
+            API.axios({
+              method: 'POST',
+              url: `${API.url()}/api/v1/admin/lock-api`,
+              data: { lock: true }
+            }).then(() => {
+              window.location.reload();
+            }).catch(() => {
+              iziToast.error({
+                title: 'Failed to disable admin panel',
+                position: 'topCenter',
+                timeout: 3500
               });
-            }, true],
-            ['<button>Go Back</button>', (instance, toast) => {
-              instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
-            }],
-          ]
-        });
-      }
+            });
+          }, true],
+          ['<button>Go Back</button>', (instance, toast) => {
+            instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
+          }],
+        ]
+      });
     }
+  }
 });
 
 const vm = new Vue({
@@ -2163,7 +2135,7 @@ const vm = new Vue({
   }
 });
 
-function changeView(viewName, el){
+function changeView(viewName, el) {
   if (vm.currentViewMain === viewName) { return; }
 
   document.getElementById('content').scrollTop = 0;
@@ -2228,19 +2200,19 @@ const fileExplorerModal = Vue.component('file-explorer-modal', {
       try {
         const params = { directory: dir };
         if (joinDir) { params.joinDirectory = joinDir; }
-  
+
         const res = await API.axios({
           method: 'POST',
           url: `${API.url()}/api/v1/admin/file-explorer`,
           data: params
         });
-  
+
         this.currentDirectory = res.data.path
-  
+
         while (this.contents.length > 0) {
           this.contents.pop();
         }
-  
+
         res.data.directories.forEach(d => {
           this.contents.push(d);
         });
@@ -2248,7 +2220,7 @@ const fileExplorerModal = Vue.component('file-explorer-modal', {
         this.$nextTick(() => {
           document.getElementById('dynamic-modal').scrollIntoView();
         });
-      } catch(err) {
+      } catch (err) {
         iziToast.error({
           title: 'Failed to get directory contents',
           position: 'topCenter',
@@ -2265,16 +2237,16 @@ const fileExplorerModal = Vue.component('file-explorer-modal', {
             method: 'POST',
             url: `${API.url()}/api/v1/admin/file-explorer`,
             data: { directory: dir, joinDirectory: joinDir }
-          });  
-  
+          });
+
           selectThis = res.data.path
         }
-  
+
         Vue.set(ADMINDATA.sharedSelect, 'value', selectThis);
-  
+
         // close the modal
         M.Modal.getInstance(document.getElementById('admin-modal')).close();
-      }catch(err) {
+      } catch (err) {
         iziToast.error({
           title: 'Cannot Select Directory',
           position: 'topCenter',
@@ -2293,7 +2265,7 @@ const userPasswordView = Vue.component('user-password-view', {
       resetPassword: '',
       submitPending: false
     };
-  }, 
+  },
   template: `
     <form @submit.prevent="updatePassword">
       <div class="modal-content">
@@ -2305,26 +2277,29 @@ const userPasswordView = Vue.component('user-password-view', {
         </div>
       </div>
       <div class="modal-footer">
-        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Go Back</a>
+        <a href="#" class="modal-close waves-effect waves-green btn-flat">Go Back</a>
         <button class="btn green waves-effect waves-light" type="submit" :disabled="submitPending === true">
           {{submitPending === false ? 'Update Password' : 'Updating...'}}
         </button>
       </div>
     </form>`,
   methods: {
-    updatePassword: async function() {
+    updatePassword: async function () {
       try {
         this.submitPending = true;
 
-        await API.axios({
+        console.log(`${API.url()}`);
+
+        const userDetails = await API.axios({
           method: 'POST',
           url: `${API.url()}/api/v1/admin/users/password`,
           data: {
             username: this.currentUser.value,
             password: this.resetPassword
           }
-        });  
-  
+        });
+
+        console.log(userDetails, "userDetails mala he print krun de bs");
         // close & reset the modal
         M.Modal.getInstance(document.getElementById('admin-modal')).close();
 
@@ -2333,13 +2308,13 @@ const userPasswordView = Vue.component('user-password-view', {
           position: 'topCenter',
           timeout: 3500
         });
-      }catch(err) {
+      } catch (err) {
         iziToast.error({
           title: 'Password Reset Failed',
           position: 'topCenter',
           timeout: 3500
         });
-      }finally {
+      } finally {
         this.submitPending = false;
       }
     }
@@ -2366,54 +2341,54 @@ const usersVpathsView = Vue.component('user-vpaths-view', {
         </select>
       </div>
       <div class="modal-footer">
-        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Go Back</a>
+        <a href="# " class="modal-close waves-effect waves-green btn-flat">Go Back</a>
         <button class="btn green waves-effect waves-light" type="submit" :disabled="submitPending === true">
           {{submitPending === false ? 'Update' : 'Updating...'}}
         </button>
       </div>
     </form>`,
-    mounted: function () {
-      this.selectInstance = M.FormSelect.init(document.querySelectorAll("#edit-user-dirs"));
-    },
-    beforeDestroy: function() {
-      this.selectInstance[0].destroy();
-    },
-    methods: {
-      updateFolders: async function() {
-        try {
-          this.submitPending = true;
+  mounted: function () {
+    this.selectInstance = M.FormSelect.init(document.querySelectorAll("#edit-user-dirs"));
+  },
+  beforeDestroy: function () {
+    this.selectInstance[0].destroy();
+  },
+  methods: {
+    updateFolders: async function () {
+      try {
+        this.submitPending = true;
 
-          await API.axios({
-            method: 'POST',
-            url: `${API.url()}/api/v1/admin/users/vpaths`,
-            data: {
-              username: this.currentUser.value,
-              vpaths: this.selectInstance[0].getSelectedValues()
-            }
-          });
+        await API.axios({
+          method: 'POST',
+          url: `${API.url()}/api/v1/admin/users/vpaths`,
+          data: {
+            username: this.currentUser.value,
+            vpaths: this.selectInstance[0].getSelectedValues()
+          }
+        });
 
-          // update fronted data
-          Vue.set(ADMINDATA.users[this.currentUser.value], 'vpaths', this.selectInstance[0].getSelectedValues());
-    
-          // close & reset the modal
-          M.Modal.getInstance(document.getElementById('admin-modal')).close();
-  
-          iziToast.success({
-            title: 'User Permissions Updated',
-            position: 'topCenter',
-            timeout: 3500
-          });
-        } catch(err) {
-          iziToast.error({
-            title: 'Failed to Update Folders',
-            position: 'topCenter',
-            timeout: 3500
-          });
-        }finally {
-          this.submitPending = false;
-        }
+        // update fronted data
+        Vue.set(ADMINDATA.users[this.currentUser.value], 'vpaths', this.selectInstance[0].getSelectedValues());
+
+        // close & reset the modal
+        M.Modal.getInstance(document.getElementById('admin-modal')).close();
+
+        iziToast.success({
+          title: 'User Permissions Updated',
+          position: 'topCenter',
+          timeout: 3500
+        });
+      } catch (err) {
+        iziToast.error({
+          title: 'Failed to Update Folders',
+          position: 'topCenter',
+          timeout: 3500
+        });
+      } finally {
+        this.submitPending = false;
       }
     }
+  }
 });
 
 const userAccessView = Vue.component('user-access-view', {
@@ -2436,52 +2411,52 @@ const userAccessView = Vue.component('user-access-view', {
         </label></div>
       </div>
       <div class="modal-footer">
-        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Go Back</a>
+        <a href="# " class="modal-close waves-effect waves-green btn-flat">Go Back</a>
         <button class="btn green waves-effect waves-light" type="submit" :disabled="submitPending === true">
           {{submitPending === false ? 'Update' : 'Updating...'}}
         </button>
       </div>
     </form>`,
-    methods: {
-      updateUser: async function() {
-        try {
+  methods: {
+    updateUser: async function () {
+      try {
 
-          // TODO: Warn user if they are removing admin status from the last admin user
-            // They will lose all access to the admin panel
+        // TODO: Warn user if they are removing admin status from the last admin user
+        // They will lose all access to the admin panel
 
-          this.submitPending = true;
+        this.submitPending = true;
 
-          await API.axios({
-            method: 'POST',
-            url: `${API.url()}/api/v1/admin/users/access`,
-            data: {
-              username: this.currentUser.value,
-              admin: this.isAdmin
-            }
-          });
+        await API.axios({
+          method: 'POST',
+          url: `${API.url()}/api/v1/admin/users/access`,
+          data: {
+            username: this.currentUser.value,
+            admin: this.isAdmin
+          }
+        });
 
-          // update fronted data
-          Vue.set(ADMINDATA.users[this.currentUser.value], 'admin', this.isAdmin);
-    
-          // close & reset the modal
-          M.Modal.getInstance(document.getElementById('admin-modal')).close();
-  
-          iziToast.success({
-            title: 'User Permissions Updated',
-            position: 'topCenter',
-            timeout: 3500
-          });
-        } catch(err) {
-          iziToast.error({
-            title: 'Failed to Update User',
-            position: 'topCenter',
-            timeout: 3500
-          });
-        }finally {
-          this.submitPending = false;
-        }
+        // update fronted data
+        Vue.set(ADMINDATA.users[this.currentUser.value], 'admin', this.isAdmin);
+
+        // close & reset the modal
+        M.Modal.getInstance(document.getElementById('admin-modal')).close();
+
+        iziToast.success({
+          title: 'User Permissions Updated',
+          position: 'topCenter',
+          timeout: 3500
+        });
+      } catch (err) {
+        iziToast.error({
+          title: 'Failed to Update User',
+          position: 'topCenter',
+          timeout: 3500
+        });
+      } finally {
+        this.submitPending = false;
       }
     }
+  }
 });
 
 const editRequestSizeModal = Vue.component('edit-request-size-modal', {
@@ -2506,7 +2481,7 @@ const editRequestSizeModal = Vue.component('edit-request-size-modal', {
         </blockquote>
       </div>
       <div class="modal-footer">
-        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Go Back</a>
+        <a href="# " class="modal-close waves-effect waves-green btn-flat">Go Back</a>
         <button class="btn green waves-effect waves-light" type="submit" :disabled="submitPending === true">
           {{submitPending === false ? 'Update' : 'Updating...'}}
         </button>
@@ -2516,7 +2491,7 @@ const editRequestSizeModal = Vue.component('edit-request-size-modal', {
     M.updateTextFields();
   },
   methods: {
-    updatePort: async function() {
+    updatePort: async function () {
       try {
         this.submitPending = true;
         this.maxRequestSize = this.maxRequestSize.replaceAll(' ', '');
@@ -2529,7 +2504,7 @@ const editRequestSizeModal = Vue.component('edit-request-size-modal', {
 
         // update fronted data
         Vue.set(ADMINDATA.serverParams, 'maxRequestSize', this.maxRequestSize);
-  
+
         // close & reset the modal
         M.Modal.getInstance(document.getElementById('admin-modal')).close();
 
@@ -2538,13 +2513,13 @@ const editRequestSizeModal = Vue.component('edit-request-size-modal', {
           position: 'topCenter',
           timeout: 3500
         });
-      } catch(err) {
+      } catch (err) {
         iziToast.error({
           title: 'Failed to Update',
           position: 'topCenter',
           timeout: 3500
         });
-      }finally {
+      } finally {
         this.submitPending = false;
       }
     }
@@ -2573,7 +2548,7 @@ const editPortModal = Vue.component('edit-port-modal', {
         </blockquote>
       </div>
       <div class="modal-footer">
-        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Go Back</a>
+        <a href="# " class="modal-close waves-effect waves-green btn-flat">Go Back</a>
         <button class="btn green waves-effect waves-light" type="submit" :disabled="submitPending === true">
           {{submitPending === false ? 'Update' : 'Updating...'}}
         </button>
@@ -2583,7 +2558,7 @@ const editPortModal = Vue.component('edit-port-modal', {
     M.updateTextFields();
   },
   methods: {
-    updatePort: async function() {
+    updatePort: async function () {
       try {
         this.submitPending = true;
 
@@ -2595,12 +2570,12 @@ const editPortModal = Vue.component('edit-port-modal', {
 
         // update fronted data
         // Vue.set(ADMINDATA.serverParams, 'port', this.currentPort);
-  
+
         // close & reset the modal
         M.Modal.getInstance(document.getElementById('admin-modal')).close();
 
         setTimeout(() => {
-          window.location.href = window.location.href.replace(`:${ADMINDATA.serverParams.port}`, `:${this.currentPort}`); 
+          window.location.href = window.location.href.replace(`:${ADMINDATA.serverParams.port}`, `:${this.currentPort}`);
         }, 4000);
 
         iziToast.success({
@@ -2608,13 +2583,13 @@ const editPortModal = Vue.component('edit-port-modal', {
           position: 'topCenter',
           timeout: 3500
         });
-      } catch(err) {
+      } catch (err) {
         iziToast.error({
           title: 'Failed to Update Port',
           position: 'topCenter',
           timeout: 3500
         });
-      }finally {
+      } finally {
         this.submitPending = false;
       }
     }
@@ -2643,7 +2618,7 @@ const editAddressModal = Vue.component('edit-address-modal', {
         </blockquote>
       </div>
       <div class="modal-footer">
-        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Go Back</a>
+        <a href="# " class="modal-close waves-effect waves-green btn-flat">Go Back</a>
         <button class="btn green waves-effect waves-light" type="submit" :disabled="submitPending === true">
           {{submitPending === false ? 'Update' : 'Updating...'}}
         </button>
@@ -2653,7 +2628,7 @@ const editAddressModal = Vue.component('edit-address-modal', {
     M.updateTextFields();
   },
   methods: {
-    updateParam: async function() {
+    updateParam: async function () {
       try {
         this.submitPending = true;
 
@@ -2665,7 +2640,7 @@ const editAddressModal = Vue.component('edit-address-modal', {
 
         // update fronted data
         Vue.set(ADMINDATA.serverParams, 'address', this.editValue);
-  
+
         // close & reset the modal
         M.Modal.getInstance(document.getElementById('admin-modal')).close();
 
@@ -2674,13 +2649,13 @@ const editAddressModal = Vue.component('edit-address-modal', {
           position: 'topCenter',
           timeout: 3500
         });
-      } catch(err) {
+      } catch (err) {
         iziToast.error({
           title: 'Update Failed',
           position: 'topCenter',
           timeout: 3500
         });
-      }finally {
+      } finally {
         this.submitPending = false;
       }
     }
@@ -2708,7 +2683,7 @@ const editMaxScanModal = Vue.component('edit-max-scans-modal', {
         </blockquote>
       </div>
       <div class="modal-footer">
-        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Go Back</a>
+        <a href="# " class="modal-close waves-effect waves-green btn-flat">Go Back</a>
         <button class="btn green waves-effect waves-light" type="submit" :disabled="submitPending === true">
           {{submitPending === false ? 'Update' : 'Updating...'}}
         </button>
@@ -2718,7 +2693,7 @@ const editMaxScanModal = Vue.component('edit-max-scans-modal', {
     M.updateTextFields();
   },
   methods: {
-    updateParam: async function() {
+    updateParam: async function () {
       try {
         this.submitPending = true;
 
@@ -2730,7 +2705,7 @@ const editMaxScanModal = Vue.component('edit-max-scans-modal', {
 
         // update fronted data
         Vue.set(ADMINDATA.dbParams, 'maxConcurrentTasks', this.editValue);
-  
+
         // close & reset the modal
         M.Modal.getInstance(document.getElementById('admin-modal')).close();
 
@@ -2739,13 +2714,13 @@ const editMaxScanModal = Vue.component('edit-max-scans-modal', {
           position: 'topCenter',
           timeout: 3500
         });
-      } catch(err) {
+      } catch (err) {
         iziToast.error({
           title: 'Update Failed',
           position: 'topCenter',
           timeout: 3500
         });
-      }finally {
+      } finally {
         this.submitPending = false;
       }
     }
@@ -2770,7 +2745,7 @@ const editPauseModal = Vue.component('edit-pause-modal', {
         </div>
       </div>
       <div class="modal-footer">
-        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Go Back</a>
+        <a href="# " class="modal-close waves-effect waves-green btn-flat">Go Back</a>
         <button class="btn green waves-effect waves-light" type="submit" :disabled="submitPending === true">
           {{submitPending === false ? 'Update' : 'Updating...'}}
         </button>
@@ -2780,7 +2755,7 @@ const editPauseModal = Vue.component('edit-pause-modal', {
     M.updateTextFields();
   },
   methods: {
-    updateParam: async function() {
+    updateParam: async function () {
       try {
         this.submitPending = true;
 
@@ -2792,7 +2767,7 @@ const editPauseModal = Vue.component('edit-pause-modal', {
 
         // update fronted data
         Vue.set(ADMINDATA.dbParams, 'pause', this.editValue);
-  
+
         // close & reset the modal
         M.Modal.getInstance(document.getElementById('admin-modal')).close();
 
@@ -2801,13 +2776,13 @@ const editPauseModal = Vue.component('edit-pause-modal', {
           position: 'topCenter',
           timeout: 3500
         });
-      } catch(err) {
+      } catch (err) {
         iziToast.error({
           title: 'Update Failed',
           position: 'topCenter',
           timeout: 3500
         });
-      }finally {
+      } finally {
         this.submitPending = false;
       }
     }
@@ -2832,7 +2807,7 @@ const editBootScanView = Vue.component('edit-boot-scan-delay-modal', {
         </div>
       </div>
       <div class="modal-footer">
-        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Go Back</a>
+        <a href="# " class="modal-close waves-effect waves-green btn-flat">Go Back</a>
         <button class="btn green waves-effect waves-light" type="submit" :disabled="submitPending === true">
           {{submitPending === false ? 'Update' : 'Updating...'}}
         </button>
@@ -2842,7 +2817,7 @@ const editBootScanView = Vue.component('edit-boot-scan-delay-modal', {
     M.updateTextFields();
   },
   methods: {
-    updateParam: async function() {
+    updateParam: async function () {
       try {
         this.submitPending = true;
 
@@ -2854,7 +2829,7 @@ const editBootScanView = Vue.component('edit-boot-scan-delay-modal', {
 
         // update fronted data
         Vue.set(ADMINDATA.dbParams, 'bootScanDelay', this.editValue);
-  
+
         // close & reset the modal
         M.Modal.getInstance(document.getElementById('admin-modal')).close();
 
@@ -2863,13 +2838,13 @@ const editBootScanView = Vue.component('edit-boot-scan-delay-modal', {
           position: 'topCenter',
           timeout: 3500
         });
-      } catch(err) {
+      } catch (err) {
         iziToast.error({
           title: 'Update Failed',
           position: 'topCenter',
           timeout: 3500
         });
-      }finally {
+      } finally {
         this.submitPending = false;
       }
     }
@@ -2894,7 +2869,7 @@ const editSaveIntervalView = Vue.component('edit-save-interval-modal', {
         </div>
       </div>
       <div class="modal-footer">
-        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Go Back</a>
+        <a href="# " class="modal-close waves-effect waves-green btn-flat">Go Back</a>
         <button class="btn green waves-effect waves-light" type="submit" :disabled="submitPending === true">
           {{submitPending === false ? 'Update' : 'Updating...'}}
         </button>
@@ -2904,7 +2879,7 @@ const editSaveIntervalView = Vue.component('edit-save-interval-modal', {
     M.updateTextFields();
   },
   methods: {
-    updateParam: async function() {
+    updateParam: async function () {
       try {
         this.submitPending = true;
 
@@ -2916,7 +2891,7 @@ const editSaveIntervalView = Vue.component('edit-save-interval-modal', {
 
         // update fronted data
         Vue.set(ADMINDATA.dbParams, 'saveInterval', this.editValue);
-  
+
         // close & reset the modal
         M.Modal.getInstance(document.getElementById('admin-modal')).close();
 
@@ -2925,13 +2900,13 @@ const editSaveIntervalView = Vue.component('edit-save-interval-modal', {
           position: 'topCenter',
           timeout: 3500
         });
-      } catch(err) {
+      } catch (err) {
         iziToast.error({
           title: 'Update Failed',
           position: 'topCenter',
           timeout: 3500
         });
-      }finally {
+      } finally {
         this.submitPending = false;
       }
     }
@@ -2957,7 +2932,7 @@ const editScanIntervalView = Vue.component('edit-scan-interval-modal', {
         </div>
       </div>
       <div class="modal-footer">
-        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Go Back</a>
+        <a href="# " class="modal-close waves-effect waves-green btn-flat">Go Back</a>
         <button class="btn green waves-effect waves-light" type="submit" :disabled="submitPending === true">
           {{submitPending === false ? 'Update' : 'Updating...'}}
         </button>
@@ -2967,7 +2942,7 @@ const editScanIntervalView = Vue.component('edit-scan-interval-modal', {
     M.updateTextFields();
   },
   methods: {
-    updateParam: async function() {
+    updateParam: async function () {
       try {
         this.submitPending = true;
 
@@ -2979,7 +2954,7 @@ const editScanIntervalView = Vue.component('edit-scan-interval-modal', {
 
         // update fronted data
         Vue.set(ADMINDATA.dbParams, 'scanInterval', this.editValue);
-  
+
         // close & reset the modal
         M.Modal.getInstance(document.getElementById('admin-modal')).close();
 
@@ -2988,20 +2963,20 @@ const editScanIntervalView = Vue.component('edit-scan-interval-modal', {
           position: 'topCenter',
           timeout: 3500
         });
-      } catch(err) {
+      } catch (err) {
         iziToast.error({
           title: 'Update Failed',
           position: 'topCenter',
           timeout: 3500
         });
-      }finally {
+      } finally {
         this.submitPending = false;
       }
     }
   }
 });
 
-const editSslModal =  Vue.component('edit-ssl-modal', {
+const editSslModal = Vue.component('edit-ssl-modal', {
   data() {
     return {
       certPath: '',
@@ -3026,14 +3001,14 @@ const editSslModal =  Vue.component('edit-ssl-modal', {
         </blockquote>
       </div>
       <div class="modal-footer">
-        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Go Back</a>
+        <a href="# " class="modal-close waves-effect waves-green btn-flat">Go Back</a>
         <button class="btn green waves-effect waves-light" type="submit" :disabled="submitPending === true">
           {{submitPending === false ? 'Update' : 'Updating...'}}
         </button>
       </div>
     </form>`,
   methods: {
-    updateSSL: async function() {
+    updateSSL: async function () {
       try {
         this.submitPending = true;
 
@@ -3045,12 +3020,12 @@ const editSslModal =  Vue.component('edit-ssl-modal', {
 
         // update fronted data
         Vue.set(ADMINDATA.dbParams, 'scanInterval', this.editValue);
-  
+
         // close & reset the modal
         M.Modal.getInstance(document.getElementById('admin-modal')).close();
 
         setTimeout(() => {
-          window.location.href = window.location.href.replace('http://', 'https://'); 
+          window.location.href = window.location.href.replace('http://', 'https://');
         }, 4000);
 
         iziToast.success({
@@ -3058,7 +3033,7 @@ const editSslModal =  Vue.component('edit-ssl-modal', {
           position: 'topCenter',
           timeout: 3500
         });
-      } catch(err) {
+      } catch (err) {
         iziToast.error({
           title: 'Update Failed',
           position: 'topCenter',
@@ -3091,7 +3066,7 @@ const editTranscodeCodecModal = Vue.component('edit-transcode-codec-modal', {
         </select>
       </div>
       <div class="modal-footer">
-        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Go Back</a>
+        <a href="# " class="modal-close waves-effect waves-green btn-flat">Go Back</a>
         <button class="btn green waves-effect waves-light" type="submit" :disabled="submitPending === true">
           {{submitPending === false ? 'Update' : 'Updating...'}}
         </button>
@@ -3100,11 +3075,11 @@ const editTranscodeCodecModal = Vue.component('edit-transcode-codec-modal', {
   mounted: function () {
     this.selectInstance = M.FormSelect.init(document.querySelectorAll("#transcode-codec-dropdown"));
   },
-  beforeDestroy: function() {
+  beforeDestroy: function () {
     this.selectInstance[0].destroy();
   },
   methods: {
-    updateParam: async function() {
+    updateParam: async function () {
       try {
         this.submitPending = true;
 
@@ -3116,7 +3091,7 @@ const editTranscodeCodecModal = Vue.component('edit-transcode-codec-modal', {
 
         // update fronted data
         Vue.set(ADMINDATA.transcodeParams, 'defaultCodec', this.editValue);
-  
+
         // close & reset the modal
         M.Modal.getInstance(document.getElementById('admin-modal')).close();
 
@@ -3125,13 +3100,13 @@ const editTranscodeCodecModal = Vue.component('edit-transcode-codec-modal', {
           position: 'topCenter',
           timeout: 3500
         });
-      } catch(err) {
+      } catch (err) {
         iziToast.error({
           title: 'Update Failed',
           position: 'topCenter',
           timeout: 3500
         });
-      }finally {
+      } finally {
         this.submitPending = false;
       }
     }
@@ -3160,7 +3135,7 @@ const editTranscodeDefaultAlgorithm = Vue.component('edit-transcode-algorithm-mo
         </blockquote>
       </div>
       <div class="modal-footer">
-        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Go Back</a>
+        <a href="# " class="modal-close waves-effect waves-green btn-flat">Go Back</a>
         <button class="btn green waves-effect waves-light" type="submit" :disabled="submitPending === true">
           {{submitPending === false ? 'Update' : 'Updating...'}}
         </button>
@@ -3169,11 +3144,11 @@ const editTranscodeDefaultAlgorithm = Vue.component('edit-transcode-algorithm-mo
   mounted: function () {
     this.selectInstance = M.FormSelect.init(document.querySelectorAll("#transcode-algorithm-dropdown"));
   },
-  beforeDestroy: function() {
+  beforeDestroy: function () {
     this.selectInstance[0].destroy();
   },
   methods: {
-    updateParam: async function() {
+    updateParam: async function () {
       try {
         this.submitPending = true;
 
@@ -3185,7 +3160,7 @@ const editTranscodeDefaultAlgorithm = Vue.component('edit-transcode-algorithm-mo
 
         // update fronted data
         Vue.set(ADMINDATA.transcodeParams, 'algorithm', this.editValue);
-  
+
         // close & reset the modal
         M.Modal.getInstance(document.getElementById('admin-modal')).close();
 
@@ -3194,13 +3169,13 @@ const editTranscodeDefaultAlgorithm = Vue.component('edit-transcode-algorithm-mo
           position: 'topCenter',
           timeout: 3500
         });
-      } catch(err) {
+      } catch (err) {
         iziToast.error({
           title: 'Update Failed',
           position: 'topCenter',
           timeout: 3500
         });
-      }finally {
+      } finally {
         this.submitPending = false;
       }
     }
@@ -3228,7 +3203,7 @@ const editTranscodeDefaultBitrate = Vue.component('edit-transcode-bitrate-modal'
         </select>
       </div>
       <div class="modal-footer">
-        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Go Back</a>
+        <a href="# " class="modal-close waves-effect waves-green btn-flat">Go Back</a>
         <button class="btn green waves-effect waves-light" type="submit" :disabled="submitPending === true">
           {{submitPending === false ? 'Update' : 'Updating...'}}
         </button>
@@ -3237,11 +3212,11 @@ const editTranscodeDefaultBitrate = Vue.component('edit-transcode-bitrate-modal'
   mounted: function () {
     this.selectInstance = M.FormSelect.init(document.querySelectorAll("#transcode-bitrate-dropdown"));
   },
-  beforeDestroy: function() {
+  beforeDestroy: function () {
     this.selectInstance[0].destroy();
   },
   methods: {
-    updateParam: async function() {
+    updateParam: async function () {
       try {
         this.submitPending = true;
 
@@ -3253,7 +3228,7 @@ const editTranscodeDefaultBitrate = Vue.component('edit-transcode-bitrate-modal'
 
         // update fronted data
         Vue.set(ADMINDATA.transcodeParams, 'defaultBitrate', this.editValue);
-  
+
         // close & reset the modal
         M.Modal.getInstance(document.getElementById('admin-modal')).close();
 
@@ -3262,13 +3237,13 @@ const editTranscodeDefaultBitrate = Vue.component('edit-transcode-bitrate-modal'
           position: 'topCenter',
           timeout: 3500
         });
-      } catch(err) {
+      } catch (err) {
         iziToast.error({
           title: 'Update Failed',
           position: 'topCenter',
           timeout: 3500
         });
-      }finally {
+      } finally {
         this.submitPending = false;
       }
     }
@@ -3287,11 +3262,11 @@ const lastFMModal = Vue.component('lastfm-modal', {
       Coming Soon
     </div>`,
   methods: {
-    setLastFM: async function() {
+    setLastFM: async function () {
       try {
 
-      } catch(err) {
-        
+      } catch (err) {
+
       }
     }
   }
@@ -3331,23 +3306,23 @@ const federationGenerateInvite = Vue.component('federation-generate-invite-modal
             Invite tokens expire in 30 min
           </blockquote>
           <textarea v-model="federationInviteToken.val" id="fed-textarea" style="height: auto;" rows="6" cols="60" placeholder="Your invite token will be put here" readonly="readonly"></textarea>
-          <a href="#" class="fed-copy-button" data-clipboard-target="#fed-textarea">Copy To Clipboard</a>
+          <a href="# " class="fed-copy-button" data-clipboard-target="#fed-textarea">Copy To Clipboard</a>
         </div>
       </div>
     </div>`,
   mounted: function () {
     this.selectInstance = M.FormSelect.init(document.querySelectorAll(".material-select"));
   },
-  beforeDestroy: function() {
+  beforeDestroy: function () {
     this.selectInstance[0].destroy();
   },
   methods: {
-    generateToken: async function() {
+    generateToken: async function () {
       try {
         this.submitPending = true;
         const selectedDirs = Array.from(document.querySelectorAll('#fed-invite-dirs option:checked')).map(el => el.value);
 
-        if(selectedDirs.length === 0) {
+        if (selectedDirs.length === 0) {
           iziToast.warning({
             title: 'Nothing to Federate',
             position: 'topCenter',
@@ -3356,7 +3331,7 @@ const federationGenerateInvite = Vue.component('federation-generate-invite-modal
           return;
         }
 
-        const postData =  { vpaths: selectedDirs };
+        const postData = { vpaths: selectedDirs };
         if (window.location.protocol === 'https') {
           postData.url = window.location.origin;
         }
