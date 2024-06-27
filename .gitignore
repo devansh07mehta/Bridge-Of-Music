@@ -10,7 +10,7 @@ save/sync/*
 save/logs/*
 !save/logs/README.md
 
-save/conf/*
+# save/conf/*
 !save/conf/README.md
 
 save/sync-cdn/*
@@ -18,8 +18,6 @@ save/sync-cdn/*
 
 bin/ffmpeg/*
 !bin/ffmpeg/README.md
-
-save/*.json
 
 package-lock.json
 .DS_Store

@@ -1,0 +1,152 @@
+{
+  "secret": "sQzsxyDiyxxlSPwJcLQL5xc9L3hukLe+XkUFSGxYppQOXfq13V6DwNfvORq1wOmvZKYV3prgPQTKsOgfu3/FhXrmT2L3KvCJGZ0vzu7hSuQV4cE0OK9tePt17acKxjlT1IsLRcYQi7u5qFQJdvp2a6qSaBDEMQb8gva1iPkI/HI=",
+  "folders": {
+    "music-tracks": {
+      "root": "Music-tracks"
+    }
+  },
+  "users": {
+    "devansh": {
+      "vpaths": [
+        "music-tracks"
+      ],
+      "password": "GZkZ8FFtQ4f82Fo8ua5SRTb9QaTl9D+NsXdxgZhLXr0=",
+      "salt": "Bt+6EwZ7VTNBAM9xUli59w==",
+      "admin": true,
+      "username": "devansh"
+    },
+    "vinit": {
+      "vpaths": [
+        "music-tracks"
+      ],
+      "password": "QQlj2PIbR07SDFurSjlRTborb5tZQb7bysk7nHZT8yI=",
+      "salt": "M2jv8nd+qg+h4uRB5N88hA==",
+      "admin": false,
+      "username": "vinit"
+    },
+    "abhishek": {
+      "vpaths": [
+        "music-tracks"
+      ],
+      "password": "cm66wiYHcwulCEzybeiV8ruV2KKQ0DCSXo0v27e4DbQ=",
+      "salt": "3DpgBUclymJHOFuzD3j2tg==",
+      "admin": false
+    },
+    "birju": {
+      "vpaths": [
+        "music-tracks"
+      ],
+      "password": "ITxc7GWThMH82ufexpNu46aXoqI+gnw/zycxu7UN0MQ=",
+      "salt": "lBGENZQ6zl1UJCOwsiM/gQ==",
+      "admin": false
+    },
+    "aniket": {
+      "vpaths": [
+        "music-tracks"
+      ],
+      "password": "vv0RR7S9yn/k6FyEg6DQQwDvUTxLnXfciua5F+rJkrw=",
+      "salt": "X9YJb8Md8PBoIYBvDdsacA==",
+      "admin": false,
+      "username": "aniket"
+    },
+    "ankit": {
+      "vpaths": [
+        "music-tracks"
+      ],
+      "password": "YuGNRfbvUJQol958DQvMFsbKuJzmRmano6zi7U6LoBs=",
+      "salt": "YUlsI5HsRLjOd7ALZ+ilWg==",
+      "admin": false,
+      "username": "ankit"
+    },
+    "rushil": {
+      "vpaths": [
+        "music-tracks"
+      ],
+      "password": "/ezPPC3zLcimNOzIhV4HAaAZbyXi1ZW83KhzXcwYWCM=",
+      "salt": "Bg2BN0mMURhiW5pDOZKrQg==",
+      "admin": false,
+      "username": "rushil"
+    },
+    "madhur": {
+      "vpaths": [
+        "music-tracks"
+      ],
+      "password": "ug2RfYHxQom1RKqU48gAOufKSzxMF18zFiNgUTZXOcI=",
+      "salt": "L1jBOtOJkZAYBnJA9htX9w==",
+      "admin": false,
+      "username": "madhur"
+    },
+    "madhuri": {
+      "vpaths": [
+        "music-tracks"
+      ],
+      "password": "xE74yuyfRhDMwXgaO7rEI+3UR1ozARUvN+NGS/aKrbY=",
+      "salt": "3AWWL/Lhu+1oCATe8qLtnQ==",
+      "admin": false,
+      "username": "madhuri"
+    },
+    "mayur": {
+      "vpaths": [
+        "music-tracks"
+      ],
+      "password": "NJSRETX3tXs9T6ib10ixpIunDx0pCINvNO2Jpqlm5f8=",
+      "salt": "0HrR+opWJ2LZG61hIn8Zig==",
+      "admin": false,
+      "username": "mayur"
+    },
+    "aditya": {
+      "vpaths": [
+        "music-tracks"
+      ],
+      "password": "lYrzjlwgTQPzX+fnZ3tCR8QmveOeZtHmDXU7Wj6N3rI=",
+      "salt": "z4qqeOZ1vUi8c+hO5vjObw==",
+      "admin": false,
+      "username": "aditya"
+    },
+    "newuser": {
+      "vpaths": [
+        "music-tracks"
+      ],
+      "password": "HimhiC9oUMcGsbHM88LV9csa8gKZfbI1nqE/huTOYsI=",
+      "salt": "e21vYffpVCx2ReyTdQ8JnQ==",
+      "admin": false,
+      "username": "newuser"
+    },
+    "patel": {
+      "vpaths": [
+        "music-tracks"
+      ],
+      "password": "0W5Tp+IpKH42UWvoCdH12HQp2QmfSlg7rxx6TGW05K0=",
+      "salt": "xchXagSOEpcALaNOXNYAFA==",
+      "admin": false,
+      "username": "patel"
+    },
+    "ramlal": {
+      "vpaths": [
+        "music-tracks"
+      ],
+      "password": "nv925n2AQg/XxsthwvqPm4z8iydMuL1/XOX6fpSEPbA=",
+      "salt": "C+IAxG6Vbix7RPJKs/Zguw==",
+      "admin": false
+    },
+    "abhimanyu": {
+      "vpaths": [
+        "music-tracks"
+      ],
+      "password": "OZOOlYjAy0/zzimaspp3mgEWlgA0KsilJbNveba+fI4=",
+      "salt": "s8mXUKPTv7PspSNSFWuADg==",
+      "admin": false
+    },
+    "Navratan": {
+      "vpaths": [
+        "music-tracks"
+      ],
+      "password": "P/ycOQGlLdK+77E6y3DG/0IaXhW4TiD8eS7XqABhG2M=",
+      "salt": "iy2OHW8QOcMRn7OPj3h94Q==",
+      "admin": false,
+      "username": "Navratan"
+    }
+  },
+  "writeLogs": true,
+  "lockAdmin": false
+}
