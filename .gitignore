@@ -30,4 +30,4 @@ frp/*.ini
 dist/*
 
 build
-Music-tracks/*
+# Music-tracks/*
