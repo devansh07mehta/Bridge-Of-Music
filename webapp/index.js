@@ -1,27 +1,28 @@
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow } = require("electron");
 
-function createWindow () {
+function createWindow() {
   const win = new BrowserWindow({
     autoHideMenuBar: true,
-    backgroundColor: '#1e2228',
+    backgroundColor: "#1e2228",
     width: 1200,
-    height: 800
-  })
-  win.loadFile('./index.html')
+    height: 800,
+  });
+  win.loadFile("./index.html");
+  win.loadFile("./baarish-guitar.html");
 }
 
 app.whenReady().then(() => {
-  createWindow()
+  createWindow();
 
-  app.on('activate', () => {
+  app.on("activate", () => {
     if (BrowserWindow.getAllWindows().length === 0) {
-      createWindow()
+      createWindow();
     }
-  })
-})
+  });
+});
 
-app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') {
-    app.quit()
+app.on("window-all-closed", () => {
+  if (process.platform !== "darwin") {
+    app.quit();
   }
-})
+});

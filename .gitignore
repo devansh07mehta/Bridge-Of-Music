@@ -1,5 +1,7 @@
 node_modules/*
 webapp/node_modules/*
+webapp/sitemap.xml
+webapp/google300cc3137632f970.html
 
 image-cache/*
 !image-cache/README.md

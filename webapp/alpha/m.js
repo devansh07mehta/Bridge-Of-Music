@@ -2,85 +2,91 @@
 const myDropzone = new Dropzone(document.body, {
   previewsContainer: false,
   clickable: false,
-  url: '/api/v1/file-explorer/upload',
-  maxFilesize: null
+  url: "/api/v1/file-explorer/upload",
+  maxFilesize: null,
 });
 
 myDropzone.on("addedfile", (file) => {
-  if (programState[0].state !== 'fileExplorer') {
+  if (programState[0].state !== "fileExplorer") {
     iziToast.error({
-      title: 'Files can only be added to the file explorer',
-      position: 'topCenter',
-      timeout: 3500
+      title: "Files can only be added to the file explorer",
+      position: "topCenter",
+      timeout: 3500,
     });
     myDropzone.removeFile(file);
   } else if (fileExplorerArray.length < 1) {
     iziToast.error({
-      title: 'Cannot Upload File Here',
-      position: 'topCenter',
-      timeout: 3500
+      title: "Cannot Upload File Here",
+      position: "topCenter",
+      timeout: 3500,
     });
     myDropzone.removeFile(file);
   } else {
     if (file.fullPath) {
-      file.directory = getFileExplorerPath() + file.fullPath.substring(0, file.fullPath.indexOf(file.name));
+      file.directory =
+        getFileExplorerPath() +
+        file.fullPath.substring(0, file.fullPath.indexOf(file.name));
     } else {
       file.directory = getFileExplorerPath();
     }
   }
 });
 
-myDropzone.on('sending', (file, xhr, formData) => {
-  xhr.setRequestHeader('data-location', encodeURI(file.directory))
-  xhr.setRequestHeader('x-access-token', MSTREAMAPI.currentServer.token)
+myDropzone.on("sending", (file, xhr, formData) => {
+  xhr.setRequestHeader("data-location", encodeURI(file.directory));
+  xhr.setRequestHeader("x-access-token", MSTREAMAPI.currentServer.token);
 });
 
-myDropzone.on('totaluploadprogress', (percent, uploaded, size) => {
-  document.getElementById('upload-progress-inner').style.width = percent + '%';
+myDropzone.on("totaluploadprogress", (percent, uploaded, size) => {
+  document.getElementById("upload-progress-inner").style.width = percent + "%";
   if (percent === 100) {
-    document.getElementById('upload-progress-inner').style.width = '0%';
+    document.getElementById("upload-progress-inner").style.width = "0%";
   }
 });
 
-myDropzone.on('queuecomplete', (file, xhr, formData) => {
+myDropzone.on("queuecomplete", (file, xhr, formData) => {
   var successCount = 0;
   for (var i = 0; i < myDropzone.files.length; i++) {
-    if (myDropzone.files[i].status === 'success') {
+    if (myDropzone.files[i].status === "success") {
       successCount += 1;
     }
   }
 
   if (successCount === myDropzone.files.length) {
     iziToast.success({
-      title: 'Files Uploaded',
-      position: 'topCenter',
-      timeout: 3500
+      title: "Files Uploaded",
+      position: "topCenter",
+      timeout: 3500,
     });
-    if (programState[0].state === 'fileExplorer') {
+    if (programState[0].state === "fileExplorer") {
       senddir();
     }
   } else if (successCount === 0) {
     // do nothing
   } else {
     iziToast.warning({
-      title: successCount + ' out of ' + myDropzone.files.length + ' were uploaded successfully',
-      position: 'topCenter',
-      timeout: 3500
+      title:
+        successCount +
+        " out of " +
+        myDropzone.files.length +
+        " were uploaded successfully",
+      position: "topCenter",
+      timeout: 3500,
     });
 
-    if (programState[0].state === 'fileExplorer') {
+    if (programState[0].state === "fileExplorer") {
       senddir();
     }
   }
 
-  myDropzone.removeAllFiles()
+  myDropzone.removeAllFiles();
 });
 
-myDropzone.on('error', (err, msg, xhr) => {
+myDropzone.on("error", (err, msg, xhr) => {
   var iziStuff = {
-    title: 'Upload Failed',
-    position: 'topCenter',
-    timeout: 3500
+    title: "Upload Failed",
+    position: "topCenter",
+    timeout: 3500,
   };
 
   if (msg.error) {
@@ -101,14 +107,14 @@ var programState = [];
 let curFileTracker;
 
 const entityMap = {
-  '&': '&amp;',
-  '<': '&lt;',
-  '>': '&gt;',
-  '"': '&quot;',
-  "'": '&#39;',
-  '/': '&#x2F;',
-  '`': '&#x60;',
-  '=': '&#x3D;'
+  "&": "&amp;",
+  "<": "&lt;",
+  ">": "&gt;",
+  '"': "&quot;",
+  "'": "&#39;",
+  "/": "&#x2F;",
+  "`": "&#x60;",
+  "=": "&#x3D;",
 };
 
 function escapeHtml(string) {
@@ -119,11 +125,17 @@ function escapeHtml(string) {
 
 function renderAlbum(id, artist, name, albumArtFile, year) {
   return `<li class="collection-item">
-    <div ${year ? `data-year="${year}"` : ''} ${artist ? `data-artist="${artist}"` : ''} ${id ? `data-album="${id}"` : ''} class="albumz flex2" onclick="getAlbumsOnClick(this);">
-        ${albumArtFile ?
-      `<img class="album-art-box" loading="lazy" src="${MSTREAMAPI.currentServer.host}album-art/${albumArtFile}?compress=s&token=${MSTREAMAPI.currentServer.token}">` :
-      '<svg xmlns="http://www.w3.org/2000/svg" class="album-art-box" viewBox="0 0 512 512" xml:space="preserve"><path d="M437 75C390.7 28.6 326.7 0 256 0 114.6 0 0 114.6 0 256c0 70.7 28.6 134.7 75 181s110.3 75 181 75c141.4 0 256-114.6 256-256 0-70.7-28.6-134.7-75-181zM256 477.9c-122.3 0-221.9-99.5-221.9-221.9S133.7 34.1 256 34.1 477.9 133.7 477.9 256 378.3 477.9 256 477.9z"/><path d="M256 145.1c-61.3 0-110.9 49.7-110.9 110.9S194.7 366.9 256 366.9 366.9 317.3 366.9 256c0-61.2-49.7-110.9-110.9-110.9zm0 187.7c-42.4 0-76.8-34.4-76.8-76.8s34.4-76.8 76.8-76.8 76.8 34.4 76.8 76.8-34.4 76.8-76.8 76.8z"/><path d="M238.9 238.9H273V273h-34.1zM256 102.4V68.3h-.6c-31 0-60.1 7.6-85.8 21l1-.5c-26 13.5-47.7 31.9-64.5 54.2l-.3.5 27.3 20.5c28.1-37.5 72.4-61.5 122.3-61.5l.6-.1z"/></svg>'}
-        <span><b>${name}</b> ${year ? `<br>[${year}]` : ''}</span>
+    <div ${year ? `data-year="${year}"` : ""} ${
+    artist ? `data-artist="${artist}"` : ""
+  } ${
+    id ? `data-album="${id}"` : ""
+  } class="albumz flex2" onclick="getAlbumsOnClick(this);">
+        ${
+          albumArtFile
+            ? `<img class="album-art-box" loading="lazy" src="${MSTREAMAPI.currentServer.host}album-art/${albumArtFile}?compress=s&token=${MSTREAMAPI.currentServer.token}">`
+            : '<svg xmlns="http://www.w3.org/2000/svg" class="album-art-box" viewBox="0 0 512 512" xml:space="preserve"><path d="M437 75C390.7 28.6 326.7 0 256 0 114.6 0 0 114.6 0 256c0 70.7 28.6 134.7 75 181s110.3 75 181 75c141.4 0 256-114.6 256-256 0-70.7-28.6-134.7-75-181zM256 477.9c-122.3 0-221.9-99.5-221.9-221.9S133.7 34.1 256 34.1 477.9 133.7 477.9 256 378.3 477.9 256 477.9z"/><path d="M256 145.1c-61.3 0-110.9 49.7-110.9 110.9S194.7 366.9 256 366.9 366.9 317.3 366.9 256c0-61.2-49.7-110.9-110.9-110.9zm0 187.7c-42.4 0-76.8-34.4-76.8-76.8s34.4-76.8 76.8-76.8 76.8 34.4 76.8 76.8-34.4 76.8-76.8 76.8z"/><path d="M238.9 238.9H273V273h-34.1zM256 102.4V68.3h-.6c-31 0-60.1 7.6-85.8 21l1-.5c-26 13.5-47.7 31.9-64.5 54.2l-.3.5 27.3 20.5c28.1-37.5 72.4-61.5 122.3-61.5l.6-.1z"/></svg>'
+        }
+        <span><b>${name}</b> ${year ? `<br>[${year}]` : ""}</span>
     </div>
   </li>`;
 }
@@ -139,10 +151,22 @@ function renderFileWithMetadataHtml(filepath, lokiId, metadata) {
     
     <div data-file_location="${filepath}" class="filez flex">
     
-      <img class="album-art-box" loading="lazy" ${metadata['album-art'] ? `src="${MSTREAMAPI.currentServer.host}album-art/${metadata['album-art']}?compress=s&token=${MSTREAMAPI.currentServer.token}"` : 'src="assets/img/default.png"'}>
+      <img class="album-art-box" loading="lazy" ${
+        metadata["album-art"]
+          ? `src="${MSTREAMAPI.currentServer.host}album-art/${metadata["album-art"]}?compress=s&token=${MSTREAMAPI.currentServer.token}"`
+          : 'src="assets/img/default.png"'
+      }>
       <div>
-        <b><span>${(!metadata || !metadata.title) ? filepath.split("/").pop() : `${metadata.title}`}</span></b>
-        ${metadata.artist ? `</b><br><span style="font-size:15px;">${metadata.artist}</span>` : ''}
+        <b><span>${
+          !metadata || !metadata.title
+            ? filepath.split("/").pop()
+            : `${metadata.title}`
+        }</span></b>
+        ${
+          metadata.artist
+            ? `</b><br><span style="font-size:15px;">${metadata.artist}</span>`
+            : ""
+        }
       </div>
     </div>
   
@@ -157,12 +181,20 @@ function renderFileWithMetadataHtml(filepath, lokiId, metadata) {
 
 function createMusicFileHtml(fileLocation, title, aa, rating, subtitle) {
   return `<li class="collection-item">
-    <div data-file_location="${fileLocation}" class="filez ${aa ? 'flex2' : ''}"  id="newfileLocation" onclick="onFileClick(this);">
-      ${aa ? `<img loading="lazy" class="album-art-box" ${aa}>` : '<svg class="music-image" height="18" width="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><path d="M9 37.5c-3.584 0-6.5-2.916-6.5-6.5s2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V5.429l25-3.846V29c0 3.584-2.916 6.5-6.5 6.5s-6.5-2.916-6.5-6.5 2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V11.023l-19 2.931V31c0 3.584-2.916 6.5-6.5 6.5z" fill="#8bb7f0"/><path d="M37 2.166V29c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V10.441l-1.152.178-18 2.776-.848.13V31c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V5.858l24-3.692M38 1L12 5v19.683A6.962 6.962 0 009 24a7 7 0 107 7V14.383l18-2.776v11.076A6.962 6.962 0 0031 22a7 7 0 107 7V1z" fill="#4e7ab5"/></svg>'} 
+    <div data-file_location="${fileLocation}" class="filez ${
+    aa ? "flex2" : ""
+  }"  id="newfileLocation" onclick="onFileClick(this);">
+      ${
+        aa
+          ? `<img loading="lazy" class="album-art-box" ${aa}>`
+          : '<svg class="music-image" height="18" width="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><path d="M9 37.5c-3.584 0-6.5-2.916-6.5-6.5s2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V5.429l25-3.846V29c0 3.584-2.916 6.5-6.5 6.5s-6.5-2.916-6.5-6.5 2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V11.023l-19 2.931V31c0 3.584-2.916 6.5-6.5 6.5z" fill="#8A#7f0"/><path d="M37 2.166V29c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V10.441l-1.152.178-18 2.776-.848.13V31c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V5.858l24-3.692M38 1L12 5v19.683A6.962 6.962 0 009 24a7 7 0 107 7V14.383l18-2.776v11.076A6.962 6.962 0 0031 22a7 7 0 107 7V1z" fill="#4e7ab5"/></svg>'
+      } 
       <span>
-        ${subtitle !== undefined ? `<b>` : ''}
-        <span class="${aa ? '' : 'item-text'}">${rating ? `[${rating}] ` : ''}${title}</span>
-        ${subtitle !== undefined ? `</b><br><span>${subtitle}</span>` : ''}
+        ${subtitle !== undefined ? `<b>` : ""}
+        <span class="${aa ? "" : "item-text"}">${
+    rating ? `[${rating}] ` : ""
+  }${title}</span>
+        ${subtitle !== undefined ? `</b><br><span>${subtitle}</span>` : ""}
       </span>
     </div>
     <div class="song-button-box">
@@ -190,13 +222,13 @@ function renderDirHtml(name) {
         <svg width="13" height="13" viewBox="0 0 2048 2048" xmlns="http://www.w3.org/2000/svg"><path d="M1803 960q0 53-37 90l-651 652q-39 37-91 37-53 0-90-37l-651-652q-38-36-38-90 0-53 38-91l74-75q39-37 91-37 53 0 90 37l294 294v-704q0-52 38-90t90-38h128q52 0 90 38t38 90v704l294-294q37-37 90-37 52 0 91 37l75 75q37 39 37 91z"/></svg>
       </span>
     </div>
-  </li>`
+  </li>`;
 }
 
 function createFileplaylistHtml(dataDirectory) {
   return `<li class="collection-item pointer">
     <div data-directory="${dataDirectory}" class="fileplaylistz" onclick="onFilePlaylistClick(this);">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="25" height="25"><path d="M14.5 8a2.495 2.495 0 0 0-2.5 2.5v45c0 1.385 1.115 2.5 2.5 2.5h35c1.385 0 2.5-1.115 2.5-2.5V23l-13.75-1.25L37 8Z" opacity=".2"/><path fill="#1e98d1" d="M14.5 7A2.495 2.495 0 0 0 12 9.5v45c0 1.385 1.115 2.5 2.5 2.5h35c1.385 0 2.5-1.115 2.5-2.5V22l-13.75-1.25L37 7z"/><path d="M37 8v12.5a2.5 2.5 0 0 0 2.5 2.5H52Z" opacity=".2"/><path fill="#67bbe9" d="M37 7v12.5a2.5 2.5 0 0 0 2.5 2.5H52L37 7z"/><path d="M14.5 7A2.495 2.495 0 0 0 12 9.5v1C12 9.115 13.115 8 14.5 8H37V7z" opacity=".2" fill="#fff"/><path d="M24.199 28A2.149 2.085 0 0 0 22 30.086v19.831a2.149 2.085 0 0 0 3.223 1.805l17.704-9.916a2.149 2.085 0 0 0 0-3.61L25.223 28.28a2.149 2.085 0 0 0-1.024-.28z" opacity=".2"/><path d="M24.199 27A2.149 2.085 0 0 0 22 29.086v19.831a2.149 2.085 0 0 0 3.223 1.805l17.704-9.916a2.149 2.085 0 0 0 0-3.61L25.223 27.28a2.149 2.085 0 0 0-1.024-.28z" fill="#fff"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="25" height="25"><path d="M14.5 8a2.495 2.495 0 0 0-2.5 2.5v45c0 1.385 1.115 2.5 2.5 2.5h35c1.385 0 2.5-1.115 2.5-2.5V23l-13.75-1.25L37 8Z" opacity=".2"/><path fill="#1e98d1" d="M14.5 7A2.495 2.495 0 0 0 12 9.5v45c0 1.385 1.115 2.5 2.5 2.5h35c1.385 0 2.5-1.115 2.5-2.5V22l-13.75-1.25L37 7z"/><path d="M37 8v12.5a2.5 2.5 0 0 0 2.5 2.5H52Z" opacity=".2"/><path fill="#67A#e9" d="M37 7v12.5a2.5 2.5 0 0 0 2.5 2.5H52L37 7z"/><path d="M14.5 7A2.495 2.495 0 0 0 12 9.5v1C12 9.115 13.115 8 14.5 8H37V7z" opacity=".2" fill="#fff"/><path d="M24.199 28A2.149 2.085 0 0 0 22 30.086v19.831a2.149 2.085 0 0 0 3.223 1.805l17.704-9.916a2.149 2.085 0 0 0 0-3.61L25.223 28.28a2.149 2.085 0 0 0-1.024-.28z" opacity=".2"/><path d="M24.199 27A2.149 2.085 0 0 0 22 29.086v19.831a2.149 2.085 0 0 0 3.223 1.805l17.704-9.916a2.149 2.085 0 0 0 0-3.61L25.223 27.28a2.149 2.085 0 0 0-1.024-.28z" fill="#fff"/></svg>
       <span class="item-text">${dataDirectory}</span>
     </div>
     <div class="song-button-box">
@@ -211,10 +243,18 @@ function createFileplaylistHtml(dataDirectory) {
 }
 
 function renderPlaylist(playlistName) {
-  return `<li class="collection-item" data-playlistname="${encodeURIComponent(playlistName)}" class="playlist_row_container">
-    <span data-playlistname="${encodeURIComponent(playlistName)}" class="playlistz" onclick="onPlaylistClick(this);">${escapeHtml(playlistName)}</span>
+  return `<li class="collection-item" data-playlistname="${encodeURIComponent(
+    playlistName
+  )}" class="playlist_row_container">
+    <span data-playlistname="${encodeURIComponent(
+      playlistName
+    )}" class="playlistz" onclick="onPlaylistClick(this);">${escapeHtml(
+    playlistName
+  )}</span>
     <div class="song-button-box">
-      <span data-playlistname="${encodeURIComponent(playlistName)}" class="deletePlaylist" onclick="deletePlaylist(this);">Delete</span>
+      <span data-playlistname="${encodeURIComponent(
+        playlistName
+      )}" class="deletePlaylist" onclick="deletePlaylist(this);">Delete</span>
     </div>
   </li>`;
 }
@@ -225,16 +265,16 @@ function getLoadingSvg() {
 
 function setBrowserRootPanel(panelName, showBar) {
   if (showBar === false) {
-    document.getElementById('directory_bar').style.display = 'none';
+    document.getElementById("directory_bar").style.display = "none";
   } else {
-    document.getElementById('directory_bar').style.display = '';
+    document.getElementById("directory_bar").style.display = "";
   }
 
-  document.getElementById('localSearchBar').value = "";
-  document.getElementById('directoryName').innerHTML = '';
-  document.getElementById('local_search_btn').style.display = '';
+  document.getElementById("localSearchBar").value = "";
+  document.getElementById("directoryName").innerHTML = "";
+  document.getElementById("local_search_btn").style.display = "";
 
-  ([...document.getElementsByClassName('panel_one_name')]).forEach(el => {
+  [...document.getElementsByClassName("panel_one_name")].forEach((el) => {
     el.innerHTML = panelName;
   });
 
@@ -243,18 +283,18 @@ function setBrowserRootPanel(panelName, showBar) {
 
 ///////////////// File Explorer
 function loadFileExplorer() {
-  setBrowserRootPanel('File Explorer');
-  programState = [{ state: 'fileExplorer' }];
+  setBrowserRootPanel("File Explorer");
+  programState = [{ state: "fileExplorer" }];
 
-  document.getElementById('mstream-player').style.display = 'block';
-  document.getElementById('filelist').style.display = 'block';
-  document.getElementById('playlist').style.display = 'block';
-  document.getElementById('header_tab').style.display = 'block';
-  document.getElementById('backbtn').style.display = 'block';
-  document.getElementById('local_search_btn').style.display = 'block';
-  document.getElementById('add_all').style.display = 'block';
-  document.getElementById('newcontent').style.display = 'none';
-  document.getElementById('content').style.display = 'flex';
+  document.getElementById("mstream-player").style.display = "block";
+  document.getElementById("filelist").style.display = "block";
+  document.getElementById("playlist").style.display = "block";
+  document.getElementById("header_tab").style.display = "block";
+  document.getElementById("backbtn").style.display = "block";
+  document.getElementById("local_search_btn").style.display = "block";
+  document.getElementById("add_all").style.display = "block";
+  document.getElementById("newcontent").style.display = "none";
+  document.getElementById("content").style.display = "flex";
 
   // Reset file explorer vars
   fileExplorerArray = [];
@@ -264,19 +304,19 @@ function loadFileExplorer() {
 
 async function senddir(root) {
   // Construct the directory string
-  const directoryString = root === true ? '~' : getFileExplorerPath();
-  document.getElementById('filelist').innerHTML = getLoadingSvg();
+  const directoryString = root === true ? "~" : getFileExplorerPath();
+  document.getElementById("filelist").innerHTML = getLoadingSvg();
 
   try {
     const response = await MSTREAMAPI.dirparser(directoryString);
-    document.getElementById('directoryName').innerHTML = response.path;
+    document.getElementById("directoryName").innerHTML = response.path;
 
     if (root === true && response.path.length > 1) {
-      fileExplorerArray.push(response.path.replaceAll('/', ''));
+      fileExplorerArray.push(response.path.replaceAll("/", ""));
       programState.push({
-        state: 'fileExplorer',
+        state: "fileExplorer",
         previousScroll: 0,
-        previousSearch: ''
+        previousSearch: "",
       });
     }
     printdir(response);
@@ -293,28 +333,34 @@ function printdir(response) {
   // Some APIs only return a list of files
   if (response.directories) {
     for (const dir of response.directories) {
-      currentBrowsingList.push({ type: 'directory', name: dir.name })
+      currentBrowsingList.push({ type: "directory", name: dir.name });
       filelist += renderDirHtml(dir.name);
     }
   }
 
   for (const file of response.files) {
-    currentBrowsingList.push({ type: file.type, name: file.name })
-    if (file.type === 'm3u') {
+    currentBrowsingList.push({ type: file.type, name: file.name });
+    if (file.type === "m3u") {
       filelist += createFileplaylistHtml(file.name);
     } else {
-      const title = file.artist != null || file.title != null ? file.artist + ' - ' + file.title : file.name;
-      filelist += createMusicFileHtml(file.path || response.path + file.name, title);
+      const title =
+        file.artist != null || file.title != null
+          ? file.artist + " - " + file.title
+          : file.name;
+      filelist += createMusicFileHtml(
+        file.path || response.path + file.name,
+        title
+      );
     }
   }
 
-  filelist += '</ul>';
+  filelist += "</ul>";
 
   // clear the list
-  document.getElementById('localSearchBar').value = '';
+  document.getElementById("localSearchBar").value = "";
 
   // Post the html to the filelist div
-  document.getElementById('filelist').innerHTML = filelist;
+  document.getElementById("filelist").innerHTML = filelist;
 }
 
 function getFileExplorerPath() {
@@ -322,31 +368,32 @@ function getFileExplorerPath() {
 }
 
 function getDirectoryString2(component) {
-  var newString = getFileExplorerPath() + component.getAttribute("data-directory");
-  if (newString.substring(0, 1) !== '/') {
-    newString = "/" + newString
+  var newString =
+    getFileExplorerPath() + component.getAttribute("data-directory");
+  if (newString.substring(0, 1) !== "/") {
+    newString = "/" + newString;
   }
 
   return newString;
 }
 
-if (typeof (Storage) !== "undefined" && localStorage.getItem("token")) {
+if (typeof Storage !== "undefined" && localStorage.getItem("token")) {
   MSTREAMAPI.currentServer.token = localStorage.getItem("token");
 }
 
 function handleDirClick(el) {
-  fileExplorerArray.push(el.getAttribute('data-directory'));
+  fileExplorerArray.push(el.getAttribute("data-directory"));
   programState.push({
-    state: 'fileExplorer',
-    previousScroll: document.getElementById('filelist').scrollTop,
-    previousSearch: document.getElementById('localSearchBar').value
+    state: "fileExplorer",
+    previousScroll: document.getElementById("filelist").scrollTop,
+    previousSearch: document.getElementById("localSearchBar").value,
   });
   senddir();
 }
 
 function boilerplateFailure(err) {
   console.log(err);
-  let msg = 'Call Failed';
+  let msg = "Call Failed";
   // TODO: Check this
   if (err.responseJSON && err.responseJSON.error) {
     msg = err.responseJSON.error;
@@ -354,8 +401,8 @@ function boilerplateFailure(err) {
 
   iziToast.error({
     title: msg,
-    position: 'topCenter',
-    timeout: 3500
+    position: "topCenter",
+    timeout: 3500,
   });
 }
 
@@ -379,20 +426,20 @@ async function onFilePlaylistClick(el) {
   try {
     fileExplorerArray.push(el.getAttribute("data-directory"));
     programState.push({
-      state: 'fileExplorer',
-      previousScroll: document.getElementById('filelist').scrollTop,
-      previousSearch: document.getElementById('search_folders').value
+      state: "fileExplorer",
+      previousScroll: document.getElementById("filelist").scrollTop,
+      previousSearch: document.getElementById("search_folders").value,
     });
     const directoryString = getFileExplorerPath();
 
-    document.getElementById('directoryName').innerHTML = '/' + directoryString.substring(0, directoryString.length - 1);
-    document.getElementById('filelist').innerHTML = getLoadingSvg();
+    document.getElementById("directoryName").innerHTML =
+      "/" + directoryString.substring(0, directoryString.length - 1);
+    document.getElementById("filelist").innerHTML = getLoadingSvg();
 
     const response = await MSTREAMAPI.loadFileplaylist(directoryString);
     printdir(response);
   } catch (err) {
     boilerplateFailure(err);
-
   }
 }
 
@@ -401,9 +448,9 @@ async function addFilePlaylist(el) {
     const res = await MSTREAMAPI.loadFileplaylist(getDirectoryString2(el));
 
     const translatedList = [];
-    res.files.forEach(f => {
-      translatedList.push(f.path)
-    })
+    res.files.forEach((f) => {
+      translatedList.push(f.path);
+    });
 
     addAllSongs(translatedList);
   } catch (err) {
@@ -412,8 +459,12 @@ async function addFilePlaylist(el) {
 }
 
 function addAll() {
-  ([...document.getElementsByClassName('filez')]).forEach(el => {
-    VUEPLAYERCORE.addSongWizard(el.getAttribute("data-file_location"), {}, true);
+  [...document.getElementsByClassName("filez")].forEach((el) => {
+    VUEPLAYERCORE.addSongWizard(
+      el.getAttribute("data-file_location"),
+      {},
+      true
+    );
   });
 }
 
@@ -424,7 +475,12 @@ function addAllSongs(res) {
 }
 
 function playNow(el) {
-  VUEPLAYERCORE.addSongWizard(el.getAttribute("data-file_location"), {}, true, MSTREAMPLAYER.positionCache.val + 1);
+  VUEPLAYERCORE.addSongWizard(
+    el.getAttribute("data-file_location"),
+    {},
+    true,
+    MSTREAMPLAYER.positionCache.val + 1
+  );
 }
 
 let startInterval = false;
@@ -433,19 +489,27 @@ async function init() {
     const response = await MSTREAMAPI.ping();
     MSTREAMAPI.currentServer.vpaths = response.vpaths;
     VUEPLAYERCORE.playlists.length = 0;
-    document.getElementById('pop-f').innerHTML = '<div class="pop-f pop-playlist">Add To Playlist:</div>';
+    document.getElementById("pop-f").innerHTML =
+      '<div class="pop-f pop-playlist">Add To Playlist:</div>';
 
-    response.playlists.forEach(p => {
+    response.playlists.forEach((p) => {
       VUEPLAYERCORE.playlists.push(p);
-      document.getElementById('pop-f').innerHTML += `<div class="pop-list-item" onclick="addToPlaylistUI('${p.name}')">&#8226; ${p.name}</div>`;
-      document.getElementById('live-playlist-select').innerHTML += `<option value="${p.name}">${p.name}</option>`;
+      document.getElementById(
+        "pop-f"
+      ).innerHTML += `<div class="pop-list-item" onclick="addToPlaylistUI('${p.name}')">&#8226; ${p.name}</div>`;
+      document.getElementById(
+        "live-playlist-select"
+      ).innerHTML += `<option value="${p.name}">${p.name}</option>`;
     });
 
     if (response.transcode) {
       MSTREAMPLAYER.transcodeOptions.serverEnabled = true;
-      MSTREAMPLAYER.transcodeOptions.defaultCodec = response.transcode.defaultCodec;
-      MSTREAMPLAYER.transcodeOptions.defaultBitrate = response.transcode.defaultBitrate;
-      MSTREAMPLAYER.transcodeOptions.defaultAlgo = response.transcode.defaultAlgorithm;
+      MSTREAMPLAYER.transcodeOptions.defaultCodec =
+        response.transcode.defaultCodec;
+      MSTREAMPLAYER.transcodeOptions.defaultBitrate =
+        response.transcode.defaultBitrate;
+      MSTREAMPLAYER.transcodeOptions.defaultAlgo =
+        response.transcode.defaultAlgorithm;
     }
   } catch (err) {
     // window.location.href = 'login';
@@ -453,45 +517,67 @@ async function init() {
 
   // load user settings
   try {
-    const ivp = JSON.parse(localStorage.getItem('ignoreVPaths'));
-    if (Array.isArray(ivp) || !(ivp instanceof Object)) { throw 'bad!'; }
+    const ivp = JSON.parse(localStorage.getItem("ignoreVPaths"));
+    if (Array.isArray(ivp) || !(ivp instanceof Object)) {
+      throw "bad!";
+    }
     MSTREAMPLAYER.ignoreVPaths = ivp;
-  } catch (e) { }
+  } catch (e) {}
 
   try {
     // forced to an array to assure we're not stuffing nul values in here
-    MSTREAMPLAYER.minRating = JSON.parse(localStorage.getItem('minRating'))[0];
-  } catch (e) { }
+    MSTREAMPLAYER.minRating = JSON.parse(localStorage.getItem("minRating"))[0];
+  } catch (e) {}
 
   try {
-    if (localStorage.getItem('transcode') === 'true' && MSTREAMPLAYER.transcodeOptions.serverEnabled === true) {
+    if (
+      localStorage.getItem("transcode") === "true" &&
+      MSTREAMPLAYER.transcodeOptions.serverEnabled === true
+    ) {
       toggleTranscoding(undefined, true);
     }
-    MSTREAMPLAYER.transcodeOptions.selectedCodec = localStorage.getItem('trans-codec-select');
-    MSTREAMPLAYER.transcodeOptions.selectedBitrate = localStorage.getItem('trans-bitrate-select');
-    MSTREAMPLAYER.transcodeOptions.selectedAlgo = localStorage.getItem('trans-algo-select');
-  } catch (e) { }
+    MSTREAMPLAYER.transcodeOptions.selectedCodec =
+      localStorage.getItem("trans-codec-select");
+    MSTREAMPLAYER.transcodeOptions.selectedBitrate = localStorage.getItem(
+      "trans-bitrate-select"
+    );
+    MSTREAMPLAYER.transcodeOptions.selectedAlgo =
+      localStorage.getItem("trans-algo-select");
+  } catch (e) {}
 
   try {
-    VUEPLAYERCORE.livePlaylist.name = localStorage.getItem('live-playlist-auto-start') ? localStorage.getItem('live-playlist-auto-start') : false;
+    VUEPLAYERCORE.livePlaylist.name = localStorage.getItem(
+      "live-playlist-auto-start"
+    )
+      ? localStorage.getItem("live-playlist-auto-start")
+      : false;
 
     if (VUEPLAYERCORE.livePlaylist.name) {
       // get current playlist
-      const response = await MSTREAMAPI.loadPlaylist(VUEPLAYERCORE.livePlaylist.name);
+      const response = await MSTREAMAPI.loadPlaylist(
+        VUEPLAYERCORE.livePlaylist.name
+      );
 
       // set the queue to the current playlist
       MSTREAMPLAYER.clearPlaylist();
-      response.forEach(value => {
-        VUEPLAYERCORE.addSongWizard(value.filepath, value.metadata, false, undefined, false, true);
+      response.forEach((value) => {
+        VUEPLAYERCORE.addSongWizard(
+          value.filepath,
+          value.metadata,
+          false,
+          undefined,
+          false,
+          true
+        );
       });
 
-      document.getElementById('set_live_playlist').classList.remove('green');
-      document.getElementById('set_live_playlist').classList.add('blue');
-      document.getElementById('set_live_playlist').value = 'Disable Live Playlist';
-      document.getElementById('live-playlist-hide-these').hidden = true;
+      document.getElementById("set_live_playlist").classList.remove("green");
+      document.getElementById("set_live_playlist").classList.add("blue");
+      document.getElementById("set_live_playlist").value =
+        "Disable Live Playlist";
+      document.getElementById("live-playlist-hide-these").hidden = true;
     }
-
-  } catch (err) { }
+  } catch (err) {}
 
   dbStatus();
 }
@@ -503,8 +589,8 @@ async function dbStatus() {
     if (!response.locked || response.locked === false) {
       clearInterval(startInterval);
       startInterval = false;
-      document.getElementById('scan-status').innerHTML = '';
-      document.getElementById('scan-status-files').innerHTML = '';
+      document.getElementById("scan-status").innerHTML = "";
+      document.getElementById("scan-status-files").innerHTML = "";
 
       return;
     }
@@ -517,11 +603,12 @@ async function dbStatus() {
     }
 
     // Update status
-    document.getElementById('scan-status').innerHTML = 'Scan In Progress';
-    document.getElementById('scan-status-files').innerHTML = response.totalFileCount + ' files in DB';
+    document.getElementById("scan-status").innerHTML = "Scan In Progress";
+    document.getElementById("scan-status-files").innerHTML =
+      response.totalFileCount + " files in DB";
   } catch (err) {
-    document.getElementById('scan-status').innerHTML = '';
-    document.getElementById('scan-status-files').innerHTML = '';
+    document.getElementById("scan-status").innerHTML = "";
+    document.getElementById("scan-status-files").innerHTML = "";
     clearInterval(startInterval);
     startInterval = false;
   }
@@ -534,99 +621,104 @@ function createPopper3(el) {
     return;
   }
 
-  curFileTracker = el.getAttribute("data-file_location")
-  Popper.createPopper(el, document.getElementById('pop-f'), {
-    placement: 'bottom-end',
+  curFileTracker = el.getAttribute("data-file_location");
+  Popper.createPopper(el, document.getElementById("pop-f"), {
+    placement: "bottom-end",
     onFirstUpdate: function (data) {
       document.getElementById("pop-f").style.visibility = "visible";
     },
     modifiers: [
       {
-        name: 'flip',
+        name: "flip",
         options: {
-          boundariesElement: 'scrollParent',
+          boundariesElement: "scrollParent",
         },
       },
       {
-        name: 'preventOverflow',
+        name: "preventOverflow",
         options: {
-          boundariesElement: 'scrollParent',
+          boundariesElement: "scrollParent",
         },
       },
-    ]
+    ],
   });
 }
 
 const myModal = new HystModal({});
 
 function openShareModal() {
-  myModal.open('#sharePlaylist');
+  myModal.open("#sharePlaylist");
 }
 
 function openSaveModal() {
-  myModal.open('#savePlaylist');
+  myModal.open("#savePlaylist");
 }
 
 function openLivePlaylistModal() {
-  myModal.open('#livePlaylist');
+  myModal.open("#livePlaylist");
 }
 
 function openNewPlaylistModal() {
-  myModal.open('#newPlaylist');
+  myModal.open("#newPlaylist");
 }
 
 function openPlaybackModal() {
-  myModal.open('#speedModal');
+  myModal.open("#speedModal");
 }
 
 function openMetadataModal(metadata, fp) {
   if (metadata === null) {
     return iziToast.warning({
-      title: 'No Metadata Found',
-      position: 'topCenter',
-      timeout: 3500
+      title: "No Metadata Found",
+      position: "topCenter",
+      timeout: 3500,
     });
   }
 
-  document.getElementById('meta--title').innerHTML = metadata.title;
-  document.getElementById('meta--album').innerHTML = metadata.album;
-  document.getElementById('meta--artist').innerHTML = metadata.artist;
-  document.getElementById('meta--year').innerHTML = metadata.year;
-  document.getElementById('meta--disk').innerHTML = metadata.disk;
-  document.getElementById('meta--track').innerHTML = metadata.track;
-  document.getElementById('meta--rating').innerHTML = metadata.rating;
-  document.getElementById('meta--rg').innerHTML = metadata['replaygain-track'];
-  document.getElementById('meta--fp').innerHTML = fp;
-  document.getElementById('meta--fp').href = 'media' + fp;
-  document.getElementById('meta--aa').innerHTML = 'album-art/' + metadata['album-art'];
-  if (metadata['album-art']) {
-    document.getElementById('meta--aa').href = `album-art/${metadata['album-art']}`;
+  document.getElementById("meta--title").innerHTML = metadata.title;
+  document.getElementById("meta--album").innerHTML = metadata.album;
+  document.getElementById("meta--artist").innerHTML = metadata.artist;
+  document.getElementById("meta--year").innerHTML = metadata.year;
+  document.getElementById("meta--disk").innerHTML = metadata.disk;
+  document.getElementById("meta--track").innerHTML = metadata.track;
+  document.getElementById("meta--rating").innerHTML = metadata.rating;
+  document.getElementById("meta--rg").innerHTML = metadata["replaygain-track"];
+  document.getElementById("meta--fp").innerHTML = fp;
+  document.getElementById("meta--fp").href = "media" + fp;
+  document.getElementById("meta--aa").innerHTML =
+    "album-art/" + metadata["album-art"];
+  if (metadata["album-art"]) {
+    document.getElementById(
+      "meta--aa"
+    ).href = `album-art/${metadata["album-art"]}`;
   } else {
-    document.getElementById('meta--aa').href = '#';
+    document.getElementById("meta--aa").href = "#";
   }
 
-  myModal.open('#metadataModel');
+  myModal.open("#metadataModel");
 }
 
 function openEditModal() {
-  document.getElementById('server_address').value = MSTREAMAPI.currentServer.host;
-  document.getElementById('server_username').value = MSTREAMAPI.currentServer.username;
-  myModal.open('#editServer');
+  document.getElementById("server_address").value =
+    MSTREAMAPI.currentServer.host;
+  document.getElementById("server_username").value =
+    MSTREAMAPI.currentServer.username;
+  myModal.open("#editServer");
 }
 
 async function addToPlaylistUI(playlist) {
   try {
     await MSTREAMAPI.addToPlaylist(playlist, curFileTracker);
     iziToast.success({
-      title: 'Song Added!',
-      position: 'topCenter',
-      timeout: 3500
+      title: "Song Added!",
+      position: "topCenter",
+      timeout: 3500,
     });
   } catch (err) {
     iziToast.error({
-      title: 'Failed to add song',
-      position: 'topCenter',
-      timeout: 3500
+      title: "Failed to add song",
+      position: "topCenter",
+      timeout: 3500,
     });
   }
 }
@@ -644,62 +736,69 @@ function downloadPlaylist() {
   }
 
   // Use key if necessary
-  document.getElementById('downform').action = "api/v1/download/zip?token=" + MSTREAMAPI.currentServer.token;
+  document.getElementById("downform").action =
+    "api/v1/download/zip?token=" + MSTREAMAPI.currentServer.token;
 
   let input = document.createElement("INPUT");
-  input.type = 'hidden';
-  input.name = 'fileArray';
+  input.type = "hidden";
+  input.name = "fileArray";
   input.value = JSON.stringify(downloadFiles);
-  document.getElementById('downform').appendChild(input);
+  document.getElementById("downform").appendChild(input);
 
   //submit form
-  document.getElementById('downform').submit();
+  document.getElementById("downform").submit();
   // clear the form
-  document.getElementById('downform').innerHTML = '';
+  document.getElementById("downform").innerHTML = "";
 }
 
 function recursiveFileDownload(el) {
   const directoryString = getDirectoryString2(el);
-  document.getElementById('downform').action = "api/v1/download/directory?token=" + MSTREAMAPI.currentServer.token;
+  document.getElementById("downform").action =
+    "api/v1/download/directory?token=" + MSTREAMAPI.currentServer.token;
 
   let input = document.createElement("INPUT");
-  input.type = 'hidden';
-  input.name = 'directory';
+  input.type = "hidden";
+  input.name = "directory";
   input.value = directoryString;
-  document.getElementById('downform').appendChild(input);
+  document.getElementById("downform").appendChild(input);
 
   //submit form
-  document.getElementById('downform').submit();
+  document.getElementById("downform").submit();
   // clear the form
-  document.getElementById('downform').innerHTML = '';
+  document.getElementById("downform").innerHTML = "";
 }
 
 function downloadFileplaylist(el) {
-  document.getElementById('downform').action = "api/v1/download/m3u?token=" + MSTREAMAPI.currentServer.token;
+  document.getElementById("downform").action =
+    "api/v1/download/m3u?token=" + MSTREAMAPI.currentServer.token;
 
   const input = document.createElement("INPUT");
-  input.type = 'hidden';
-  input.name = 'path';
+  input.type = "hidden";
+  input.name = "path";
   input.value = getDirectoryString2(el);
-  document.getElementById('downform').appendChild(input);
+  document.getElementById("downform").appendChild(input);
 
   //submit form
-  document.getElementById('downform').submit();
+  document.getElementById("downform").submit();
   // clear the form
-  document.getElementById('downform').innerHTML = '';
+  document.getElementById("downform").innerHTML = "";
 }
 
 function onSearchButtonClick() {
   // Hide Filepath
-  document.getElementById('search_folders').classList.toggle('super-hide');
+  document.getElementById("search_folders").classList.toggle("super-hide");
   // Show Search Input
-  document.getElementById('directoryName').classList.toggle('super-hide');
+  document.getElementById("directoryName").classList.toggle("super-hide");
 
-  if (!document.getElementById('search_folders').classList.contains('super-hide')) {
+  if (
+    !document.getElementById("search_folders").classList.contains("super-hide")
+  ) {
     document.getElementById("localSearchBar").focus();
   } else {
-    document.getElementById('localSearchBar').value = '';
-    document.getElementById('localSearchBar').dispatchEvent(new Event('change'));
+    document.getElementById("localSearchBar").value = "";
+    document
+      .getElementById("localSearchBar")
+      .dispatchEvent(new Event("change"));
   }
 }
 
@@ -711,150 +810,183 @@ async function onBackButton() {
   const thisState = programState.pop();
   const backState = programState[programState.length - 1];
 
-  if (backState.state === 'allPlaylists') {
+  if (backState.state === "allPlaylists") {
     await getAllPlaylists(undefined);
-  } else if (backState.state === 'allAlbums') {
+  } else if (backState.state === "allAlbums") {
     await getAllAlbums(undefined);
-  } else if (backState.state === 'allArtists') {
+  } else if (backState.state === "allArtists") {
     await getAllArtists(undefined);
-  } else if (backState.state === 'artist') {
+  } else if (backState.state === "artist") {
     await getArtistsAlbums(backState.name);
-  } else if (backState.state === 'fileExplorer') {
+  } else if (backState.state === "fileExplorer") {
     fileExplorerArray.pop();
     await senddir();
-  } else if (backState.state === 'searchPanel') {
+  } else if (backState.state === "searchPanel") {
     setupSearchPanel(backState.searchTerm, undefined);
   }
 
   // Fill in Search Bar
-  if (backState.state !== 'searchPanel' && thisState.previousSearch) {
-    document.getElementById('localSearchBar').value = thisState.previousSearch;
-    document.getElementById('localSearchBar').dispatchEvent(new Event('keyup'));
+  if (backState.state !== "searchPanel" && thisState.previousSearch) {
+    document.getElementById("localSearchBar").value = thisState.previousSearch;
+    document.getElementById("localSearchBar").dispatchEvent(new Event("keyup"));
   }
 
   // Scroll to position
   if (thisState.previousScroll) {
-    document.getElementById('filelist').scrollTop = thisState.previousScroll;
+    document.getElementById("filelist").scrollTop = thisState.previousScroll;
   }
 }
 
 ///////////////////// Playlists
 async function getAllPlaylists() {
-  setBrowserRootPanel('Playlists');
-  document.getElementById('filelist').innerHTML = getLoadingSvg();
-  document.getElementById('mstream-player').style.display = 'block';
-  document.getElementById('filelist').style.display = 'block';
-  document.getElementById('playlist').style.display = 'block';
-  document.getElementById('header_tab').style.display = 'block';
-  document.getElementById('backbtn').style.display = 'block';
-  document.getElementById('local_search_btn').style.display = 'block';
-  document.getElementById('add_all').style.display = 'block';
-  document.getElementById('newcontent').style.display = 'none';
-  document.getElementById('content').style.display = 'flex';
-  document.getElementById('directoryName').innerHTML = '<input class="newPlaylistButton btn green" style="height:24px;" value="New Playlist" type="button" onclick="openNewPlaylistModal();">';
-  programState = [{ state: 'allPlaylists' }];
+  setBrowserRootPanel("Playlists");
+  document.getElementById("filelist").innerHTML = getLoadingSvg();
+  document.getElementById("mstream-player").style.display = "block";
+  document.getElementById("filelist").style.display = "block";
+  document.getElementById("playlist").style.display = "block";
+  document.getElementById("header_tab").style.display = "block";
+  document.getElementById("backbtn").style.display = "block";
+  document.getElementById("local_search_btn").style.display = "block";
+  document.getElementById("add_all").style.display = "block";
+  document.getElementById("newcontent").style.display = "none";
+  document.getElementById("content").style.display = "flex";
+  document.getElementById("directoryName").innerHTML =
+    '<input class="newPlaylistButton btn green" style="height:24px;" value="New Playlist" type="button" onclick="openNewPlaylistModal();">';
+  programState = [{ state: "allPlaylists" }];
 
   try {
     const response = await MSTREAMAPI.getAllPlaylists();
     VUEPLAYERCORE.playlists.length = 0;
-    document.getElementById('pop-f').innerHTML = '<div class="pop-f pop-playlist">Add To Playlist:</div>';
-    document.getElementById('live-playlist-select').innerHTML = `<option value="" disabled selected>Select Playlist</option>`;
+    document.getElementById("pop-f").innerHTML =
+      '<div class="pop-f pop-playlist">Add To Playlist:</div>';
+    document.getElementById(
+      "live-playlist-select"
+    ).innerHTML = `<option value="" disabled selected>Select Playlist</option>`;
 
     // loop through the json array and make an array of corresponding divs
     let playlists = '<ul class="collection">';
-    response.forEach(p => {
+    response.forEach((p) => {
       playlists += renderPlaylist(p.name);
-      const lol = { name: p.name, type: 'playlist' };
+      const lol = { name: p.name, type: "playlist" };
       currentBrowsingList.push(lol);
       VUEPLAYERCORE.playlists.push(lol);
-      document.getElementById('pop-f').innerHTML += `<div class="pop-list-item" onclick="addToPlaylistUI('${p.name}')">&#8226; ${p.name}</div>`;
-      document.getElementById('live-playlist-select').innerHTML += `<option value="${p.name}">${p.name}</option>`;
+      document.getElementById(
+        "pop-f"
+      ).innerHTML += `<div class="pop-list-item" onclick="addToPlaylistUI('${p.name}')">&#8226; ${p.name}</div>`;
+      document.getElementById(
+        "live-playlist-select"
+      ).innerHTML += `<option value="${p.name}">${p.name}</option>`;
     });
-    playlists += '</ul>'
+    playlists += "</ul>";
 
-    document.getElementById('filelist').innerHTML = playlists;
+    document.getElementById("filelist").innerHTML = playlists;
   } catch (err) {
-    document.getElementById('filelist').innerHTML = '<div>Server call failed</div>';
+    document.getElementById("filelist").innerHTML =
+      "<div>Server call failed</div>";
     return boilerplateFailure(err);
   }
 }
 
 function deletePlaylist(el) {
-  const playlistname = decodeURIComponent(el.getAttribute('data-playlistname'));
+  const playlistname = decodeURIComponent(el.getAttribute("data-playlistname"));
 
   iziToast.question({
     timeout: 10000,
     close: false,
     overlayClose: true,
     overlay: true,
-    displayMode: 'once',
-    id: 'question',
+    displayMode: "once",
+    id: "question",
     zindex: 99999,
     title: `Delete '${playlistname}'?`,
-    position: 'center',
+    position: "center",
     buttons: [
-      ['<button><b>Delete</b></button>', async (instance, toast) => {
-        try {
-          await MSTREAMAPI.deletePlaylist(playlistname)
-          document.querySelector('li[data-playlistname="' + encodeURIComponent(playlistname) + '"]').remove();
-        } catch (err) {
-          boilerplateFailure(err);
-        }
-        instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
-      }, true],
-      ['<button>Go Back</button>', (instance, toast) => {
-        instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
-      }],
-    ]
+      [
+        "<button><b>Delete</b></button>",
+        async (instance, toast) => {
+          try {
+            await MSTREAMAPI.deletePlaylist(playlistname);
+            document
+              .querySelector(
+                'li[data-playlistname="' +
+                  encodeURIComponent(playlistname) +
+                  '"]'
+              )
+              .remove();
+          } catch (err) {
+            boilerplateFailure(err);
+          }
+          instance.hide({ transitionOut: "fadeOut" }, toast, "button");
+        },
+        true,
+      ],
+      [
+        "<button>Go Back</button>",
+        (instance, toast) => {
+          instance.hide({ transitionOut: "fadeOut" }, toast, "button");
+        },
+      ],
+    ],
   });
 }
 
 async function onPlaylistClick(el) {
   try {
-    const playlistname = decodeURIComponent(el.getAttribute('data-playlistname'));
-    document.getElementById('directoryName').innerHTML = 'Playlist: ' + playlistname;
-    document.getElementById('filelist').innerHTML = getLoadingSvg();
+    const playlistname = decodeURIComponent(
+      el.getAttribute("data-playlistname")
+    );
+    document.getElementById("directoryName").innerHTML =
+      "Playlist: " + playlistname;
+    document.getElementById("filelist").innerHTML = getLoadingSvg();
     currentBrowsingList = [];
     programState.push({
-      state: 'playlist',
+      state: "playlist",
       name: playlistname,
-      previousScroll: document.getElementById('filelist').scrollTop,
-      previousSearch: document.getElementById('localSearchBar').value
+      previousScroll: document.getElementById("filelist").scrollTop,
+      previousSearch: document.getElementById("localSearchBar").value,
     });
-    document.getElementById('localSearchBar').value = '';
+    document.getElementById("localSearchBar").value = "";
     const response = await MSTREAMAPI.loadPlaylist(playlistname);
 
     // Add the playlist name to the modal
-    document.getElementById('playlist_name').value = playlistname;
+    document.getElementById("playlist_name").value = playlistname;
 
-    let files = '';
-    response.forEach(value => {
+    let files = "";
+    response.forEach((value) => {
       currentBrowsingList.push({
-        type: 'file',
-        name: (!value.metadata || !value.metadata.title) ? value.filepath : `${value.metadata.artist} - ${value.metadata.title}`,
+        type: "file",
+        name:
+          !value.metadata || !value.metadata.title
+            ? value.filepath
+            : `${value.metadata.artist} - ${value.metadata.title}`,
         metadata: value.metadata,
         filepath: value.filepath,
-        lokiId: value.lokiId
+        lokiId: value.lokiId,
       });
 
-      files += renderFileWithMetadataHtml(value.filepath, value.lokiId, value.metadata);
+      files += renderFileWithMetadataHtml(
+        value.filepath,
+        value.lokiId,
+        value.metadata
+      );
     });
 
-    document.getElementById('filelist').innerHTML = files;
+    document.getElementById("filelist").innerHTML = files;
   } catch (err) {
-    document.getElementById('filelist').innerHTML = '<div>Server call failed</div>';
+    document.getElementById("filelist").innerHTML =
+      "<div>Server call failed</div>";
     boilerplateFailure(response, error);
   }
 }
 
 function removePlaylistSong(el) {
   try {
-    const lokiId = el.getAttribute('data-lokiid');
+    const lokiId = el.getAttribute("data-lokiid");
     MSTREAMAPI.removePlaylistSong(lokiId);
 
     // remove from currentBrowsingList
-    currentBrowsingList = currentBrowsingList.filter(item => {
-      return item.lokiId !== lokiId
+    currentBrowsingList = currentBrowsingList.filter((item) => {
+      return item.lokiId !== lokiId;
     });
 
     document.querySelector(`li[data-lokiid="${lokiId}"]`).remove();
@@ -864,81 +996,97 @@ function removePlaylistSong(el) {
 }
 
 async function newPlaylist() {
-  document.getElementById('new_playlist').disabled = true;
+  document.getElementById("new_playlist").disabled = true;
   try {
-    const title = document.getElementById('new_playlist_name').value;
+    const title = document.getElementById("new_playlist_name").value;
     await MSTREAMAPI.newPlaylist(title);
     myModal.close();
     iziToast.success({
-      title: 'Playlist Created',
-      position: 'topCenter',
-      timeout: 3000
+      title: "Playlist Created",
+      position: "topCenter",
+      timeout: 3000,
     });
 
     document.getElementById("newPlaylistForm").reset();
-    VUEPLAYERCORE.playlists.push({ name: title, type: 'playlist' });
-    document.getElementById('pop-f').innerHTML += `<div class="pop-list-item" onclick="addToPlaylistUI('${title}')">&#8226; ${title}</div>`;
-    document.getElementById('live-playlist-select').innerHTML += `<option value="${title}">${title}</option>`;
+    VUEPLAYERCORE.playlists.push({ name: title, type: "playlist" });
+    document.getElementById(
+      "pop-f"
+    ).innerHTML += `<div class="pop-list-item" onclick="addToPlaylistUI('${title}')">&#8226; ${title}</div>`;
+    document.getElementById(
+      "live-playlist-select"
+    ).innerHTML += `<option value="${title}">${title}</option>`;
 
-    if (programState[0].state === 'allPlaylists') {
+    if (programState[0].state === "allPlaylists") {
       getAllPlaylists();
     }
   } catch (err) {
     boilerplateFailure(err);
   }
-  document.getElementById('new_playlist').disabled = false;
+  document.getElementById("new_playlist").disabled = false;
 }
 
 async function setLivePlaylist() {
   try {
-    document.getElementById('set_live_playlist').disabled = true;
+    document.getElementById("set_live_playlist").disabled = true;
 
     if (VUEPLAYERCORE.livePlaylist.name !== false) {
       VUEPLAYERCORE.livePlaylist.name = false;
-      document.getElementById('set_live_playlist').classList.remove('blue');
-      document.getElementById('set_live_playlist').classList.add('green');
-      document.getElementById('set_live_playlist').value = 'Enable Live Playlist';
-      document.getElementById('live-playlist-hide-these').hidden = false;
+      document.getElementById("set_live_playlist").classList.remove("blue");
+      document.getElementById("set_live_playlist").classList.add("green");
+      document.getElementById("set_live_playlist").value =
+        "Enable Live Playlist";
+      document.getElementById("live-playlist-hide-these").hidden = false;
       myModal.close();
       return;
     }
 
     let livePlaylistName;
 
-    if (document.getElementById('radio-use-existing').checked === true) {
-      if (document.getElementById('live-playlist-select').value === "") {
-        const err = new Error('No Playlist Selected');
-        err.responseJSON = { error: 'No Playlist Selected' };
+    if (document.getElementById("radio-use-existing").checked === true) {
+      if (document.getElementById("live-playlist-select").value === "") {
+        const err = new Error("No Playlist Selected");
+        err.responseJSON = { error: "No Playlist Selected" };
         throw err;
       }
-      livePlaylistName = document.getElementById('live-playlist-select').value;
+      livePlaylistName = document.getElementById("live-playlist-select").value;
     } else {
-      if (document.getElementById('new-live-playlist-name').value === "") {
-        const err = new Error('Playlist Name Required');
-        err.responseJSON = { error: 'Playlist Name Required' };
+      if (document.getElementById("new-live-playlist-name").value === "") {
+        const err = new Error("Playlist Name Required");
+        err.responseJSON = { error: "Playlist Name Required" };
         throw err;
       }
-      livePlaylistName = document.getElementById('new-live-playlist-name').value;
+      livePlaylistName = document.getElementById(
+        "new-live-playlist-name"
+      ).value;
     }
 
     // check if checkbox is checked
-    if (document.getElementById('persist_live_queue').checked === true) {
-      localStorage.setItem('live-playlist-auto-start', livePlaylistName)
+    if (document.getElementById("persist_live_queue").checked === true) {
+      localStorage.setItem("live-playlist-auto-start", livePlaylistName);
     } else {
-      localStorage.removeItem('live-playlist-auto-start');
+      localStorage.removeItem("live-playlist-auto-start");
     }
 
     // set live var
     VUEPLAYERCORE.livePlaylist.name = livePlaylistName;
 
     // get current playlist
-    const response = await MSTREAMAPI.loadPlaylist(VUEPLAYERCORE.livePlaylist.name);
+    const response = await MSTREAMAPI.loadPlaylist(
+      VUEPLAYERCORE.livePlaylist.name
+    );
 
     // set the queue to the current playlist
     if (response.length > 0) {
       MSTREAMPLAYER.clearPlaylist();
-      response.forEach(value => {
-        VUEPLAYERCORE.addSongWizard(value.filepath, value.metadata, false, undefined, false, true);
+      response.forEach((value) => {
+        VUEPLAYERCORE.addSongWizard(
+          value.filepath,
+          value.metadata,
+          false,
+          undefined,
+          false,
+          true
+        );
       });
     } else {
       // save current queue
@@ -949,33 +1097,34 @@ async function setLivePlaylist() {
       MSTREAMAPI.savePlaylist(livePlaylistName, songs, true);
     }
 
-    document.getElementById('set_live_playlist').classList.remove('green');
-    document.getElementById('set_live_playlist').classList.add('blue');
-    document.getElementById('set_live_playlist').value = 'Disable Live Playlist';
-    document.getElementById('live-playlist-hide-these').hidden = true;
+    document.getElementById("set_live_playlist").classList.remove("green");
+    document.getElementById("set_live_playlist").classList.add("blue");
+    document.getElementById("set_live_playlist").value =
+      "Disable Live Playlist";
+    document.getElementById("live-playlist-hide-these").hidden = true;
 
     // close modal
     myModal.close();
   } catch (err) {
     boilerplateFailure(err);
   } finally {
-    document.getElementById('set_live_playlist').disabled = false;
+    document.getElementById("set_live_playlist").disabled = false;
   }
 }
 
 async function savePlaylist() {
   if (MSTREAMPLAYER.playlist.length == 0) {
     iziToast.warning({
-      title: 'No playlist to save!',
-      position: 'topCenter',
-      timeout: 3500
+      title: "No playlist to save!",
+      position: "topCenter",
+      timeout: 3500,
     });
     return;
   }
 
   try {
-    document.getElementById('save_playlist').disabled = true;
-    const title = document.getElementById('playlist_name').value;
+    document.getElementById("save_playlist").disabled = true;
+    const title = document.getElementById("playlist_name").value;
 
     //loop through array and add each file to the playlist
     const songs = [];
@@ -987,152 +1136,177 @@ async function savePlaylist() {
 
     myModal.close();
     iziToast.success({
-      title: 'Playlist Saved',
-      position: 'topCenter',
-      timeout: 3000
+      title: "Playlist Saved",
+      position: "topCenter",
+      timeout: 3000,
     });
 
-    if (programState[0].state === 'allPlaylists') {
+    if (programState[0].state === "allPlaylists") {
       getAllPlaylists();
     }
 
-    VUEPLAYERCORE.playlists.push({ name: title, type: 'playlist' });
-    document.getElementById('pop-f').innerHTML += `<div class="pop-list-item" onclick="addToPlaylistUI('${title}')">&#8226; ${title}</div>`;
-    document.getElementById('live-playlist-select').innerHTML += `<option value="${title}">${title}</option>`;
+    VUEPLAYERCORE.playlists.push({ name: title, type: "playlist" });
+    document.getElementById(
+      "pop-f"
+    ).innerHTML += `<div class="pop-list-item" onclick="addToPlaylistUI('${title}')">&#8226; ${title}</div>`;
+    document.getElementById(
+      "live-playlist-select"
+    ).innerHTML += `<option value="${title}">${title}</option>`;
   } catch (err) {
     boilerplateFailure(err);
   } finally {
-    document.getElementById('save_playlist').disabled = false;
+    document.getElementById("save_playlist").disabled = false;
   }
 }
 
 /////////////// Artists
 async function getAllArtists() {
-  setBrowserRootPanel('Artists');
-  document.getElementById('filelist').innerHTML = getLoadingSvg();
-  programState = [{ state: 'allArtists' }];
+  setBrowserRootPanel("Artists");
+  document.getElementById("filelist").innerHTML = getLoadingSvg();
+  programState = [{ state: "allArtists" }];
 
   try {
     const response = await MSTREAMAPI.artists({
       ignoreVPaths: Object.keys(MSTREAMPLAYER.ignoreVPaths).filter((vpath) => {
         return MSTREAMPLAYER.ignoreVPaths[vpath] === true;
-      })
+      }),
     });
 
     // parse through the json array and make an array of corresponding divs
     let artists = '<ul class="collection">';
-    response.artists.forEach(value => {
+    response.artists.forEach((value) => {
       artists += renderArtist(value);
-      currentBrowsingList.push({ type: 'artist', name: value });
+      currentBrowsingList.push({ type: "artist", name: value });
     });
-    artists += '</ul>';
+    artists += "</ul>";
 
-    document.getElementById('filelist').innerHTML = artists;
+    document.getElementById("filelist").innerHTML = artists;
   } catch (err) {
-    document.getElementById('filelist').innerHTML = '<div>Server call failed</div>';
+    document.getElementById("filelist").innerHTML =
+      "<div>Server call failed</div>";
     boilerplateFailure(response, error);
   }
 }
 
 function getArtistz(el) {
-  const artist = el.getAttribute('data-artist');
+  const artist = el.getAttribute("data-artist");
   programState.push({
-    state: 'artist',
+    state: "artist",
     name: artist,
-    previousScroll: document.getElementById('filelist').scrollTop,
-    previousSearch: document.getElementById('localSearchBar').value
+    previousScroll: document.getElementById("filelist").scrollTop,
+    previousSearch: document.getElementById("localSearchBar").value,
   });
 
-  getArtistsAlbums(artist)
+  getArtistsAlbums(artist);
 }
 
 async function getArtistsAlbums(artist) {
-  setBrowserRootPanel('Albums');
-  document.getElementById('directoryName').innerHTML = 'Artist: ' + artist;
-  document.getElementById('filelist').innerHTML = getLoadingSvg();
+  setBrowserRootPanel("Albums");
+  document.getElementById("directoryName").innerHTML = "Artist: " + artist;
+  document.getElementById("filelist").innerHTML = getLoadingSvg();
 
   try {
     const response = await MSTREAMAPI.artistAlbums({
       artist: artist,
       ignoreVPaths: Object.keys(MSTREAMPLAYER.ignoreVPaths).filter((vpath) => {
         return MSTREAMPLAYER.ignoreVPaths[vpath] === true;
-      })
+      }),
     });
 
-    let albums = '<ul>';
-    response.albums.forEach(value => {
-      const albumString = value.name ? value.name : 'SINGLES';
+    let albums = "<ul>";
+    response.albums.forEach((value) => {
+      const albumString = value.name ? value.name : "SINGLES";
       // 'value.name === null ? artist : null' is some clever shit that only passes in artist info when the album is null
       // This is so we get the singles for this artist
       // If the album is specified, we don't want to limit by artist
-      albums += renderAlbum(value.name, value.name === null ? artist : null, albumString, value.album_art_file, value.year);
-      currentBrowsingList.push({ type: 'album', name: value.name, artist: artist, album_art_file: value.album_art_file })
+      albums += renderAlbum(
+        value.name,
+        value.name === null ? artist : null,
+        albumString,
+        value.album_art_file,
+        value.year
+      );
+      currentBrowsingList.push({
+        type: "album",
+        name: value.name,
+        artist: artist,
+        album_art_file: value.album_art_file,
+      });
     });
-    albums += '</ul>';
+    albums += "</ul>";
 
-    document.getElementById('filelist').innerHTML = albums;
+    document.getElementById("filelist").innerHTML = albums;
   } catch (err) {
-    document.getElementById('filelist').innerHTML = '<div>Server call failed</div>';
+    document.getElementById("filelist").innerHTML =
+      "<div>Server call failed</div>";
     boilerplateFailure(response, error);
   }
 }
 
 /////////////// Albums
 async function getAllAlbums() {
-  setBrowserRootPanel('Albums');
-  document.getElementById('filelist').innerHTML = getLoadingSvg();
+  setBrowserRootPanel("Albums");
+  document.getElementById("filelist").innerHTML = getLoadingSvg();
 
-  programState = [{ state: 'allAlbums' }];
+  programState = [{ state: "allAlbums" }];
 
   try {
     const response = await MSTREAMAPI.albums({
       ignoreVPaths: Object.keys(MSTREAMPLAYER.ignoreVPaths).filter((vpath) => {
         return MSTREAMPLAYER.ignoreVPaths[vpath] === true;
-      })
+      }),
     });
 
     //parse through the json array and make an array of corresponding divs
     let albums = '<ul class="collection">';
-    response.albums.forEach(value => {
+    response.albums.forEach((value) => {
       currentBrowsingList.push({
-        type: 'album',
+        type: "album",
         name: value.name,
-        'album_art_file': value.album_art_file
+        album_art_file: value.album_art_file,
       });
 
-      albums += renderAlbum(value.name, undefined, value.name, value.album_art_file, value.year);
+      albums += renderAlbum(
+        value.name,
+        undefined,
+        value.name,
+        value.album_art_file,
+        value.year
+      );
     });
-    albums += '</ul>'
+    albums += "</ul>";
 
-    document.getElementById('filelist').innerHTML = albums;
+    document.getElementById("filelist").innerHTML = albums;
   } catch (err) {
-    document.getElementById('filelist').innerHTML = '<div>Server call failed</div>';
+    document.getElementById("filelist").innerHTML =
+      "<div>Server call failed</div>";
     return boilerplateFailure(err);
   }
 }
 
 function getAlbumsOnClick(el) {
   getAlbumSongs(
-    el.hasAttribute('data-album') ? el.getAttribute('data-album') : null,
-    el.hasAttribute('data-artist') ? el.getAttribute('data-artist') : null,
-    el.hasAttribute('data-year') ? el.getAttribute('data-year') : null);
+    el.hasAttribute("data-album") ? el.getAttribute("data-album") : null,
+    el.hasAttribute("data-artist") ? el.getAttribute("data-artist") : null,
+    el.hasAttribute("data-year") ? el.getAttribute("data-year") : null
+  );
 }
 
 async function getAlbumSongs(album, artist, year) {
-  document.getElementById('directoryName').innerHTML = 'Album: ' + album;
+  document.getElementById("directoryName").innerHTML = "Album: " + album;
 
   programState.push({
-    state: 'album',
+    state: "album",
     name: album,
-    previousScroll: document.getElementById('filelist').scrollTop,
-    previousSearch: document.getElementById('localSearchBar').value
+    previousScroll: document.getElementById("filelist").scrollTop,
+    previousSearch: document.getElementById("localSearchBar").value,
   });
 
   //clear the list
-  document.getElementById('filelist').innerHTML = getLoadingSvg();
+  document.getElementById("filelist").innerHTML = getLoadingSvg();
   currentBrowsingList = [];
 
-  document.getElementById('localSearchBar').value = '';
+  document.getElementById("localSearchBar").value = "";
 
   try {
     const response = await MSTREAMAPI.albumSongs({
@@ -1141,120 +1315,156 @@ async function getAlbumSongs(album, artist, year) {
       year,
       ignoreVPaths: Object.keys(MSTREAMPLAYER.ignoreVPaths).filter((vpath) => {
         return MSTREAMPLAYER.ignoreVPaths[vpath] === true;
-      })
+      }),
     });
 
     //parse through the json array and make an array of corresponding divs
     let files = '<ul class="collection">';
-    response.forEach(song => {
-      currentBrowsingList.push({ type: 'file', name: song.metadata.title ? song.metadata.title : song.metadata.filename });
-      files += createMusicFileHtml(song.filepath, song.metadata.title ? song.metadata.title : song.metadata.filename, undefined, undefined, song.metadata.artist ? song.metadata.artist : undefined);
+    response.forEach((song) => {
+      currentBrowsingList.push({
+        type: "file",
+        name: song.metadata.title
+          ? song.metadata.title
+          : song.metadata.filename,
+      });
+      files += createMusicFileHtml(
+        song.filepath,
+        song.metadata.title ? song.metadata.title : song.metadata.filename,
+        undefined,
+        undefined,
+        song.metadata.artist ? song.metadata.artist : undefined
+      );
     });
-    files += '</ul>';
+    files += "</ul>";
 
-    document.getElementById('filelist').innerHTML = files;
+    document.getElementById("filelist").innerHTML = files;
   } catch (err) {
-    document.getElementById('filelist').innerHTML = '<div>Server call failed</div>';
+    document.getElementById("filelist").innerHTML =
+      "<div>Server call failed</div>";
     boilerplateFailure(err);
   }
 }
 
 ////////////// Rated Songs
 async function getRatedSongs() {
-  setBrowserRootPanel('Starred');
-  document.getElementById('filelist').innerHTML = getLoadingSvg();
-  document.getElementById('mstream-player').style.display = 'block';
-  document.getElementById('filelist').style.display = 'block';
-  document.getElementById('playlist').style.display = 'block';
-  document.getElementById('header_tab').style.display = 'block';
-  document.getElementById('backbtn').style.display = 'block';
-  document.getElementById('local_search_btn').style.display = 'block';
-  document.getElementById('add_all').style.display = 'block';
-  programState = [{ state: 'allRated' }];
+  setBrowserRootPanel("Starred");
+  document.getElementById("filelist").innerHTML = getLoadingSvg();
+  document.getElementById("mstream-player").style.display = "block";
+  document.getElementById("filelist").style.display = "block";
+  document.getElementById("playlist").style.display = "block";
+  document.getElementById("header_tab").style.display = "block";
+  document.getElementById("backbtn").style.display = "block";
+  document.getElementById("local_search_btn").style.display = "block";
+  document.getElementById("add_all").style.display = "block";
+  programState = [{ state: "allRated" }];
 
   try {
     const response = await MSTREAMAPI.getRated({
       ignoreVPaths: Object.keys(MSTREAMPLAYER.ignoreVPaths).filter((vpath) => {
         return MSTREAMPLAYER.ignoreVPaths[vpath] === true;
-      })
+      }),
     });
     //parse through the json array and make an array of corresponding divs
-    let files = '';
-    response.forEach(value => {
-      let rating = (value.metadata.rating / 2);
+    let files = "";
+    response.forEach((value) => {
+      let rating = value.metadata.rating / 2;
       if (!Number.isInteger(rating)) {
         rating = rating.toFixed(1);
       }
 
       currentBrowsingList.push({
-        type: 'file',
-        name: value.metadata.artist ? value.metadata.artist + ' - ' + value.metadata.title : value.filepath,
-        metadata: value.metadata
+        type: "file",
+        name: value.metadata.artist
+          ? value.metadata.artist + " - " + value.metadata.title
+          : value.filepath,
+        metadata: value.metadata,
       });
 
-      files += createMusicFileHtml(value.filepath,
-        value.metadata.title ? value.metadata.title : value.filepath.split('/').pop(),
-        value.metadata['album-art'] ? `src="${MSTREAMAPI.currentServer.host}album-art/${value.metadata['album-art']}?compress=s&token=${MSTREAMAPI.currentServer.token}"` : `src="assets/img/default.png"`,
+      files += createMusicFileHtml(
+        value.filepath,
+        value.metadata.title
+          ? value.metadata.title
+          : value.filepath.split("/").pop(),
+        value.metadata["album-art"]
+          ? `src="${MSTREAMAPI.currentServer.host}album-art/${value.metadata["album-art"]}?compress=s&token=${MSTREAMAPI.currentServer.token}"`
+          : `src="assets/img/default.png"`,
         rating,
-        value.metadata.artist ? `<span style="font-size:15px;">${value.metadata.artist}</span>` : '');
+        value.metadata.artist
+          ? `<span style="font-size:15px;">${value.metadata.artist}</span>`
+          : ""
+      );
     });
 
-    document.getElementById('filelist').innerHTML = files;
+    document.getElementById("filelist").innerHTML = files;
   } catch (err) {
-    document.getElementById('filelist').innerHTML = '<div>Server call failed</div>';
+    document.getElementById("filelist").innerHTML =
+      "<div>Server call failed</div>";
     return boilerplateFailure(err);
   }
 }
 
 ///////////////// Recently Played
 function getRecentlyPlayed() {
-  setBrowserRootPanel('Recently Played');
-  document.getElementById('filelist').innerHTML = getLoadingSvg();
-  document.getElementById('mstream-player').style.display = 'block';
-  document.getElementById('filelist').style.display = 'block';
-  document.getElementById('playlist').style.display = 'block';
-  document.getElementById('header_tab').style.display = 'block';
-  document.getElementById('backbtn').style.display = 'block';
-  document.getElementById('local_search_btn').style.display = 'block';
-  document.getElementById('add_all').style.display = 'block';
-  document.getElementById('newcontent').style.display = 'none';
-  document.getElementById('content').style.display = 'flex';
-  document.getElementById('directoryName').innerHTML = 'Get last &nbsp;&nbsp;<input onkeydown="submitRecentlyPlayed();" onfocusout="redoRecentlyPlayed();" id="recently-played-limit" class="recently-added-input" type="number" min="1" step="1" value="100">&nbsp;&nbsp; songs';
+  setBrowserRootPanel("Recently Played");
+  document.getElementById("filelist").innerHTML = getLoadingSvg();
+  document.getElementById("mstream-player").style.display = "block";
+  document.getElementById("filelist").style.display = "block";
+  document.getElementById("playlist").style.display = "block";
+  document.getElementById("header_tab").style.display = "block";
+  document.getElementById("backbtn").style.display = "block";
+  document.getElementById("local_search_btn").style.display = "block";
+  document.getElementById("add_all").style.display = "block";
+  document.getElementById("newcontent").style.display = "none";
+  document.getElementById("content").style.display = "flex";
+  document.getElementById("directoryName").innerHTML =
+    'Get last &nbsp;&nbsp;<input onkeydown="submitRecentlyPlayed();" onfocusout="redoRecentlyPlayed();" id="recently-played-limit" class="recently-added-input" type="number" min="1" step="1" value="100">&nbsp;&nbsp; songs';
 
   redoRecentlyPlayed();
 }
 
 async function redoRecentlyPlayed() {
   currentBrowsingList = [];
-  programState = [{ state: 'recentlyPlayed' }];
+  programState = [{ state: "recentlyPlayed" }];
 
   try {
     const response = await MSTREAMAPI.getRecentlyPlayed(
-      document.getElementById('recently-played-limit').value,
+      document.getElementById("recently-played-limit").value,
       Object.keys(MSTREAMPLAYER.ignoreVPaths).filter((vpath) => {
         return MSTREAMPLAYER.ignoreVPaths[vpath] === true;
-      }));
+      })
+    );
 
     //parse through the json array and make an array of corresponding divs
     let filelist = '<ul class="collection">';
-    response.forEach(el => {
+    response.forEach((el) => {
       currentBrowsingList.push({
-        type: 'file',
-        name: el.metadata.title ? el.metadata.artist + ' - ' + el.metadata.title : el.filepath.split("/").pop()
+        type: "file",
+        name: el.metadata.title
+          ? el.metadata.artist + " - " + el.metadata.title
+          : el.filepath.split("/").pop(),
       });
 
-      filelist += createMusicFileHtml(el.filepath,
-        el.metadata.title ? `${el.metadata.title}` : el.filepath.split("/").pop(),
-        el.metadata['album-art'] ? `src="${MSTREAMAPI.currentServer.host}album-art/${el.metadata['album-art']}?compress=s&token=${MSTREAMAPI.currentServer.token}"` : `src="assets/img/default.png"`,
+      filelist += createMusicFileHtml(
+        el.filepath,
+        el.metadata.title
+          ? `${el.metadata.title}`
+          : el.filepath.split("/").pop(),
+        el.metadata["album-art"]
+          ? `src="${MSTREAMAPI.currentServer.host}album-art/${el.metadata["album-art"]}?compress=s&token=${MSTREAMAPI.currentServer.token}"`
+          : `src="assets/img/default.png"`,
         undefined,
-        el.metadata.artist ? `<span style="font-size:15px;">${el.metadata.artist}</span>` : '');
+        el.metadata.artist
+          ? `<span style="font-size:15px;">${el.metadata.artist}</span>`
+          : ""
+      );
     });
 
-    filelist += '</ul>'
+    filelist += "</ul>";
 
-    document.getElementById('filelist').innerHTML = filelist;
+    document.getElementById("filelist").innerHTML = filelist;
   } catch (err) {
-    document.getElementById('filelist').innerHTML = '<div>Server call failed</div>';
+    document.getElementById("filelist").innerHTML =
+      "<div>Server call failed</div>";
     return boilerplateFailure(err);
   }
 }
@@ -1267,53 +1477,66 @@ function submitRecentlyPlayed() {
 
 ///////////////// Most Played
 function getMostPlayed() {
-  setBrowserRootPanel('Most Played');
-  document.getElementById('filelist').innerHTML = getLoadingSvg();
-  document.getElementById('mstream-player').style.display = 'block';
-  document.getElementById('filelist').style.display = 'block';
-  document.getElementById('playlist').style.display = 'block';
-  document.getElementById('header_tab').style.display = 'block';
-  document.getElementById('backbtn').style.display = 'block';
-  document.getElementById('local_search_btn').style.display = 'block';
-  document.getElementById('add_all').style.display = 'block';
-  document.getElementById('newcontent').style.display = 'none';
-  document.getElementById('content').style.display = 'flex';
-  document.getElementById('directoryName').innerHTML = 'Get last &nbsp;&nbsp;<input onkeydown="submitMostPlayed();" onfocusout="redoMostPlayed();" id="most-played-limit" class="recently-added-input" type="number" min="1" step="1" value="100">&nbsp;&nbsp; songs';
+  setBrowserRootPanel("Most Played");
+  document.getElementById("filelist").innerHTML = getLoadingSvg();
+  document.getElementById("mstream-player").style.display = "block";
+  document.getElementById("filelist").style.display = "block";
+  document.getElementById("playlist").style.display = "block";
+  document.getElementById("header_tab").style.display = "block";
+  document.getElementById("backbtn").style.display = "block";
+  document.getElementById("local_search_btn").style.display = "block";
+  document.getElementById("add_all").style.display = "block";
+  document.getElementById("newcontent").style.display = "none";
+  document.getElementById("content").style.display = "flex";
+  document.getElementById("directoryName").innerHTML =
+    'Get last &nbsp;&nbsp;<input onkeydown="submitMostPlayed();" onfocusout="redoMostPlayed();" id="most-played-limit" class="recently-added-input" type="number" min="1" step="1" value="100">&nbsp;&nbsp; songs';
 
   redoMostPlayed();
 }
 
 async function redoMostPlayed() {
   currentBrowsingList = [];
-  programState = [{ state: 'mostPlayed' }];
+  programState = [{ state: "mostPlayed" }];
 
   try {
     const response = await MSTREAMAPI.getMostPlayed(
-      document.getElementById('most-played-limit').value,
+      document.getElementById("most-played-limit").value,
       Object.keys(MSTREAMPLAYER.ignoreVPaths).filter((vpath) => {
         return MSTREAMPLAYER.ignoreVPaths[vpath] === true;
-      }));
+      })
+    );
 
     //parse through the json array and make an array of corresponding divs
     let filelist = '<ul class="collection">';
-    response.forEach(el => {
+    response.forEach((el) => {
       currentBrowsingList.push({
-        type: 'file',
-        name: el.metadata.title ? el.metadata.artist + ' - ' + el.metadata.title : el.filepath.split("/").pop()
+        type: "file",
+        name: el.metadata.title
+          ? el.metadata.artist + " - " + el.metadata.title
+          : el.filepath.split("/").pop(),
       });
 
-      filelist += createMusicFileHtml(el.filepath,
-        el.metadata.title ? `${el.metadata.title}` : el.filepath.split("/").pop(),
-        el.metadata['album-art'] ? `src="${MSTREAMAPI.currentServer.host}album-art/${el.metadata['album-art']}?compress=s&token=${MSTREAMAPI.currentServer.token}"` : `src="assets/img/default.png"`,
+      filelist += createMusicFileHtml(
+        el.filepath,
+        el.metadata.title
+          ? `${el.metadata.title}`
+          : el.filepath.split("/").pop(),
+        el.metadata["album-art"]
+          ? `src="${MSTREAMAPI.currentServer.host}album-art/${el.metadata["album-art"]}?compress=s&token=${MSTREAMAPI.currentServer.token}"`
+          : `src="assets/img/default.png"`,
         undefined,
-        el.metadata.artist ? `<span style="font-size:15px;">${el.metadata.artist} [${el.metadata['play-count']} plays]</span>` : `<span style="font-size:15px;">[${el.metadata['play-count']} plays]</span>`);
+        el.metadata.artist
+          ? `<span style="font-size:15px;">${el.metadata.artist} [${el.metadata["play-count"]} plays]</span>`
+          : `<span style="font-size:15px;">[${el.metadata["play-count"]} plays]</span>`
+      );
     });
 
-    filelist += '</ul>'
+    filelist += "</ul>";
 
-    document.getElementById('filelist').innerHTML = filelist;
+    document.getElementById("filelist").innerHTML = filelist;
   } catch (err) {
-    document.getElementById('filelist').innerHTML = '<div>Server call failed</div>';
+    document.getElementById("filelist").innerHTML =
+      "<div>Server call failed</div>";
     return boilerplateFailure(err);
   }
 }
@@ -1326,53 +1549,66 @@ function submitMostPlayed() {
 
 ///////////////// Recently Added
 function getRecentlyAdded() {
-  setBrowserRootPanel('Recently Added');
-  document.getElementById('filelist').innerHTML = getLoadingSvg();
-  document.getElementById('mstream-player').style.display = 'block';
-  document.getElementById('filelist').style.display = 'block';
-  document.getElementById('playlist').style.display = 'block';
-  document.getElementById('header_tab').style.display = 'block';
-  document.getElementById('backbtn').style.display = 'block';
-  document.getElementById('local_search_btn').style.display = 'block';
-  document.getElementById('add_all').style.display = 'block';
-  document.getElementById('newcontent').style.display = 'none';
-  document.getElementById('content').style.display = 'flex';
-  document.getElementById('directoryName').innerHTML = 'Get last &nbsp;&nbsp;<input onkeydown="submitRecentlyAdded();" onfocusout="redoRecentlyAdded();" id="recently-added-limit" class="recently-added-input" type="number" min="1" step="1" value="100">&nbsp;&nbsp; songs';
+  setBrowserRootPanel("Recently Added");
+  document.getElementById("filelist").innerHTML = getLoadingSvg();
+  document.getElementById("mstream-player").style.display = "block";
+  document.getElementById("filelist").style.display = "block";
+  document.getElementById("playlist").style.display = "block";
+  document.getElementById("header_tab").style.display = "block";
+  document.getElementById("backbtn").style.display = "block";
+  document.getElementById("local_search_btn").style.display = "block";
+  document.getElementById("add_all").style.display = "block";
+  document.getElementById("newcontent").style.display = "none";
+  document.getElementById("content").style.display = "flex";
+  document.getElementById("directoryName").innerHTML =
+    'Get last &nbsp;&nbsp;<input onkeydown="submitRecentlyAdded();" onfocusout="redoRecentlyAdded();" id="recently-added-limit" class="recently-added-input" type="number" min="1" step="1" value="100">&nbsp;&nbsp; songs';
 
   redoRecentlyAdded();
 }
 
 async function redoRecentlyAdded() {
   currentBrowsingList = [];
-  programState = [{ state: 'recentlyAdded' }];
+  programState = [{ state: "recentlyAdded" }];
 
   try {
     const response = await MSTREAMAPI.getRecentlyAdded(
-      document.getElementById('recently-added-limit').value,
+      document.getElementById("recently-added-limit").value,
       Object.keys(MSTREAMPLAYER.ignoreVPaths).filter((vpath) => {
         return MSTREAMPLAYER.ignoreVPaths[vpath] === true;
-      }));
+      })
+    );
 
     //parse through the json array and make an array of corresponding divs
     let filelist = '<ul class="collection">';
-    response.forEach(el => {
+    response.forEach((el) => {
       currentBrowsingList.push({
-        type: 'file',
-        name: el.metadata.title ? el.metadata.artist + ' - ' + el.metadata.title : el.filepath.split("/").pop()
+        type: "file",
+        name: el.metadata.title
+          ? el.metadata.artist + " - " + el.metadata.title
+          : el.filepath.split("/").pop(),
       });
 
-      filelist += createMusicFileHtml(el.filepath,
-        el.metadata.title ? `${el.metadata.title}` : el.filepath.split("/").pop(),
-        el.metadata['album-art'] ? `src="${MSTREAMAPI.currentServer.host}album-art/${el.metadata['album-art']}?compress=s&token=${MSTREAMAPI.currentServer.token}"` : `src="assets/img/default.png"`,
+      filelist += createMusicFileHtml(
+        el.filepath,
+        el.metadata.title
+          ? `${el.metadata.title}`
+          : el.filepath.split("/").pop(),
+        el.metadata["album-art"]
+          ? `src="${MSTREAMAPI.currentServer.host}album-art/${el.metadata["album-art"]}?compress=s&token=${MSTREAMAPI.currentServer.token}"`
+          : `src="assets/img/default.png"`,
         undefined,
-        el.metadata.artist ? `<span style="font-size:15px;">${el.metadata.artist}</span>` : '');
+        el.metadata.artist
+          ? `<span style="font-size:15px;">${el.metadata.artist}</span>`
+          : ""
+      );
     });
 
-    filelist += '</ul>'
+    filelist += "</ul>";
 
-    document.getElementById('filelist').innerHTML = filelist;
+    document.getElementById("filelist").innerHTML = filelist;
   } catch (err) {
-    document.getElementById('filelist').innerHTML = '<div>Server call failed</div>';
+    document.getElementById("filelist").innerHTML =
+      "<div>Server call failed</div>";
     return boilerplateFailure(err);
   }
 }
@@ -1385,24 +1621,29 @@ function submitRecentlyAdded() {
 
 ///////////////// Transcode
 function setupTranscodePanel() {
-  setBrowserRootPanel('Transcode', false);
+  setBrowserRootPanel("Transcode", false);
 
   if (!MSTREAMPLAYER.transcodeOptions.serverEnabled) {
-    document.getElementById('filelist').innerHTML = '<div class="pad-6"><b>Transcoding is disabled on this server</b></div>';
+    document.getElementById("filelist").innerHTML =
+      '<div class="pad-6"><b>Transcoding is disabled on this server</b></div>';
     return;
   }
 
-  document.getElementById('filelist').innerHTML = `
+  document.getElementById("filelist").innerHTML = `
     <div class="browser-panel">
       <div>
         <label for="enable_transcoding_locally">
           <input type="checkbox" class="filled-in" onchange="toggleTranscoding(this);" id="enable_transcoding_locally" 
-          name="transcode" ${MSTREAMPLAYER.transcodeOptions.frontendEnabled ? 'checked' : ''}/>
+          name="transcode" ${
+            MSTREAMPLAYER.transcodeOptions.frontendEnabled ? "checked" : ""
+          }/>
           <span>Enable Transcoding</span>
         </label>
       </div>
       <p>
-        Default Codec:<br> <b>${MSTREAMPLAYER.transcodeOptions.defaultCodec} ${MSTREAMPLAYER.transcodeOptions.defaultBitrate} ${MSTREAMPLAYER.transcodeOptions.defaultAlgo}</b>
+        Default Codec:<br> <b>${MSTREAMPLAYER.transcodeOptions.defaultCodec} ${
+    MSTREAMPLAYER.transcodeOptions.defaultBitrate
+  } ${MSTREAMPLAYER.transcodeOptions.defaultAlgo}</b>
       </p>
       <form>
         <label for="trans-codec-select">Codec</label>
@@ -1431,42 +1672,61 @@ function setupTranscodePanel() {
       </form>
     </div>`;
 
-  document.getElementById('trans-codec-select').value = MSTREAMPLAYER.transcodeOptions.selectedCodec ? MSTREAMPLAYER.transcodeOptions.selectedCodec : "";
-  document.getElementById('trans-bitrate-select').value = MSTREAMPLAYER.transcodeOptions.selectedBitrate ? MSTREAMPLAYER.transcodeOptions.selectedBitrate : "";
-  document.getElementById('trans-algo-select').value = MSTREAMPLAYER.transcodeOptions.selectedAlgo ? MSTREAMPLAYER.transcodeOptions.selectedAlgo : "";
+  document.getElementById("trans-codec-select").value = MSTREAMPLAYER
+    .transcodeOptions.selectedCodec
+    ? MSTREAMPLAYER.transcodeOptions.selectedCodec
+    : "";
+  document.getElementById("trans-bitrate-select").value = MSTREAMPLAYER
+    .transcodeOptions.selectedBitrate
+    ? MSTREAMPLAYER.transcodeOptions.selectedBitrate
+    : "";
+  document.getElementById("trans-algo-select").value = MSTREAMPLAYER
+    .transcodeOptions.selectedAlgo
+    ? MSTREAMPLAYER.transcodeOptions.selectedAlgo
+    : "";
 }
 
 function changeTranscodeBitrate() {
   const value = document.getElementById("trans-bitrate-select").value;
   MSTREAMPLAYER.transcodeOptions.selectedBitrate = value ? value : null;
-  value ? localStorage.setItem('trans-bitrate-select', value) : localStorage.removeItem('trans-bitrate-select');
+  value
+    ? localStorage.setItem("trans-bitrate-select", value)
+    : localStorage.removeItem("trans-bitrate-select");
 }
 
 function changeTranscodeCodec() {
   const value = document.getElementById("trans-codec-select").value;
   MSTREAMPLAYER.transcodeOptions.selectedCodec = value ? value : null;
-  value ? localStorage.setItem('trans-codec-select', value) : localStorage.removeItem('trans-codec-select');
+  value
+    ? localStorage.setItem("trans-codec-select", value)
+    : localStorage.removeItem("trans-codec-select");
 }
 
 function changeTranscodeAlgo() {
   const value = document.getElementById("trans-algo-select").value;
   MSTREAMPLAYER.transcodeOptions.selectedAlgo = value ? value : null;
-  value ? localStorage.setItem('trans-algo-select', value) : localStorage.removeItem('trans-algo-select');
+  value
+    ? localStorage.setItem("trans-algo-select", value)
+    : localStorage.removeItem("trans-algo-select");
 }
 
 function toggleTranscoding(el, manual) {
   // checkbox button while we convert the playlist
-  if (el) { el.disabled = true; }
+  if (el) {
+    el.disabled = true;
+  }
 
   const checked = manual || el.checked;
 
-  const a = checked ? 'media/' : 'transcode/';
-  const b = checked ? 'transcode/' : 'media/';
+  const a = checked ? "media/" : "transcode/";
+  const b = checked ? "transcode/" : "media/";
 
-  document.getElementById("ffmpeg-logo").style.stroke = checked ? '#388E3C' : '#DDD';
+  document.getElementById("ffmpeg-logo").style.stroke = checked
+    ? "#388E3C"
+    : "#DDD";
   MSTREAMPLAYER.transcodeOptions.frontendEnabled = checked ? true : false;
 
-  localStorage.setItem('transcode', checked ? true : false);
+  localStorage.setItem("transcode", checked ? true : false);
 
   // Convert playlist
   for (let i = 0; i < MSTREAMPLAYER.playlist.length; i++) {
@@ -1474,15 +1734,18 @@ function toggleTranscoding(el, manual) {
   }
 
   // re-enable checkbox
-  if (el) { el.disabled = false; }
+  if (el) {
+    el.disabled = false;
+  }
 }
 
 ///////////////////////////// Mobile Stuff
 function getMobilePanel() {
-  setBrowserRootPanel('Mobile Apps', false);
+  setBrowserRootPanel("Mobile Apps", false);
 
-  document.getElementById('filelist').innerHTML =
-    `<div class="mobile-links pad-6">
+  document.getElementById(
+    "filelist"
+  ).innerHTML = `<div class="mobile-links pad-6">
       <a target="_blank" href="https://play.google.com/store/apps/details?id=mstream.music&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1">
         <img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png'/>
       </a>
@@ -1501,8 +1764,8 @@ function getMobilePanel() {
 //////////////////////////  Share playlists
 async function submitShareForm() {
   try {
-    document.getElementById('share_it').disabled = true;
-    const shareTimeInDays = document.getElementById('share_time').value;
+    document.getElementById("share_it").disabled = true;
+    const shareTimeInDays = document.getElementById("share_time").value;
 
     //loop through array and add each file to the playlist
     const stuff = [];
@@ -1511,30 +1774,35 @@ async function submitShareForm() {
     }
 
     if (stuff.length == 0) {
-      document.getElementById('share_it').disabled = false;
+      document.getElementById("share_it").disabled = false;
       return;
     }
 
     const response = await MSTREAMAPI.makeShared(stuff, shareTimeInDays);
-    const adrs = window.location.protocol + '//' + window.location.host + '/shared/' + response.playlistId;
-    document.getElementById('share-textarea').value = adrs;
+    const adrs =
+      window.location.protocol +
+      "//" +
+      window.location.host +
+      "/shared/" +
+      response.playlistId;
+    document.getElementById("share-textarea").value = adrs;
   } catch (err) {
     boilerplateFailure(err);
   }
 
-  document.getElementById('share_it').disabled = false;
+  document.getElementById("share_it").disabled = false;
 }
 
 ///////////////// Auto DJ
 function autoDjPanel() {
-  setBrowserRootPanel('Auto DJ', false);
+  setBrowserRootPanel("Auto DJ", false);
 
   let newHtml = `<div class="pad-6"><p>Auto DJ randomly generates a playlist.  Click the \'DJ\' button on the bottom enable it</p>
     <h5>Use Folders</h5>`;
   for (let i = 0; i < MSTREAMAPI.currentServer.vpaths.length; i++) {
-    let checkedString = '';
+    let checkedString = "";
     if (!MSTREAMPLAYER.ignoreVPaths[MSTREAMAPI.currentServer.vpaths[i]]) {
-      checkedString = 'checked';
+      checkedString = "checked";
     }
     newHtml += `
       <label for="autodj-folder-${MSTREAMAPI.currentServer.vpaths[i]}">
@@ -1544,24 +1812,28 @@ function autoDjPanel() {
       </label><br>`;
   }
 
-  newHtml += '<h5>Minimum Rating</h5> <select class="browser-default" onchange="updateAutoDJRatings(this)" id="autodj-ratings">';
+  newHtml +=
+    '<h5>Minimum Rating</h5> <select class="browser-default" onchange="updateAutoDJRatings(this)" id="autodj-ratings">';
   for (let i = 0; i < 11; i++) {
-    newHtml += `<option ${(Number(MSTREAMPLAYER.minRating) === i) ? 'selected' : ''} value="${i}">${(i === 0) ? 'Disabled' : +(i / 2).toFixed(1)}</option>`;
+    newHtml += `<option ${
+      Number(MSTREAMPLAYER.minRating) === i ? "selected" : ""
+    } value="${i}">${i === 0 ? "Disabled" : +(i / 2).toFixed(1)}</option>`;
   }
-  newHtml += '</select>';
-  newHtml += '<br><p><input type="button" class="btn blue" value="Toggle Auto DJ" onclick="MSTREAMPLAYER.toggleAutoDJ();"></p></div>'
+  newHtml += "</select>";
+  newHtml +=
+    '<br><p><input type="button" class="btn blue" value="Toggle Auto DJ" onclick="MSTREAMPLAYER.toggleAutoDJ();"></p></div>';
 
-  document.getElementById('filelist').innerHTML = newHtml;
+  document.getElementById("filelist").innerHTML = newHtml;
 }
 
 function onAutoDJFolderChange(el) {
   // Don't allow user to deselect all options
-  if (document.querySelector('input[name=autodj-folders]:checked') === null) {
+  if (document.querySelector("input[name=autodj-folders]:checked") === null) {
     el.checked = true;
     iziToast.warning({
-      title: 'Auto DJ requires a directory',
-      position: 'topCenter',
-      timeout: 3500
+      title: "Auto DJ requires a directory",
+      position: "topCenter",
+      timeout: 3500,
     });
     return;
   }
@@ -1572,17 +1844,20 @@ function onAutoDJFolderChange(el) {
     MSTREAMPLAYER.ignoreVPaths[el.value] = true;
   }
 
-  localStorage.setItem('ignoreVPaths', JSON.stringify(MSTREAMPLAYER.ignoreVPaths));
+  localStorage.setItem(
+    "ignoreVPaths",
+    JSON.stringify(MSTREAMPLAYER.ignoreVPaths)
+  );
 }
 
 function updateAutoDJRatings(el) {
   MSTREAMPLAYER.minRating = el.value;
-  localStorage.setItem('minRating', JSON.stringify([MSTREAMPLAYER.minRating]));
+  localStorage.setItem("minRating", JSON.stringify([MSTREAMPLAYER.minRating]));
 }
 
 ////////////// Jukebox
 function setupJukeboxPanel() {
-  setBrowserRootPanel('Jukebox Mode', false);
+  setBrowserRootPanel("Jukebox Mode", false);
 
   let newHtml;
   if (JUKEBOX.stats.live !== false && JUKEBOX.connection !== false) {
@@ -1596,7 +1871,7 @@ function setupJukeboxPanel() {
   }
 
   // Add the content
-  document.getElementById('filelist').innerHTML = newHtml;
+  document.getElementById("filelist").innerHTML = newHtml;
 }
 
 function createJukeboxPanel() {
@@ -1604,7 +1879,7 @@ function createJukeboxPanel() {
     return '<div class="pad-6">An error occurred.  Please refresh the page and try again</div>';
   }
 
-  let address = '';
+  let address = "";
   if (MSTREAMAPI.currentServer.host) {
     address = `${MSTREAMAPI.currentServer.host}remote/${JUKEBOX.stats.adminCode}`;
   } else {
@@ -1615,15 +1890,18 @@ function createJukeboxPanel() {
   return `<div class="autoselect pad-6">
     <h4>Code: ${JUKEBOX.stats.adminCode}</h4>
     <h4><a target="_blank" href="${address}">${address}</a><h4>
-    ${qrcodegen.QrCode.encodeText(address, qrcodegen.QrCode.Ecc.MEDIUM).toSvgString(2)}
+    ${qrcodegen.QrCode.encodeText(
+      address,
+      qrcodegen.QrCode.Ecc.MEDIUM
+    ).toSvgString(2)}
     </div>`;
 }
 
 function connectToJukeBox(el) {
   el.disabled = true;
-  el.style.display = 'none';
+  el.style.display = "none";
 
-  document.getElementById('filelist').innerHTML += getLoadingSvg();
+  document.getElementById("filelist").innerHTML += getLoadingSvg();
 
   JUKEBOX.createWebsocket(MSTREAMAPI.currentServer.token, false, () => {
     setupJukeboxPanel();
@@ -1633,39 +1911,51 @@ function connectToJukeBox(el) {
 //////////////////////// Local Search
 function runLocalSearch(el) {
   // Do nothing if we are in the search panel
-  if (document.getElementById('db-search')) {
+  if (document.getElementById("db-search")) {
     return;
   }
 
   const searchVal = el.value;
-  let filelist = '';
-  currentBrowsingList.forEach(x => {
-    const lowerCase = x.name !== null ? x.name.toLowerCase() : 'null';
+  let filelist = "";
+  currentBrowsingList.forEach((x) => {
+    const lowerCase = x.name !== null ? x.name.toLowerCase() : "null";
     if (lowerCase.indexOf(searchVal.toLowerCase()) !== -1) {
-      if (x.type === 'directory') {
+      if (x.type === "directory") {
         filelist += renderDirHtml(x.name);
-      } else if (x.type === 'playlist') {
+      } else if (x.type === "playlist") {
         filelist += renderPlaylist(x.name);
-      } else if (x.type === 'album') {
-        const albumString = x.name ? x.name : 'SINGLES';
-        filelist += renderAlbum(x.name, x.name === null ? x.artist : null, albumString, x.album_art_file);
-      } else if (x.type === 'artist') {
+      } else if (x.type === "album") {
+        const albumString = x.name ? x.name : "SINGLES";
+        filelist += renderAlbum(
+          x.name,
+          x.name === null ? x.artist : null,
+          albumString,
+          x.album_art_file
+        );
+      } else if (x.type === "artist") {
         filelist += renderArtist(x.name);
       } else {
-        if (programState[programState.length - 1].state === 'playlist') {
-          filelist += renderFileWithMetadataHtml(x.filepath, x.lokiId, x.metadata);
+        if (programState[programState.length - 1].state === "playlist") {
+          filelist += renderFileWithMetadataHtml(
+            x.filepath,
+            x.lokiId,
+            x.metadata
+          );
         } else if (x.type == "m3u") {
           filelist += createFileplaylistHtml(x.name);
         } else {
           const fileLocation = x.path || getFileExplorerPath() + x.name;
-          const title = x.artist != null || x.title != null ? x.artist + ' - ' + x.title : x.name;
+          const title =
+            x.artist != null || x.title != null
+              ? x.artist + " - " + x.title
+              : x.name;
           filelist += createMusicFileHtml(fileLocation, title);
         }
       }
     }
   });
 
-  document.getElementById('filelist').innerHTML = filelist;
+  document.getElementById("filelist").innerHTML = filelist;
 }
 
 //////////////////////// Search
@@ -1673,55 +1963,56 @@ const searchToggles = {
   albums: true,
   artists: true,
   files: false,
-  titles: true
-}
+  titles: true,
+};
 
 const searchMap = {
   albums: {
-    name: 'Album',
-    class: 'albumz',
-    data: 'album',
-    func: 'getAlbumsOnClick'
+    name: "Album",
+    class: "albumz",
+    data: "album",
+    func: "getAlbumsOnClick",
   },
   artists: {
-    name: 'Artist',
-    class: 'artistz',
-    data: 'artist',
-    func: 'getArtistz'
+    name: "Artist",
+    class: "artistz",
+    data: "artist",
+    func: "getArtistz",
   },
   files: {
-    name: 'File',
-    class: 'filez',
-    data: 'file_location',
-    func: 'onFileClick'
+    name: "File",
+    class: "filez",
+    data: "file_location",
+    func: "onFileClick",
   },
   title: {
-    name: 'Song',
-    class: 'filez',
-    data: 'file_location',
-    func: 'onFileClick'
-  }
+    name: "Song",
+    class: "filez",
+    data: "file_location",
+    func: "onFileClick",
+  },
 };
 
 function setupSearchPanel(searchTerm) {
-  setBrowserRootPanel('Search DB');
-  document.getElementById('local_search_btn').style.display = 'none';
-  document.getElementById('mstream-player').style.display = 'block';
-  document.getElementById('filelist').style.display = 'block';
-  document.getElementById('playlist').style.display = 'block';
-  document.getElementById('header_tab').style.display = 'block';
-  document.getElementById('backbtn').style.display = 'block';
-  document.getElementById('local_search_btn').style.display = 'block';
-  document.getElementById('add_all').style.display = 'block';
-  document.getElementById('newcontent').style.display = 'none';
-  document.getElementById('content').style.display = 'flex';
-  programState = [{ state: 'searchPanel' }];
+  setBrowserRootPanel("Search DB");
+  document.getElementById("local_search_btn").style.display = "none";
+  document.getElementById("mstream-player").style.display = "block";
+  document.getElementById("filelist").style.display = "block";
+  document.getElementById("playlist").style.display = "block";
+  document.getElementById("header_tab").style.display = "block";
+  document.getElementById("backbtn").style.display = "block";
+  document.getElementById("local_search_btn").style.display = "block";
+  document.getElementById("add_all").style.display = "block";
+  document.getElementById("newcontent").style.display = "none";
+  document.getElementById("content").style.display = "flex";
+  programState = [{ state: "searchPanel" }];
 
-  let valString = '';
-  if (searchTerm) { valString = `value="${searchTerm}"`; }
+  let valString = "";
+  if (searchTerm) {
+    valString = `value="${searchTerm}"`;
+  }
 
-  document.getElementById('filelist').innerHTML =
-    `<div>
+  document.getElementById("filelist").innerHTML = `<div>
       <form id="db-search" action="javascript:submitSearchForm()" class="flex">
         <input ${valString} id="search-term" required type="text" placeholder="Search Database">
         <!-- <button type="submit" class="searchButton">
@@ -1731,26 +2022,34 @@ function setupSearchPanel(searchTerm) {
     </div>
     <div class="flex">
       <label class="grow" for="search-in-artists">
-        <input ${(searchToggles.artists === true ? 'checked' : '')} id="search-in-artists" class="filled-in" type="checkbox">
+        <input ${
+          searchToggles.artists === true ? "checked" : ""
+        } id="search-in-artists" class="filled-in" type="checkbox">
         <span>Artists</span>
       </label>
       <label class="grow" for="search-in-albums">
-        <input ${(searchToggles.albums === true ? 'checked' : '')} id="search-in-albums" class="filled-in" type="checkbox">
+        <input ${
+          searchToggles.albums === true ? "checked" : ""
+        } id="search-in-albums" class="filled-in" type="checkbox">
         <span>Albums</span>
       </label>
       <label class="grow" for="search-in-titles">
-        <input ${(searchToggles.titles === true ? 'checked' : '')} id="search-in-titles" class="filled-in" type="checkbox">
+        <input ${
+          searchToggles.titles === true ? "checked" : ""
+        } id="search-in-titles" class="filled-in" type="checkbox">
         <span>Song Titles</span>
       </label>
       <label class="grow" for="search-in-filepaths">
-        <input ${(searchToggles.files === true ? 'checked' : '')} id="search-in-filepaths" class="filled-in" type="checkbox">
+        <input ${
+          searchToggles.files === true ? "checked" : ""
+        } id="search-in-filepaths" class="filled-in" type="checkbox">
         <span>File Paths</span>
       </label>
     </div>
     <div id="search-results"></div>`;
 
-  document.getElementById('search_folders').value = '';
-  document.getElementById('search_folders').dispatchEvent(new Event('change'));
+  document.getElementById("search_folders").value = "";
+  document.getElementById("search_folders").dispatchEvent(new Event("change"));
 
   if (searchTerm) {
     submitSearchForm();
@@ -1759,27 +2058,51 @@ function setupSearchPanel(searchTerm) {
 
 async function submitSearchForm() {
   try {
-    document.getElementById('search-results').innerHTML += '<div class="loading-screen"><svg class="spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg"><circle class="spinner-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle></svg></div>'
+    document.getElementById("search-results").innerHTML +=
+      '<div class="loading-screen"><svg class="spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg"><circle class="spinner-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle></svg></div>';
 
     const postObject = {
-      search: document.getElementById('search-term').value,
+      search: document.getElementById("search-term").value,
       ignoreVPaths: Object.keys(MSTREAMPLAYER.ignoreVPaths).filter((vpath) => {
         return MSTREAMPLAYER.ignoreVPaths[vpath] === true;
-      })
+      }),
     };
 
-    if (document.getElementById("search-in-artists") && document.getElementById("search-in-artists").checked === false) { postObject.noArtists = true; }
-    searchToggles.artists = document.getElementById("search-in-artists").checked;
-    if (document.getElementById("search-in-albums") && document.getElementById("search-in-albums").checked === false) { postObject.noAlbums = true; }
+    if (
+      document.getElementById("search-in-artists") &&
+      document.getElementById("search-in-artists").checked === false
+    ) {
+      postObject.noArtists = true;
+    }
+    searchToggles.artists =
+      document.getElementById("search-in-artists").checked;
+    if (
+      document.getElementById("search-in-albums") &&
+      document.getElementById("search-in-albums").checked === false
+    ) {
+      postObject.noAlbums = true;
+    }
     searchToggles.albums = document.getElementById("search-in-albums").checked;
-    if (document.getElementById("search-in-filepaths") && document.getElementById("search-in-filepaths").checked === false) { postObject.noFiles = true; }
-    searchToggles.files = document.getElementById("search-in-filepaths").checked;
-    if (document.getElementById("search-in-titles") && document.getElementById("search-in-titles").checked === false) { postObject.noTitles = true; }
+    if (
+      document.getElementById("search-in-filepaths") &&
+      document.getElementById("search-in-filepaths").checked === false
+    ) {
+      postObject.noFiles = true;
+    }
+    searchToggles.files = document.getElementById(
+      "search-in-filepaths"
+    ).checked;
+    if (
+      document.getElementById("search-in-titles") &&
+      document.getElementById("search-in-titles").checked === false
+    ) {
+      postObject.noTitles = true;
+    }
     searchToggles.titles = document.getElementById("search-in-titles").checked;
 
     const res = await MSTREAMAPI.search(postObject);
 
-    if (programState[0].state === 'searchPanel') {
+    if (programState[0].state === "searchPanel") {
       programState[0].searchTerm = postObject.search;
     }
 
@@ -1793,29 +2116,36 @@ async function submitSearchForm() {
 
         // perform some operation on a value;
         searchList += `<li class="collection-item">
-          <div onclick="${searchMap[key].func}(this);" data-${searchMap[key].data}="${value.filepath ? value.filepath : value.name}" class="${searchMap[key].class} left">
+          <div onclick="${searchMap[key].func}(this);" data-${
+          searchMap[key].data
+        }="${value.filepath ? value.filepath : value.name}" class="${
+          searchMap[key].class
+        } left">
             <b>${searchMap[key].name}:</b> ${value.name}
           </div>
-          ${key === 'files' || key === 'title' ? `<div class="song-button-box">
+          ${
+            key === "files" || key === "title"
+              ? `<div class="song-button-box">
             <span title="Play Now" onclick="playNow(this);" data-file_location="${value.filepath}" class="songDropdown">
               <svg xmlns="http://www.w3.org/2000/svg" height="12" width="12" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M15.5 5H11l5 7-5 7h4.5l5-7z"/><path d="M8.5 5H4l5 7-5 7h4.5l5-7z"/></svg>
             </span>
             <span title="Add To Playlist" onclick="createPopper3(this);" data-file_location="${value.filepath}" class="fileAddToPlaylist">
               <svg class="pop-f" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 292.362 292.362"><path class="pop-f" d="M286.935 69.377c-3.614-3.617-7.898-5.424-12.848-5.424H18.274c-4.952 0-9.233 1.807-12.85 5.424C1.807 72.998 0 77.279 0 82.228c0 4.948 1.807 9.229 5.424 12.847l127.907 127.907c3.621 3.617 7.902 5.428 12.85 5.428s9.233-1.811 12.847-5.428L286.935 95.074c3.613-3.617 5.427-7.898 5.427-12.847 0-4.948-1.814-9.229-5.427-12.85z"/></svg>
             </span>
-          </div>` : ''
+          </div>`
+              : ""
           }
         </li>`;
       });
     });
 
-    searchList += '</ul>'
+    searchList += "</ul>";
 
     if (noResultsFlag === true) {
-      searchList = '<h5>No Results Found</h5>';
+      searchList = "<h5>No Results Found</h5>";
     }
 
-    document.getElementById('search-results').innerHTML = searchList;
+    document.getElementById("search-results").innerHTML = searchList;
   } catch (err) {
     boilerplateFailure(err);
   }
@@ -1823,16 +2153,16 @@ async function submitSearchForm() {
 
 ///////////////// Config
 function advancedConfig() {
-  setBrowserRootPanel('Config', false);
+  setBrowserRootPanel("Config", false);
 
   let newHtml = `<div class="pad-6">
     <h5>Use Folders</h5>
     <p>Unchecked folders will be ignored in all DB queries (including Auto DJ)</p>`;
 
   for (let i = 0; i < MSTREAMAPI.currentServer.vpaths.length; i++) {
-    let checkedString = '';
+    let checkedString = "";
     if (!MSTREAMPLAYER.ignoreVPaths[MSTREAMAPI.currentServer.vpaths[i]]) {
-      checkedString = 'checked';
+      checkedString = "checked";
     }
     newHtml += `
       <label for="autodj-folder-${MSTREAMAPI.currentServer.vpaths[i]}">
@@ -1842,19 +2172,20 @@ function advancedConfig() {
       </label><br>`;
   }
 
-  document.getElementById('filelist').innerHTML = newHtml;
+  document.getElementById("filelist").innerHTML = newHtml;
 }
-
 
 ////////////////// Layout
 function setupLayoutPanel() {
-  setBrowserRootPanel('Layout', false);
+  setBrowserRootPanel("Layout", false);
 
   const newHtml = `
     <div>
       <div class="switch">
         <label>
-          <input onchange="tglBookCtrls(this);" type="checkbox" ${VUEPLAYERCORE.altLayout.audioBookCtrls === true ? 'checked' : ''}>
+          <input onchange="tglBookCtrls(this);" type="checkbox" ${
+            VUEPLAYERCORE.altLayout.audioBookCtrls === true ? "checked" : ""
+          }>
           <span class="lever"></span>
           Audio Book Controls
         </label>
@@ -1862,7 +2193,9 @@ function setupLayoutPanel() {
       <br>
       <div class="switch">
         <label>
-          <input onchange="flipPlayer(this);" type="checkbox" ${VUEPLAYERCORE.altLayout.flipPlayer === true ? 'checked' : ''}>
+          <input onchange="flipPlayer(this);" type="checkbox" ${
+            VUEPLAYERCORE.altLayout.flipPlayer === true ? "checked" : ""
+          }>
           <span class="lever"></span>
           Player On Bottom
         </label>
@@ -1870,7 +2203,9 @@ function setupLayoutPanel() {
       <br>
       <div class="switch">
         <label>
-          <input onchange="tglMoveMetadata(this);" type="checkbox" ${VUEPLAYERCORE.altLayout.moveMeta === true ? 'checked' : ''}>
+          <input onchange="tglMoveMetadata(this);" type="checkbox" ${
+            VUEPLAYERCORE.altLayout.moveMeta === true ? "checked" : ""
+          }>
           <span class="lever"></span>
           Metadata in Queue
         </label>
@@ -1894,52 +2229,56 @@ function setupLayoutPanel() {
     </div>`;
 
   // Add the content
-  document.getElementById('filelist').innerHTML = newHtml;
-  document.getElementById('local_search_btn').style.display = 'none';
-  document.getElementById('mstream-player').style.display = 'block';
-  document.getElementById('filelist').style.display = 'block';
-  document.getElementById('playlist').style.display = 'block';
-  document.getElementById('header_tab').style.display = 'block';
-  document.getElementById('backbtn').style.display = 'block';
-  document.getElementById('local_search_btn').style.display = 'block';
-  document.getElementById('add_all').style.display = 'block';
-  document.getElementById('newcontent').style.display = 'none';
-  document.getElementById('content').style.display = 'flex';
+  document.getElementById("filelist").innerHTML = newHtml;
+  document.getElementById("local_search_btn").style.display = "none";
+  document.getElementById("mstream-player").style.display = "block";
+  document.getElementById("filelist").style.display = "block";
+  document.getElementById("playlist").style.display = "block";
+  document.getElementById("header_tab").style.display = "block";
+  document.getElementById("backbtn").style.display = "block";
+  document.getElementById("local_search_btn").style.display = "block";
+  document.getElementById("add_all").style.display = "block";
+  document.getElementById("newcontent").style.display = "none";
+  document.getElementById("content").style.display = "flex";
 }
 
 function tglMoveMetadata() {
   VUEPLAYERCORE.altLayout.moveMeta = !VUEPLAYERCORE.altLayout.moveMeta;
-  localStorage.setItem('altLayout', JSON.stringify(VUEPLAYERCORE.altLayout));
+  localStorage.setItem("altLayout", JSON.stringify(VUEPLAYERCORE.altLayout));
 }
 
 function tglBookCtrls() {
-  VUEPLAYERCORE.altLayout.audioBookCtrls = !VUEPLAYERCORE.altLayout.audioBookCtrls;
-  localStorage.setItem('altLayout', JSON.stringify(VUEPLAYERCORE.altLayout));
+  VUEPLAYERCORE.altLayout.audioBookCtrls =
+    !VUEPLAYERCORE.altLayout.audioBookCtrls;
+  localStorage.setItem("altLayout", JSON.stringify(VUEPLAYERCORE.altLayout));
 }
 
 function flipPlayer() {
   VUEPLAYERCORE.altLayout.flipPlayer = !VUEPLAYERCORE.altLayout.flipPlayer;
-  document.getElementById('content').classList.toggle('col-rev');
-  document.getElementById('flip-me').classList.toggle('col-rev');
+  document.getElementById("content").classList.toggle("col-rev");
+  document.getElementById("flip-me").classList.toggle("col-rev");
 
-  localStorage.setItem('altLayout', JSON.stringify(VUEPLAYERCORE.altLayout));
+  localStorage.setItem("altLayout", JSON.stringify(VUEPLAYERCORE.altLayout));
 }
 
 async function updateServer() {
   try {
-    document.getElementById('save_server').disabled = true;
+    document.getElementById("save_server").disabled = true;
 
-    let host = document.getElementById('server_address').value;
-    if (host.slice(-1) !== '/') {
-      host += '/';
+    let host = document.getElementById("server_address").value;
+    if (host.slice(-1) !== "/") {
+      host += "/";
     }
 
-    const res = await MSTREAMAPI.login(document.getElementById('server_username').value,
-      document.getElementById('server_password').value,
-      host);
+    const res = await MSTREAMAPI.login(
+      document.getElementById("server_username").value,
+      document.getElementById("server_password").value,
+      host
+    );
 
     MSTREAMAPI.currentServer.host = host;
-    MSTREAMAPI.currentServer.username = document.getElementById('server_username').value;
+    MSTREAMAPI.currentServer.username =
+      document.getElementById("server_username").value;
     MSTREAMAPI.currentServer.token = res.token;
 
     myModal.close();
@@ -1947,29 +2286,44 @@ async function updateServer() {
     init();
     loadinstruction();
     // loadFileExplorer();
-    localStorage.setItem('current-server', JSON.stringify(MSTREAMAPI.currentServer));
-    document.getElementById('server_password').value = '';
+    localStorage.setItem(
+      "current-server",
+      JSON.stringify(MSTREAMAPI.currentServer)
+    );
+    document.getElementById("server_password").value = "";
   } catch (err) {
-    console.log(err)
+    console.log(err);
     boilerplateFailure(err);
   } finally {
-    document.getElementById('save_server').disabled = false;
+    document.getElementById("save_server").disabled = false;
   }
 }
 
 function isElectron() {
   // Renderer process
-  if (typeof window !== 'undefined' && typeof window.process === 'object' && window.process.type === 'renderer') {
+  if (
+    typeof window !== "undefined" &&
+    typeof window.process === "object" &&
+    window.process.type === "renderer"
+  ) {
     return true;
   }
 
   // Main process
-  if (typeof process !== 'undefined' && typeof process.versions === 'object' && !!process.versions.electron) {
+  if (
+    typeof process !== "undefined" &&
+    typeof process.versions === "object" &&
+    !!process.versions.electron
+  ) {
     return true;
   }
 
   // Detect the user agent when the `nodeIntegration` option is set to true
-  if (typeof navigator === 'object' && typeof navigator.userAgent === 'string' && navigator.userAgent.indexOf('Electron') >= 0) {
+  if (
+    typeof navigator === "object" &&
+    typeof navigator.userAgent === "string" &&
+    navigator.userAgent.indexOf("Electron") >= 0
+  ) {
     return true;
   }
 
@@ -1977,11 +2331,11 @@ function isElectron() {
 }
 
 function initElectron() {
-  const navEl = document.getElementById('sidenav');
+  const navEl = document.getElementById("sidenav");
 
   // remove links
-  navEl.removeChild(document.querySelector('#admin-side-link'));
-  navEl.removeChild(document.querySelector('#logout-side-link'));
+  navEl.removeChild(document.querySelector("#admin-side-link"));
+  navEl.removeChild(document.querySelector("#logout-side-link"));
 
   // add link to edit server
   navEl.innerHTML += `<div class="side-nav-item my-waves" onclick="changeView(openEditModal, this);">
@@ -1997,7 +2351,7 @@ function initElectron() {
       MSTREAMAPI.currentServer.token = curServer.token;
       MSTREAMAPI.currentServer.username = curServer.username;
     }
-  } catch (err) { }
+  } catch (err) {}
 
   // check if server
   if (!MSTREAMAPI.currentServer.host) {
@@ -2018,14 +2372,16 @@ if (isElectron()) {
 }
 
 function loadIframe() {
-  var fileLocation = document.getElementById("newfileLocation").getAttribute("data-file-location");
-  location.href = 'iframe.html';
+  var fileLocation = document
+    .getElementById("newfileLocation")
+    .getAttribute("data-file-location");
+  location.href = "iframe.html";
   //file=' + encodeURIComponent(fileLocation);
 }
 
 function loadmusicTab() {
   // document.getElementsByClassName('row-x grow').style.display = 'none';
-  setBrowserRootPanel('Music Lessons');
+  setBrowserRootPanel("Music Lessons");
   const musictab = `<div class="row row-x grow">
   <div id="browser1" class="col col-x s12 m12 h1 flex-x">
       <div class="header-tab hide-on-small-only">
@@ -2044,8 +2400,8 @@ function loadmusicTab() {
       <div class="upload-progress-bar">
           <div style="width:0%" id="upload-progress-inner1" class="upload-progress-inner"></div>
       </div>
-      <div id="filelist1" style="width:100%; margin:20px 0; display: flex; gap:150px">
-          <ul class="collection" style="width:50%">
+      <div id="filelist1">
+          <ul class="collection">
               <li class="collection-item">
                   <div data-file_location="/music-tracks/Abhi Na Jao.mp3" class="filez " id="newfileLocation1"
                       onclick="changeView(loadfirstiframe, this)">
@@ -2053,7 +2409,7 @@ function loadmusicTab() {
                           viewBox="0 0 40 40">
                           <path
                               d="M9 37.5c-3.584 0-6.5-2.916-6.5-6.5s2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V5.429l25-3.846V29c0 3.584-2.916 6.5-6.5 6.5s-6.5-2.916-6.5-6.5 2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V11.023l-19 2.931V31c0 3.584-2.916 6.5-6.5 6.5z"
-                              fill="#8bb7f0"></path>
+                              fill="#8A#7f0"></path>
                           <path
                               d="M37 2.166V29c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V10.441l-1.152.178-18 2.776-.848.13V31c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V5.858l24-3.692M38 1L12 5v19.683A6.962 6.962 0 009 24a7 7 0 107 7V14.383l18-2.776v11.076A6.962 6.962 0 0031 22a7 7 0 107 7V1z"
                               fill="#4e7ab5"></path>
@@ -2073,7 +2429,7 @@ function loadmusicTab() {
                           viewBox="0 0 40 40">
                           <path
                               d="M9 37.5c-3.584 0-6.5-2.916-6.5-6.5s2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V5.429l25-3.846V29c0 3.584-2.916 6.5-6.5 6.5s-6.5-2.916-6.5-6.5 2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V11.023l-19 2.931V31c0 3.584-2.916 6.5-6.5 6.5z"
-                              fill="#8bb7f0"></path>
+                              fill="#8A#7f0"></path>
                           <path
                               d="M37 2.166V29c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V10.441l-1.152.178-18 2.776-.848.13V31c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V5.858l24-3.692M38 1L12 5v19.683A6.962 6.962 0 009 24a7 7 0 107 7V14.383l18-2.776v11.076A6.962 6.962 0 0031 22a7 7 0 107 7V1z"
                               fill="#4e7ab5"></path>
@@ -2093,7 +2449,7 @@ function loadmusicTab() {
                           viewBox="0 0 40 40">
                           <path
                               d="M9 37.5c-3.584 0-6.5-2.916-6.5-6.5s2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V5.429l25-3.846V29c0 3.584-2.916 6.5-6.5 6.5s-6.5-2.916-6.5-6.5 2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V11.023l-19 2.931V31c0 3.584-2.916 6.5-6.5 6.5z"
-                              fill="#8bb7f0"></path>
+                              fill="#8A#7f0"></path>
                           <path
                               d="M37 2.166V29c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V10.441l-1.152.178-18 2.776-.848.13V31c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V5.858l24-3.692M38 1L12 5v19.683A6.962 6.962 0 009 24a7 7 0 107 7V14.383l18-2.776v11.076A6.962 6.962 0 0031 22a7 7 0 107 7V1z"
                               fill="#4e7ab5"></path>
@@ -2113,7 +2469,7 @@ function loadmusicTab() {
                           viewBox="0 0 40 40">
                           <path
                               d="M9 37.5c-3.584 0-6.5-2.916-6.5-6.5s2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V5.429l25-3.846V29c0 3.584-2.916 6.5-6.5 6.5s-6.5-2.916-6.5-6.5 2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V11.023l-19 2.931V31c0 3.584-2.916 6.5-6.5 6.5z"
-                              fill="#8bb7f0"></path>
+                              fill="#8A#7f0"></path>
                           <path
                               d="M37 2.166V29c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V10.441l-1.152.178-18 2.776-.848.13V31c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V5.858l24-3.692M38 1L12 5v19.683A6.962 6.962 0 009 24a7 7 0 107 7V14.383l18-2.776v11.076A6.962 6.962 0 0031 22a7 7 0 107 7V1z"
                               fill="#4e7ab5"></path>
@@ -2133,7 +2489,7 @@ function loadmusicTab() {
                           viewBox="0 0 40 40">
                           <path
                               d="M9 37.5c-3.584 0-6.5-2.916-6.5-6.5s2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V5.429l25-3.846V29c0 3.584-2.916 6.5-6.5 6.5s-6.5-2.916-6.5-6.5 2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V11.023l-19 2.931V31c0 3.584-2.916 6.5-6.5 6.5z"
-                              fill="#8bb7f0"></path>
+                              fill="#8A#7f0"></path>
                           <path
                               d="M37 2.166V29c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V10.441l-1.152.178-18 2.776-.848.13V31c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V5.858l24-3.692M38 1L12 5v19.683A6.962 6.962 0 009 24a7 7 0 107 7V14.383l18-2.776v11.076A6.962 6.962 0 0031 22a7 7 0 107 7V1z"
                               fill="#4e7ab5"></path>
@@ -2153,7 +2509,7 @@ function loadmusicTab() {
                           viewBox="0 0 40 40">
                           <path
                               d="M9 37.5c-3.584 0-6.5-2.916-6.5-6.5s2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V5.429l25-3.846V29c0 3.584-2.916 6.5-6.5 6.5s-6.5-2.916-6.5-6.5 2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V11.023l-19 2.931V31c0 3.584-2.916 6.5-6.5 6.5z"
-                              fill="#8bb7f0"></path>
+                              fill="#8A#7f0"></path>
                           <path
                               d="M37 2.166V29c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V10.441l-1.152.178-18 2.776-.848.13V31c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V5.858l24-3.692M38 1L12 5v19.683A6.962 6.962 0 009 24a7 7 0 107 7V14.383l18-2.776v11.076A6.962 6.962 0 0031 22a7 7 0 107 7V1z"
                               fill="#4e7ab5"></path>
@@ -2173,7 +2529,7 @@ function loadmusicTab() {
                           viewBox="0 0 40 40">
                           <path
                               d="M9 37.5c-3.584 0-6.5-2.916-6.5-6.5s2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V5.429l25-3.846V29c0 3.584-2.916 6.5-6.5 6.5s-6.5-2.916-6.5-6.5 2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V11.023l-19 2.931V31c0 3.584-2.916 6.5-6.5 6.5z"
-                              fill="#8bb7f0"></path>
+                              fill="#8A#7f0"></path>
                           <path
                               d="M37 2.166V29c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V10.441l-1.152.178-18 2.776-.848.13V31c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V5.858l24-3.692M38 1L12 5v19.683A6.962 6.962 0 009 24a7 7 0 107 7V14.383l18-2.776v11.076A6.962 6.962 0 0031 22a7 7 0 107 7V1z"
                               fill="#4e7ab5"></path>
@@ -2193,7 +2549,7 @@ function loadmusicTab() {
                           viewBox="0 0 40 40">
                           <path
                               d="M9 37.5c-3.584 0-6.5-2.916-6.5-6.5s2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V5.429l25-3.846V29c0 3.584-2.916 6.5-6.5 6.5s-6.5-2.916-6.5-6.5 2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V11.023l-19 2.931V31c0 3.584-2.916 6.5-6.5 6.5z"
-                              fill="#8bb7f0"></path>
+                              fill="#8A#7f0"></path>
                           <path
                               d="M37 2.166V29c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V10.441l-1.152.178-18 2.776-.848.13V31c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V5.858l24-3.692M38 1L12 5v19.683A6.962 6.962 0 009 24a7 7 0 107 7V14.383l18-2.776v11.076A6.962 6.962 0 0031 22a7 7 0 107 7V1z"
                               fill="#4e7ab5"></path>
@@ -2213,7 +2569,7 @@ function loadmusicTab() {
                           viewBox="0 0 40 40">
                           <path
                               d="M9 37.5c-3.584 0-6.5-2.916-6.5-6.5s2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V5.429l25-3.846V29c0 3.584-2.916 6.5-6.5 6.5s-6.5-2.916-6.5-6.5 2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V11.023l-19 2.931V31c0 3.584-2.916 6.5-6.5 6.5z"
-                              fill="#8bb7f0"></path>
+                              fill="#8A#7f0"></path>
                           <path
                               d="M37 2.166V29c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V10.441l-1.152.178-18 2.776-.848.13V31c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V5.858l24-3.692M38 1L12 5v19.683A6.962 6.962 0 009 24a7 7 0 107 7V14.383l18-2.776v11.076A6.962 6.962 0 0031 22a7 7 0 107 7V1z"
                               fill="#4e7ab5"></path>
@@ -2233,7 +2589,7 @@ function loadmusicTab() {
                           viewBox="0 0 40 40">
                           <path
                               d="M9 37.5c-3.584 0-6.5-2.916-6.5-6.5s2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V5.429l25-3.846V29c0 3.584-2.916 6.5-6.5 6.5s-6.5-2.916-6.5-6.5 2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V11.023l-19 2.931V31c0 3.584-2.916 6.5-6.5 6.5z"
-                              fill="#8bb7f0"></path>
+                              fill="#8A#7f0"></path>
                           <path
                               d="M37 2.166V29c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V10.441l-1.152.178-18 2.776-.848.13V31c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V5.858l24-3.692M38 1L12 5v19.683A6.962 6.962 0 009 24a7 7 0 107 7V14.383l18-2.776v11.076A6.962 6.962 0 0031 22a7 7 0 107 7V1z"
                               fill="#4e7ab5"></path>
@@ -2253,7 +2609,7 @@ function loadmusicTab() {
                           viewBox="0 0 40 40">
                           <path
                               d="M9 37.5c-3.584 0-6.5-2.916-6.5-6.5s2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V5.429l25-3.846V29c0 3.584-2.916 6.5-6.5 6.5s-6.5-2.916-6.5-6.5 2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V11.023l-19 2.931V31c0 3.584-2.916 6.5-6.5 6.5z"
-                              fill="#8bb7f0"></path>
+                              fill="#8A#7f0"></path>
                           <path
                               d="M37 2.166V29c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V10.441l-1.152.178-18 2.776-.848.13V31c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V5.858l24-3.692M38 1L12 5v19.683A6.962 6.962 0 009 24a7 7 0 107 7V14.383l18-2.776v11.076A6.962 6.962 0 0031 22a7 7 0 107 7V1z"
                               fill="#4e7ab5"></path>
@@ -2273,7 +2629,7 @@ function loadmusicTab() {
                           viewBox="0 0 40 40">
                           <path
                               d="M9 37.5c-3.584 0-6.5-2.916-6.5-6.5s2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V5.429l25-3.846V29c0 3.584-2.916 6.5-6.5 6.5s-6.5-2.916-6.5-6.5 2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V11.023l-19 2.931V31c0 3.584-2.916 6.5-6.5 6.5z"
-                              fill="#8bb7f0"></path>
+                              fill="#8A#7f0"></path>
                           <path
                               d="M37 2.166V29c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V10.441l-1.152.178-18 2.776-.848.13V31c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V5.858l24-3.692M38 1L12 5v19.683A6.962 6.962 0 009 24a7 7 0 107 7V14.383l18-2.776v11.076A6.962 6.962 0 0031 22a7 7 0 107 7V1z"
                               fill="#4e7ab5"></path>
@@ -2287,7 +2643,7 @@ function loadmusicTab() {
                   
               </li>
           </ul>
-          <ul class="collection" style="width:50%;">
+          <ul class="collection">
               <li class="collection-item">
                   <div data-file_location="/music-tracks/Abhi Na Jao.mp3" class="filez " id="newfileLocation1"
                       onclick="changeView(load13thiframe, this)">
@@ -2295,7 +2651,7 @@ function loadmusicTab() {
                           viewBox="0 0 40 40">
                           <path
                               d="M9 37.5c-3.584 0-6.5-2.916-6.5-6.5s2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V5.429l25-3.846V29c0 3.584-2.916 6.5-6.5 6.5s-6.5-2.916-6.5-6.5 2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V11.023l-19 2.931V31c0 3.584-2.916 6.5-6.5 6.5z"
-                              fill="#8bb7f0"></path>
+                              fill="#8A#7f0"></path>
                           <path
                               d="M37 2.166V29c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V10.441l-1.152.178-18 2.776-.848.13V31c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V5.858l24-3.692M38 1L12 5v19.683A6.962 6.962 0 009 24a7 7 0 107 7V14.383l18-2.776v11.076A6.962 6.962 0 0031 22a7 7 0 107 7V1z"
                               fill="#4e7ab5"></path>
@@ -2315,7 +2671,7 @@ function loadmusicTab() {
                           viewBox="0 0 40 40">
                           <path
                               d="M9 37.5c-3.584 0-6.5-2.916-6.5-6.5s2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V5.429l25-3.846V29c0 3.584-2.916 6.5-6.5 6.5s-6.5-2.916-6.5-6.5 2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V11.023l-19 2.931V31c0 3.584-2.916 6.5-6.5 6.5z"
-                              fill="#8bb7f0"></path>
+                              fill="#8A#7f0"></path>
                           <path
                               d="M37 2.166V29c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V10.441l-1.152.178-18 2.776-.848.13V31c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V5.858l24-3.692M38 1L12 5v19.683A6.962 6.962 0 009 24a7 7 0 107 7V14.383l18-2.776v11.076A6.962 6.962 0 0031 22a7 7 0 107 7V1z"
                               fill="#4e7ab5"></path>
@@ -2335,7 +2691,7 @@ function loadmusicTab() {
                           viewBox="0 0 40 40">
                           <path
                               d="M9 37.5c-3.584 0-6.5-2.916-6.5-6.5s2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V5.429l25-3.846V29c0 3.584-2.916 6.5-6.5 6.5s-6.5-2.916-6.5-6.5 2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V11.023l-19 2.931V31c0 3.584-2.916 6.5-6.5 6.5z"
-                              fill="#8bb7f0"></path>
+                              fill="#8A#7f0"></path>
                           <path
                               d="M37 2.166V29c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V10.441l-1.152.178-18 2.776-.848.13V31c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V5.858l24-3.692M38 1L12 5v19.683A6.962 6.962 0 009 24a7 7 0 107 7V14.383l18-2.776v11.076A6.962 6.962 0 0031 22a7 7 0 107 7V1z"
                               fill="#4e7ab5"></path>
@@ -2355,7 +2711,7 @@ function loadmusicTab() {
                           viewBox="0 0 40 40">
                           <path
                               d="M9 37.5c-3.584 0-6.5-2.916-6.5-6.5s2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V5.429l25-3.846V29c0 3.584-2.916 6.5-6.5 6.5s-6.5-2.916-6.5-6.5 2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V11.023l-19 2.931V31c0 3.584-2.916 6.5-6.5 6.5z"
-                              fill="#8bb7f0"></path>
+                              fill="#8A#7f0"></path>
                           <path
                               d="M37 2.166V29c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V10.441l-1.152.178-18 2.776-.848.13V31c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V5.858l24-3.692M38 1L12 5v19.683A6.962 6.962 0 009 24a7 7 0 107 7V14.383l18-2.776v11.076A6.962 6.962 0 0031 22a7 7 0 107 7V1z"
                               fill="#4e7ab5"></path>
@@ -2375,7 +2731,7 @@ function loadmusicTab() {
                           viewBox="0 0 40 40">
                           <path
                               d="M9 37.5c-3.584 0-6.5-2.916-6.5-6.5s2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V5.429l25-3.846V29c0 3.584-2.916 6.5-6.5 6.5s-6.5-2.916-6.5-6.5 2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V11.023l-19 2.931V31c0 3.584-2.916 6.5-6.5 6.5z"
-                              fill="#8bb7f0"></path>
+                              fill="#8A#7f0"></path>
                           <path
                               d="M37 2.166V29c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V10.441l-1.152.178-18 2.776-.848.13V31c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V5.858l24-3.692M38 1L12 5v19.683A6.962 6.962 0 009 24a7 7 0 107 7V14.383l18-2.776v11.076A6.962 6.962 0 0031 22a7 7 0 107 7V1z"
                               fill="#4e7ab5"></path>
@@ -2395,7 +2751,7 @@ function loadmusicTab() {
                           viewBox="0 0 40 40">
                           <path
                               d="M9 37.5c-3.584 0-6.5-2.916-6.5-6.5s2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V5.429l25-3.846V29c0 3.584-2.916 6.5-6.5 6.5s-6.5-2.916-6.5-6.5 2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V11.023l-19 2.931V31c0 3.584-2.916 6.5-6.5 6.5z"
-                              fill="#8bb7f0"></path>
+                              fill="#8A#7f0"></path>
                           <path
                               d="M37 2.166V29c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V10.441l-1.152.178-18 2.776-.848.13V31c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V5.858l24-3.692M38 1L12 5v19.683A6.962 6.962 0 009 24a7 7 0 107 7V14.383l18-2.776v11.076A6.962 6.962 0 0031 22a7 7 0 107 7V1z"
                               fill="#4e7ab5"></path>
@@ -2415,7 +2771,7 @@ function loadmusicTab() {
                           viewBox="0 0 40 40">
                           <path
                               d="M9 37.5c-3.584 0-6.5-2.916-6.5-6.5s2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V5.429l25-3.846V29c0 3.584-2.916 6.5-6.5 6.5s-6.5-2.916-6.5-6.5 2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V11.023l-19 2.931V31c0 3.584-2.916 6.5-6.5 6.5z"
-                              fill="#8bb7f0"></path>
+                              fill="#8A#7f0"></path>
                           <path
                               d="M37 2.166V29c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V10.441l-1.152.178-18 2.776-.848.13V31c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V5.858l24-3.692M38 1L12 5v19.683A6.962 6.962 0 009 24a7 7 0 107 7V14.383l18-2.776v11.076A6.962 6.962 0 0031 22a7 7 0 107 7V1z"
                               fill="#4e7ab5"></path>
@@ -2435,7 +2791,7 @@ function loadmusicTab() {
                           viewBox="0 0 40 40">
                           <path
                               d="M9 37.5c-3.584 0-6.5-2.916-6.5-6.5s2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V5.429l25-3.846V29c0 3.584-2.916 6.5-6.5 6.5s-6.5-2.916-6.5-6.5 2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V11.023l-19 2.931V31c0 3.584-2.916 6.5-6.5 6.5z"
-                              fill="#8bb7f0"></path>
+                              fill="#8A#7f0"></path>
                           <path
                               d="M37 2.166V29c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V10.441l-1.152.178-18 2.776-.848.13V31c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V5.858l24-3.692M38 1L12 5v19.683A6.962 6.962 0 009 24a7 7 0 107 7V14.383l18-2.776v11.076A6.962 6.962 0 0031 22a7 7 0 107 7V1z"
                               fill="#4e7ab5"></path>
@@ -2455,7 +2811,7 @@ function loadmusicTab() {
                           viewBox="0 0 40 40">
                           <path
                               d="M9 37.5c-3.584 0-6.5-2.916-6.5-6.5s2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V5.429l25-3.846V29c0 3.584-2.916 6.5-6.5 6.5s-6.5-2.916-6.5-6.5 2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V11.023l-19 2.931V31c0 3.584-2.916 6.5-6.5 6.5z"
-                              fill="#8bb7f0"></path>
+                              fill="#8A#7f0"></path>
                           <path
                               d="M37 2.166V29c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V10.441l-1.152.178-18 2.776-.848.13V31c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V5.858l24-3.692M38 1L12 5v19.683A6.962 6.962 0 009 24a7 7 0 107 7V14.383l18-2.776v11.076A6.962 6.962 0 0031 22a7 7 0 107 7V1z"
                               fill="#4e7ab5"></path>
@@ -2475,7 +2831,7 @@ function loadmusicTab() {
                           viewBox="0 0 40 40">
                           <path
                               d="M9 37.5c-3.584 0-6.5-2.916-6.5-6.5s2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V5.429l25-3.846V29c0 3.584-2.916 6.5-6.5 6.5s-6.5-2.916-6.5-6.5 2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V11.023l-19 2.931V31c0 3.584-2.916 6.5-6.5 6.5z"
-                              fill="#8bb7f0"></path>
+                              fill="#8A#7f0"></path>
                           <path
                               d="M37 2.166V29c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V10.441l-1.152.178-18 2.776-.848.13V31c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V5.858l24-3.692M38 1L12 5v19.683A6.962 6.962 0 009 24a7 7 0 107 7V14.383l18-2.776v11.076A6.962 6.962 0 0031 22a7 7 0 107 7V1z"
                               fill="#4e7ab5"></path>
@@ -2495,7 +2851,7 @@ function loadmusicTab() {
                           viewBox="0 0 40 40">
                           <path
                               d="M9 37.5c-3.584 0-6.5-2.916-6.5-6.5s2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V5.429l25-3.846V29c0 3.584-2.916 6.5-6.5 6.5s-6.5-2.916-6.5-6.5 2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V11.023l-19 2.931V31c0 3.584-2.916 6.5-6.5 6.5z"
-                              fill="#8bb7f0"></path>
+                              fill="#8A#7f0"></path>
                           <path
                               d="M37 2.166V29c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V10.441l-1.152.178-18 2.776-.848.13V31c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V5.858l24-3.692M38 1L12 5v19.683A6.962 6.962 0 009 24a7 7 0 107 7V14.383l18-2.776v11.076A6.962 6.962 0 0031 22a7 7 0 107 7V1z"
                               fill="#4e7ab5"></path>
@@ -2515,7 +2871,7 @@ function loadmusicTab() {
                           viewBox="0 0 40 40">
                           <path
                               d="M9 37.5c-3.584 0-6.5-2.916-6.5-6.5s2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V5.429l25-3.846V29c0 3.584-2.916 6.5-6.5 6.5s-6.5-2.916-6.5-6.5 2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V11.023l-19 2.931V31c0 3.584-2.916 6.5-6.5 6.5z"
-                              fill="#8bb7f0"></path>
+                              fill="#8A#7f0"></path>
                           <path
                               d="M37 2.166V29c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V10.441l-1.152.178-18 2.776-.848.13V31c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V5.858l24-3.692M38 1L12 5v19.683A6.962 6.962 0 009 24a7 7 0 107 7V14.383l18-2.776v11.076A6.962 6.962 0 0031 22a7 7 0 107 7V1z"
                               fill="#4e7ab5"></path>
@@ -2530,6 +2886,38 @@ function loadmusicTab() {
               </li>
           </ul>
       </div>
+      <div class="menu-overlay">
+    <div class="menu-options">
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+      <button class="option-button" onclick="MSTREAMAPI.logout();">Logout</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a href="#" onclick="MSTREAMAPI.logout();" class="tab-item">
+      <i class="fas fa-home"></i>
+      <span>Home</span>
+    </a>
+    <a href="#" class="tab-item" onclick="changeView(loadinstruction, this)">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>
+      <span>Reference Videos</span>
+    </a>
+    <a href="#" onclick="changeView(loadmusicTab, this)" class="tab-item active">
+      <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"
+        style="enable-background:new 0 0 48 48">
+        <path
+          d="M452-160q6 20 16.5 41.5T490-80H200q-33 0-56.5-23.5T120-160v-640q0-33 23.5-56.5T200-880h480q33 0 56.5 23.5T760-800v284q-18-2-40-2t-40 2v-284H480v280l-100-60-100 60v-280h-80v640h252ZM720-40q-83 0-141.5-58.5T520-240q0-83 58.5-141.5T720-440q83 0 141.5 58.5T920-240q0 83-58.5 141.5T720-40Zm-50-100 160-100-160-100v200ZM280-800h200-200Zm172 0H200h480-240 12Z" />
+      </svg>
+      <span>Music Lessons</span>
+    </a>
+    <a href="#" class="tab-item" onclick="changeView(loadchordset, this)">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="200px" width="200px" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M192 218v-6c0-14.84 10-27 24.24-30.59l174.59-46.68A20 20 0 0 1 416 154v22"></path><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M416 295.94v80c0 13.91-8.93 25.59-22 30l-22 8c-25.9 8.72-52-10.42-52-38h0a33.37 33.37 0 0 1 23-32l51-18.15c13.07-4.4 22-15.94 22-29.85V58a10 10 0 0 0-12.6-9.61L204 102a16.48 16.48 0 0 0-12 16v226c0 13.91-8.93 25.6-22 30l-52 18c-13.88 4.68-22 17.22-22 32h0c0 27.58 26.52 46.55 52 38l22-8c13.07-4.4 22-16.08 22-30v-80"></path></svg>
+      <span>Chords Library</span>
+    </a>
+    
+  </nav>
       <div style="visibility:hidden; position: absolute;" class="pop-f" id="pop-f" role="tooltip">
           <div class="pop-f pop-playlist">Add To Playlist:</div>
           <div class="pop-list-item" onclick="addToPlaylistUI('Music Tracks')">• Music Tracks</div>
@@ -2538,504 +2926,5932 @@ function loadmusicTab() {
   </div>
 
 
-</div>`
-  document.getElementById('mstream-player').style.display = 'none';
-  document.getElementById('filelist').style.display = 'none';
-  document.getElementById('playlist').style.display = 'none';
-  document.getElementById('header_tab').style.display = 'none';
-  document.getElementById('backbtn').style.display = 'none';
-  document.getElementById('local_search_btn').style.display = 'none';
-  document.getElementById('add_all').style.display = 'none';
-  document.getElementById('newcontent').style.display = 'flex';
-  document.getElementById('newcontent').style.flexBasis = 'auto';
-  document.getElementById('newcontent').innerHTML = musictab;
-  document.getElementById('content').style.display = 'flex';
+</div>`;
+  document.getElementById("mstream-player").style.display = "none";
+  document.getElementById("filelist").style.display = "none";
+  document.getElementById("playlist").style.display = "none";
+  document.getElementById("header_tab").style.display = "none";
+  document.getElementById("backbtn").style.display = "none";
+  document.getElementById("local_search_btn").style.display = "none";
+  document.getElementById("add_all").style.display = "none";
+  document.getElementById("newcontent").style.display = "block";
+  document.getElementById("newcontent").style.flexBasis = "auto";
+  if (document.getElementById("newcontent").offsetWidth >= 600) {
+    document.getElementById("newcontent").style.overflowY = "hidden";
+  } else {
+    document.getElementById("newcontent").style.overflowY = "scroll";
+    document.getElementById("newcontent").style.marginTop = "0px";
+  }
+  document.getElementById("newcontent").innerHTML = musictab;
+  document.getElementById("content").style.display = "none";
+
+  const tabItems = document.querySelectorAll(".tab-item");
+  const menuButton = document.querySelector(".menu-button");
+  const menuOverlay = document.querySelector(".menu-overlay");
+
+  tabItems.forEach((item) => {
+    item.addEventListener("click", (e) => {
+      e.preventDefault();
+      tabItems.forEach((tab) => tab.classList.remove("active"));
+      item.classList.add("active");
+
+      // Add and remove pulse animation
+      item.classList.add("pulse");
+      setTimeout(() => {
+        item.classList.remove("pulse");
+      }, 300);
+    });
+  });
+  function toggleMenu() {
+    menuButton.classList.toggle("active");
+    menuOverlay.style.display =
+      menuOverlay.style.display === "flex" ? "none" : "flex";
+    menuButton.innerHTML = menuButton.classList.contains("active")
+      ? '<i class="fas fa-times"></i>'
+      : '<i class="fas fa-chevron-up"></i>';
+
+    // Add and remove shake animation
+    menuButton.classList.add("shake");
+    setTimeout(() => {
+      menuButton.classList.remove("shake");
+    }, 300);
+  }
+
+  menuButton.addEventListener("click", toggleMenu);
 }
 
-function loadinstruction() {
+function loadinstruction(event) {
   // window.location.href = 'instruction.html';
   const instruction = `
   
-  <h5 style ="padding: 15px; font-weight: 600">Steps for beginner:</h5>
-  <h5 style = "padding: 15px;">Hello and welcome to 'VibeStream'. At 'VibeStream', we offer a comprehensive approach to learning guitar, with step-by-step lessons that build from basic to foundational levels. Before you begin, it's important to have some basic knowledge. If you're completely new to guitar and have no prior experience, please follow these initial steps:
+  <h5 class="steps">Steps for beginner:</h5>
+  <h5 class="intro">Before you begin, it's important to have some basic knowledge. If you're completely new to guitar and have no prior experience, please follow these initial steps:
 </h6>
-<h6 style ="padding: 15px">1. Learn to Tune Your Guitar Using an App: Using a tuning app is an easy and effective way to ensure your guitar is in tune.
+<h6 class="points">1. Learn to Tune Your Guitar Using an App: Using a tuning app is an easy and effective way to ensure your guitar is in tune.
 </h6>
-<iframe style="padding: 15px" width="700" height="400" src="https://www.youtube.com/embed/338d2XeGzww?si=NzKyAGZMTpONK2pN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-<h6 style="padding: 15px">2. How to Hold Your Guitar: Properly holding your guitar is crucial for comfort and ease of playing.</h6>
-<iframe style = "padding: 15px" width="700" height="400" src="https://www.youtube.com/embed/dUpjh7CcY_0?si=DRQPjuzotP2Wen3k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-<h6 style="padding: 15px">3. How to Hold a Plectrum: Knowing how to correctly hold a plectrum (pick) is important for effective strumming and picking.
+<iframe src="https://www.youtube.com/embed/338d2XeGzww?si=NzKyAGZMTpONK2pN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen class="iframe"></iframe>
+<h6 class="points">2. How to Hold Your Guitar: Properly holding your guitar is crucial for comfort and ease of playing.</h6>
+<iframe class="iframe" src="https://www.youtube.com/embed/dUpjh7CcY_0?si=DRQPjuzotP2Wen3k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<h6 class="points">3. How to Hold a Plectrum: Knowing how to correctly hold a plectrum (pick) is important for effective strumming and picking.
 </h6>
-<iframe style="padding: 15px" width="700" height="400" src="https://www.youtube.com/embed/OT29cTu67L4?si=T6xkPz_paavuTeiN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-<h6 style="padding:15px">4. How to Read Tabs: Understanding how to read guitar tablature (tabs) will help you play a wide variety of songs.
+<iframe class="iframe" src="https://www.youtube.com/embed/OT29cTu67L4?si=T6xkPz_paavuTeiN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<h6 class="points">4. How to Read Tabs: Understanding how to read guitar tablature (tabs) will help you play a wide variety of songs.
 </h6>
-<iframe style="padding: 15px" width="700" height="400" src="https://www.youtube.com/embed/pQC3JsbgaTw?si=ooBV7wj7DTLn02m7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-<h5 style = "padding: 15px;">Note - "Please remember that things won't come easily at first; you need to give consistent effort and be patient to learn things properly. If you don't understand online videos, it's highly recommended to find an offline teacher to clarify doubts. After gaining some prior knowledge from an offline teacher, you can come back to our platform, VibeStream, to learn and enjoy our Indian music arrangements on guitar, designed by experienced teachers. These structured lessons are meant to improve your guitar playing. Wishing you happy practice! All the best."</h6>
+<iframe class="iframe iframe-last" src="https://www.youtube.com/embed/pQC3JsbgaTw?si=ooBV7wj7DTLn02m7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<h5 class="note">Note - "Please remember that things won't come easily at first; you need to give consistent effort and be patient to learn things properly."</h6>
+<div class="menu-overlay">
+    <div class="menu-options">
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+      <button class="option-button" onclick="MSTREAMAPI.logout();">Logout</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a href="#" onclick="MSTREAMAPI.logout();" class="tab-item">
+      <i class="fas fa-home"></i>
+      <span>Home</span>
+    </a>
+    <a href="#" class="tab-item active" onclick="changeView(loadinstruction, this)">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>
+      <span>Reference Videos</span>
+    </a>
+    
+    <a href="#" class="tab-item" onclick="changeView(loadchordset, this)">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="200px" width="200px" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M192 218v-6c0-14.84 10-27 24.24-30.59l174.59-46.68A20 20 0 0 1 416 154v22"></path><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M416 295.94v80c0 13.91-8.93 25.59-22 30l-22 8c-25.9 8.72-52-10.42-52-38h0a33.37 33.37 0 0 1 23-32l51-18.15c13.07-4.4 22-15.94 22-29.85V58a10 10 0 0 0-12.6-9.61L204 102a16.48 16.48 0 0 0-12 16v226c0 13.91-8.93 25.6-22 30l-52 18c-13.88 4.68-22 17.22-22 32h0c0 27.58 26.52 46.55 52 38l22-8c13.07-4.4 22-16.08 22-30v-80"></path></svg>
+      <span>Chords Library</span>
+    </a>
+    
+  </nav>
   `;
-  document.getElementById('mstream-player').style.display = 'none';
-  document.getElementById('filelist').style.display = 'none';
-  document.getElementById('playlist').style.display = 'none';
-  document.getElementById('header_tab').style.display = 'none';
-  document.getElementById('backbtn').style.display = 'none';
-  document.getElementById('local_search_btn').style.display = 'none';
-  document.getElementById('add_all').style.display = 'none';
-  document.getElementById('newcontent').style.display = 'block';
-  document.getElementById('newcontent').style.flexBasis = 'inherit';
-  document.getElementById('content').style.display = 'none';
-  document.getElementById('newcontent').innerHTML = instruction;
+
+  document.getElementById("mstream-player").style.display = "none";
+  document.getElementById("filelist").style.display = "none";
+  document.getElementById("playlist").style.display = "none";
+  document.getElementById("header_tab").style.display = "none";
+  document.getElementById("backbtn").style.display = "none";
+  document.getElementById("local_search_btn").style.display = "none";
+  document.getElementById("add_all").style.display = "none";
+  document.getElementById("newcontent").style.display = "block";
+  if (document.getElementById("newcontent").offsetWidth >= 600) {
+    document.getElementById("newcontent").style.flexBasis = "inherit";
+  } else {
+    document.getElementById("newcontent").style.flexBasis = "fit-content";
+    document.getElementById("newcontent").style.marginTop = "0px";
+  }
+  document.getElementById("newcontent").scrollTop = 0;
+  document.getElementById("newcontent").style.overflowY = "scroll";
+
+  document.getElementById("content").style.display = "none";
+  document.getElementById("newcontent").innerHTML = instruction;
+
+  const newUrl = window.location.origin + "/instructions";
+  window.history.pushState({ path: newUrl }, "", newUrl);
+
+  const tabItems = document.querySelectorAll(".tab-item");
+  const menuButton = document.querySelector(".menu-button");
+  const menuOverlay = document.querySelector(".menu-overlay");
+
+  tabItems.forEach((item) => {
+    item.addEventListener("click", (e) => {
+      e.preventDefault();
+      tabItems.forEach((tab) => tab.classList.remove("active"));
+      item.classList.add("active");
+
+      // Add and remove pulse animation
+      item.classList.add("pulse");
+      setTimeout(() => {
+        item.classList.remove("pulse");
+      }, 300);
+    });
+  });
+  function toggleMenu() {
+    menuButton.classList.toggle("active");
+    menuOverlay.style.display =
+      menuOverlay.style.display === "flex" ? "none" : "flex";
+    menuButton.innerHTML = menuButton.classList.contains("active")
+      ? '<i class="fas fa-times"></i>'
+      : '<i class="fas fa-chevron-up"></i>';
+
+    // Add and remove shake animation
+    menuButton.classList.add("shake");
+    setTimeout(() => {
+      menuButton.classList.remove("shake");
+    }, 300);
+  }
+
+  // menuButton.addEventListener("click", toggleMenu);
 }
 
 function loadfirstiframe() {
   // window.location.href = 'abhinajao.html';
   const first_iframe = `
 
-  <iframe src="https://www.soundslice.com/slices/cHWzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+  <iframe src="https://www.soundslice.com/slices/cHWzc/embed/" class="load-iframe" width="100%" height="100%" frameBorder="0" allowfullscreen></iframe>
+  <div class="menu-overlay">
+    <div class="menu-options">
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+      <button class="option-button" onclick="MSTREAMAPI.logout();">Logout</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a href="#" onclick="MSTREAMAPI.logout();" class="tab-item">
+      <i class="fas fa-home"></i>
+      <span>Home</span>
+    </a>
+    <a href="#" class="tab-item" onclick="changeView(loadinstruction, this)">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>
+      <span>Reference Videos</span>
+    </a>
+    
+    <a href="#" class="tab-item" onclick="changeView(loadchordset, this)">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="200px" width="200px" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M192 218v-6c0-14.84 10-27 24.24-30.59l174.59-46.68A20 20 0 0 1 416 154v22"></path><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M416 295.94v80c0 13.91-8.93 25.59-22 30l-22 8c-25.9 8.72-52-10.42-52-38h0a33.37 33.37 0 0 1 23-32l51-18.15c13.07-4.4 22-15.94 22-29.85V58a10 10 0 0 0-12.6-9.61L204 102a16.48 16.48 0 0 0-12 16v226c0 13.91-8.93 25.6-22 30l-52 18c-13.88 4.68-22 17.22-22 32h0c0 27.58 26.52 46.55 52 38l22-8c13.07-4.4 22-16.08 22-30v-80"></path></svg>
+      <span>Chords Library</span>
+    </a>
+    
+  </nav>
 
   `;
-  document.getElementById('mstream-player').style.display = 'none';
-  document.getElementById('filelist').style.display = 'none';
-  document.getElementById('playlist').style.display = 'none';
-  document.getElementById('header_tab').style.display = 'none';
-  document.getElementById('backbtn').style.display = 'none';
-  document.getElementById('local_search_btn').style.display = 'none';
-  document.getElementById('add_all').style.display = 'none';
-  document.getElementById('newcontent').style.display = 'block';
-  document.getElementById('content').style.display = 'none';
-  document.getElementById('newcontent').innerHTML = first_iframe;
+  document.getElementById("mstream-player").style.display = "none";
+  document.getElementById("filelist").style.display = "none";
+  document.getElementById("playlist").style.display = "none";
+  document.getElementById("header_tab").style.display = "none";
+  document.getElementById("backbtn").style.display = "none";
+  document.getElementById("local_search_btn").style.display = "none";
+  document.getElementById("add_all").style.display = "none";
+  document.getElementById("newcontent").style.display = "block";
+
+  document.getElementById("newcontent").style.overflowY = "hidden";
+  document.getElementById("content").style.display = "none";
+  document.getElementById("newcontent").innerHTML = first_iframe;
+
+  const tabItems = document.querySelectorAll(".tab-item");
+  const menuButton = document.querySelector(".menu-button");
+  const menuOverlay = document.querySelector(".menu-overlay");
+
+  tabItems.forEach((item) => {
+    item.addEventListener("click", (e) => {
+      e.preventDefault();
+      tabItems.forEach((tab) => tab.classList.remove("active"));
+      item.classList.add("active");
+
+      // Add and remove pulse animation
+      item.classList.add("pulse");
+      setTimeout(() => {
+        item.classList.remove("pulse");
+      }, 300);
+    });
+  });
+  function toggleMenu() {
+    menuButton.classList.toggle("active");
+    menuOverlay.style.display =
+      menuOverlay.style.display === "flex" ? "none" : "flex";
+    menuButton.innerHTML = menuButton.classList.contains("active")
+      ? '<i class="fas fa-times"></i>'
+      : '<i class="fas fa-chevron-up"></i>';
+
+    // Add and remove shake animation
+    menuButton.classList.add("shake");
+    setTimeout(() => {
+      menuButton.classList.remove("shake");
+    }, 300);
+  }
+
+  menuButton.addEventListener("click", toggleMenu);
 }
 
 function loadsecondiframe() {
   // window.location.href = 'abhinajao.html';
-  const first_iframe = `
+  const second_iframe = `
 
- <iframe src="https://www.soundslice.com/slices/hdWzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+ <iframe src="https://www.soundslice.com/slices/hdWzc/embed/" width="100%" height="100%" class="load-iframe" frameBorder="0" allowfullscreen></iframe>
+
+ <div class="menu-overlay">
+    <div class="menu-options">
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+      <button class="option-button" onclick="MSTREAMAPI.logout();">Logout</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a href="#" onclick="MSTREAMAPI.logout();" class="tab-item">
+      <i class="fas fa-home"></i>
+      <span>Home</span>
+    </a>
+    <a href="#" class="tab-item" onclick="changeView(loadinstruction, this)">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>
+      <span>Reference Videos</span>
+    </a>
+    
+    <a href="#" class="tab-item" onclick="changeView(loadchordset, this)">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="200px" width="200px" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M192 218v-6c0-14.84 10-27 24.24-30.59l174.59-46.68A20 20 0 0 1 416 154v22"></path><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M416 295.94v80c0 13.91-8.93 25.59-22 30l-22 8c-25.9 8.72-52-10.42-52-38h0a33.37 33.37 0 0 1 23-32l51-18.15c13.07-4.4 22-15.94 22-29.85V58a10 10 0 0 0-12.6-9.61L204 102a16.48 16.48 0 0 0-12 16v226c0 13.91-8.93 25.6-22 30l-52 18c-13.88 4.68-22 17.22-22 32h0c0 27.58 26.52 46.55 52 38l22-8c13.07-4.4 22-16.08 22-30v-80"></path></svg>
+      <span>Chords Library</span>
+    </a>
+    
+  </nav>
 
 
   `;
-  document.getElementById('mstream-player').style.display = 'none';
-  document.getElementById('filelist').style.display = 'none';
-  document.getElementById('playlist').style.display = 'none';
-  document.getElementById('header_tab').style.display = 'none';
-  document.getElementById('backbtn').style.display = 'none';
-  document.getElementById('local_search_btn').style.display = 'none';
-  document.getElementById('add_all').style.display = 'none';
-  document.getElementById('newcontent').style.display = 'block';
-  document.getElementById('content').style.display = 'none';
-  document.getElementById('newcontent').innerHTML = first_iframe;
+  document.getElementById("mstream-player").style.display = "none";
+  document.getElementById("filelist").style.display = "none";
+  document.getElementById("playlist").style.display = "none";
+  document.getElementById("header_tab").style.display = "none";
+  document.getElementById("backbtn").style.display = "none";
+  document.getElementById("local_search_btn").style.display = "none";
+  document.getElementById("add_all").style.display = "none";
+  document.getElementById("newcontent").style.display = "block";
+
+  document.getElementById("newcontent").style.overflowY = "hidden";
+  document.getElementById("content").style.display = "none";
+  document.getElementById("newcontent").innerHTML = second_iframe;
+
+  const tabItems = document.querySelectorAll(".tab-item");
+  const menuButton = document.querySelector(".menu-button");
+  const menuOverlay = document.querySelector(".menu-overlay");
+
+  tabItems.forEach((item) => {
+    item.addEventListener("click", (e) => {
+      e.preventDefault();
+      tabItems.forEach((tab) => tab.classList.remove("active"));
+      item.classList.add("active");
+
+      // Add and remove pulse animation
+      item.classList.add("pulse");
+      setTimeout(() => {
+        item.classList.remove("pulse");
+      }, 300);
+    });
+  });
+  function toggleMenu() {
+    menuButton.classList.toggle("active");
+    menuOverlay.style.display =
+      menuOverlay.style.display === "flex" ? "none" : "flex";
+    menuButton.innerHTML = menuButton.classList.contains("active")
+      ? '<i class="fas fa-times"></i>'
+      : '<i class="fas fa-chevron-up"></i>';
+
+    // Add and remove shake animation
+    menuButton.classList.add("shake");
+    setTimeout(() => {
+      menuButton.classList.remove("shake");
+    }, 300);
+  }
+
+  menuButton.addEventListener("click", toggleMenu);
 }
 
 function loadthirdiframe() {
   // window.location.href = 'abhinajao.html';
-  const first_iframe = `
+  const third_iframe = `
 
- <iframe src="https://www.soundslice.com/slices/xdWzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+ <iframe src="https://www.soundslice.com/slices/xdWzc/embed/" width="100%" height="100%" class="load-iframe" frameBorder="0" allowfullscreen></iframe>
+
+ <div class="menu-overlay">
+    <div class="menu-options">
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+      <button class="option-button" onclick="MSTREAMAPI.logout();">Logout</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a href="#" onclick="MSTREAMAPI.logout();" class="tab-item">
+      <i class="fas fa-home"></i>
+      <span>Home</span>
+    </a>
+    <a href="#" class="tab-item" onclick="changeView(loadinstruction, this)">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>
+      <span>Reference Videos</span>
+    </a>
+    
+    <a href="#" class="tab-item" onclick="changeView(loadchordset, this)">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="200px" width="200px" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M192 218v-6c0-14.84 10-27 24.24-30.59l174.59-46.68A20 20 0 0 1 416 154v22"></path><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M416 295.94v80c0 13.91-8.93 25.59-22 30l-22 8c-25.9 8.72-52-10.42-52-38h0a33.37 33.37 0 0 1 23-32l51-18.15c13.07-4.4 22-15.94 22-29.85V58a10 10 0 0 0-12.6-9.61L204 102a16.48 16.48 0 0 0-12 16v226c0 13.91-8.93 25.6-22 30l-52 18c-13.88 4.68-22 17.22-22 32h0c0 27.58 26.52 46.55 52 38l22-8c13.07-4.4 22-16.08 22-30v-80"></path></svg>
+      <span>Chords Library</span>
+    </a>
+    
+  </nav>
 
 
   `;
-  document.getElementById('mstream-player').style.display = 'none';
-  document.getElementById('filelist').style.display = 'none';
-  document.getElementById('playlist').style.display = 'none';
-  document.getElementById('header_tab').style.display = 'none';
-  document.getElementById('backbtn').style.display = 'none';
-  document.getElementById('local_search_btn').style.display = 'none';
-  document.getElementById('add_all').style.display = 'none';
-  document.getElementById('newcontent').style.display = 'block';
-  document.getElementById('content').style.display = 'none';
-  document.getElementById('newcontent').innerHTML = first_iframe;
+  document.getElementById("mstream-player").style.display = "none";
+  document.getElementById("filelist").style.display = "none";
+  document.getElementById("playlist").style.display = "none";
+  document.getElementById("header_tab").style.display = "none";
+  document.getElementById("backbtn").style.display = "none";
+  document.getElementById("local_search_btn").style.display = "none";
+  document.getElementById("add_all").style.display = "none";
+  document.getElementById("newcontent").style.display = "block";
+
+  document.getElementById("newcontent").style.overflowY = "hidden";
+  document.getElementById("content").style.display = "none";
+  document.getElementById("newcontent").innerHTML = third_iframe;
+  const tabItems = document.querySelectorAll(".tab-item");
+  const menuButton = document.querySelector(".menu-button");
+  const menuOverlay = document.querySelector(".menu-overlay");
+
+  tabItems.forEach((item) => {
+    item.addEventListener("click", (e) => {
+      e.preventDefault();
+      tabItems.forEach((tab) => tab.classList.remove("active"));
+      item.classList.add("active");
+
+      // Add and remove pulse animation
+      item.classList.add("pulse");
+      setTimeout(() => {
+        item.classList.remove("pulse");
+      }, 300);
+    });
+  });
+  function toggleMenu() {
+    menuButton.classList.toggle("active");
+    menuOverlay.style.display =
+      menuOverlay.style.display === "flex" ? "none" : "flex";
+    menuButton.innerHTML = menuButton.classList.contains("active")
+      ? '<i class="fas fa-times"></i>'
+      : '<i class="fas fa-chevron-up"></i>';
+
+    // Add and remove shake animation
+    menuButton.classList.add("shake");
+    setTimeout(() => {
+      menuButton.classList.remove("shake");
+    }, 300);
+  }
+
+  menuButton.addEventListener("click", toggleMenu);
 }
 
 function loadfourthiframe() {
   // window.location.href = 'fivehundredmiles.html';
   const fourth_iframe = `
 
-    <iframe src="https://www.soundslice.com/slices/DJWzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+    <iframe src="https://www.soundslice.com/slices/DJWzc/embed/" width="100%" height="100%" class="load-iframe" frameBorder="0" allowfullscreen></iframe>
+
+    <div class="menu-overlay">
+    <div class="menu-options">
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+      <button class="option-button" onclick="MSTREAMAPI.logout();">Logout</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a href="#" onclick="MSTREAMAPI.logout();" class="tab-item">
+      <i class="fas fa-home"></i>
+      <span>Home</span>
+    </a>
+    <a href="#" class="tab-item" onclick="changeView(loadinstruction, this)">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>
+      <span>Reference Videos</span>
+    </a>
+    
+    <a href="#" class="tab-item" onclick="changeView(loadchordset, this)">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="200px" width="200px" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M192 218v-6c0-14.84 10-27 24.24-30.59l174.59-46.68A20 20 0 0 1 416 154v22"></path><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M416 295.94v80c0 13.91-8.93 25.59-22 30l-22 8c-25.9 8.72-52-10.42-52-38h0a33.37 33.37 0 0 1 23-32l51-18.15c13.07-4.4 22-15.94 22-29.85V58a10 10 0 0 0-12.6-9.61L204 102a16.48 16.48 0 0 0-12 16v226c0 13.91-8.93 25.6-22 30l-52 18c-13.88 4.68-22 17.22-22 32h0c0 27.58 26.52 46.55 52 38l22-8c13.07-4.4 22-16.08 22-30v-80"></path></svg>
+      <span>Chords Library</span>
+    </a>
+    
+  </nav>
 
   `;
-  document.getElementById('mstream-player').style.display = 'none';
-  document.getElementById('filelist').style.display = 'none';
-  document.getElementById('playlist').style.display = 'none';
-  document.getElementById('header_tab').style.display = 'none';
-  document.getElementById('backbtn').style.display = 'none';
-  document.getElementById('local_search_btn').style.display = 'none';
-  document.getElementById('add_all').style.display = 'none';
-  document.getElementById('newcontent').style.display = 'block';
-  document.getElementById('content').style.display = 'none';
-  document.getElementById('newcontent').innerHTML = fourth_iframe;
+  document.getElementById("mstream-player").style.display = "none";
+  document.getElementById("filelist").style.display = "none";
+  document.getElementById("playlist").style.display = "none";
+  document.getElementById("header_tab").style.display = "none";
+  document.getElementById("backbtn").style.display = "none";
+  document.getElementById("local_search_btn").style.display = "none";
+  document.getElementById("add_all").style.display = "none";
+  document.getElementById("newcontent").style.display = "block";
+
+  document.getElementById("newcontent").style.overflowY = "hidden";
+  document.getElementById("content").style.display = "none";
+  document.getElementById("newcontent").innerHTML = fourth_iframe;
+
+  const tabItems = document.querySelectorAll(".tab-item");
+  const menuButton = document.querySelector(".menu-button");
+  const menuOverlay = document.querySelector(".menu-overlay");
+
+  tabItems.forEach((item) => {
+    item.addEventListener("click", (e) => {
+      e.preventDefault();
+      tabItems.forEach((tab) => tab.classList.remove("active"));
+      item.classList.add("active");
+
+      // Add and remove pulse animation
+      item.classList.add("pulse");
+      setTimeout(() => {
+        item.classList.remove("pulse");
+      }, 300);
+    });
+  });
+  function toggleMenu() {
+    menuButton.classList.toggle("active");
+    menuOverlay.style.display =
+      menuOverlay.style.display === "flex" ? "none" : "flex";
+    menuButton.innerHTML = menuButton.classList.contains("active")
+      ? '<i class="fas fa-times"></i>'
+      : '<i class="fas fa-chevron-up"></i>';
+
+    // Add and remove shake animation
+    menuButton.classList.add("shake");
+    setTimeout(() => {
+      menuButton.classList.remove("shake");
+    }, 300);
+  }
+
+  menuButton.addEventListener("click", toggleMenu);
 }
 
 function loadfifthiframe() {
   // window.location.href = 'fivehundredmiles.html';
-  const fourth_iframe = `
+  const fifth_iframe = `
 
-    <iframe src="https://www.soundslice.com/slices/nHWzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+    <iframe src="https://www.soundslice.com/slices/nHWzc/embed/" width="100%" height="100%" class="load-iframe" frameBorder="0" allowfullscreen></iframe>
+
+    <div class="menu-overlay">
+    <div class="menu-options">
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+      <button class="option-button" onclick="MSTREAMAPI.logout();">Logout</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a href="#" onclick="MSTREAMAPI.logout();" class="tab-item">
+      <i class="fas fa-home"></i>
+      <span>Home</span>
+    </a>
+    <a href="#" class="tab-item" onclick="changeView(loadinstruction, this)">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>
+      <span>Reference Videos</span>
+    </a>
+    
+    <a href="#" class="tab-item" onclick="changeView(loadchordset, this)">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="200px" width="200px" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M192 218v-6c0-14.84 10-27 24.24-30.59l174.59-46.68A20 20 0 0 1 416 154v22"></path><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M416 295.94v80c0 13.91-8.93 25.59-22 30l-22 8c-25.9 8.72-52-10.42-52-38h0a33.37 33.37 0 0 1 23-32l51-18.15c13.07-4.4 22-15.94 22-29.85V58a10 10 0 0 0-12.6-9.61L204 102a16.48 16.48 0 0 0-12 16v226c0 13.91-8.93 25.6-22 30l-52 18c-13.88 4.68-22 17.22-22 32h0c0 27.58 26.52 46.55 52 38l22-8c13.07-4.4 22-16.08 22-30v-80"></path></svg>
+      <span>Chords Library</span>
+    </a>
+    
+  </nav>
 
   `;
-  document.getElementById('mstream-player').style.display = 'none';
-  document.getElementById('filelist').style.display = 'none';
-  document.getElementById('playlist').style.display = 'none';
-  document.getElementById('header_tab').style.display = 'none';
-  document.getElementById('backbtn').style.display = 'none';
-  document.getElementById('local_search_btn').style.display = 'none';
-  document.getElementById('add_all').style.display = 'none';
-  document.getElementById('newcontent').style.display = 'block';
-  document.getElementById('content').style.display = 'none';
-  document.getElementById('newcontent').innerHTML = fourth_iframe;
+  document.getElementById("mstream-player").style.display = "none";
+  document.getElementById("filelist").style.display = "none";
+  document.getElementById("playlist").style.display = "none";
+  document.getElementById("header_tab").style.display = "none";
+  document.getElementById("backbtn").style.display = "none";
+  document.getElementById("local_search_btn").style.display = "none";
+  document.getElementById("add_all").style.display = "none";
+  document.getElementById("newcontent").style.display = "block";
+
+  document.getElementById("newcontent").style.overflowY = "hidden";
+  document.getElementById("content").style.display = "none";
+  document.getElementById("newcontent").innerHTML = fifth_iframe;
+
+  const tabItems = document.querySelectorAll(".tab-item");
+  const menuButton = document.querySelector(".menu-button");
+  const menuOverlay = document.querySelector(".menu-overlay");
+
+  tabItems.forEach((item) => {
+    item.addEventListener("click", (e) => {
+      e.preventDefault();
+      tabItems.forEach((tab) => tab.classList.remove("active"));
+      item.classList.add("active");
+
+      // Add and remove pulse animation
+      item.classList.add("pulse");
+      setTimeout(() => {
+        item.classList.remove("pulse");
+      }, 300);
+    });
+  });
+  function toggleMenu() {
+    menuButton.classList.toggle("active");
+    menuOverlay.style.display =
+      menuOverlay.style.display === "flex" ? "none" : "flex";
+    menuButton.innerHTML = menuButton.classList.contains("active")
+      ? '<i class="fas fa-times"></i>'
+      : '<i class="fas fa-chevron-up"></i>';
+
+    // Add and remove shake animation
+    menuButton.classList.add("shake");
+    setTimeout(() => {
+      menuButton.classList.remove("shake");
+    }, 300);
+  }
+
+  menuButton.addEventListener("click", toggleMenu);
 }
 
 function loadsixthiframe() {
   // window.location.href = 'fivehundredmiles.html';
-  const fourth_iframe = `
+  const sixth_iframe = `
 
-    <iframe src="https://www.soundslice.com/slices/s7Wzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+    <iframe src="https://www.soundslice.com/slices/s7Wzc/embed/" width="100%" height="100%" class="load-iframe" frameBorder="0" allowfullscreen></iframe>
+
+    <div class="menu-overlay">
+    <div class="menu-options">
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+      <button class="option-button" onclick="MSTREAMAPI.logout();">Logout</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a href="#" onclick="MSTREAMAPI.logout();" class="tab-item">
+      <i class="fas fa-home"></i>
+      <span>Home</span>
+    </a>
+    <a href="#" class="tab-item" onclick="changeView(loadinstruction, this)">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>
+      <span>Reference Videos</span>
+    </a>
+    
+    <a href="#" class="tab-item" onclick="changeView(loadchordset, this)">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="200px" width="200px" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M192 218v-6c0-14.84 10-27 24.24-30.59l174.59-46.68A20 20 0 0 1 416 154v22"></path><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M416 295.94v80c0 13.91-8.93 25.59-22 30l-22 8c-25.9 8.72-52-10.42-52-38h0a33.37 33.37 0 0 1 23-32l51-18.15c13.07-4.4 22-15.94 22-29.85V58a10 10 0 0 0-12.6-9.61L204 102a16.48 16.48 0 0 0-12 16v226c0 13.91-8.93 25.6-22 30l-52 18c-13.88 4.68-22 17.22-22 32h0c0 27.58 26.52 46.55 52 38l22-8c13.07-4.4 22-16.08 22-30v-80"></path></svg>
+      <span>Chords Library</span>
+    </a>
+    
+  </nav>
 
   `;
-  document.getElementById('mstream-player').style.display = 'none';
-  document.getElementById('filelist').style.display = 'none';
-  document.getElementById('playlist').style.display = 'none';
-  document.getElementById('header_tab').style.display = 'none';
-  document.getElementById('backbtn').style.display = 'none';
-  document.getElementById('local_search_btn').style.display = 'none';
-  document.getElementById('add_all').style.display = 'none';
-  document.getElementById('newcontent').style.display = 'block';
-  document.getElementById('content').style.display = 'none';
-  document.getElementById('newcontent').innerHTML = fourth_iframe;
+  document.getElementById("mstream-player").style.display = "none";
+  document.getElementById("filelist").style.display = "none";
+  document.getElementById("playlist").style.display = "none";
+  document.getElementById("header_tab").style.display = "none";
+  document.getElementById("backbtn").style.display = "none";
+  document.getElementById("local_search_btn").style.display = "none";
+  document.getElementById("add_all").style.display = "none";
+  document.getElementById("newcontent").style.display = "block";
+
+  document.getElementById("newcontent").style.overflowY = "hidden";
+  document.getElementById("content").style.display = "none";
+  document.getElementById("newcontent").innerHTML = sixth_iframe;
+
+  const tabItems = document.querySelectorAll(".tab-item");
+  const menuButton = document.querySelector(".menu-button");
+  const menuOverlay = document.querySelector(".menu-overlay");
+
+  tabItems.forEach((item) => {
+    item.addEventListener("click", (e) => {
+      e.preventDefault();
+      tabItems.forEach((tab) => tab.classList.remove("active"));
+      item.classList.add("active");
+
+      // Add and remove pulse animation
+      item.classList.add("pulse");
+      setTimeout(() => {
+        item.classList.remove("pulse");
+      }, 300);
+    });
+  });
+  function toggleMenu() {
+    menuButton.classList.toggle("active");
+    menuOverlay.style.display =
+      menuOverlay.style.display === "flex" ? "none" : "flex";
+    menuButton.innerHTML = menuButton.classList.contains("active")
+      ? '<i class="fas fa-times"></i>'
+      : '<i class="fas fa-chevron-up"></i>';
+
+    // Add and remove shake animation
+    menuButton.classList.add("shake");
+    setTimeout(() => {
+      menuButton.classList.remove("shake");
+    }, 300);
+  }
+
+  menuButton.addEventListener("click", toggleMenu);
 }
 
 function loadseventhiframe() {
   // window.location.href = 'fivehundredmiles.html';
-  const fourth_iframe = `
+  const seventh_iframe = `
 
-    <iframe src="https://www.soundslice.com/slices/trWzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+    <iframe src="https://www.soundslice.com/slices/trWzc/embed/" width="100%" height="100%" class="load-iframe" frameBorder="0" allowfullscreen></iframe>
+
+    <div class="menu-overlay">
+    <div class="menu-options">
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+      <button class="option-button" onclick="MSTREAMAPI.logout();">Logout</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a href="#" onclick="MSTREAMAPI.logout();" class="tab-item">
+      <i class="fas fa-home"></i>
+      <span>Home</span>
+    </a>
+    <a href="#" class="tab-item" onclick="changeView(loadinstruction, this)">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>
+      <span>Reference Videos</span>
+    </a>
+    
+    <a href="#" class="tab-item" onclick="changeView(loadchordset, this)">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="200px" width="200px" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M192 218v-6c0-14.84 10-27 24.24-30.59l174.59-46.68A20 20 0 0 1 416 154v22"></path><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M416 295.94v80c0 13.91-8.93 25.59-22 30l-22 8c-25.9 8.72-52-10.42-52-38h0a33.37 33.37 0 0 1 23-32l51-18.15c13.07-4.4 22-15.94 22-29.85V58a10 10 0 0 0-12.6-9.61L204 102a16.48 16.48 0 0 0-12 16v226c0 13.91-8.93 25.6-22 30l-52 18c-13.88 4.68-22 17.22-22 32h0c0 27.58 26.52 46.55 52 38l22-8c13.07-4.4 22-16.08 22-30v-80"></path></svg>
+      <span>Chords Library</span>
+    </a>
+    
+  </nav>
 
   `;
-  document.getElementById('mstream-player').style.display = 'none';
-  document.getElementById('filelist').style.display = 'none';
-  document.getElementById('playlist').style.display = 'none';
-  document.getElementById('header_tab').style.display = 'none';
-  document.getElementById('backbtn').style.display = 'none';
-  document.getElementById('local_search_btn').style.display = 'none';
-  document.getElementById('add_all').style.display = 'none';
-  document.getElementById('newcontent').style.display = 'block';
-  document.getElementById('content').style.display = 'none';
-  document.getElementById('newcontent').innerHTML = fourth_iframe;
+  document.getElementById("mstream-player").style.display = "none";
+  document.getElementById("filelist").style.display = "none";
+  document.getElementById("playlist").style.display = "none";
+  document.getElementById("header_tab").style.display = "none";
+  document.getElementById("backbtn").style.display = "none";
+  document.getElementById("local_search_btn").style.display = "none";
+  document.getElementById("add_all").style.display = "none";
+  document.getElementById("newcontent").style.display = "block";
+
+  document.getElementById("newcontent").style.overflowY = "hidden";
+  document.getElementById("content").style.display = "none";
+  document.getElementById("newcontent").innerHTML = seventh_iframe;
+
+  const tabItems = document.querySelectorAll(".tab-item");
+  const menuButton = document.querySelector(".menu-button");
+  const menuOverlay = document.querySelector(".menu-overlay");
+
+  tabItems.forEach((item) => {
+    item.addEventListener("click", (e) => {
+      e.preventDefault();
+      tabItems.forEach((tab) => tab.classList.remove("active"));
+      item.classList.add("active");
+
+      // Add and remove pulse animation
+      item.classList.add("pulse");
+      setTimeout(() => {
+        item.classList.remove("pulse");
+      }, 300);
+    });
+  });
+  function toggleMenu() {
+    menuButton.classList.toggle("active");
+    menuOverlay.style.display =
+      menuOverlay.style.display === "flex" ? "none" : "flex";
+    menuButton.innerHTML = menuButton.classList.contains("active")
+      ? '<i class="fas fa-times"></i>'
+      : '<i class="fas fa-chevron-up"></i>';
+
+    // Add and remove shake animation
+    menuButton.classList.add("shake");
+    setTimeout(() => {
+      menuButton.classList.remove("shake");
+    }, 300);
+  }
+
+  menuButton.addEventListener("click", toggleMenu);
 }
 
 function loadeightiframe() {
   // window.location.href = 'fivehundredmiles.html';
-  const fourth_iframe = `
+  const eight_iframe = `
 
-    <iframe src="https://www.soundslice.com/slices/prWzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+    <iframe src="https://www.soundslice.com/slices/prWzc/embed/" width="100%" height="100%" class="load-iframe" frameBorder="0" allowfullscreen></iframe>
+
+    <div class="menu-overlay">
+    <div class="menu-options">
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+      <button class="option-button" onclick="MSTREAMAPI.logout();">Logout</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a href="#" onclick="MSTREAMAPI.logout();" class="tab-item">
+      <i class="fas fa-home"></i>
+      <span>Home</span>
+    </a>
+    <a href="#" class="tab-item" onclick="changeView(loadinstruction, this)">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>
+      <span>Reference Videos</span>
+    </a>
+    
+    <a href="#" class="tab-item" onclick="changeView(loadchordset, this)">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="200px" width="200px" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M192 218v-6c0-14.84 10-27 24.24-30.59l174.59-46.68A20 20 0 0 1 416 154v22"></path><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M416 295.94v80c0 13.91-8.93 25.59-22 30l-22 8c-25.9 8.72-52-10.42-52-38h0a33.37 33.37 0 0 1 23-32l51-18.15c13.07-4.4 22-15.94 22-29.85V58a10 10 0 0 0-12.6-9.61L204 102a16.48 16.48 0 0 0-12 16v226c0 13.91-8.93 25.6-22 30l-52 18c-13.88 4.68-22 17.22-22 32h0c0 27.58 26.52 46.55 52 38l22-8c13.07-4.4 22-16.08 22-30v-80"></path></svg>
+      <span>Chords Library</span>
+    </a>
+    
+  </nav>
 
   `;
-  document.getElementById('mstream-player').style.display = 'none';
-  document.getElementById('filelist').style.display = 'none';
-  document.getElementById('playlist').style.display = 'none';
-  document.getElementById('header_tab').style.display = 'none';
-  document.getElementById('backbtn').style.display = 'none';
-  document.getElementById('local_search_btn').style.display = 'none';
-  document.getElementById('add_all').style.display = 'none';
-  document.getElementById('newcontent').style.display = 'block';
-  document.getElementById('content').style.display = 'none';
-  document.getElementById('newcontent').innerHTML = fourth_iframe;
+  document.getElementById("mstream-player").style.display = "none";
+  document.getElementById("filelist").style.display = "none";
+  document.getElementById("playlist").style.display = "none";
+  document.getElementById("header_tab").style.display = "none";
+  document.getElementById("backbtn").style.display = "none";
+  document.getElementById("local_search_btn").style.display = "none";
+  document.getElementById("add_all").style.display = "none";
+  document.getElementById("newcontent").style.display = "block";
+
+  document.getElementById("newcontent").style.overflowY = "hidden";
+  document.getElementById("content").style.display = "none";
+  document.getElementById("newcontent").innerHTML = eight_iframe;
+
+  const tabItems = document.querySelectorAll(".tab-item");
+  const menuButton = document.querySelector(".menu-button");
+  const menuOverlay = document.querySelector(".menu-overlay");
+
+  tabItems.forEach((item) => {
+    item.addEventListener("click", (e) => {
+      e.preventDefault();
+      tabItems.forEach((tab) => tab.classList.remove("active"));
+      item.classList.add("active");
+
+      // Add and remove pulse animation
+      item.classList.add("pulse");
+      setTimeout(() => {
+        item.classList.remove("pulse");
+      }, 300);
+    });
+  });
+  function toggleMenu() {
+    menuButton.classList.toggle("active");
+    menuOverlay.style.display =
+      menuOverlay.style.display === "flex" ? "none" : "flex";
+    menuButton.innerHTML = menuButton.classList.contains("active")
+      ? '<i class="fas fa-times"></i>'
+      : '<i class="fas fa-chevron-up"></i>';
+
+    // Add and remove shake animation
+    menuButton.classList.add("shake");
+    setTimeout(() => {
+      menuButton.classList.remove("shake");
+    }, 300);
+  }
+
+  menuButton.addEventListener("click", toggleMenu);
 }
 
 function loadninthiframe() {
   // window.location.href = 'fivehundredmiles.html';
-  const fourth_iframe = `
+  const ninth_iframe = `
 
-    <iframe src="https://www.soundslice.com/slices/RhWzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+    <iframe src="https://www.soundslice.com/slices/RhWzc/embed/" width="100%" height="100%" class="load-iframe" frameBorder="0" allowfullscreen></iframe>
+
+    <div class="menu-overlay">
+    <div class="menu-options">
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+      <button class="option-button" onclick="MSTREAMAPI.logout();">Logout</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a href="#" onclick="MSTREAMAPI.logout();" class="tab-item">
+      <i class="fas fa-home"></i>
+      <span>Home</span>
+    </a>
+    <a href="#" class="tab-item" onclick="changeView(loadinstruction, this)">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>
+      <span>Reference Videos</span>
+    </a>
+    
+    <a href="#" class="tab-item" onclick="changeView(loadchordset, this)">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="200px" width="200px" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M192 218v-6c0-14.84 10-27 24.24-30.59l174.59-46.68A20 20 0 0 1 416 154v22"></path><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M416 295.94v80c0 13.91-8.93 25.59-22 30l-22 8c-25.9 8.72-52-10.42-52-38h0a33.37 33.37 0 0 1 23-32l51-18.15c13.07-4.4 22-15.94 22-29.85V58a10 10 0 0 0-12.6-9.61L204 102a16.48 16.48 0 0 0-12 16v226c0 13.91-8.93 25.6-22 30l-52 18c-13.88 4.68-22 17.22-22 32h0c0 27.58 26.52 46.55 52 38l22-8c13.07-4.4 22-16.08 22-30v-80"></path></svg>
+      <span>Chords Library</span>
+    </a>
+    
+  </nav>
 
   `;
-  document.getElementById('mstream-player').style.display = 'none';
-  document.getElementById('filelist').style.display = 'none';
-  document.getElementById('playlist').style.display = 'none';
-  document.getElementById('header_tab').style.display = 'none';
-  document.getElementById('backbtn').style.display = 'none';
-  document.getElementById('local_search_btn').style.display = 'none';
-  document.getElementById('add_all').style.display = 'none';
-  document.getElementById('newcontent').style.display = 'block';
-  document.getElementById('content').style.display = 'none';
-  document.getElementById('newcontent').innerHTML = fourth_iframe;
+  document.getElementById("mstream-player").style.display = "none";
+  document.getElementById("filelist").style.display = "none";
+  document.getElementById("playlist").style.display = "none";
+  document.getElementById("header_tab").style.display = "none";
+  document.getElementById("backbtn").style.display = "none";
+  document.getElementById("local_search_btn").style.display = "none";
+  document.getElementById("add_all").style.display = "none";
+  document.getElementById("newcontent").style.display = "block";
+
+  document.getElementById("newcontent").style.overflowY = "hidden";
+  document.getElementById("content").style.display = "none";
+  document.getElementById("newcontent").innerHTML = ninth_iframe;
+
+  const tabItems = document.querySelectorAll(".tab-item");
+  const menuButton = document.querySelector(".menu-button");
+  const menuOverlay = document.querySelector(".menu-overlay");
+
+  tabItems.forEach((item) => {
+    item.addEventListener("click", (e) => {
+      e.preventDefault();
+      tabItems.forEach((tab) => tab.classList.remove("active"));
+      item.classList.add("active");
+
+      // Add and remove pulse animation
+      item.classList.add("pulse");
+      setTimeout(() => {
+        item.classList.remove("pulse");
+      }, 300);
+    });
+  });
+  function toggleMenu() {
+    menuButton.classList.toggle("active");
+    menuOverlay.style.display =
+      menuOverlay.style.display === "flex" ? "none" : "flex";
+    menuButton.innerHTML = menuButton.classList.contains("active")
+      ? '<i class="fas fa-times"></i>'
+      : '<i class="fas fa-chevron-up"></i>';
+
+    // Add and remove shake animation
+    menuButton.classList.add("shake");
+    setTimeout(() => {
+      menuButton.classList.remove("shake");
+    }, 300);
+  }
+
+  menuButton.addEventListener("click", toggleMenu);
 }
 
 function loadtenthiframe() {
   // window.location.href = 'fivehundredmiles.html';
-  const fourth_iframe = `
+  const tenth_iframe = `
 
-   <iframe src="https://www.soundslice.com/slices/xqWzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+   <iframe src="https://www.soundslice.com/slices/xqWzc/embed/" width="100%" height="100%" class="load-iframe" frameBorder="0" allowfullscreen></iframe>
+
+   <div class="menu-overlay">
+    <div class="menu-options">
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+      <button class="option-button" onclick="MSTREAMAPI.logout();">Logout</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a href="#" onclick="MSTREAMAPI.logout();" class="tab-item">
+      <i class="fas fa-home"></i>
+      <span>Home</span>
+    </a>
+    <a href="#" class="tab-item" onclick="changeView(loadinstruction, this)">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>
+      <span>Reference Videos</span>
+    </a>
+    
+    <a href="#" class="tab-item" onclick="changeView(loadchordset, this)">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="200px" width="200px" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M192 218v-6c0-14.84 10-27 24.24-30.59l174.59-46.68A20 20 0 0 1 416 154v22"></path><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M416 295.94v80c0 13.91-8.93 25.59-22 30l-22 8c-25.9 8.72-52-10.42-52-38h0a33.37 33.37 0 0 1 23-32l51-18.15c13.07-4.4 22-15.94 22-29.85V58a10 10 0 0 0-12.6-9.61L204 102a16.48 16.48 0 0 0-12 16v226c0 13.91-8.93 25.6-22 30l-52 18c-13.88 4.68-22 17.22-22 32h0c0 27.58 26.52 46.55 52 38l22-8c13.07-4.4 22-16.08 22-30v-80"></path></svg>
+      <span>Chords Library</span>
+    </a>
+    
+  </nav>
 
   `;
-  document.getElementById('mstream-player').style.display = 'none';
-  document.getElementById('filelist').style.display = 'none';
-  document.getElementById('playlist').style.display = 'none';
-  document.getElementById('header_tab').style.display = 'none';
-  document.getElementById('backbtn').style.display = 'none';
-  document.getElementById('local_search_btn').style.display = 'none';
-  document.getElementById('add_all').style.display = 'none';
-  document.getElementById('newcontent').style.display = 'block';
-  document.getElementById('content').style.display = 'none';
-  document.getElementById('newcontent').innerHTML = fourth_iframe;
+  document.getElementById("mstream-player").style.display = "none";
+  document.getElementById("filelist").style.display = "none";
+  document.getElementById("playlist").style.display = "none";
+  document.getElementById("header_tab").style.display = "none";
+  document.getElementById("backbtn").style.display = "none";
+  document.getElementById("local_search_btn").style.display = "none";
+  document.getElementById("add_all").style.display = "none";
+  document.getElementById("newcontent").style.display = "block";
+
+  document.getElementById("newcontent").style.overflowY = "hidden";
+  document.getElementById("content").style.display = "none";
+  document.getElementById("newcontent").innerHTML = tenth_iframe;
+
+  const tabItems = document.querySelectorAll(".tab-item");
+  const menuButton = document.querySelector(".menu-button");
+  const menuOverlay = document.querySelector(".menu-overlay");
+
+  tabItems.forEach((item) => {
+    item.addEventListener("click", (e) => {
+      e.preventDefault();
+      tabItems.forEach((tab) => tab.classList.remove("active"));
+      item.classList.add("active");
+
+      // Add and remove pulse animation
+      item.classList.add("pulse");
+      setTimeout(() => {
+        item.classList.remove("pulse");
+      }, 300);
+    });
+  });
+  function toggleMenu() {
+    menuButton.classList.toggle("active");
+    menuOverlay.style.display =
+      menuOverlay.style.display === "flex" ? "none" : "flex";
+    menuButton.innerHTML = menuButton.classList.contains("active")
+      ? '<i class="fas fa-times"></i>'
+      : '<i class="fas fa-chevron-up"></i>';
+
+    // Add and remove shake animation
+    menuButton.classList.add("shake");
+    setTimeout(() => {
+      menuButton.classList.remove("shake");
+    }, 300);
+  }
+
+  menuButton.addEventListener("click", toggleMenu);
 }
 
 function loadeleventhiframe() {
   // window.location.href = 'fivehundredmiles.html';
-  const fourth_iframe = `
+  const eleventh_iframe = `
 
-   <iframe src="https://www.soundslice.com/slices/WhWzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+   <iframe src="https://www.soundslice.com/slices/WhWzc/embed/" width="100%" height="100%" class="load-iframe" frameBorder="0" allowfullscreen></iframe>
+
+   <div class="menu-overlay">
+    <div class="menu-options">
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+      <button class="option-button" onclick="MSTREAMAPI.logout();">Logout</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a href="#" onclick="MSTREAMAPI.logout();" class="tab-item">
+      <i class="fas fa-home"></i>
+      <span>Home</span>
+    </a>
+    <a href="#" class="tab-item" onclick="changeView(loadinstruction, this)">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>
+      <span>Reference Videos</span>
+    </a>
+    
+    <a href="#" class="tab-item" onclick="changeView(loadchordset, this)">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="200px" width="200px" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M192 218v-6c0-14.84 10-27 24.24-30.59l174.59-46.68A20 20 0 0 1 416 154v22"></path><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M416 295.94v80c0 13.91-8.93 25.59-22 30l-22 8c-25.9 8.72-52-10.42-52-38h0a33.37 33.37 0 0 1 23-32l51-18.15c13.07-4.4 22-15.94 22-29.85V58a10 10 0 0 0-12.6-9.61L204 102a16.48 16.48 0 0 0-12 16v226c0 13.91-8.93 25.6-22 30l-52 18c-13.88 4.68-22 17.22-22 32h0c0 27.58 26.52 46.55 52 38l22-8c13.07-4.4 22-16.08 22-30v-80"></path></svg>
+      <span>Chords Library</span>
+    </a>
+    
+  </nav>
 
   `;
-  document.getElementById('mstream-player').style.display = 'none';
-  document.getElementById('filelist').style.display = 'none';
-  document.getElementById('playlist').style.display = 'none';
-  document.getElementById('header_tab').style.display = 'none';
-  document.getElementById('backbtn').style.display = 'none';
-  document.getElementById('local_search_btn').style.display = 'none';
-  document.getElementById('add_all').style.display = 'none';
-  document.getElementById('newcontent').style.display = 'block';
-  document.getElementById('content').style.display = 'none';
-  document.getElementById('newcontent').innerHTML = fourth_iframe;
+  document.getElementById("mstream-player").style.display = "none";
+  document.getElementById("filelist").style.display = "none";
+  document.getElementById("playlist").style.display = "none";
+  document.getElementById("header_tab").style.display = "none";
+  document.getElementById("backbtn").style.display = "none";
+  document.getElementById("local_search_btn").style.display = "none";
+  document.getElementById("add_all").style.display = "none";
+  document.getElementById("newcontent").style.display = "block";
+
+  document.getElementById("newcontent").style.overflowY = "hidden";
+  document.getElementById("content").style.display = "none";
+  document.getElementById("newcontent").innerHTML = eleventh_iframe;
+
+  const tabItems = document.querySelectorAll(".tab-item");
+  const menuButton = document.querySelector(".menu-button");
+  const menuOverlay = document.querySelector(".menu-overlay");
+
+  tabItems.forEach((item) => {
+    item.addEventListener("click", (e) => {
+      e.preventDefault();
+      tabItems.forEach((tab) => tab.classList.remove("active"));
+      item.classList.add("active");
+
+      // Add and remove pulse animation
+      item.classList.add("pulse");
+      setTimeout(() => {
+        item.classList.remove("pulse");
+      }, 300);
+    });
+  });
+  function toggleMenu() {
+    menuButton.classList.toggle("active");
+    menuOverlay.style.display =
+      menuOverlay.style.display === "flex" ? "none" : "flex";
+    menuButton.innerHTML = menuButton.classList.contains("active")
+      ? '<i class="fas fa-times"></i>'
+      : '<i class="fas fa-chevron-up"></i>';
+
+    // Add and remove shake animation
+    menuButton.classList.add("shake");
+    setTimeout(() => {
+      menuButton.classList.remove("shake");
+    }, 300);
+  }
+
+  menuButton.addEventListener("click", toggleMenu);
 }
 
 function loadtwelvthiframe() {
   // window.location.href = 'fivehundredmiles.html';
-  const fourth_iframe = `
+  const twelth_iframe = `
 
-    <iframe src="https://www.soundslice.com/slices/hhWzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+    <iframe src="https://www.soundslice.com/slices/hhWzc/embed/" width="100%" height="100%" class="load-iframe" frameBorder="0" allowfullscreen></iframe>
+
+    <div class="menu-overlay">
+    <div class="menu-options">
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+      <button class="option-button" onclick="MSTREAMAPI.logout();">Logout</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a href="#" onclick="MSTREAMAPI.logout();" class="tab-item">
+      <i class="fas fa-home"></i>
+      <span>Home</span>
+    </a>
+    <a href="#" class="tab-item" onclick="changeView(loadinstruction, this)">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>
+      <span>Reference Videos</span>
+    </a>
+    
+    <a href="#" class="tab-item" onclick="changeView(loadchordset, this)">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="200px" width="200px" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M192 218v-6c0-14.84 10-27 24.24-30.59l174.59-46.68A20 20 0 0 1 416 154v22"></path><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M416 295.94v80c0 13.91-8.93 25.59-22 30l-22 8c-25.9 8.72-52-10.42-52-38h0a33.37 33.37 0 0 1 23-32l51-18.15c13.07-4.4 22-15.94 22-29.85V58a10 10 0 0 0-12.6-9.61L204 102a16.48 16.48 0 0 0-12 16v226c0 13.91-8.93 25.6-22 30l-52 18c-13.88 4.68-22 17.22-22 32h0c0 27.58 26.52 46.55 52 38l22-8c13.07-4.4 22-16.08 22-30v-80"></path></svg>
+      <span>Chords Library</span>
+    </a>
+    
+  </nav>
 
   `;
-  document.getElementById('mstream-player').style.display = 'none';
-  document.getElementById('filelist').style.display = 'none';
-  document.getElementById('playlist').style.display = 'none';
-  document.getElementById('header_tab').style.display = 'none';
-  document.getElementById('backbtn').style.display = 'none';
-  document.getElementById('local_search_btn').style.display = 'none';
-  document.getElementById('add_all').style.display = 'none';
-  document.getElementById('newcontent').style.display = 'block';
-  document.getElementById('content').style.display = 'none';
-  document.getElementById('newcontent').innerHTML = fourth_iframe;
+  document.getElementById("mstream-player").style.display = "none";
+  document.getElementById("filelist").style.display = "none";
+  document.getElementById("playlist").style.display = "none";
+  document.getElementById("header_tab").style.display = "none";
+  document.getElementById("backbtn").style.display = "none";
+  document.getElementById("local_search_btn").style.display = "none";
+  document.getElementById("add_all").style.display = "none";
+  document.getElementById("newcontent").style.display = "block";
+
+  document.getElementById("newcontent").style.overflowY = "hidden";
+  document.getElementById("content").style.display = "none";
+  document.getElementById("newcontent").innerHTML = twelth_iframe;
+
+  const tabItems = document.querySelectorAll(".tab-item");
+  const menuButton = document.querySelector(".menu-button");
+  const menuOverlay = document.querySelector(".menu-overlay");
+
+  tabItems.forEach((item) => {
+    item.addEventListener("click", (e) => {
+      e.preventDefault();
+      tabItems.forEach((tab) => tab.classList.remove("active"));
+      item.classList.add("active");
+
+      // Add and remove pulse animation
+      item.classList.add("pulse");
+      setTimeout(() => {
+        item.classList.remove("pulse");
+      }, 300);
+    });
+  });
+  function toggleMenu() {
+    menuButton.classList.toggle("active");
+    menuOverlay.style.display =
+      menuOverlay.style.display === "flex" ? "none" : "flex";
+    menuButton.innerHTML = menuButton.classList.contains("active")
+      ? '<i class="fas fa-times"></i>'
+      : '<i class="fas fa-chevron-up"></i>';
+
+    // Add and remove shake animation
+    menuButton.classList.add("shake");
+    setTimeout(() => {
+      menuButton.classList.remove("shake");
+    }, 300);
+  }
+
+  menuButton.addEventListener("click", toggleMenu);
 }
 
 function load13thiframe() {
   // window.location.href = 'fivehundredmiles.html';
   const iframe = `
 
-   <iframe src="https://www.soundslice.com/slices/zMjzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+   <iframe src="https://www.soundslice.com/slices/zMjzc/embed/" width="100%" height="100%" class="load-iframe" frameBorder="0" allowfullscreen></iframe>
+
+   <div class="menu-overlay">
+    <div class="menu-options">
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+      <button class="option-button" onclick="MSTREAMAPI.logout();">Logout</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a href="#" onclick="MSTREAMAPI.logout();" class="tab-item">
+      <i class="fas fa-home"></i>
+      <span>Home</span>
+    </a>
+    <a href="#" class="tab-item" onclick="changeView(loadinstruction, this)">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>
+      <span>Reference Videos</span>
+    </a>
+    
+    <a href="#" class="tab-item" onclick="changeView(loadchordset, this)">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="200px" width="200px" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M192 218v-6c0-14.84 10-27 24.24-30.59l174.59-46.68A20 20 0 0 1 416 154v22"></path><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M416 295.94v80c0 13.91-8.93 25.59-22 30l-22 8c-25.9 8.72-52-10.42-52-38h0a33.37 33.37 0 0 1 23-32l51-18.15c13.07-4.4 22-15.94 22-29.85V58a10 10 0 0 0-12.6-9.61L204 102a16.48 16.48 0 0 0-12 16v226c0 13.91-8.93 25.6-22 30l-52 18c-13.88 4.68-22 17.22-22 32h0c0 27.58 26.52 46.55 52 38l22-8c13.07-4.4 22-16.08 22-30v-80"></path></svg>
+      <span>Chords Library</span>
+    </a>
+    
+  </nav>
   `;
-  document.getElementById('mstream-player').style.display = 'none';
-  document.getElementById('filelist').style.display = 'none';
-  document.getElementById('playlist').style.display = 'none';
-  document.getElementById('header_tab').style.display = 'none';
-  document.getElementById('backbtn').style.display = 'none';
-  document.getElementById('local_search_btn').style.display = 'none';
-  document.getElementById('add_all').style.display = 'none';
-  document.getElementById('newcontent').style.display = 'block';
-  document.getElementById('content').style.display = 'none';
-  document.getElementById('newcontent').innerHTML = iframe;
+  document.getElementById("mstream-player").style.display = "none";
+  document.getElementById("filelist").style.display = "none";
+  document.getElementById("playlist").style.display = "none";
+  document.getElementById("header_tab").style.display = "none";
+  document.getElementById("backbtn").style.display = "none";
+  document.getElementById("local_search_btn").style.display = "none";
+  document.getElementById("add_all").style.display = "none";
+  document.getElementById("newcontent").style.display = "block";
+
+  document.getElementById("newcontent").style.overflowY = "hidden";
+  document.getElementById("content").style.display = "none";
+  document.getElementById("newcontent").innerHTML = iframe;
+
+  const tabItems = document.querySelectorAll(".tab-item");
+  const menuButton = document.querySelector(".menu-button");
+  const menuOverlay = document.querySelector(".menu-overlay");
+
+  tabItems.forEach((item) => {
+    item.addEventListener("click", (e) => {
+      e.preventDefault();
+      tabItems.forEach((tab) => tab.classList.remove("active"));
+      item.classList.add("active");
+
+      // Add and remove pulse animation
+      item.classList.add("pulse");
+      setTimeout(() => {
+        item.classList.remove("pulse");
+      }, 300);
+    });
+  });
+  function toggleMenu() {
+    menuButton.classList.toggle("active");
+    menuOverlay.style.display =
+      menuOverlay.style.display === "flex" ? "none" : "flex";
+    menuButton.innerHTML = menuButton.classList.contains("active")
+      ? '<i class="fas fa-times"></i>'
+      : '<i class="fas fa-chevron-up"></i>';
+
+    // Add and remove shake animation
+    menuButton.classList.add("shake");
+    setTimeout(() => {
+      menuButton.classList.remove("shake");
+    }, 300);
+  }
+
+  menuButton.addEventListener("click", toggleMenu);
 }
 
 function load14thiframe() {
   // window.location.href = 'fivehundredmiles.html';
   const iframe = `
 
-   <iframe src="https://www.soundslice.com/slices/WMjzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+   <iframe src="https://www.soundslice.com/slices/WMjzc/embed/" width="100%" height="100%" class="load-iframe" frameBorder="0" allowfullscreen></iframe>
+
+   <div class="menu-overlay">
+    <div class="menu-options">
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+      <button class="option-button" onclick="MSTREAMAPI.logout();">Logout</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a href="#" onclick="MSTREAMAPI.logout();" class="tab-item">
+      <i class="fas fa-home"></i>
+      <span>Home</span>
+    </a>
+    <a href="#" class="tab-item" onclick="changeView(loadinstruction, this)">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>
+      <span>Reference Videos</span>
+    </a>
+    
+    <a href="#" class="tab-item" onclick="changeView(loadchordset, this)">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="200px" width="200px" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M192 218v-6c0-14.84 10-27 24.24-30.59l174.59-46.68A20 20 0 0 1 416 154v22"></path><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M416 295.94v80c0 13.91-8.93 25.59-22 30l-22 8c-25.9 8.72-52-10.42-52-38h0a33.37 33.37 0 0 1 23-32l51-18.15c13.07-4.4 22-15.94 22-29.85V58a10 10 0 0 0-12.6-9.61L204 102a16.48 16.48 0 0 0-12 16v226c0 13.91-8.93 25.6-22 30l-52 18c-13.88 4.68-22 17.22-22 32h0c0 27.58 26.52 46.55 52 38l22-8c13.07-4.4 22-16.08 22-30v-80"></path></svg>
+      <span>Chords Library</span>
+    </a>
+    
+  </nav>
 
   `;
-  document.getElementById('mstream-player').style.display = 'none';
-  document.getElementById('filelist').style.display = 'none';
-  document.getElementById('playlist').style.display = 'none';
-  document.getElementById('header_tab').style.display = 'none';
-  document.getElementById('backbtn').style.display = 'none';
-  document.getElementById('local_search_btn').style.display = 'none';
-  document.getElementById('add_all').style.display = 'none';
-  document.getElementById('newcontent').style.display = 'block';
-  document.getElementById('content').style.display = 'none';
-  document.getElementById('newcontent').innerHTML = iframe;
+  document.getElementById("mstream-player").style.display = "none";
+  document.getElementById("filelist").style.display = "none";
+  document.getElementById("playlist").style.display = "none";
+  document.getElementById("header_tab").style.display = "none";
+  document.getElementById("backbtn").style.display = "none";
+  document.getElementById("local_search_btn").style.display = "none";
+  document.getElementById("add_all").style.display = "none";
+  document.getElementById("newcontent").style.display = "block";
+
+  document.getElementById("newcontent").style.overflowY = "hidden";
+  document.getElementById("content").style.display = "none";
+  document.getElementById("newcontent").innerHTML = iframe;
+
+  const tabItems = document.querySelectorAll(".tab-item");
+  const menuButton = document.querySelector(".menu-button");
+  const menuOverlay = document.querySelector(".menu-overlay");
+
+  tabItems.forEach((item) => {
+    item.addEventListener("click", (e) => {
+      e.preventDefault();
+      tabItems.forEach((tab) => tab.classList.remove("active"));
+      item.classList.add("active");
+
+      // Add and remove pulse animation
+      item.classList.add("pulse");
+      setTimeout(() => {
+        item.classList.remove("pulse");
+      }, 300);
+    });
+  });
+  function toggleMenu() {
+    menuButton.classList.toggle("active");
+    menuOverlay.style.display =
+      menuOverlay.style.display === "flex" ? "none" : "flex";
+    menuButton.innerHTML = menuButton.classList.contains("active")
+      ? '<i class="fas fa-times"></i>'
+      : '<i class="fas fa-chevron-up"></i>';
+
+    // Add and remove shake animation
+    menuButton.classList.add("shake");
+    setTimeout(() => {
+      menuButton.classList.remove("shake");
+    }, 300);
+  }
+
+  menuButton.addEventListener("click", toggleMenu);
 }
 
 function load15thiframe() {
   // window.location.href = 'fivehundredmiles.html';
   const iframe = `
 
-   <iframe src="https://www.soundslice.com/slices/PMjzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+   <iframe src="https://www.soundslice.com/slices/PMjzc/embed/" width="100%" height="100%" class="load-iframe" frameBorder="0" allowfullscreen></iframe>
+
+   <div class="menu-overlay">
+    <div class="menu-options">
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+      <button class="option-button" onclick="MSTREAMAPI.logout();">Logout</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a href="#" onclick="MSTREAMAPI.logout();" class="tab-item">
+      <i class="fas fa-home"></i>
+      <span>Home</span>
+    </a>
+    <a href="#" class="tab-item" onclick="changeView(loadinstruction, this)">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>
+      <span>Reference Videos</span>
+    </a>
+    
+    <a href="#" class="tab-item" onclick="changeView(loadchordset, this)">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="200px" width="200px" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M192 218v-6c0-14.84 10-27 24.24-30.59l174.59-46.68A20 20 0 0 1 416 154v22"></path><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M416 295.94v80c0 13.91-8.93 25.59-22 30l-22 8c-25.9 8.72-52-10.42-52-38h0a33.37 33.37 0 0 1 23-32l51-18.15c13.07-4.4 22-15.94 22-29.85V58a10 10 0 0 0-12.6-9.61L204 102a16.48 16.48 0 0 0-12 16v226c0 13.91-8.93 25.6-22 30l-52 18c-13.88 4.68-22 17.22-22 32h0c0 27.58 26.52 46.55 52 38l22-8c13.07-4.4 22-16.08 22-30v-80"></path></svg>
+      <span>Chords Library</span>
+    </a>
+    
+  </nav>
 
   `;
-  document.getElementById('mstream-player').style.display = 'none';
-  document.getElementById('filelist').style.display = 'none';
-  document.getElementById('playlist').style.display = 'none';
-  document.getElementById('header_tab').style.display = 'none';
-  document.getElementById('backbtn').style.display = 'none';
-  document.getElementById('local_search_btn').style.display = 'none';
-  document.getElementById('add_all').style.display = 'none';
-  document.getElementById('newcontent').style.display = 'block';
-  document.getElementById('content').style.display = 'none';
-  document.getElementById('newcontent').innerHTML = iframe;
+  document.getElementById("mstream-player").style.display = "none";
+  document.getElementById("filelist").style.display = "none";
+  document.getElementById("playlist").style.display = "none";
+  document.getElementById("header_tab").style.display = "none";
+  document.getElementById("backbtn").style.display = "none";
+  document.getElementById("local_search_btn").style.display = "none";
+  document.getElementById("add_all").style.display = "none";
+  document.getElementById("newcontent").style.display = "block";
+
+  document.getElementById("newcontent").style.overflowY = "hidden";
+  document.getElementById("content").style.display = "none";
+  document.getElementById("newcontent").innerHTML = iframe;
+
+  const tabItems = document.querySelectorAll(".tab-item");
+  const menuButton = document.querySelector(".menu-button");
+  const menuOverlay = document.querySelector(".menu-overlay");
+
+  tabItems.forEach((item) => {
+    item.addEventListener("click", (e) => {
+      e.preventDefault();
+      tabItems.forEach((tab) => tab.classList.remove("active"));
+      item.classList.add("active");
+
+      // Add and remove pulse animation
+      item.classList.add("pulse");
+      setTimeout(() => {
+        item.classList.remove("pulse");
+      }, 300);
+    });
+  });
+  function toggleMenu() {
+    menuButton.classList.toggle("active");
+    menuOverlay.style.display =
+      menuOverlay.style.display === "flex" ? "none" : "flex";
+    menuButton.innerHTML = menuButton.classList.contains("active")
+      ? '<i class="fas fa-times"></i>'
+      : '<i class="fas fa-chevron-up"></i>';
+
+    // Add and remove shake animation
+    menuButton.classList.add("shake");
+    setTimeout(() => {
+      menuButton.classList.remove("shake");
+    }, 300);
+  }
+
+  menuButton.addEventListener("click", toggleMenu);
 }
 
 function load16thiframe() {
   // window.location.href = 'fivehundredmiles.html';
   const iframe = `
 
-  <iframe src="https://www.soundslice.com/slices/xMjzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+  <iframe src="https://www.soundslice.com/slices/xMjzc/embed/" width="100%" height="100%" class="load-iframe" frameBorder="0" allowfullscreen></iframe>
+
+  <div class="menu-overlay">
+    <div class="menu-options">
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+      <button class="option-button" onclick="MSTREAMAPI.logout();">Logout</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a href="#" onclick="MSTREAMAPI.logout();" class="tab-item">
+      <i class="fas fa-home"></i>
+      <span>Home</span>
+    </a>
+    <a href="#" class="tab-item" onclick="changeView(loadinstruction, this)">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>
+      <span>Reference Videos</span>
+    </a>
+    
+    <a href="#" class="tab-item" onclick="changeView(loadchordset, this)">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="200px" width="200px" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M192 218v-6c0-14.84 10-27 24.24-30.59l174.59-46.68A20 20 0 0 1 416 154v22"></path><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M416 295.94v80c0 13.91-8.93 25.59-22 30l-22 8c-25.9 8.72-52-10.42-52-38h0a33.37 33.37 0 0 1 23-32l51-18.15c13.07-4.4 22-15.94 22-29.85V58a10 10 0 0 0-12.6-9.61L204 102a16.48 16.48 0 0 0-12 16v226c0 13.91-8.93 25.6-22 30l-52 18c-13.88 4.68-22 17.22-22 32h0c0 27.58 26.52 46.55 52 38l22-8c13.07-4.4 22-16.08 22-30v-80"></path></svg>
+      <span>Chords Library</span>
+    </a>
+    
+  </nav>
 
   `;
-  document.getElementById('mstream-player').style.display = 'none';
-  document.getElementById('filelist').style.display = 'none';
-  document.getElementById('playlist').style.display = 'none';
-  document.getElementById('header_tab').style.display = 'none';
-  document.getElementById('backbtn').style.display = 'none';
-  document.getElementById('local_search_btn').style.display = 'none';
-  document.getElementById('add_all').style.display = 'none';
-  document.getElementById('newcontent').style.display = 'block';
-  document.getElementById('content').style.display = 'none';
-  document.getElementById('newcontent').innerHTML = iframe;
+  document.getElementById("mstream-player").style.display = "none";
+  document.getElementById("filelist").style.display = "none";
+  document.getElementById("playlist").style.display = "none";
+  document.getElementById("header_tab").style.display = "none";
+  document.getElementById("backbtn").style.display = "none";
+  document.getElementById("local_search_btn").style.display = "none";
+  document.getElementById("add_all").style.display = "none";
+  document.getElementById("newcontent").style.display = "block";
+
+  document.getElementById("newcontent").style.overflowY = "hidden";
+  document.getElementById("content").style.display = "none";
+  document.getElementById("newcontent").innerHTML = iframe;
+
+  const tabItems = document.querySelectorAll(".tab-item");
+  const menuButton = document.querySelector(".menu-button");
+  const menuOverlay = document.querySelector(".menu-overlay");
+
+  tabItems.forEach((item) => {
+    item.addEventListener("click", (e) => {
+      e.preventDefault();
+      tabItems.forEach((tab) => tab.classList.remove("active"));
+      item.classList.add("active");
+
+      // Add and remove pulse animation
+      item.classList.add("pulse");
+      setTimeout(() => {
+        item.classList.remove("pulse");
+      }, 300);
+    });
+  });
+  function toggleMenu() {
+    menuButton.classList.toggle("active");
+    menuOverlay.style.display =
+      menuOverlay.style.display === "flex" ? "none" : "flex";
+    menuButton.innerHTML = menuButton.classList.contains("active")
+      ? '<i class="fas fa-times"></i>'
+      : '<i class="fas fa-chevron-up"></i>';
+
+    // Add and remove shake animation
+    menuButton.classList.add("shake");
+    setTimeout(() => {
+      menuButton.classList.remove("shake");
+    }, 300);
+  }
+
+  menuButton.addEventListener("click", toggleMenu);
 }
 
 function load17thiframe() {
   // window.location.href = 'fivehundredmiles.html';
   const iframe = `
 
- <iframe src="https://www.soundslice.com/slices/gMjzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+ <iframe src="https://www.soundslice.com/slices/gMjzc/embed/" width="100%" height="100%" class="load-iframe" frameBorder="0" allowfullscreen></iframe>
+
+ <div class="menu-overlay">
+    <div class="menu-options">
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+      <button class="option-button" onclick="MSTREAMAPI.logout();">Logout</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a href="#" onclick="MSTREAMAPI.logout();" class="tab-item">
+      <i class="fas fa-home"></i>
+      <span>Home</span>
+    </a>
+    <a href="#" class="tab-item" onclick="changeView(loadinstruction, this)">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>
+      <span>Reference Videos</span>
+    </a>
+    
+    <a href="#" class="tab-item" onclick="changeView(loadchordset, this)">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="200px" width="200px" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M192 218v-6c0-14.84 10-27 24.24-30.59l174.59-46.68A20 20 0 0 1 416 154v22"></path><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M416 295.94v80c0 13.91-8.93 25.59-22 30l-22 8c-25.9 8.72-52-10.42-52-38h0a33.37 33.37 0 0 1 23-32l51-18.15c13.07-4.4 22-15.94 22-29.85V58a10 10 0 0 0-12.6-9.61L204 102a16.48 16.48 0 0 0-12 16v226c0 13.91-8.93 25.6-22 30l-52 18c-13.88 4.68-22 17.22-22 32h0c0 27.58 26.52 46.55 52 38l22-8c13.07-4.4 22-16.08 22-30v-80"></path></svg>
+      <span>Chords Library</span>
+    </a>
+    
+  </nav>
 
   `;
-  document.getElementById('mstream-player').style.display = 'none';
-  document.getElementById('filelist').style.display = 'none';
-  document.getElementById('playlist').style.display = 'none';
-  document.getElementById('header_tab').style.display = 'none';
-  document.getElementById('backbtn').style.display = 'none';
-  document.getElementById('local_search_btn').style.display = 'none';
-  document.getElementById('add_all').style.display = 'none';
-  document.getElementById('newcontent').style.display = 'block';
-  document.getElementById('content').style.display = 'none';
-  document.getElementById('newcontent').innerHTML = iframe;
+  document.getElementById("mstream-player").style.display = "none";
+  document.getElementById("filelist").style.display = "none";
+  document.getElementById("playlist").style.display = "none";
+  document.getElementById("header_tab").style.display = "none";
+  document.getElementById("backbtn").style.display = "none";
+  document.getElementById("local_search_btn").style.display = "none";
+  document.getElementById("add_all").style.display = "none";
+  document.getElementById("newcontent").style.display = "block";
+
+  document.getElementById("newcontent").style.overflowY = "hidden";
+  document.getElementById("content").style.display = "none";
+  document.getElementById("newcontent").innerHTML = iframe;
+
+  const tabItems = document.querySelectorAll(".tab-item");
+  const menuButton = document.querySelector(".menu-button");
+  const menuOverlay = document.querySelector(".menu-overlay");
+
+  tabItems.forEach((item) => {
+    item.addEventListener("click", (e) => {
+      e.preventDefault();
+      tabItems.forEach((tab) => tab.classList.remove("active"));
+      item.classList.add("active");
+
+      // Add and remove pulse animation
+      item.classList.add("pulse");
+      setTimeout(() => {
+        item.classList.remove("pulse");
+      }, 300);
+    });
+  });
+  function toggleMenu() {
+    menuButton.classList.toggle("active");
+    menuOverlay.style.display =
+      menuOverlay.style.display === "flex" ? "none" : "flex";
+    menuButton.innerHTML = menuButton.classList.contains("active")
+      ? '<i class="fas fa-times"></i>'
+      : '<i class="fas fa-chevron-up"></i>';
+
+    // Add and remove shake animation
+    menuButton.classList.add("shake");
+    setTimeout(() => {
+      menuButton.classList.remove("shake");
+    }, 300);
+  }
+
+  menuButton.addEventListener("click", toggleMenu);
 }
 
 function load18thiframe() {
   // window.location.href = 'fivehundredmiles.html';
   const iframe = `
 
- <iframe src="https://www.soundslice.com/slices/pMjzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+ <iframe src="https://www.soundslice.com/slices/pMjzc/embed/" width="100%" height="100%" class="load-iframe" frameBorder="0" allowfullscreen></iframe>
+
+ <div class="menu-overlay">
+    <div class="menu-options">
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+      <button class="option-button" onclick="MSTREAMAPI.logout();">Logout</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a href="#" onclick="MSTREAMAPI.logout();" class="tab-item">
+      <i class="fas fa-home"></i>
+      <span>Home</span>
+    </a>
+    <a href="#" class="tab-item" onclick="changeView(loadinstruction, this)">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>
+      <span>Reference Videos</span>
+    </a>
+    
+    <a href="#" class="tab-item" onclick="changeView(loadchordset, this)">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="200px" width="200px" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M192 218v-6c0-14.84 10-27 24.24-30.59l174.59-46.68A20 20 0 0 1 416 154v22"></path><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M416 295.94v80c0 13.91-8.93 25.59-22 30l-22 8c-25.9 8.72-52-10.42-52-38h0a33.37 33.37 0 0 1 23-32l51-18.15c13.07-4.4 22-15.94 22-29.85V58a10 10 0 0 0-12.6-9.61L204 102a16.48 16.48 0 0 0-12 16v226c0 13.91-8.93 25.6-22 30l-52 18c-13.88 4.68-22 17.22-22 32h0c0 27.58 26.52 46.55 52 38l22-8c13.07-4.4 22-16.08 22-30v-80"></path></svg>
+      <span>Chords Library</span>
+    </a>
+    
+  </nav>
 
   `;
-  document.getElementById('mstream-player').style.display = 'none';
-  document.getElementById('filelist').style.display = 'none';
-  document.getElementById('playlist').style.display = 'none';
-  document.getElementById('header_tab').style.display = 'none';
-  document.getElementById('backbtn').style.display = 'none';
-  document.getElementById('local_search_btn').style.display = 'none';
-  document.getElementById('add_all').style.display = 'none';
-  document.getElementById('newcontent').style.display = 'block';
-  document.getElementById('content').style.display = 'none';
-  document.getElementById('newcontent').innerHTML = iframe;
+  document.getElementById("mstream-player").style.display = "none";
+  document.getElementById("filelist").style.display = "none";
+  document.getElementById("playlist").style.display = "none";
+  document.getElementById("header_tab").style.display = "none";
+  document.getElementById("backbtn").style.display = "none";
+  document.getElementById("local_search_btn").style.display = "none";
+  document.getElementById("add_all").style.display = "none";
+  document.getElementById("newcontent").style.display = "block";
+
+  document.getElementById("newcontent").style.overflowY = "hidden";
+  document.getElementById("content").style.display = "none";
+  document.getElementById("newcontent").innerHTML = iframe;
+
+  const tabItems = document.querySelectorAll(".tab-item");
+  const menuButton = document.querySelector(".menu-button");
+  const menuOverlay = document.querySelector(".menu-overlay");
+
+  tabItems.forEach((item) => {
+    item.addEventListener("click", (e) => {
+      e.preventDefault();
+      tabItems.forEach((tab) => tab.classList.remove("active"));
+      item.classList.add("active");
+
+      // Add and remove pulse animation
+      item.classList.add("pulse");
+      setTimeout(() => {
+        item.classList.remove("pulse");
+      }, 300);
+    });
+  });
+  function toggleMenu() {
+    menuButton.classList.toggle("active");
+    menuOverlay.style.display =
+      menuOverlay.style.display === "flex" ? "none" : "flex";
+    menuButton.innerHTML = menuButton.classList.contains("active")
+      ? '<i class="fas fa-times"></i>'
+      : '<i class="fas fa-chevron-up"></i>';
+
+    // Add and remove shake animation
+    menuButton.classList.add("shake");
+    setTimeout(() => {
+      menuButton.classList.remove("shake");
+    }, 300);
+  }
+
+  menuButton.addEventListener("click", toggleMenu);
 }
 
 function load19thiframe() {
   // window.location.href = 'fivehundredmiles.html';
   const iframe = `
 
- <iframe src="https://www.soundslice.com/slices/fkjzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+ <iframe src="https://www.soundslice.com/slices/fkjzc/embed/" width="100%" height="100%" class="load-iframe" frameBorder="0" allowfullscreen></iframe>
+
+ <div class="menu-overlay">
+    <div class="menu-options">
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+      <button class="option-button" onclick="MSTREAMAPI.logout();">Logout</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a href="#" onclick="MSTREAMAPI.logout();" class="tab-item">
+      <i class="fas fa-home"></i>
+      <span>Home</span>
+    </a>
+    <a href="#" class="tab-item" onclick="changeView(loadinstruction, this)">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>
+      <span>Reference Videos</span>
+    </a>
+    
+    <a href="#" class="tab-item" onclick="changeView(loadchordset, this)">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="200px" width="200px" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M192 218v-6c0-14.84 10-27 24.24-30.59l174.59-46.68A20 20 0 0 1 416 154v22"></path><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M416 295.94v80c0 13.91-8.93 25.59-22 30l-22 8c-25.9 8.72-52-10.42-52-38h0a33.37 33.37 0 0 1 23-32l51-18.15c13.07-4.4 22-15.94 22-29.85V58a10 10 0 0 0-12.6-9.61L204 102a16.48 16.48 0 0 0-12 16v226c0 13.91-8.93 25.6-22 30l-52 18c-13.88 4.68-22 17.22-22 32h0c0 27.58 26.52 46.55 52 38l22-8c13.07-4.4 22-16.08 22-30v-80"></path></svg>
+      <span>Chords Library</span>
+    </a>
+    
+  </nav>
 
   `;
-  document.getElementById('mstream-player').style.display = 'none';
-  document.getElementById('filelist').style.display = 'none';
-  document.getElementById('playlist').style.display = 'none';
-  document.getElementById('header_tab').style.display = 'none';
-  document.getElementById('backbtn').style.display = 'none';
-  document.getElementById('local_search_btn').style.display = 'none';
-  document.getElementById('add_all').style.display = 'none';
-  document.getElementById('newcontent').style.display = 'block';
-  document.getElementById('content').style.display = 'none';
-  document.getElementById('newcontent').innerHTML = iframe;
+  document.getElementById("mstream-player").style.display = "none";
+  document.getElementById("filelist").style.display = "none";
+  document.getElementById("playlist").style.display = "none";
+  document.getElementById("header_tab").style.display = "none";
+  document.getElementById("backbtn").style.display = "none";
+  document.getElementById("local_search_btn").style.display = "none";
+  document.getElementById("add_all").style.display = "none";
+  document.getElementById("newcontent").style.display = "block";
+
+  document.getElementById("newcontent").style.overflowY = "hidden";
+  document.getElementById("content").style.display = "none";
+  document.getElementById("newcontent").innerHTML = iframe;
+
+  const tabItems = document.querySelectorAll(".tab-item");
+  const menuButton = document.querySelector(".menu-button");
+  const menuOverlay = document.querySelector(".menu-overlay");
+
+  tabItems.forEach((item) => {
+    item.addEventListener("click", (e) => {
+      e.preventDefault();
+      tabItems.forEach((tab) => tab.classList.remove("active"));
+      item.classList.add("active");
+
+      // Add and remove pulse animation
+      item.classList.add("pulse");
+      setTimeout(() => {
+        item.classList.remove("pulse");
+      }, 300);
+    });
+  });
+  function toggleMenu() {
+    menuButton.classList.toggle("active");
+    menuOverlay.style.display =
+      menuOverlay.style.display === "flex" ? "none" : "flex";
+    menuButton.innerHTML = menuButton.classList.contains("active")
+      ? '<i class="fas fa-times"></i>'
+      : '<i class="fas fa-chevron-up"></i>';
+
+    // Add and remove shake animation
+    menuButton.classList.add("shake");
+    setTimeout(() => {
+      menuButton.classList.remove("shake");
+    }, 300);
+  }
+
+  menuButton.addEventListener("click", toggleMenu);
 }
 
 function load20thiframe() {
   // window.location.href = 'fivehundredmiles.html';
   const iframe = `
 
- <iframe src="https://www.soundslice.com/slices/ykjzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+ <iframe src="https://www.soundslice.com/slices/ykjzc/embed/" width="100%" height="100%" class="load-iframe" frameBorder="0" allowfullscreen></iframe>
+
+ <div class="menu-overlay">
+    <div class="menu-options">
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+      <button class="option-button" onclick="MSTREAMAPI.logout();">Logout</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a href="#" onclick="MSTREAMAPI.logout();" class="tab-item">
+      <i class="fas fa-home"></i>
+      <span>Home</span>
+    </a>
+    <a href="#" class="tab-item" onclick="changeView(loadinstruction, this)">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>
+      <span>Reference Videos</span>
+    </a>
+    
+    <a href="#" class="tab-item" onclick="changeView(loadchordset, this)">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="200px" width="200px" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M192 218v-6c0-14.84 10-27 24.24-30.59l174.59-46.68A20 20 0 0 1 416 154v22"></path><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M416 295.94v80c0 13.91-8.93 25.59-22 30l-22 8c-25.9 8.72-52-10.42-52-38h0a33.37 33.37 0 0 1 23-32l51-18.15c13.07-4.4 22-15.94 22-29.85V58a10 10 0 0 0-12.6-9.61L204 102a16.48 16.48 0 0 0-12 16v226c0 13.91-8.93 25.6-22 30l-52 18c-13.88 4.68-22 17.22-22 32h0c0 27.58 26.52 46.55 52 38l22-8c13.07-4.4 22-16.08 22-30v-80"></path></svg>
+      <span>Chords Library</span>
+    </a>
+    
+  </nav>
 
   `;
-  document.getElementById('mstream-player').style.display = 'none';
-  document.getElementById('filelist').style.display = 'none';
-  document.getElementById('playlist').style.display = 'none';
-  document.getElementById('header_tab').style.display = 'none';
-  document.getElementById('backbtn').style.display = 'none';
-  document.getElementById('local_search_btn').style.display = 'none';
-  document.getElementById('add_all').style.display = 'none';
-  document.getElementById('newcontent').style.display = 'block';
-  document.getElementById('content').style.display = 'none';
-  document.getElementById('newcontent').innerHTML = iframe;
+  document.getElementById("mstream-player").style.display = "none";
+  document.getElementById("filelist").style.display = "none";
+  document.getElementById("playlist").style.display = "none";
+  document.getElementById("header_tab").style.display = "none";
+  document.getElementById("backbtn").style.display = "none";
+  document.getElementById("local_search_btn").style.display = "none";
+  document.getElementById("add_all").style.display = "none";
+  document.getElementById("newcontent").style.display = "block";
+
+  document.getElementById("newcontent").style.overflowY = "hidden";
+  document.getElementById("content").style.display = "none";
+  document.getElementById("newcontent").innerHTML = iframe;
+
+  const tabItems = document.querySelectorAll(".tab-item");
+  const menuButton = document.querySelector(".menu-button");
+  const menuOverlay = document.querySelector(".menu-overlay");
+
+  tabItems.forEach((item) => {
+    item.addEventListener("click", (e) => {
+      e.preventDefault();
+      tabItems.forEach((tab) => tab.classList.remove("active"));
+      item.classList.add("active");
+
+      // Add and remove pulse animation
+      item.classList.add("pulse");
+      setTimeout(() => {
+        item.classList.remove("pulse");
+      }, 300);
+    });
+  });
+  function toggleMenu() {
+    menuButton.classList.toggle("active");
+    menuOverlay.style.display =
+      menuOverlay.style.display === "flex" ? "none" : "flex";
+    menuButton.innerHTML = menuButton.classList.contains("active")
+      ? '<i class="fas fa-times"></i>'
+      : '<i class="fas fa-chevron-up"></i>';
+
+    // Add and remove shake animation
+    menuButton.classList.add("shake");
+    setTimeout(() => {
+      menuButton.classList.remove("shake");
+    }, 300);
+  }
+
+  menuButton.addEventListener("click", toggleMenu);
 }
 
 function load21stiframe() {
   // window.location.href = 'fivehundredmiles.html';
   const iframe = `
 
- <iframe src="https://www.soundslice.com/slices/2kjzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+ <iframe src="https://www.soundslice.com/slices/2kjzc/embed/" width="100%" height="100%" class="load-iframe" frameBorder="0" allowfullscreen></iframe>
+
+ <div class="menu-overlay">
+    <div class="menu-options">
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+      <button class="option-button" onclick="MSTREAMAPI.logout();">Logout</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a href="#" onclick="MSTREAMAPI.logout();" class="tab-item">
+      <i class="fas fa-home"></i>
+      <span>Home</span>
+    </a>
+    <a href="#" class="tab-item" onclick="changeView(loadinstruction, this)">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>
+      <span>Reference Videos</span>
+    </a>
+    
+    <a href="#" class="tab-item" onclick="changeView(loadchordset, this)">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="200px" width="200px" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M192 218v-6c0-14.84 10-27 24.24-30.59l174.59-46.68A20 20 0 0 1 416 154v22"></path><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M416 295.94v80c0 13.91-8.93 25.59-22 30l-22 8c-25.9 8.72-52-10.42-52-38h0a33.37 33.37 0 0 1 23-32l51-18.15c13.07-4.4 22-15.94 22-29.85V58a10 10 0 0 0-12.6-9.61L204 102a16.48 16.48 0 0 0-12 16v226c0 13.91-8.93 25.6-22 30l-52 18c-13.88 4.68-22 17.22-22 32h0c0 27.58 26.52 46.55 52 38l22-8c13.07-4.4 22-16.08 22-30v-80"></path></svg>
+      <span>Chords Library</span>
+    </a>
+    
+  </nav>
 
   `;
-  document.getElementById('mstream-player').style.display = 'none';
-  document.getElementById('filelist').style.display = 'none';
-  document.getElementById('playlist').style.display = 'none';
-  document.getElementById('header_tab').style.display = 'none';
-  document.getElementById('backbtn').style.display = 'none';
-  document.getElementById('local_search_btn').style.display = 'none';
-  document.getElementById('add_all').style.display = 'none';
-  document.getElementById('newcontent').style.display = 'block';
-  document.getElementById('content').style.display = 'none';
-  document.getElementById('newcontent').innerHTML = iframe;
+  document.getElementById("mstream-player").style.display = "none";
+  document.getElementById("filelist").style.display = "none";
+  document.getElementById("playlist").style.display = "none";
+  document.getElementById("header_tab").style.display = "none";
+  document.getElementById("backbtn").style.display = "none";
+  document.getElementById("local_search_btn").style.display = "none";
+  document.getElementById("add_all").style.display = "none";
+  document.getElementById("newcontent").style.display = "block";
+
+  document.getElementById("newcontent").style.overflowY = "hidden";
+  document.getElementById("content").style.display = "none";
+  document.getElementById("newcontent").innerHTML = iframe;
+
+  const tabItems = document.querySelectorAll(".tab-item");
+  const menuButton = document.querySelector(".menu-button");
+  const menuOverlay = document.querySelector(".menu-overlay");
+
+  tabItems.forEach((item) => {
+    item.addEventListener("click", (e) => {
+      e.preventDefault();
+      tabItems.forEach((tab) => tab.classList.remove("active"));
+      item.classList.add("active");
+
+      // Add and remove pulse animation
+      item.classList.add("pulse");
+      setTimeout(() => {
+        item.classList.remove("pulse");
+      }, 300);
+    });
+  });
+  function toggleMenu() {
+    menuButton.classList.toggle("active");
+    menuOverlay.style.display =
+      menuOverlay.style.display === "flex" ? "none" : "flex";
+    menuButton.innerHTML = menuButton.classList.contains("active")
+      ? '<i class="fas fa-times"></i>'
+      : '<i class="fas fa-chevron-up"></i>';
+
+    // Add and remove shake animation
+    menuButton.classList.add("shake");
+    setTimeout(() => {
+      menuButton.classList.remove("shake");
+    }, 300);
+  }
+
+  menuButton.addEventListener("click", toggleMenu);
 }
 
 function load22ndiframe() {
   // window.location.href = 'fivehundredmiles.html';
   const iframe = `
 
-<iframe src="https://www.soundslice.com/slices/t4jzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+<iframe src="https://www.soundslice.com/slices/t4jzc/embed/" width="100%" height="100%" class="load-iframe" frameBorder="0" allowfullscreen></iframe>
+
+<div class="menu-overlay">
+    <div class="menu-options">
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+      <button class="option-button" onclick="MSTREAMAPI.logout();">Logout</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a href="#" onclick="MSTREAMAPI.logout();" class="tab-item">
+      <i class="fas fa-home"></i>
+      <span>Home</span>
+    </a>
+    <a href="#" class="tab-item" onclick="changeView(loadinstruction, this)">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>
+      <span>Reference Videos</span>
+    </a>
+    
+    <a href="#" class="tab-item" onclick="changeView(loadchordset, this)">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="200px" width="200px" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M192 218v-6c0-14.84 10-27 24.24-30.59l174.59-46.68A20 20 0 0 1 416 154v22"></path><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M416 295.94v80c0 13.91-8.93 25.59-22 30l-22 8c-25.9 8.72-52-10.42-52-38h0a33.37 33.37 0 0 1 23-32l51-18.15c13.07-4.4 22-15.94 22-29.85V58a10 10 0 0 0-12.6-9.61L204 102a16.48 16.48 0 0 0-12 16v226c0 13.91-8.93 25.6-22 30l-52 18c-13.88 4.68-22 17.22-22 32h0c0 27.58 26.52 46.55 52 38l22-8c13.07-4.4 22-16.08 22-30v-80"></path></svg>
+      <span>Chords Library</span>
+    </a>
+    
+  </nav>
 
   `;
-  document.getElementById('mstream-player').style.display = 'none';
-  document.getElementById('filelist').style.display = 'none';
-  document.getElementById('playlist').style.display = 'none';
-  document.getElementById('header_tab').style.display = 'none';
-  document.getElementById('backbtn').style.display = 'none';
-  document.getElementById('local_search_btn').style.display = 'none';
-  document.getElementById('add_all').style.display = 'none';
-  document.getElementById('newcontent').style.display = 'block';
-  document.getElementById('content').style.display = 'none';
-  document.getElementById('newcontent').innerHTML = iframe;
+  document.getElementById("mstream-player").style.display = "none";
+  document.getElementById("filelist").style.display = "none";
+  document.getElementById("playlist").style.display = "none";
+  document.getElementById("header_tab").style.display = "none";
+  document.getElementById("backbtn").style.display = "none";
+  document.getElementById("local_search_btn").style.display = "none";
+  document.getElementById("add_all").style.display = "none";
+  document.getElementById("newcontent").style.display = "block";
+
+  document.getElementById("newcontent").style.overflowY = "hidden";
+  document.getElementById("content").style.display = "none";
+  document.getElementById("newcontent").innerHTML = iframe;
+
+  const tabItems = document.querySelectorAll(".tab-item");
+  const menuButton = document.querySelector(".menu-button");
+  const menuOverlay = document.querySelector(".menu-overlay");
+
+  tabItems.forEach((item) => {
+    item.addEventListener("click", (e) => {
+      e.preventDefault();
+      tabItems.forEach((tab) => tab.classList.remove("active"));
+      item.classList.add("active");
+
+      // Add and remove pulse animation
+      item.classList.add("pulse");
+      setTimeout(() => {
+        item.classList.remove("pulse");
+      }, 300);
+    });
+  });
+  function toggleMenu() {
+    menuButton.classList.toggle("active");
+    menuOverlay.style.display =
+      menuOverlay.style.display === "flex" ? "none" : "flex";
+    menuButton.innerHTML = menuButton.classList.contains("active")
+      ? '<i class="fas fa-times"></i>'
+      : '<i class="fas fa-chevron-up"></i>';
+
+    // Add and remove shake animation
+    menuButton.classList.add("shake");
+    setTimeout(() => {
+      menuButton.classList.remove("shake");
+    }, 300);
+  }
+
+  menuButton.addEventListener("click", toggleMenu);
 }
 
 function load23rdiframe() {
   const twentythirdiframe = `
 
-    <iframe src="https://www.soundslice.com/slices/k6Lzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+    <iframe src="https://www.soundslice.com/slices/k6Lzc/embed/" width="100%" height="100%" class="load-iframe" frameBorder="0" allowfullscreen></iframe>
+
+    <div class="menu-overlay">
+    <div class="menu-options">
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+      <button class="option-button" onclick="MSTREAMAPI.logout();">Logout</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a href="#" onclick="MSTREAMAPI.logout();" class="tab-item">
+      <i class="fas fa-home"></i>
+      <span>Home</span>
+    </a>
+    <a href="#" class="tab-item" onclick="changeView(loadinstruction, this)">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>
+      <span>Reference Videos</span>
+    </a>
+    
+    <a href="#" class="tab-item" onclick="changeView(loadchordset, this)">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="200px" width="200px" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M192 218v-6c0-14.84 10-27 24.24-30.59l174.59-46.68A20 20 0 0 1 416 154v22"></path><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M416 295.94v80c0 13.91-8.93 25.59-22 30l-22 8c-25.9 8.72-52-10.42-52-38h0a33.37 33.37 0 0 1 23-32l51-18.15c13.07-4.4 22-15.94 22-29.85V58a10 10 0 0 0-12.6-9.61L204 102a16.48 16.48 0 0 0-12 16v226c0 13.91-8.93 25.6-22 30l-52 18c-13.88 4.68-22 17.22-22 32h0c0 27.58 26.52 46.55 52 38l22-8c13.07-4.4 22-16.08 22-30v-80"></path></svg>
+      <span>Chords Library</span>
+    </a>
+    
+  </nav>
 
   `;
-  document.getElementById('mstream-player').style.display = 'none';
-  document.getElementById('filelist').style.display = 'none';
-  document.getElementById('playlist').style.display = 'none';
-  document.getElementById('header_tab').style.display = 'none';
-  document.getElementById('backbtn').style.display = 'none';
-  document.getElementById('local_search_btn').style.display = 'none';
-  document.getElementById('add_all').style.display = 'none';
-  document.getElementById('newcontent').style.display = 'block';
-  document.getElementById('content').style.display = 'none';
-  document.getElementById('newcontent').innerHTML = twentythirdiframe;
+  document.getElementById("mstream-player").style.display = "none";
+  document.getElementById("filelist").style.display = "none";
+  document.getElementById("playlist").style.display = "none";
+  document.getElementById("header_tab").style.display = "none";
+  document.getElementById("backbtn").style.display = "none";
+  document.getElementById("local_search_btn").style.display = "none";
+  document.getElementById("add_all").style.display = "none";
+  document.getElementById("newcontent").style.display = "block";
+
+  document.getElementById("newcontent").style.overflowY = "hidden";
+  document.getElementById("content").style.display = "none";
+  document.getElementById("newcontent").innerHTML = twentythirdiframe;
+
+  const tabItems = document.querySelectorAll(".tab-item");
+  const menuButton = document.querySelector(".menu-button");
+  const menuOverlay = document.querySelector(".menu-overlay");
+
+  tabItems.forEach((item) => {
+    item.addEventListener("click", (e) => {
+      e.preventDefault();
+      tabItems.forEach((tab) => tab.classList.remove("active"));
+      item.classList.add("active");
+
+      // Add and remove pulse animation
+      item.classList.add("pulse");
+      setTimeout(() => {
+        item.classList.remove("pulse");
+      }, 300);
+    });
+  });
+  function toggleMenu() {
+    menuButton.classList.toggle("active");
+    menuOverlay.style.display =
+      menuOverlay.style.display === "flex" ? "none" : "flex";
+    menuButton.innerHTML = menuButton.classList.contains("active")
+      ? '<i class="fas fa-times"></i>'
+      : '<i class="fas fa-chevron-up"></i>';
+
+    // Add and remove shake animation
+    menuButton.classList.add("shake");
+    setTimeout(() => {
+      menuButton.classList.remove("shake");
+    }, 300);
+  }
+
+  menuButton.addEventListener("click", toggleMenu);
 }
 
 function load24thiframe() {
   const twentyfourthiframe = `
 
-    <iframe src="https://www.soundslice.com/slices/j6Lzc/embed/" width="100%" height="675" frameBorder="0" allowfullscreen></iframe>
+    <iframe src="https://www.soundslice.com/slices/j6Lzc/embed/" width="100%" height="100%" class="load-iframe" frameBorder="0" allowfullscreen></iframe>
+
+    <div class="menu-overlay">
+    <div class="menu-options">
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+      <button class="option-button" onclick="MSTREAMAPI.logout();">Logout</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a href="#" onclick="MSTREAMAPI.logout();" class="tab-item">
+      <i class="fas fa-home"></i>
+      <span>Home</span>
+    </a>
+    <a href="#" class="tab-item" onclick="changeView(loadinstruction, this)">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>
+      <span>Reference Videos</span>
+    </a>
+    
+    <a href="#" class="tab-item" onclick="changeView(loadchordset, this)">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="200px" width="200px" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M192 218v-6c0-14.84 10-27 24.24-30.59l174.59-46.68A20 20 0 0 1 416 154v22"></path><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M416 295.94v80c0 13.91-8.93 25.59-22 30l-22 8c-25.9 8.72-52-10.42-52-38h0a33.37 33.37 0 0 1 23-32l51-18.15c13.07-4.4 22-15.94 22-29.85V58a10 10 0 0 0-12.6-9.61L204 102a16.48 16.48 0 0 0-12 16v226c0 13.91-8.93 25.6-22 30l-52 18c-13.88 4.68-22 17.22-22 32h0c0 27.58 26.52 46.55 52 38l22-8c13.07-4.4 22-16.08 22-30v-80"></path></svg>
+      <span>Chords Library</span>
+    </a>
+    
+  </nav>
+  </nav>
 
   `;
-  document.getElementById('mstream-player').style.display = 'none';
-  document.getElementById('filelist').style.display = 'none';
-  document.getElementById('playlist').style.display = 'none';
-  document.getElementById('header_tab').style.display = 'none';
-  document.getElementById('backbtn').style.display = 'none';
-  document.getElementById('local_search_btn').style.display = 'none';
-  document.getElementById('add_all').style.display = 'none';
-  document.getElementById('newcontent').style.display = 'block';
-  document.getElementById('content').style.display = 'none';
-  document.getElementById('newcontent').innerHTML = twentyfourthiframe;
+  document.getElementById("mstream-player").style.display = "none";
+  document.getElementById("filelist").style.display = "none";
+  document.getElementById("playlist").style.display = "none";
+  document.getElementById("header_tab").style.display = "none";
+  document.getElementById("backbtn").style.display = "none";
+  document.getElementById("local_search_btn").style.display = "none";
+  document.getElementById("add_all").style.display = "none";
+  document.getElementById("newcontent").style.display = "block";
+
+  document.getElementById("newcontent").style.overflowY = "hidden";
+  document.getElementById("content").style.display = "none";
+  document.getElementById("newcontent").innerHTML = twentyfourthiframe;
+
+  const tabItems = document.querySelectorAll(".tab-item");
+  const menuButton = document.querySelector(".menu-button");
+  const menuOverlay = document.querySelector(".menu-overlay");
+
+  tabItems.forEach((item) => {
+    item.addEventListener("click", (e) => {
+      e.preventDefault();
+      tabItems.forEach((tab) => tab.classList.remove("active"));
+      item.classList.add("active");
+
+      // Add and remove pulse animation
+      item.classList.add("pulse");
+      setTimeout(() => {
+        item.classList.remove("pulse");
+      }, 300);
+    });
+  });
+  function toggleMenu() {
+    menuButton.classList.toggle("active");
+    menuOverlay.style.display =
+      menuOverlay.style.display === "flex" ? "none" : "flex";
+    menuButton.innerHTML = menuButton.classList.contains("active")
+      ? '<i class="fas fa-times"></i>'
+      : '<i class="fas fa-chevron-up"></i>';
+
+    // Add and remove shake animation
+    menuButton.classList.add("shake");
+    setTimeout(() => {
+      menuButton.classList.remove("shake");
+    }, 300);
+  }
+
+  menuButton.addEventListener("click", toggleMenu);
+}
+
+function chord(element) {
+  const chord = `
+    <div class="chord-main">
+      <div class="baarish" id="chord-lyrics">
+      <pre class="song-details-pre">
+Song - Baarish
+Singer - Mohammed Irfan, Gajendra Verma
+Music - Mithoon
+Lyricist - Mithon
+Movie - Yaariyan</pre>
+        <pre>
+<span class="chordset">(Gm)</span> Dil mera hai nasamajh <span class="chordset">(F)</span> kitna
+<span class="chordset">(Cm)</span> Besabar ye bevakoof <span class="chordset">(Gm)</span> bada
+<span class="chordset">(Gm)</span> Chahta hai kitna <span class="chordset">(F)</span> tujhe
+<span class="chordset">(F)</span> Khud magar nahi jaan <span class="chordset">(Gm)</span> saka
+
+<span class="chordset">(Gm)</span> Is dard-e-dil ki sifaarish
+Ab <span class="chordset">(F)</span> kar de koi yahaan
+Ke <span class="chordset">(D#)</span> mil jaye ise wo baarish
+Jo <span class="chordset">(D)</span> bhiga de poori <span class="chordset">(Gm)</span> tarah
+
+<span class="chordset">(Gm)</span> Is dard-e-dil ki sifaarish
+Ab <span class="chordset">(F)</span> kar de koi yahaan
+Ke <span class="chordset">(D#)</span> mil jaye ise wo baarish
+Jo <span class="chordset">(D)</span> bhiga de poori <span class="chordset">(Gm)</span> tarah
+
+<span class="chordset">(Gm)</span> Yaariyaan <span class="chordset">(F)</span>
+<span class="chordset">(Gm)</span> Yaariyaan <span class="chordset">(F)</span>
+
+<span class="chordset">(Dm D# Cm Gm)</span>
+
+<span class="chordset">(Gm)</span> Kya hua <span class="chordset">(Dm)</span> asar tere <span class="chordset">(C)</span> sath rehkar na jane
+Ki <span class="chordset">(D#)</span> hosh <span class="chordset">(F)</span> mujhe na <span class="chordset">(Gm)</span> raha
+<span class="chordset">(Gm)</span> Lafz me <span class="chordset">(Dm)</span> re <span class="chordset">(C)</span> zubaan pe aake ruke
+Par <span class="chordset">(D#)</span> ho na <span class="chordset">(F)</span> sake wo <span class="chordset">(Gm)</span> bayaan
+
+<span class="chordset">(D#)</span> Dhadkan tera hi <span class="chordset">(F)</span> naam jape
+<span class="chordset">(D#)</span> Aankhein bhi <span class="chordset">(F)</span> paigaam yeh de
+<span class="chordset">(D#)</span> Teri nazar ka yeh asar hai <span class="chordset">(D)</span> mujhpe jo hua
+
+<span class="chordset">(Gm)</span> Is dard-e-dil ki sifaarish
+Ab <span class="chordset">(F)</span> kar de koi yahaan
+Ke <span class="chordset">(D#)</span> mil jaye ise wo baarish
+Jo <span class="chordset">(D)</span> bhiga de poori <span class="chordset">(Gm)</span> tarah
+<span class="chordset">(Gm)</span> Is dard-e-dil ki sifaarish
+Ab <span class="chordset">(F)</span> kar de koi yahaan
+Ke <span class="chordset">(D#)</span> mil jaye ise wo baarish
+Jo <span class="chordset">(D)</span> bhiga de poori <span class="chordset">(Gm)</span> tarah</pre>
+      </div>
+      <div class="chord-func">
+      <div class="chord-btn">
+        <span id="transpose-txt">SCALE TRANSPOSE</span>
+        <button id="transposeUp">+1</button>
+        <button id="transposeDown">-1</button>
+        <button class="reset-btn" id="reset-scale">RESET</button>
+      </div>
+     
+      <p class="transpose-note">Note: Use the scale transpose buttons to adjust the song's scale to your vocal range. "-" lowers the scale, "+" raises it. This changes all chords on the sheet. Click "RESET" to return to the original scale.</p>
+      <div class="capo-container" id="capo">
+        <div class="capo-h2">
+          <h2>FIND BEST CAPO POSITION</h2>
+        </div>
+        <button id="findBestCapo">Find Best Capo Position</button>
+        <div id="result"></div>
+      </div>
+
+      <div id="controls">
+  <button id="autoscrollBtn">AUTOSCROLL</button>
+  <button id="decreaseSpeed">-</button>
+  <span id="speedIndicator">1.0x</span>
+  <button id="increaseSpeed">+</button>
+  <button id="resetBtn">
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="15"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+  </button>
+</div>
+
+      <div class="menu-overlay">
+    <div class="menu-options">
+            <button class="option-button" onclick="MSTREAMAPI.logout();">Home</button>
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a href="#" class="tab-item" id="transpose-1" >
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" id="exposure-neg"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M4 11v2h8v-2H4zm15 7h-2V7.38L14 8.4V6.7L18.7 5h.3v13z"></path></svg>
+      <span>Transpose</span>
+    </a>
+<a href="#" class="tab-item" id="transpose+1">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" d="M0 0h24v24H0zm0 0h24v24H0z"></path>
+        <path d="M10 7H8v4H4v2h4v4h2v-4h4v-2h-4V7zm10 11h-2V7.38L15 8.4V6.7L19.7 5h.3v13z"></path>
+      </svg>
+      <span>Transpose</span>
+    </a>
+    <button class="menu-button">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+    <a href="#" class="tab-item" id="findNewBestCapo">
+      <svg version="1.1" viewBox="0 0 800 800" width="24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path transform="translate(52,82)" d="m0 0h7l5 3 3 5v23l2 20 7 28 17 50 15 42 4-2 7-3 5 1 7 10 9 15 32 52 13 21 14 23 13 21 48 78 9 14 2 1v-7l5-10 7-7 13-7 9-2h16l8 1 6-13 3-13v-11l-3-15-6-19 1-7 4-4 17-6 10-6 8-7 6-9 4-13-1-17v-28l3-32 4-23 6-20 7-16 16-27 13-19 11-15 11-14 11-13 6-7 9-6 6-2h14l10 3 9 6 7 8 4 10 1 6v14l-3 14-4 9-6 10-7 8-7 5-5 2h-11l-10-5-5-5v-6l5-5 5 2 5 5 2 1h6l6-4 7-8 7-14 1-5v-14l-4-11-4-5-9-3-11 1-8 4-6 5-10 14-9 14-9 16-9 19-6 16-5 21-1 6v32l5 30 7 24 10 25-2 6-8 7-3 6 1 9 4 9 4 6 7 6 13 8 4 5 7 19 8 9 10 3h10l10-2 5 3 8 10 12 16 22 28 13 16 18 22 13 15 9 10 7 8 12 13 23 23 22 18 10 9 8 7 12 11 11 9 11 10 14 11 11 10 7 10 3 6v8l-7 11-6 5-7-1-9-8-4 2-7 8-6-4-7-7-11-9-14-12-14-11-15-12-40-30-36-26-23-16-32-22-43-29-20-13-32-21-22-14-12-8-3-1-15 44-17 45-11 26-6 12-2 3 17 4 33 8 5 1 2-5 4-4 20 4 58 15 64 16 27 7 6 3 2 2-1 15-5 31-4 6-5 1-30-7-139-31-5-2-2-3v-7l1-5h-2l-3 9-4 2-8-6-10-8-13-8-12-5-31-8-26-8-20-8-19-10-13-10-9-9-10-16-12-25-15-36-16-41-17-46-15-41-10-29-17-48-15-43-17-48-19-56-8-28-3-16v-22l3-8 4-5zm65 198m1 1 3 11 33 90 17 46 13 35 10 28 16 47 11 26 5 8 7 4 11 4 11 3h5l-2-9v-19l4-15 8-16 1-5-10-16-11-17-12-19-14-22-12-19-15-23-15-24-11-17-12-19-16-25-14-22-10-15zm197 185-12 3-9 5-6 7-3 11v10l5-4 7-8 1-3h2l7-8 9-10 1-3z"/>
+<path transform="translate(383,664)" d="m0 0h1v5l-2-2z"/>
+<path transform="translate(384,663)" d="m0 0"/>
+<path transform="translate(124,292)" d="m0 0"/>
+<path transform="translate(123,291)" d="m0 0"/>
+<path transform="translate(121,287)" d="m0 0"/>
+</svg>
+      <span>Best Capo</span>
+    </a>
+    <a href="#" class="tab-item" id="reset-scale-new">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+      <span>Reset</span>
+    </a>
+  </nav>
+    </div>
+    </div>
+  `;
+
+  const parineeta = `<div class="chord-main">
+      <div class="baarish" id="chord-lyrics">
+      <pre class="song-details-pre">
+Song - Kaisi Paheli Zindagani
+Singer -  Sunidhi Chauhan
+Music - Shantanu Moitra
+Lyricist - Swanand Kirkire
+Movie - Parineeta</pre>
+      <pre>
+[Intro]
+<span class="chordset">(A# Gm Cm F)</span> X2
+
+[Verse]                                 
+<span class="chordset">(A#)</span>Nayi nahin nayi yeh baaten, 
+Yeh baaten hain pu<span class="chordset">(Cm)</span>rani
+<span class="chordset">(F)</span>Kaisi paheli hai, 
+Yeh Kaisi paheli zinda<span class="chordset">(A#)</span>gani
+                                          
+<span class="chordset">(A#)</span>Thaama haan roka isko kisne, 
+Haan yeh to behta <span class="chordset">(Cm)</span>paani                          
+<span class="chordset">(F)</span>Kaisi paheli hai, 
+Yeh kaisi paheli zinda<span class="chordset">(A#)</span>gani
+ 
+[Bridge]   
+<span class="chordset">(A#)</span>La <span class="chordset">(D#)</span>La <span class="chordset">(F)</span> La <span class="chordset">(A#)</span>La
+La La La <span class="chordset">(D#)</span>La
+Zoo  Zoo  Zoo  <span class="chordset">(F)</span>Zoo, 
+Zoo  Zoo,Zoo,Zoo <span class="chordset">(A#)</span>Zoo
+                          
+<span class="chordset">(A#)</span>Pee <span class="chordset">(D#)</span>le <span class="chordset">(F)</span>i<span class="chordset">(A#)</span>se 
+ismein na<span class="chordset">(D#)</span>sha Jisne pi<span class="chordset">(F)</span>ya 
+woh gham mein bhi han<span class="chordset">(A#)</span>sa
+ 
+[Verse]                             
+<span class="chordset">(A#)</span>Pal mein hansaye aur Pal mein
+rulaaye yeh ka<span class="chordset">(Cm)</span>hani
+<span class="chordset">(F)</span>Kaisi paheli hai Yeh
+kaisi paheli zinda<span class="chordset">(A#)</span>gani
+                                         
+<span class="chordset">(A#)</span>Thaama haan roka isko kisne 
+Haan yeh to behta <span class="chordset">(Cm)</span>paani
+<span class="chordset">(F)</span>Kaisi pahali hai Yeh 
+kaisi paheli zinda<span class="chordset">(A#)</span>gani ooh
+
+[Bridge]
+<span class="chordset">(A#)</span>La <span class="chordset">(D#)</span>La <span class="chordset">(F)</span>La <span class="chordset">(A#)</span>La
+La La La <span class="chordset">(D#)</span>La
+Zoo  Zoo  Zoo  <span class="chordset">(F)</span>Zoo, 
+Zoo  Zoo,Zoo,Zoo <span class="chordset">(A#)</span>Zoo
+    
+<span class="chordset">(A#)</span>Aan <span class="chordset">(D#)</span>khon <span class="chordset">(F)</span>mein <span class="chordset">(A#)</span>gar 
+sapna na<span class="chordset">(D#)</span>ya Aansu te<span class="chordset">(F)</span>ra 
+ik moti hai ba<span class="chordset">(A#)</span>na 
+
+[Verse]                                    
+<span class="chordset">(A#)</span>Sooni dagar pe jaise Soyi 
+yeh chhanv ho su<span class="chordset">(Cm)</span>haani
+<span class="chordset">(F)</span>Kaisi paheli hai Yeh 
+kaisi paheli zinda<span class="chordset">(A#)</span>gani
+                                         
+<span class="chordset">(A#)</span>Thaama haan roka isko kisne 
+Haan yeh to behta <span class="chordset">(Cm)</span>paani                  
+<span class="chordset">(F)</span>Kaisi kaisi paheli Zinda<span class="chordset">(A#)</span>gani ooh baby
+
+[Verse]
+<span class="chordset">(A#)</span>Nayi nahin nayi yeh baaten, 
+Yeh baaten hain pu<span class="chordset">(Cm)</span>rani
+<span class="chordset">(F)</span>Kaisi paheli hai, 
+Yeh Kaisi paheli zinda<span class="chordset">(A#)</span>gani 
+
+<span class="chordset">(A#)</span>Thaama haan roka isko kisne, 
+Haan yeh to behta <span class="chordset">(Cm)</span>paani   
+<span class="chordset">(F)</span>Kaisi paheli hai, 
+Yeh kaisi paheli zinda<span class="chordset">(A#)</span>gani</pre>
+
+      </div>
+      <div class="chord-func">
+      
+      <div class="chord-btn">
+        <span id="transpose-txt">SCALE TRANSPOSE</span>
+        <button id="transposeDown">-1</button>
+        <button id="transposeUp">+1</button>
+        <button class="reset-btn" id="reset-scale">RESET</button>
+      </div>
+     
+      <p class="transpose-note">Note: Use the scale transpose buttons to adjust the song's scale to your vocal range. "-" lowers the scale, "+" raises it. This changes all chords on the sheet. Click "RESET" to return to the original scale.</p>
+      <div class="capo-container" id="capo">
+        <div class="capo-h2">
+          <h2>FIND BEST CAPO POSITION</h2>
+        </div>
+        <button id="findBestCapo">Find Best Capo Position</button>
+        <div id="result"></div>
+      </div>
+
+      <div class="overlay"></div>
+
+      <div id="controls">
+  <button id="autoscrollBtn">AUTOSCROLL</button>
+  <button id="decreaseSpeed">-</button>
+  <span id="speedIndicator">1.0x</span>
+  <button id="increaseSpeed">+</button>
+  <button id="resetBtn">
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="15"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+  </button>
+</div>
+
+      <div class="menu-overlay">
+    <div class="menu-options">
+            <button class="option-button" onclick="MSTREAMAPI.logout();">Home</button>
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a href="#" class="tab-item" id="transpose-1" >
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" id="exposure-neg"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M4 11v2h8v-2H4zm15 7h-2V7.38L14 8.4V6.7L18.7 5h.3v13z"></path></svg>
+      <span>Transpose</span>
+    </a>
+<a href="#" class="tab-item" id="transpose+1">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" d="M0 0h24v24H0zm0 0h24v24H0z"></path>
+        <path d="M10 7H8v4H4v2h4v4h2v-4h4v-2h-4V7zm10 11h-2V7.38L15 8.4V6.7L19.7 5h.3v13z"></path>
+      </svg>
+      <span>Transpose</span>
+    </a>
+    <button class="menu-button">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+    <a href="#" class="tab-item" id="findNewBestCapo">
+      <svg version="1.1" viewBox="0 0 800 800" width="24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path transform="translate(52,82)" d="m0 0h7l5 3 3 5v23l2 20 7 28 17 50 15 42 4-2 7-3 5 1 7 10 9 15 32 52 13 21 14 23 13 21 48 78 9 14 2 1v-7l5-10 7-7 13-7 9-2h16l8 1 6-13 3-13v-11l-3-15-6-19 1-7 4-4 17-6 10-6 8-7 6-9 4-13-1-17v-28l3-32 4-23 6-20 7-16 16-27 13-19 11-15 11-14 11-13 6-7 9-6 6-2h14l10 3 9 6 7 8 4 10 1 6v14l-3 14-4 9-6 10-7 8-7 5-5 2h-11l-10-5-5-5v-6l5-5 5 2 5 5 2 1h6l6-4 7-8 7-14 1-5v-14l-4-11-4-5-9-3-11 1-8 4-6 5-10 14-9 14-9 16-9 19-6 16-5 21-1 6v32l5 30 7 24 10 25-2 6-8 7-3 6 1 9 4 9 4 6 7 6 13 8 4 5 7 19 8 9 10 3h10l10-2 5 3 8 10 12 16 22 28 13 16 18 22 13 15 9 10 7 8 12 13 23 23 22 18 10 9 8 7 12 11 11 9 11 10 14 11 11 10 7 10 3 6v8l-7 11-6 5-7-1-9-8-4 2-7 8-6-4-7-7-11-9-14-12-14-11-15-12-40-30-36-26-23-16-32-22-43-29-20-13-32-21-22-14-12-8-3-1-15 44-17 45-11 26-6 12-2 3 17 4 33 8 5 1 2-5 4-4 20 4 58 15 64 16 27 7 6 3 2 2-1 15-5 31-4 6-5 1-30-7-139-31-5-2-2-3v-7l1-5h-2l-3 9-4 2-8-6-10-8-13-8-12-5-31-8-26-8-20-8-19-10-13-10-9-9-10-16-12-25-15-36-16-41-17-46-15-41-10-29-17-48-15-43-17-48-19-56-8-28-3-16v-22l3-8 4-5zm65 198m1 1 3 11 33 90 17 46 13 35 10 28 16 47 11 26 5 8 7 4 11 4 11 3h5l-2-9v-19l4-15 8-16 1-5-10-16-11-17-12-19-14-22-12-19-15-23-15-24-11-17-12-19-16-25-14-22-10-15zm197 185-12 3-9 5-6 7-3 11v10l5-4 7-8 1-3h2l7-8 9-10 1-3z"/>
+<path transform="translate(383,664)" d="m0 0h1v5l-2-2z"/>
+<path transform="translate(384,663)" d="m0 0"/>
+<path transform="translate(124,292)" d="m0 0"/>
+<path transform="translate(123,291)" d="m0 0"/>
+<path transform="translate(121,287)" d="m0 0"/>
+</svg>
+      <span>Best Capo</span>
+    </a>
+    <a href="#" class="tab-item" id="reset-scale-new">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+      <span>Reset</span>
+    </a>
+  </nav>
+    </div>
+    </div>`;
+
+  const yess_boss = `<div class="chord-main">
+      <div class="baarish" id="chord-lyrics">
+      <pre class="song-details-pre">
+Song - Main Koi Aisa Geet Gaoon
+Singer -  Abhijeet & Alka Yagnik
+Music - Jatin - Lalit
+Lyricist - Javed Akhtar
+Movie - Yes Boss</pre>
+      <pre>
+[Intro]
+<span class="chordset">(G) (Em) (D) (G)</span> X2
+
+[Chorus]                                  
+Main Koi <span class="chordset">(G)</span>Aisa Geet <span class="chordset">(D)</span>Gaoon
+..Little Pause [ Music ]
+Ke <span class="chordset">(G)</span>Aarzoo Ja<span class="chordset">(D)</span>gaoon
+..Little Pause [ Music ]
+
+Main Koi <span class="chordset">(G)</span>Aisa Geet <span class="chordset">(D)</span>Gaoon
+Ke <span class="chordset">(G)</span>Aarzoo Ja<span class="chordset">(D)</span>gaoon        
+A<span class="chordset">(C)</span>gar <span class="chordset">(D)</span>Tum Ka<span class="chordset">(G)</span>ho
+
+<span class="chordset">(G) (Em) (D) (G)</span> - [ Music ]
+
+[Chorus]
+Main Koi <span class="chordset">(G)</span>Aisa Geet <span class="chordset">(D)</span>Gaoon
+Ke <span class="chordset">(G)</span>Aarzoo Ja<span class="chordset">(D)</span>gaoon      
+A<span class="chordset">(C)</span>gar <span class="chordset">(D)</span>Tum Ka<span class="chordset">(G)</span>ho.....
+
+Main Koi <span class="chordset">(G)</span>Aisa Geet <span class="chordset">(D)</span>Gaoon
+Ke <span class="chordset">(G)</span>Aarzoo Ja<span class="chordset">(D)</span>gaoon      
+A<span class="chordset">(C)</span>gar <span class="chordset">(D)</span>Tum Ka<span class="chordset">(G)</span>ho.....
+
+[Verse 1]
+<span class="chordset">(G)</span>Tum Ko Bulaoon, Yeh <span class="chordset">(Bm)</span>Palkein Bichaoon
+Ka<span class="chordset">(C)</span>dam Tum Jahan Jahan Ra<span class="chordset">(D)</span>kho
+Zameen Ko <span class="chordset">(G)</span>Aasman Ba<span class="chordset">(D)</span>noo
+Si<span class="chordset">(G)</span>taroon Se Sa<span class="chordset">(D)</span>jaoon
+A<span class="chordset">(C)</span>gar <span class="chordset">(D)</span>Tum Ka<span class="chordset">(G)</span>ho
+
+[Chorus]
+Main Koi <span class="chordset">(G)</span>Aisa Geet <span class="chordset">(D)</span>Gaoon
+Ke <span class="chordset">(G)</span>Aarzoo Ja<span class="chordset">(D)</span>gaoon
+A<span class="chordset">(C)</span>gar <span class="chordset">(D)</span>Tum Ka<span class="chordset">(G)</span>ho
+
+[Instrumental]
+
+[Verse 2]
+<span class="chordset">(G)</span>Main Titliyoon Ke Peeche <span class="chordset">(G)</span>Bhagoon
+Main Jugnuoon Ke Peeche <span class="chordset">(D)</span>Jaoon                 
+<span class="chordset">(G)</span>Ye Rang Hai, Woh Roshni Hai                
+Tumhare Paas Dono <span class="chordset">(D)</span>Laoon
+
+<span class="chordset">(C)</span>Jitni Khushbooye<span class="chordset">(D)</span>in........
+<span class="chordset">(A)</span>Baag Mein Mi<span class="chordset">(D)</span>lein..........
+Haan, <span class="chordset">(C)</span>Jitni Khushbooye<span class="chordset">(D)</span>in
+<span class="chordset">(A)</span>Baag Mein <span class="chordset">(D)</span>Milein
+
+Main Laoon Wa<span class="chordset">(C)</span>han Pe Ke
+<span class="chordset">(D)</span>Tum Ho <span class="chordset">(G)</span>Jahan <span class="chordset">(D)</span>Jahan Pe
+<span class="chordset">(G)</span>Ek Pal Bhi <span class="chordset">(D)</span>Thairoon
+<span class="chordset">(G)</span>Main Gulsita <span class="chordset">(D)</span>Banaoon
+A<span class="chordset">(C)</span>gar <span class="chordset">(D)</span>Tum <span class="chordset">(G)</span>Kaho
+
+[Chorus]
+Main Koi <span class="chordset">(G)</span>Aisa Geet <span class="chordset">(D)</span>Gaoon
+Ke <span class="chordset">(G)</span>Aarzoo Ja<span class="chordset">(D)</span>gaoon         
+A<span class="chordset">(C)</span>gar <span class="chordset">(D)</span>Tum Ka<span class="chordset">(G)</span>ho
+
+[Instrumental]
+
+[Verse 3]
+<span class="chordset">(G)</span>Agar Kaho To Main Sunaoon          
+Tumhe Haseen Kahani<span class="chordset">(D)</span>yaan             
+<span class="chordset">(G)</span>Sunoogi Kya Meri Zubani              
+Tum Ek Paari Ki Das<span class="chordset">(D)</span>taan
+
+<span class="chordset">(C)</span>Ya Main <span class="chordset">(D)</span>Karoon.......
+<span class="chordset">(A)</span>Tumse <span class="chordset">(D)</span>Baiyaan.......
+<span class="chordset">(C)</span>Ya Main <span class="chordset">(D)</span>Karoon <span class="chordset">(A)</span>Tumse <span class="chordset">(D)</span>Baiyaan
+<span class="chordset">(C)</span>Ke Raja Se Rani <span class="chordset">(D)</span>Mili Thi 
+<span class="chordset">(G)</span>Kahan <span class="chordset">(D)</span>Kahani<span class="chordset">(G)</span>yoon Ke Na<span class="chordset">(D)</span>gar Mein
+<span class="chordset">(G)</span>Tumhe Le Ke <span class="chordset">(D)</span>Jaoon
+A<span class="chordset">(C)</span>gar <span class="chordset">(D)</span>Tum Ka<span class="chordset">(G)</span>ho
+ 
+[Bridge]
+<span class="chordset">(G)</span>Tum Ko Bulaoon, Yeh <span class="chordset">(Bm)</span>Palkein Bichaoon
+Ka<span class="chordset">(C)</span>dam Tum Jahan Jahan Ra<span class="chordset">(D)</span>kho
+Zameen Ko <span class="chordset">(G)</span>Aasman Ba<span class="chordset">(D)</span>noo
+Si<span class="chordset">(G)</span>taroon Se Sa<span class="chordset">(D)</span>jaoon
+<span class="chordset">(C)</span>Agar <span class="chordset">(D)</span>Tum Ka<span class="chordset">(G)</span>ho
+
+[Chorus]
+Main Koi <span class="chordset">(G)</span>Aisa Geet <span class="chordset">(D)</span>Gaoon
+Ke <span class="chordset">(G)</span>Aarzoo Ja<span class="chordset">(D)</span>gaoon        
+A<span class="chordset">(C)</span>gar <span class="chordset">(D)</span>Tum Ka<span class="chordset">(G)</span>ho
+A<span class="chordset">(C)</span>gar <span class="chordset">(D)</span>Tum Ka<span class="chordset">(G)</span>ho
+L<span class="chordset">(C)</span>La <span class="chordset">(D)</span>La La<span class="chordset">(G)</span>La
+hm<span class="chordset">(C)</span>hm <span class="chordset">(D)</span>hm hm<span class="chordset">(G)</span>hm</pre>
+
+      </div>
+      <div class="chord-func">
+      <div class="chord-btn">
+        <span id="transpose-txt">SCALE TRANSPOSE</span>
+        <button id="transposeDown">-1</button>
+        <button id="transposeUp">+1</button>
+        <button class="reset-btn" id="reset-scale">RESET</button>
+      </div>
+     
+      <p class="transpose-note">Note: Use the scale transpose buttons to adjust the song's scale to your vocal range. "-" lowers the scale, "+" raises it. This changes all chords on the sheet. Click "RESET" to return to the original scale.</p>
+      <div class="capo-container" id="capo">
+        <div class="capo-h2">
+          <h2>FIND BEST CAPO POSITION</h2>
+        </div>
+        <button id="findBestCapo">Find Best Capo Position</button>
+        <div id="result"></div>
+      </div>
+
+      <div id="controls">
+  <button id="autoscrollBtn">AUTOSCROLL</button>
+  <button id="decreaseSpeed">-</button>
+  <span id="speedIndicator">1.0x</span>
+  <button id="increaseSpeed">+</button>
+  <button id="resetBtn">
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="15"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+  </button>
+</div>
+
+      <div class="menu-overlay">
+    <div class="menu-options">
+            <button class="option-button" onclick="MSTREAMAPI.logout();">Home</button>
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a href="#" class="tab-item" id="transpose-1" >
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" id="exposure-neg"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M4 11v2h8v-2H4zm15 7h-2V7.38L14 8.4V6.7L18.7 5h.3v13z"></path></svg>
+      <span>Transpose</span>
+    </a>
+<a href="#" class="tab-item" id="transpose+1">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" d="M0 0h24v24H0zm0 0h24v24H0z"></path>
+        <path d="M10 7H8v4H4v2h4v4h2v-4h4v-2h-4V7zm10 11h-2V7.38L15 8.4V6.7L19.7 5h.3v13z"></path>
+      </svg>
+      <span>Transpose</span>
+    </a>
+    <button class="menu-button">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+    <a href="#" class="tab-item" id="findNewBestCapo">
+      <svg version="1.1" viewBox="0 0 800 800" width="24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path transform="translate(52,82)" d="m0 0h7l5 3 3 5v23l2 20 7 28 17 50 15 42 4-2 7-3 5 1 7 10 9 15 32 52 13 21 14 23 13 21 48 78 9 14 2 1v-7l5-10 7-7 13-7 9-2h16l8 1 6-13 3-13v-11l-3-15-6-19 1-7 4-4 17-6 10-6 8-7 6-9 4-13-1-17v-28l3-32 4-23 6-20 7-16 16-27 13-19 11-15 11-14 11-13 6-7 9-6 6-2h14l10 3 9 6 7 8 4 10 1 6v14l-3 14-4 9-6 10-7 8-7 5-5 2h-11l-10-5-5-5v-6l5-5 5 2 5 5 2 1h6l6-4 7-8 7-14 1-5v-14l-4-11-4-5-9-3-11 1-8 4-6 5-10 14-9 14-9 16-9 19-6 16-5 21-1 6v32l5 30 7 24 10 25-2 6-8 7-3 6 1 9 4 9 4 6 7 6 13 8 4 5 7 19 8 9 10 3h10l10-2 5 3 8 10 12 16 22 28 13 16 18 22 13 15 9 10 7 8 12 13 23 23 22 18 10 9 8 7 12 11 11 9 11 10 14 11 11 10 7 10 3 6v8l-7 11-6 5-7-1-9-8-4 2-7 8-6-4-7-7-11-9-14-12-14-11-15-12-40-30-36-26-23-16-32-22-43-29-20-13-32-21-22-14-12-8-3-1-15 44-17 45-11 26-6 12-2 3 17 4 33 8 5 1 2-5 4-4 20 4 58 15 64 16 27 7 6 3 2 2-1 15-5 31-4 6-5 1-30-7-139-31-5-2-2-3v-7l1-5h-2l-3 9-4 2-8-6-10-8-13-8-12-5-31-8-26-8-20-8-19-10-13-10-9-9-10-16-12-25-15-36-16-41-17-46-15-41-10-29-17-48-15-43-17-48-19-56-8-28-3-16v-22l3-8 4-5zm65 198m1 1 3 11 33 90 17 46 13 35 10 28 16 47 11 26 5 8 7 4 11 4 11 3h5l-2-9v-19l4-15 8-16 1-5-10-16-11-17-12-19-14-22-12-19-15-23-15-24-11-17-12-19-16-25-14-22-10-15zm197 185-12 3-9 5-6 7-3 11v10l5-4 7-8 1-3h2l7-8 9-10 1-3z"/>
+<path transform="translate(383,664)" d="m0 0h1v5l-2-2z"/>
+<path transform="translate(384,663)" d="m0 0"/>
+<path transform="translate(124,292)" d="m0 0"/>
+<path transform="translate(123,291)" d="m0 0"/>
+<path transform="translate(121,287)" d="m0 0"/>
+</svg>
+      <span>Best Capo</span>
+    </a>
+    <a href="#" class="tab-item" id="reset-scale-new">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+      <span>Reset</span>
+    </a>
+  </nav>
+
+    </div>
+    </div>`;
+
+  const khamoshiyaan = `<div class="chord-main">
+    <div class="baarish" id="chord-lyrics">
+    <pre class="song-details-pre">
+Song - Khamoshiyan
+Singer -   Arijit Singh
+Composer - Jeet Gannguli
+Lyricist - Rashmi Singh
+Movie - Khamoshiyan</pre>
+    <pre>
+<span class="chordset">(Dm)</span>Khamoshiyaan.....A<span class="chordset">(F)</span>waaz Hain
+Tum <span class="chordset">(Am)</span>Sunne to Aao Ka<span class="chordset">(Gm)</span>bhi....
+Chu <span class="chordset">(Dm)</span>Kar Tumhe....Khil <span class="chordset">(F)</span>Jayengi
+Ghar <span class="chordset">(Am)</span>Inko Bulao Ka<span class="chordset">(Gm)</span>bhi...
+
+[Pre-Chorus]
+
+<span class="chordset">(A#)</span>Beqrar Hain....<span class="chordset">(A#)</span>Baat Karne Ko...
+<span class="chordset">(C)</span>Kahne Do Inko Za<span class="chordset">(A)</span>raaaa....
+
+[Chorus]
+
+Khamoshi<span class="chordset">(A#)</span>yan.....<span class="chordset">(A#)</span>
+Teri Me<span class="chordset">(C)</span>ri...Khamoshi<span class="chordset">(F)</span>yan...
+Khamoshi<span class="chordset">(A#)</span>yan.....<span class="chordset">(A#)</span>
+Lipti Hu<span class="chordset">(C)</span>i...Khamoshi<span class="chordset">(F)</span>yan...<span class="chordset">(Am)(Dm)</span>
+
+[Bridge]
+
+<span class="chordset">(Dm)</span>Kya Uss Gali Mein, Kabhi Tera Jana, Hu<span class="chordset">(Gm)</span>a
+Ja<span class="chordset">(C)</span>haan Se Zamaane, Ko Guzre Zamaana, Hu<span class="chordset">(F)</span>a...
+<span class="chordset">(Dm)</span>Mera Samay Toh, Wahin Pe Hai Thehra, Hu<span class="chordset">(Gm)</span>a
+Ba<span class="chordset">(C)</span>taaun Tumhe Kya, Mere Sath Kya Kya, Hu<span class="chordset">(F)</span>a...
+
+[Verse 2]
+
+Kha<span class="chordset">(Dm)</span>moshiyan...Ek <span class="chordset">(F)</span>Saaz Hai
+Tum <span class="chordset">(Am)</span>Dhun Koi Laao <span class="chordset">(Gm)</span>Zaraa...
+Kha<span class="chordset">(Dm)</span>moshiyan...Al<span class="chordset">(F)</span>faaz Hai    
+Kabhi <span class="chordset">(Am)</span>Aa Gunguna Le <span class="chordset">(Gm)</span>Zaraa...
+
+[Pre-Chorus]
+
+<span class="chordset">(A#)</span>Beqrar Hain....<span class="chordset">(A#)</span>Baat Karne Ko...
+<span class="chordset">(C)</span>Kahne Do Inko Za<span class="chordset">(A)</span>raaaa....
+
+[Chorus]
+
+Khamoshi<span class="chordset">(A#)</span>yan.....<span class="chordset">(A#)</span>
+Teri Me<span class="chordset">(C)</span>ri...Khamoshi<span class="chordset">(F)</span>yan...
+Khamoshi<span class="chordset">(A#)</span>yan.....<span class="chordset">(A#)</span>
+Lipti Hu<span class="chordset">(C)</span>i...Khamoshi<span class="chordset">(F)</span>yan...<span class="chordset">(Am)(Dm)</span>
+
+[Bridge]
+
+<span class="chordset">(Dm)</span>Nadiya Ka Paani, Bhi Khamosh Behta, Ya<span class="chordset">(Gm)</span>haan
+<span class="chordset">(C)</span>li Chandni Mein, Chhipi Lakh Khamoshi<span class="chordset">(F)</span>yan...
+<span class="chordset">(Dm)</span>Baarish Ki Boondon, Ki Hoti Kahaan Hai Zu<span class="chordset">(Gm)</span>baan
+Su<span class="chordset">(C)</span>lagte Dilon Mein, Hain Khamosh Uthta <span class="chordset">(F)</span>Dhuan...
+
+[Verse 3]
+
+Kha<span class="chordset">(Dm)</span>moshiyan....Aa<span class="chordset">(F)</span>kash Hain
+Tum <span class="chordset">(Am)</span>Udne Toh Aao Za<span class="chordset">(Gm)</span>raa...
+Kha<span class="chordset">(Dm)</span>moshiyan....Eh<span class="chordset">(F)</span>sas Hain
+Tumhe <span class="chordset">(Am)</span>Mehsoos Hoti Hai <span class="chordset">(Gm)</span>Kya....
+
+[Pre-Chorus]
+
+<span class="chordset">(A#)</span>Beqrar Hain....<span class="chordset">(A#)</span>Baat Karne Ko...
+<span class="chordset">(C)</span>Kahne Do Inko Za<span class="chordset">(A)</span>raaa....
+
+[Chorus]
+
+Khamoshi<span class="chordset">(A#)</span>yan.....<span class="chordset">(A#)</span>
+Teri Me<span class="chordset">(C)</span>ri...Khamoshi<span class="chordset">(F)</span>yan...
+Khamoshi<span class="chordset">(A#)</span>yan.....<span class="chordset">(A#)</span>
+Lipti Hu<span class="chordset">(C)</span>i...Khamoshi<span class="chordset">(F)</span>yan...
+
+Khamoshi<span class="chordset">(A#)</span>yan.....<span class="chordset">(A#)</span>
+Teri Me<span class="chordset">(C)</span>ri...Khamoshi<span class="chordset">(F)</span>yan...
+Khamoshi<span class="chordset">(A#)</span>yan.....<span class="chordset">(A#)</span>
+Lipti Hu<span class="chordset">(C)</span>i...Khamoshi<span class="chordset">(F)</span>yan...<span class="chordset">(Am)(Dm)</span></pre>
+
+    </div>
+    <div class="chord-func">
+  
+    <div class="chord-btn">
+      <span id="transpose-txt">SCALE TRANSPOSE</span>
+      <button id="transposeDown">-1</button>
+      <button id="transposeUp">+1</button>
+      <button class="reset-btn" id="reset-scale">RESET</button>
+    </div>
+   
+    <p class="transpose-note">Note: Use the scale transpose buttons to adjust the song's scale to your vocal range. "-" lowers the scale, "+" raises it. This changes all chords on the sheet. Click "RESET" to return to the original scale.</p>
+    <div class="capo-container" id="capo">
+      <div class="capo-h2">
+        <h2>FIND BEST CAPO POSITION</h2>
+      </div>
+      <button id="findBestCapo">Find Best Capo Position</button>
+      <div id="result"></div>
+    </div>
+
+    <div id="controls">
+  <button id="autoscrollBtn">AUTOSCROLL</button>
+  <button id="decreaseSpeed">-</button>
+  <span id="speedIndicator">1.0x</span>
+  <button id="increaseSpeed">+</button>
+  <button id="resetBtn">
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="15"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+  </button>
+</div>
+
+    <div class="menu-overlay">
+    <div class="menu-options">
+            <button class="option-button" onclick="MSTREAMAPI.logout();">Home</button>
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a href="#" class="tab-item" id="transpose-1" >
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" id="exposure-neg"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M4 11v2h8v-2H4zm15 7h-2V7.38L14 8.4V6.7L18.7 5h.3v13z"></path></svg>
+      <span>Transpose</span>
+    </a>
+<a href="#" class="tab-item" id="transpose+1">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" d="M0 0h24v24H0zm0 0h24v24H0z"></path>
+        <path d="M10 7H8v4H4v2h4v4h2v-4h4v-2h-4V7zm10 11h-2V7.38L15 8.4V6.7L19.7 5h.3v13z"></path>
+      </svg>
+      <span>Transpose</span>
+    </a>
+    <button class="menu-button">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+    <a href="#" class="tab-item" id="findNewBestCapo">
+      <svg version="1.1" viewBox="0 0 800 800" width="24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path transform="translate(52,82)" d="m0 0h7l5 3 3 5v23l2 20 7 28 17 50 15 42 4-2 7-3 5 1 7 10 9 15 32 52 13 21 14 23 13 21 48 78 9 14 2 1v-7l5-10 7-7 13-7 9-2h16l8 1 6-13 3-13v-11l-3-15-6-19 1-7 4-4 17-6 10-6 8-7 6-9 4-13-1-17v-28l3-32 4-23 6-20 7-16 16-27 13-19 11-15 11-14 11-13 6-7 9-6 6-2h14l10 3 9 6 7 8 4 10 1 6v14l-3 14-4 9-6 10-7 8-7 5-5 2h-11l-10-5-5-5v-6l5-5 5 2 5 5 2 1h6l6-4 7-8 7-14 1-5v-14l-4-11-4-5-9-3-11 1-8 4-6 5-10 14-9 14-9 16-9 19-6 16-5 21-1 6v32l5 30 7 24 10 25-2 6-8 7-3 6 1 9 4 9 4 6 7 6 13 8 4 5 7 19 8 9 10 3h10l10-2 5 3 8 10 12 16 22 28 13 16 18 22 13 15 9 10 7 8 12 13 23 23 22 18 10 9 8 7 12 11 11 9 11 10 14 11 11 10 7 10 3 6v8l-7 11-6 5-7-1-9-8-4 2-7 8-6-4-7-7-11-9-14-12-14-11-15-12-40-30-36-26-23-16-32-22-43-29-20-13-32-21-22-14-12-8-3-1-15 44-17 45-11 26-6 12-2 3 17 4 33 8 5 1 2-5 4-4 20 4 58 15 64 16 27 7 6 3 2 2-1 15-5 31-4 6-5 1-30-7-139-31-5-2-2-3v-7l1-5h-2l-3 9-4 2-8-6-10-8-13-8-12-5-31-8-26-8-20-8-19-10-13-10-9-9-10-16-12-25-15-36-16-41-17-46-15-41-10-29-17-48-15-43-17-48-19-56-8-28-3-16v-22l3-8 4-5zm65 198m1 1 3 11 33 90 17 46 13 35 10 28 16 47 11 26 5 8 7 4 11 4 11 3h5l-2-9v-19l4-15 8-16 1-5-10-16-11-17-12-19-14-22-12-19-15-23-15-24-11-17-12-19-16-25-14-22-10-15zm197 185-12 3-9 5-6 7-3 11v10l5-4 7-8 1-3h2l7-8 9-10 1-3z"/>
+<path transform="translate(383,664)" d="m0 0h1v5l-2-2z"/>
+<path transform="translate(384,663)" d="m0 0"/>
+<path transform="translate(124,292)" d="m0 0"/>
+<path transform="translate(123,291)" d="m0 0"/>
+<path transform="translate(121,287)" d="m0 0"/>
+</svg>
+      <span>Best Capo</span>
+    </a>
+    <a href="#" class="tab-item" id="reset-scale-new">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+      <span>Reset</span>
+    </a>
+  </nav>
+  </div>
+  </div>`;
+
+  const dhadak = `<div class="chord-main">
+    <div class="baarish" id="chord-lyrics">
+    <pre class="song-details-pre">
+Song - Dhadak
+Singer -   Ajay Gogavale & Shreya Ghoshal
+Composer - Ajay-Atul
+Lyricist - Amitabh Bhattacharya
+Movie - Dhadak</pre>
+    <pre>
+<span class="chordset">(Gm)</span> Marhami sa chaand hai <span class="chordset">(Dm)</span> tu
+Diljala <span class="chordset">(F)</span> sa main andhe<span class="chordset">(Gm)</span>ra<span class="chordset">(D)</span>
+Ek doo<span class="chordset">(Gm)</span>je ke liye <span class="chordset">(Dm)</span> hai
+Neend me<span class="chordset">(F)</span>ri,khwaab te<span class="chordset">(Gm)</span>ra
+
+Tu ghata <span class="chordset">(Gm)</span> hai phu<span class="chordset">(Cm)</span>haar <span class="chordset">(F)</span> ki
+Main ghadi <span class="chordset">(F)</span> inte<span class="chordset">(A#)</span>zaar <span class="chordset">(D#)</span> ki
+<span class="chordset">(D#)</span> Apna milna likha
+<span class="chordset">(F)</span> Issi baras hai <span class="chordset">(D)</span> na
+
+Jo <span class="chordset">(Gm)</span> meri manzilo ko jaati <span class="chordset">(Dm)</span> hai
+Tere <span class="chordset">(Cm)</span> naam ki koi sadak hai <span class="chordset">(Gm)</span>na<span class="chordset">(D)</span>
+Jo <span class="chordset">(Gm)</span> mere dil ko dil banaati <span class="chordset">(Dm)</span> hai
+Tere <span class="chordset">(Cm)</span> naam ki <span class="chordset">(D)</span> koi dhadak hai <span class="chordset">(Gm)</span> na
+
+<span class="chordset">(G)</span> Koi baadhni joda odh ke
+<span class="chordset">(G)</span> Baabul ki <span class="chordset">(Cm)</span> gali
+<span class="chordset">(F)</span> aau chhod <span class="chordset">(A#)</span> ke <span class="chordset">(D)</span>
+<span class="chordset">(G)</span> Tere hi liye laungi piya
+
+<span class="chordset">(G)</span> Solah saal <span class="chordset">(Cm)</span> ke <span class="chordset">(F)</span> saawan jod <span class="chordset">(A#)</span> ke
+Pyaar se <span class="chordset">(D)</span> tham<span class="chordset">(Gm)</span>na dor
+ba<span class="chordset">(D)</span>rik <span class="chordset">(Gm)</span> hai
+Saat jan<span class="chordset">(D)</span>mon ki <span class="chordset">(Cm)</span> yeh
+pehli taa<span class="chordset">(A#)</span>rikh <span class="chordset">(D)</span> hai
+
+Dor ka <span class="chordset">(Gm)</span>ek <span class="chordset">(Cm)</span>main sir<span class="chordset">(F)</span>ra
+Aur te<span class="chordset">(F)</span>ra hai <span class="chordset">(A#)</span>dus<span class="chordset">(D#)</span>ra
+Jud sake bich mein <span class="chordset">(F)</span> kayi tadap hai <span class="chordset">(D)</span> na
+Jo <span class="chordset">(Gm)</span> meri manzilon ko jati <span class="chordset">(Dm)</span> hai
+
+Tere <span class="chordset">(Cm)</span> naam ki koi sadak hai <span class="chordset">(Gm)</span>na<span class="chordset">(D)</span>
+Jo <span class="chordset">(Gm)</span> mere dil ko dil banaati <span class="chordset">(Dm)</span> hai
+Tere <span class="chordset">(Cm)</span> naam ki <span class="chordset">(D)</span> koi dhadak hai <span class="chordset">(Gm)</span> na</pre>
+
+    </div>
+    <div class="chord-func">
+    <div class="chord-btn">
+      <span id="transpose-txt">SCALE TRANSPOSE</span>
+      <button id="transposeDown">-1</button>
+      <button id="transposeUp">+1</button>
+      <button class="reset-btn" id="reset-scale">RESET</button>
+    </div>
+   
+    <p class="transpose-note">Note: Use the scale transpose buttons to adjust the song's scale to your vocal range. "-" lowers the scale, "+" raises it. This changes all chords on the sheet. Click "RESET" to return to the original scale.</p>
+    <div class="capo-container" id="capo">
+      <div class="capo-h2">
+        <h2>FIND BEST CAPO POSITION</h2>
+      </div>
+      <button id="findBestCapo">Find Best Capo Position</button>
+      <div id="result"></div>
+    </div>
+
+    <div id="controls">
+  <button id="autoscrollBtn">AUTOSCROLL</button>
+  <button id="decreaseSpeed">-</button>
+  <span id="speedIndicator">1.0x</span>
+  <button id="increaseSpeed">+</button>
+  <button id="resetBtn">
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="15"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+  </button>
+</div>
+
+    <div class="menu-overlay">
+    <div class="menu-options">
+            <button class="option-button" onclick="MSTREAMAPI.logout();">Home</button>
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a href="#" class="tab-item" id="transpose-1" >
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" id="exposure-neg"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M4 11v2h8v-2H4zm15 7h-2V7.38L14 8.4V6.7L18.7 5h.3v13z"></path></svg>
+      <span>Transpose</span>
+    </a>
+<a href="#" class="tab-item" id="transpose+1">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" d="M0 0h24v24H0zm0 0h24v24H0z"></path>
+        <path d="M10 7H8v4H4v2h4v4h2v-4h4v-2h-4V7zm10 11h-2V7.38L15 8.4V6.7L19.7 5h.3v13z"></path>
+      </svg>
+      <span>Transpose</span>
+    </a>
+    <button class="menu-button">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+    <a href="#" class="tab-item" id="findNewBestCapo">
+      <svg version="1.1" viewBox="0 0 800 800" width="24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path transform="translate(52,82)" d="m0 0h7l5 3 3 5v23l2 20 7 28 17 50 15 42 4-2 7-3 5 1 7 10 9 15 32 52 13 21 14 23 13 21 48 78 9 14 2 1v-7l5-10 7-7 13-7 9-2h16l8 1 6-13 3-13v-11l-3-15-6-19 1-7 4-4 17-6 10-6 8-7 6-9 4-13-1-17v-28l3-32 4-23 6-20 7-16 16-27 13-19 11-15 11-14 11-13 6-7 9-6 6-2h14l10 3 9 6 7 8 4 10 1 6v14l-3 14-4 9-6 10-7 8-7 5-5 2h-11l-10-5-5-5v-6l5-5 5 2 5 5 2 1h6l6-4 7-8 7-14 1-5v-14l-4-11-4-5-9-3-11 1-8 4-6 5-10 14-9 14-9 16-9 19-6 16-5 21-1 6v32l5 30 7 24 10 25-2 6-8 7-3 6 1 9 4 9 4 6 7 6 13 8 4 5 7 19 8 9 10 3h10l10-2 5 3 8 10 12 16 22 28 13 16 18 22 13 15 9 10 7 8 12 13 23 23 22 18 10 9 8 7 12 11 11 9 11 10 14 11 11 10 7 10 3 6v8l-7 11-6 5-7-1-9-8-4 2-7 8-6-4-7-7-11-9-14-12-14-11-15-12-40-30-36-26-23-16-32-22-43-29-20-13-32-21-22-14-12-8-3-1-15 44-17 45-11 26-6 12-2 3 17 4 33 8 5 1 2-5 4-4 20 4 58 15 64 16 27 7 6 3 2 2-1 15-5 31-4 6-5 1-30-7-139-31-5-2-2-3v-7l1-5h-2l-3 9-4 2-8-6-10-8-13-8-12-5-31-8-26-8-20-8-19-10-13-10-9-9-10-16-12-25-15-36-16-41-17-46-15-41-10-29-17-48-15-43-17-48-19-56-8-28-3-16v-22l3-8 4-5zm65 198m1 1 3 11 33 90 17 46 13 35 10 28 16 47 11 26 5 8 7 4 11 4 11 3h5l-2-9v-19l4-15 8-16 1-5-10-16-11-17-12-19-14-22-12-19-15-23-15-24-11-17-12-19-16-25-14-22-10-15zm197 185-12 3-9 5-6 7-3 11v10l5-4 7-8 1-3h2l7-8 9-10 1-3z"/>
+<path transform="translate(383,664)" d="m0 0h1v5l-2-2z"/>
+<path transform="translate(384,663)" d="m0 0"/>
+<path transform="translate(124,292)" d="m0 0"/>
+<path transform="translate(123,291)" d="m0 0"/>
+<path transform="translate(121,287)" d="m0 0"/>
+</svg>
+      <span>Best Capo</span>
+    </a>
+    <a href="#" class="tab-item" id="reset-scale-new">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+      <span>Reset</span>
+    </a>
+  </nav>
+  </div>
+  </div>`;
+  const darkhast = `<div class="chord-main">
+    <div class="baarish" id="chord-lyrics">
+    <pre class="song-details-pre">
+Song - Darkhaast
+Singer -   Arijit Singh & Sunidhi Chauhan 
+Composer - Mithoon 
+Lyricist - Sayeed Quadr
+Movie - Shivaay</pre>
+    <pre>
+<span class="chordset">(G)</span>Iss qadar..<span class="chordset">(Bm)</span>
+Tu mujhe <span class="chordset">(G)</span>pyaar kar..<span class="chordset">(Bm)</span>
+Jisey <span class="chordset">(G)</span>kabhi na main s<span class="chordset">(Bm)</span>akoon
+Phir <span class="chordset">(Em)</span>bhula..<span class="chordset">(D)</span>
+ 
+<span class="chordset">(G)</span>Zindagi..<span class="chordset">(Bm)</span>
+Laayi <span class="chordset">(G)</span>humein yahaan..<span class="chordset">(Bm)</span>
+Koi i<span class="chordset">(Em)</span>raada toh ra<span class="chordset">(C)</span>ha hoga bha<span class="chordset">(D)</span>la
+ 
+[Chorus]
+
+Ki dar<span class="chordset">(G)</span>khaast hai yeh
+Jo aayi <span class="chordset">(Bm)</span>raat hai yeh      
+Tu <span class="chordset">(C)</span>meri baahon mein <span class="chordset">(D)</span>duniya <span class="chordset">(G)</span>bhula de
+ 
+Jo ab lam<span class="chordset">(G)</span>haat hai yeh
+Bade hi <span class="chordset">(Bm)</span>khaas hai yeh
+Tu <span class="chordset">(C)</span>meri baahon mein <span class="chordset">(D)</span>duniya <span class="chordset">(G)</span>bhula de [x2]
+ 
+[Humming]
+<span class="chordset">(G)(Bm)(C)(D)(G)</span>
+ 
+<span class="chordset">(C)</span>Raahon mein mere <span class="chordset">(Em)</span>saath chal tu
+<span class="chordset">(C)</span>Thaame mera <span class="chordset">(Em)</span>haath chal tuj
+<span class="chordset">(C)</span>Waqt jitna <span class="chordset">(D)</span>bhi ho haasil
+<span class="chordset">(C)</span>Saara mere <span class="chordset">(Em)</span>naam kar tu
+ 
+<span class="chordset">(Am)</span>
+Waqt jitna bhi ho haasil
+<span class="chordset">(D)</span>
+Saara mere naam kar tu...
+ 
+{Chorus]
+   
+Ki ar<span class="chordset">(G)</span>maan hai yeh
+Guzaarish <span class="chordset">(Bm)</span>jaan hai yeh
+Tu <span class="chordset">(C)</span>meri baahon mein <span class="chordset">(D)</span>duniya <span class="chordset">(G)</span>bhula de
+ 
+Jo ab lam<span class="chordset">(G)</span>haat hai yeh
+Bade hi <span class="chordset">(Bm)</span>khaas hai yeh
+Tu <span class="chordset">(C)</span>meri baahon mein <span class="chordset">(D)</span>duniya <span class="chordset">(G)</span>bhula de
+  
+[Verse]
+
+<span class="chordset">(G)</span>Lamz jismon pe aise sajaye
+<span class="chordset">(Bm)</span>Baarishon se bhi woh dhul na paaye                      
+Tu <span class="chordset">(C)</span>meri baahon mein <span class="chordset">(D)</span>duniya bhula de...<span class="chordset">(G)</span>
+ 
+Ho <span class="chordset">(G)</span>naksh lamhon pe aise banaye
+<span class="chordset">(Bm)</span>Muddaton se bhi woh mit na paaye           
+Tu <span class="chordset">(C)</span>meri baahon mein <span class="chordset">(D)</span>duniya bhula de...<span class="chordset">(G)</span>
+ 
+Hmm.. <span class="chordset">(C)</span>tujhse toh hoon main yun <span class="chordset">(D)</span>bohat mutasir
+<span class="chordset">(C)</span>Par kya karoon main hoon <span class="chordset">(D)</span>ek musafir
+<span class="chordset">(C)</span>Kaisi khushi hai <span class="chordset">(Am)</span>jisme nami hai
+<span class="chordset">(F)</span>Jaane tu ye ya <span class="chordset">(D)</span>jaane na, <span class="chordset">(G)</span>o…
+ 
+[Chorus]
+     
+Jo jaz<span class="chordset">(G)</span>baat hai yeh
+Bade hi <span class="chordset">(Bm)</span>pak hai yeh
+Tu <span class="chordset">(C)</span>meri baahon mein <span class="chordset">(D)</span>duniya <span class="chordset">(G)</span>bhula de
+
+Jo ab <span class="chordset">(G)</span>lamhaat hai yeh
+Bade hi <span class="chordset">(Bm)</span>khaas hai yeh
+Tu <span class="chordset">(C)</span>meri baahon mein <span class="chordset">(D)</span>duniya <span class="chordset">(G)</span>bhula de
+ 
+{Outro]
+   
+Ki <span class="chordset">(G)</span>darkhaast hai yeh
+Jo aayi <span class="chordset">(Bm)</span>raat hai yeh
+Tu <span class="chordset">(C)</span>meri baahon mein <span class="chordset">(D)</span>duniya <span class="chordset">(G)</span>bhula de....</pre>
+
+    </div>
+    <div class="chord-func">
+   
+    <div class="chord-btn">
+      <span id="transpose-txt">SCALE TRANSPOSE</span>
+      <button id="transposeDown">-1</button>
+      <button id="transposeUp">+1</button>
+      <button class="reset-btn" id="reset-scale">RESET</button>
+    </div>
+   
+    <p class="transpose-note">Note: Use the scale transpose buttons to adjust the song's scale to your vocal range. "-" lowers the scale, "+" raises it. This changes all chords on the sheet. Click "RESET" to return to the original scale.</p>
+    <div class="capo-container" id="capo">
+      <div class="capo-h2">
+        <h2>FIND BEST CAPO POSITION</h2>
+      </div>
+      <button id="findBestCapo">Find Best Capo Position</button>
+      <div id="result"></div>
+    </div>
+
+    <div id="controls">
+  <button id="autoscrollBtn">AUTOSCROLL</button>
+  <button id="decreaseSpeed">-</button>
+  <span id="speedIndicator">1.0x</span>
+  <button id="increaseSpeed">+</button>
+  <button id="resetBtn">
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="15"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+  </button>
+</div>
+
+    <div class="menu-overlay">
+    <div class="menu-options">
+            <button class="option-button" onclick="MSTREAMAPI.logout();">Home</button>
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a href="#" class="tab-item" id="transpose-1" >
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" id="exposure-neg"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M4 11v2h8v-2H4zm15 7h-2V7.38L14 8.4V6.7L18.7 5h.3v13z"></path></svg>
+      <span>Transpose</span>
+    </a>
+<a href="#" class="tab-item" id="transpose+1">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" d="M0 0h24v24H0zm0 0h24v24H0z"></path>
+        <path d="M10 7H8v4H4v2h4v4h2v-4h4v-2h-4V7zm10 11h-2V7.38L15 8.4V6.7L19.7 5h.3v13z"></path>
+      </svg>
+      <span>Transpose</span>
+    </a>
+    <button class="menu-button">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+    <a href="#" class="tab-item" id="findNewBestCapo">
+      <svg version="1.1" viewBox="0 0 800 800" width="24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path transform="translate(52,82)" d="m0 0h7l5 3 3 5v23l2 20 7 28 17 50 15 42 4-2 7-3 5 1 7 10 9 15 32 52 13 21 14 23 13 21 48 78 9 14 2 1v-7l5-10 7-7 13-7 9-2h16l8 1 6-13 3-13v-11l-3-15-6-19 1-7 4-4 17-6 10-6 8-7 6-9 4-13-1-17v-28l3-32 4-23 6-20 7-16 16-27 13-19 11-15 11-14 11-13 6-7 9-6 6-2h14l10 3 9 6 7 8 4 10 1 6v14l-3 14-4 9-6 10-7 8-7 5-5 2h-11l-10-5-5-5v-6l5-5 5 2 5 5 2 1h6l6-4 7-8 7-14 1-5v-14l-4-11-4-5-9-3-11 1-8 4-6 5-10 14-9 14-9 16-9 19-6 16-5 21-1 6v32l5 30 7 24 10 25-2 6-8 7-3 6 1 9 4 9 4 6 7 6 13 8 4 5 7 19 8 9 10 3h10l10-2 5 3 8 10 12 16 22 28 13 16 18 22 13 15 9 10 7 8 12 13 23 23 22 18 10 9 8 7 12 11 11 9 11 10 14 11 11 10 7 10 3 6v8l-7 11-6 5-7-1-9-8-4 2-7 8-6-4-7-7-11-9-14-12-14-11-15-12-40-30-36-26-23-16-32-22-43-29-20-13-32-21-22-14-12-8-3-1-15 44-17 45-11 26-6 12-2 3 17 4 33 8 5 1 2-5 4-4 20 4 58 15 64 16 27 7 6 3 2 2-1 15-5 31-4 6-5 1-30-7-139-31-5-2-2-3v-7l1-5h-2l-3 9-4 2-8-6-10-8-13-8-12-5-31-8-26-8-20-8-19-10-13-10-9-9-10-16-12-25-15-36-16-41-17-46-15-41-10-29-17-48-15-43-17-48-19-56-8-28-3-16v-22l3-8 4-5zm65 198m1 1 3 11 33 90 17 46 13 35 10 28 16 47 11 26 5 8 7 4 11 4 11 3h5l-2-9v-19l4-15 8-16 1-5-10-16-11-17-12-19-14-22-12-19-15-23-15-24-11-17-12-19-16-25-14-22-10-15zm197 185-12 3-9 5-6 7-3 11v10l5-4 7-8 1-3h2l7-8 9-10 1-3z"/>
+<path transform="translate(383,664)" d="m0 0h1v5l-2-2z"/>
+<path transform="translate(384,663)" d="m0 0"/>
+<path transform="translate(124,292)" d="m0 0"/>
+<path transform="translate(123,291)" d="m0 0"/>
+<path transform="translate(121,287)" d="m0 0"/>
+</svg>
+      <span>Best Capo</span>
+    </a>
+    <a href="#" class="tab-item" id="reset-scale-new">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+      <span>Reset</span>
+    </a>
+  </nav>
+  </div>
+  </div>`;
+
+  const raaz = `<div class="chord-main">
+    <div class="baarish" id="chord-lyrics">
+     <pre class="song-details-pre">
+Song: Raaz Aankhei Teri
+Singer: Arijit Singh
+Music : Jeet Gannguli
+Movie: Raaz-Reboot</pre>
+    <pre>
+Raaz<span class="chordset">(Am)</span> aankhein te<span class="chordset">(G)</span>ri
+Sab ba<span class="chordset">(G)</span>yaan kar ra<span class="chordset">(F)</span>hi
+Sun ra<span class="chordset">(Dm)</span>ha dil te<span class="chordset">(E)</span>ri khamoshi<span class="chordset">(Am)</span>yaan
+
+Kuch ka<span class="chordset">(Am)</span>ho na su<span class="chordset">(G)</span>no
+Paas<span class="chordset">(G)</span> mere ra<span class="chordset">(F)</span>ho
+Ishq<span class="chordset">(Dm)</span> ki kaisi hai<span class="chordset">(E)</span> ye gehrai<span class="chordset">(Am)</span>yaan
+
+Saa<span class="chordset">(Dm)</span>ya bhi jism<span class="chordset">(G)</span> se
+Ho<span class="chordset">(F)</span>ta hai kya judaa
+Jit<span class="chordset">(Dm)</span>ni bhi zor<span class="chordset">(G)</span> ki ho aandhi<span class="chordset">(E)</span>yaan
+
+Raaz<span class="chordset">(Am)</span> aankhein te<span class="chordset">(G)</span>ri
+Sab ba<span class="chordset">(G)</span>yaan kar ra<span class="chordset">(F)</span>hi
+Sun ra<span class="chordset">(Dm)</span>ha dil te<span class="chordset">(E)</span>ri khamoshi<span class="chordset">(Am)</span>yaan
+
+<span class="chordset">(Am)</span> <span class="chordset">(F)</span> <span class="chordset">(Dm)</span> <span class="chordset">(E)</span>
+
+<span class="chordset">(C)</span> Jeene ka tu sahara
+<span class="chordset">(E)</span> Tu hi roshni
+<span class="chordset">(C)</span> Kehta hai har sitara
+<span class="chordset">(E)</span> Meri tu chand<span class="chordset">(F)</span>ni
+
+<span class="chordset">(F)</span> Hum judaa ho<span class="chordset">(G)</span> jaaye
+Aisa<span class="chordset">(G)</span> mumkin na<span class="chordset">(E)</span>hi
+
+Dhoop<span class="chordset">(Am)</span> ho tum me<span class="chordset">(G)</span>ri
+Chaanv<span class="chordset">(G)</span> bhi ho tum<span class="chordset">(F)</span> hi
+Paas<span class="chordset">(Dm)</span> ho toh door<span class="chordset">(E)</span> hai tanhaai<span class="chordset">(Am)</span>yaan
+
+<span class="chordset">(C)</span> Main chalunga mushkilon mein
+<span class="chordset">(E)</span> Saaya ban tera
+<span class="chordset">(C)</span> Is jahan mein, us jahan mein
+<span class="chordset">(E)</span> Bas ek tu me<span class="chordset">(F)</span>ra
+
+<span class="chordset">(F)</span> Khusbuon se<span class="chordset">(G)</span> teri
+Mehke<span class="chordset">(G)</span> jism me<span class="chordset">(E)</span>ra
+
+Raat<span class="chordset">(Am)</span> aayegi<span class="chordset">(G)</span> toh
+Main su<span class="chordset">(G)</span>bah laaun<span class="chordset">(F)</span>ga
+Maut<span class="chordset">(Dm)</span> aayegi<span class="chordset">(E)</span> toh lad jaaun<span class="chordset">(Am)</span>ga
+
+Saa<span class="chordset">(Dm)</span>ya bhi jism<span class="chordset">(G)</span> se
+Ho<span class="chordset">(F)</span>ta hai kya judaa
+Jit<span class="chordset">(Dm)</span>ni bhi zor<span class="chordset">(G)</span> ki ho aandhi<span class="chordset">(E)</span>yaan
+
+Kuch ka<span class="chordset">(Am)</span>ho na su<span class="chordset">(G)</span>no
+Paas<span class="chordset">(G)</span> mere ra<span class="chordset">(F)</span>ho
+Ishq<span class="chordset">(Dm)</span> ki kaisi hai<span class="chordset">(E)</span> ye gehrai<span class="chordset">(Am)</span>yaan</pre>
+
+    </div>
+    <div class="chord-func">
+    <div class="chord-btn">
+      <span id="transpose-txt">SCALE TRANSPOSE</span>
+      <button id="transposeDown">-1</button>
+      <button id="transposeUp">+1</button>
+      <button class="reset-btn" id="reset-scale">RESET</button>
+    </div>
+   
+    <p class="transpose-note">Note: Use the scale transpose buttons to adjust the song's scale to your vocal range. "-" lowers the scale, "+" raises it. This changes all chords on the sheet. Click "RESET" to return to the original scale.</p>
+    <div class="capo-container" id="capo">
+      <div class="capo-h2">
+        <h2>FIND BEST CAPO POSITION</h2>
+      </div>
+      <button id="findBestCapo">Find Best Capo Position</button>
+      <div id="result"></div>
+    </div>
+
+    <div id="controls">
+  <button id="autoscrollBtn">AUTOSCROLL</button>
+  <button id="decreaseSpeed">-</button>
+  <span id="speedIndicator">1.0x</span>
+  <button id="increaseSpeed">+</button>
+  <button id="resetBtn">
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="15"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+  </button>
+</div>
+
+    <div class="menu-overlay">
+    <div class="menu-options">
+            <button class="option-button" onclick="MSTREAMAPI.logout();">Home</button>
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a href="#" class="tab-item" id="transpose-1" >
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" id="exposure-neg"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M4 11v2h8v-2H4zm15 7h-2V7.38L14 8.4V6.7L18.7 5h.3v13z"></path></svg>
+      <span>Transpose</span>
+    </a>
+<a href="#" class="tab-item" id="transpose+1">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" d="M0 0h24v24H0zm0 0h24v24H0z"></path>
+        <path d="M10 7H8v4H4v2h4v4h2v-4h4v-2h-4V7zm10 11h-2V7.38L15 8.4V6.7L19.7 5h.3v13z"></path>
+      </svg>
+      <span>Transpose</span>
+    </a>
+    <button class="menu-button">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+    <a href="#" class="tab-item" id="findNewBestCapo">
+      <svg version="1.1" viewBox="0 0 800 800" width="24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path transform="translate(52,82)" d="m0 0h7l5 3 3 5v23l2 20 7 28 17 50 15 42 4-2 7-3 5 1 7 10 9 15 32 52 13 21 14 23 13 21 48 78 9 14 2 1v-7l5-10 7-7 13-7 9-2h16l8 1 6-13 3-13v-11l-3-15-6-19 1-7 4-4 17-6 10-6 8-7 6-9 4-13-1-17v-28l3-32 4-23 6-20 7-16 16-27 13-19 11-15 11-14 11-13 6-7 9-6 6-2h14l10 3 9 6 7 8 4 10 1 6v14l-3 14-4 9-6 10-7 8-7 5-5 2h-11l-10-5-5-5v-6l5-5 5 2 5 5 2 1h6l6-4 7-8 7-14 1-5v-14l-4-11-4-5-9-3-11 1-8 4-6 5-10 14-9 14-9 16-9 19-6 16-5 21-1 6v32l5 30 7 24 10 25-2 6-8 7-3 6 1 9 4 9 4 6 7 6 13 8 4 5 7 19 8 9 10 3h10l10-2 5 3 8 10 12 16 22 28 13 16 18 22 13 15 9 10 7 8 12 13 23 23 22 18 10 9 8 7 12 11 11 9 11 10 14 11 11 10 7 10 3 6v8l-7 11-6 5-7-1-9-8-4 2-7 8-6-4-7-7-11-9-14-12-14-11-15-12-40-30-36-26-23-16-32-22-43-29-20-13-32-21-22-14-12-8-3-1-15 44-17 45-11 26-6 12-2 3 17 4 33 8 5 1 2-5 4-4 20 4 58 15 64 16 27 7 6 3 2 2-1 15-5 31-4 6-5 1-30-7-139-31-5-2-2-3v-7l1-5h-2l-3 9-4 2-8-6-10-8-13-8-12-5-31-8-26-8-20-8-19-10-13-10-9-9-10-16-12-25-15-36-16-41-17-46-15-41-10-29-17-48-15-43-17-48-19-56-8-28-3-16v-22l3-8 4-5zm65 198m1 1 3 11 33 90 17 46 13 35 10 28 16 47 11 26 5 8 7 4 11 4 11 3h5l-2-9v-19l4-15 8-16 1-5-10-16-11-17-12-19-14-22-12-19-15-23-15-24-11-17-12-19-16-25-14-22-10-15zm197 185-12 3-9 5-6 7-3 11v10l5-4 7-8 1-3h2l7-8 9-10 1-3z"/>
+<path transform="translate(383,664)" d="m0 0h1v5l-2-2z"/>
+<path transform="translate(384,663)" d="m0 0"/>
+<path transform="translate(124,292)" d="m0 0"/>
+<path transform="translate(123,291)" d="m0 0"/>
+<path transform="translate(121,287)" d="m0 0"/>
+</svg>
+      <span>Best Capo</span>
+    </a>
+    <a href="#" class="tab-item" id="reset-scale-new">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+      <span>Reset</span>
+    </a>
+  </nav>
+  </div>
+  </div>`;
+  const sapnokiraani = `<div class="chord-main">
+    <div class="baarish" id="chord-lyrics">
+    <pre class="song-details-pre">
+Song: Meri Sapnon Ki Rani
+Singer: Kishor Kumar
+Music : JS. D. Burman
+Movie: Aradhana</pre>
+    <pre>
+Mere<span class="chordset">(A#m)</span> sapnon ki<span class="chordset">(G#)</span> rani kab<span class="chordset">(A#m)</span> aayegi tu
+Aayi<span class="chordset">(A#m)</span> rut mas<span class="chordset">(G#)</span>taani kab<span class="chordset">(F#)</span> aayegi tu
+Beeti<span class="chordset">(A#m)</span> jaaye zinda<span class="chordset">(G#)</span>gaani kab<span class="chordset">(C#)</span> aayegi tu
+Chali<span class="chordset">(G#)</span> aa, tu chali<span class="chordset">(A#m)</span> aa
+
+Mere<span class="chordset">(A#m)</span> sapnon ki<span class="chordset">(G#)</span> rani kab<span class="chordset">(A#m)</span> aayegi tu
+Aayi<span class="chordset">(A#m)</span> rut mas<span class="chordset">(G#)</span>taani kab<span class="chordset">(F#)</span> aayegi tu
+Beeti<span class="chordset">(A#m)</span> jaaye zinda<span class="chordset">(G#)</span>gaani kab<span class="chordset">(C#)</span> aayegi tu
+Chali<span class="chordset">(G#)</span> aa, tu chali<span class="chordset">(A#m)</span> aa
+
+<span class="chordset">(A#m)</span> Pyaar ki galiyaan<span class="chordset">(A#m)</span> <span class="chordset">(G#)</span>
+<span class="chordset">(A#m)</span> Baagon ki kaliyaan<span class="chordset">(A#m)</span> <span class="chordset">(G#)</span>
+<span class="chordset">(A#m)</span> Sab rang<span class="chordset">(G#)</span> raliyaan<span class="chordset">(A#m)</span> <span class="chordset">(G#)</span>
+<span class="chordset">(C#)</span> Pooch ra<span class="chordset">(A#m)</span>hi hai<span class="chordset">(A#m)</span>
+
+<span class="chordset">(A#m)</span> Pyaar ki galiyaan
+<span class="chordset">(A#m)</span> Baagon ki kaliyaa
+<span class="chordset">(A#m)</span> Sab rang<span class="chordset">(G#)</span> raliyaan
+<span class="chordset">(C#)</span> Pooch ra<span class="chordset">(A#m)</span>hi hai<span class="chordset">(A#m)</span>
+
+Geet<span class="chordset">(G#)</span> panghat pe<span class="chordset">(C#)</span> kis din<span class="chordset">(A#m)</span> gaayegi tu
+
+Mere<span class="chordset">(A#m)</span> sapnon ki<span class="chordset">(G#)</span> rani kab<span class="chordset">(A#m)</span> aayegi tu
+Aayi<span class="chordset">(A#m)</span> rut mas<span class="chordset">(G#)</span>taani kab<span class="chordset">(F#)</span> aayegi tu
+Beeti<span class="chordset">(A#m)</span> jaaye zinda<span class="chordset">(G#)</span>gaani kab<span class="chordset">(C#)</span> aayegi tu
+Chali<span class="chordset">(G#)</span> aa, tu chali<span class="chordset">(A#m)</span> aa
+
+<span class="chordset">(A#m)</span> Phool si khilke<span class="chordset">(A#m)</span> <span class="chordset">(G#)</span>
+<span class="chordset">(A#m)</span> Paas aa dil ke<span class="chordset">(A#m)</span> <span class="chordset">(G#)</span>
+<span class="chordset">(A#m)</span> Door se milke<span class="chordset">(A#m)</span> <span class="chordset">(G#)</span>
+<span class="chordset">(C#)</span> Chain na aaye<span class="chordset">(A#m)</span>
+
+<span class="chordset">(A#m)</span> Phool si khilke
+<span class="chordset">(A#m)</span> Paas aa dil ke
+<span class="chordset">(A#m)</span> Door se milke
+<span class="chordset">(C#)</span> Chain na aaye<span class="chordset">(A#m)</span>
+
+Aur<span class="chordset">(G#)</span> kab tak mu<span class="chordset">(C#)</span>jhe tad<span class="chordset">(A#m)</span>paayegi tu
+
+Mere<span class="chordset">(A#m)</span> sapnon ki<span class="chordset">(G#)</span> rani kab<span class="chordset">(A#m)</span> aayegi tu
+Aayi<span class="chordset">(A#m)</span> rut mas<span class="chordset">(G#)</span>taani kab<span class="chordset">(F#)</span> aayegi tu
+Beeti<span class="chordset">(A#m)</span> jaaye zinda<span class="chordset">(G#)</span>gaani kab<span class="chordset">(C#)</span> aayegi tu
+Chali<span class="chordset">(G#)</span> aa, tu chali<span class="chordset">(A#m)</span> aa
+
+<span class="chordset">(A#m)</span> Kya hai bharosa<span class="chordset">(A#m)</span> <span class="chordset">(G#)</span>
+<span class="chordset">(A#m)</span> Aashiq dil ka<span class="chordset">(A#m)</span> <span class="chordset">(G#)</span>
+<span class="chordset">(A#m)</span> Aur kisi pe<span class="chordset">(A#m)</span> <span class="chordset">(G#)</span>
+<span class="chordset">(C#)</span> Yeh aa jaaye<span class="chordset">(A#m)</span>
+
+<span class="chordset">(A#m)</span> Kya hai bharosa
+<span class="chordset">(A#m)</span> Aashiq dil ka
+<span class="chordset">(A#m)</span> Aur kisi pe
+<span class="chordset">(C#)</span> Yeh aa jaaye<span class="chordset">(A#m)</span>
+
+Aa<span class="chordset">(G#)</span> gaya to bo<span class="chordset">(C#)</span>hot pach<span class="chordset">(A#m)</span>taayegi tu
+
+Mere<span class="chordset">(A#m)</span> sapnon ki<span class="chordset">(G#)</span> rani kab<span class="chordset">(A#m)</span> aayegi tu
+Aayi<span class="chordset">(A#m)</span> rut mas<span class="chordset">(G#)</span>taani kab<span class="chordset">(F#)</span> aayegi tu
+Beeti<span class="chordset">(A#m)</span> jaaye zinda<span class="chordset">(G#)</span>gaani kab<span class="chordset">(C#)</span> aayegi tu
+Chali<span class="chordset">(G#)</span> aa, tu chali<span class="chordset">(A#m)</span> aa
+
+Mere<span class="chordset">(A#m)</span> sapnon ki<span class="chordset">(G#)</span> rani kab<span class="chordset">(A#m)</span> aayegi tu
+Aayi<span class="chordset">(A#m)</span> rut mas<span class="chordset">(G#)</span>taani kab<span class="chordset">(F#)</span> aayegi tu
+Beeti<span class="chordset">(A#m)</span> jaaye zinda<span class="chordset">(G#)</span>gaani kab<span class="chordset">(C#)</span> aayegi tu
+Chali<span class="chordset">(G#)</span> aa, tu chali<span class="chordset">(A#m)</span> aa
+Chali<span class="chordset">(G#)</span> aa, tu chali<span class="chordset">(A#m)</span> aa
+Chali<span class="chordset">(G#)</span> aa, haan tu chali<span class="chordset">(A#m)</span> aa</pre>
+
+    </div>
+    <div class="chord-func">
+    <div class="chord-btn">
+      <span id="transpose-txt">SCALE TRANSPOSE</span>
+      <button id="transposeDown">-1</button>
+      <button id="transposeUp">+1</button>
+      <button class="reset-btn" id="reset-scale">RESET</button>
+    </div>
+   
+    <p class="transpose-note">Note: Use the scale transpose buttons to adjust the song's scale to your vocal range. "-" lowers the scale, "+" raises it. This changes all chords on the sheet. Click "RESET" to return to the original scale.</p>
+    <div class="capo-container" id="capo">
+      <div class="capo-h2">
+        <h2>FIND BEST CAPO POSITION</h2>
+      </div>
+      <button id="findBestCapo">Find Best Capo Position</button>
+      <div id="result"></div>
+    </div>
+
+    <div id="controls">
+  <button id="autoscrollBtn">AUTOSCROLL</button>
+  <button id="decreaseSpeed">-</button>
+  <span id="speedIndicator">1.0x</span>
+  <button id="increaseSpeed">+</button>
+  <button id="resetBtn">
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="15"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+  </button>
+</div>
+
+    <div class="menu-overlay">
+    <div class="menu-options">
+            <button class="option-button" onclick="MSTREAMAPI.logout();">Home</button>
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a href="#" class="tab-item" id="transpose-1" >
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" id="exposure-neg"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M4 11v2h8v-2H4zm15 7h-2V7.38L14 8.4V6.7L18.7 5h.3v13z"></path></svg>
+      <span>Transpose</span>
+    </a>
+<a href="#" class="tab-item" id="transpose+1">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" d="M0 0h24v24H0zm0 0h24v24H0z"></path>
+        <path d="M10 7H8v4H4v2h4v4h2v-4h4v-2h-4V7zm10 11h-2V7.38L15 8.4V6.7L19.7 5h.3v13z"></path>
+      </svg>
+      <span>Transpose</span>
+    </a>
+    <button class="menu-button">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+    <a href="#" class="tab-item" id="findNewBestCapo">
+      <svg version="1.1" viewBox="0 0 800 800" width="24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path transform="translate(52,82)" d="m0 0h7l5 3 3 5v23l2 20 7 28 17 50 15 42 4-2 7-3 5 1 7 10 9 15 32 52 13 21 14 23 13 21 48 78 9 14 2 1v-7l5-10 7-7 13-7 9-2h16l8 1 6-13 3-13v-11l-3-15-6-19 1-7 4-4 17-6 10-6 8-7 6-9 4-13-1-17v-28l3-32 4-23 6-20 7-16 16-27 13-19 11-15 11-14 11-13 6-7 9-6 6-2h14l10 3 9 6 7 8 4 10 1 6v14l-3 14-4 9-6 10-7 8-7 5-5 2h-11l-10-5-5-5v-6l5-5 5 2 5 5 2 1h6l6-4 7-8 7-14 1-5v-14l-4-11-4-5-9-3-11 1-8 4-6 5-10 14-9 14-9 16-9 19-6 16-5 21-1 6v32l5 30 7 24 10 25-2 6-8 7-3 6 1 9 4 9 4 6 7 6 13 8 4 5 7 19 8 9 10 3h10l10-2 5 3 8 10 12 16 22 28 13 16 18 22 13 15 9 10 7 8 12 13 23 23 22 18 10 9 8 7 12 11 11 9 11 10 14 11 11 10 7 10 3 6v8l-7 11-6 5-7-1-9-8-4 2-7 8-6-4-7-7-11-9-14-12-14-11-15-12-40-30-36-26-23-16-32-22-43-29-20-13-32-21-22-14-12-8-3-1-15 44-17 45-11 26-6 12-2 3 17 4 33 8 5 1 2-5 4-4 20 4 58 15 64 16 27 7 6 3 2 2-1 15-5 31-4 6-5 1-30-7-139-31-5-2-2-3v-7l1-5h-2l-3 9-4 2-8-6-10-8-13-8-12-5-31-8-26-8-20-8-19-10-13-10-9-9-10-16-12-25-15-36-16-41-17-46-15-41-10-29-17-48-15-43-17-48-19-56-8-28-3-16v-22l3-8 4-5zm65 198m1 1 3 11 33 90 17 46 13 35 10 28 16 47 11 26 5 8 7 4 11 4 11 3h5l-2-9v-19l4-15 8-16 1-5-10-16-11-17-12-19-14-22-12-19-15-23-15-24-11-17-12-19-16-25-14-22-10-15zm197 185-12 3-9 5-6 7-3 11v10l5-4 7-8 1-3h2l7-8 9-10 1-3z"/>
+<path transform="translate(383,664)" d="m0 0h1v5l-2-2z"/>
+<path transform="translate(384,663)" d="m0 0"/>
+<path transform="translate(124,292)" d="m0 0"/>
+<path transform="translate(123,291)" d="m0 0"/>
+<path transform="translate(121,287)" d="m0 0"/>
+</svg>
+      <span>Best Capo</span>
+    </a>
+    <a href="#" class="tab-item" id="reset-scale-new">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+      <span>Reset</span>
+    </a>
+  </nav>
+  </div>
+  </div>`;
+  const chahume = `<div class="chord-main">
+    <div class="baarish" id="chord-lyrics">
+     <pre class="song-details-pre">
+Song: Chahun Main Ya Naa
+Singer: Arijit Singh, Palak Muchhal
+Music : Jeet Gangulli
+Movie: Aashiqui 2</pre>
+    <pre>
+<span class="chordset">(Am)</span>Tu hi ye mujhko ba<span class="chordset">(G)</span>ta de
+<span class="chordset">(F)</span>Chahun main ya na<span class="chordset">(G)</span>
+<span class="chordset">(Am)</span>Apne tu dil kapa<span class="chordset">(G)</span>ta de
+<span class="chordset">(F)</span>Chahun main ya na<span class="chordset">(G)</span>
+
+<span class="chordset">(Am)</span>Tu hi ye mujhko<span class="chordset">(G)</span>bata de
+<span class="chordset">(F)</span>Chahun main ya na<span class="chordset">(G)</span>
+<span class="chordset">(Am)</span>Apne tu dil ka<span class="chordset">(G)</span>pata de
+<span class="chordset">(F)</span>Chahun main ya na<span class="chordset">(G)</span>
+
+<span class="chordset">(Am)</span>Itna bata doon tujhko
+<span class="chordset">(G)</span>Chahat pe apni mujhko
+<span class="chordset">(F)</span>Yun to nahi ikhti<span class="chordset">(G)</span>yaar
+<span class="chordset">(Am)</span>Phir bhi yeh socha dil ne
+<span class="chordset">(G)</span>Ab jo laga hoon milne
+<span class="chordset">(F)</span>Poochu tujhe ek<span class="chordset">(G)</span>baar
+
+<span class="chordset">(Am)</span>Tu hi ye mujhko ba<span class="chordset">(G)</span>ta de
+<span class="chordset">(F)</span>Chahun main ya na<span class="chordset">(G)</span>
+<span class="chordset">(Am)</span>Apne tu dil ka pa<span class="chordset">(G)</span>ta de
+<span class="chordset">(F)</span>Chahun main ya na<span class="chordset">(G)</span>
+
+<span class="chordset">(Am)</span><span class="chordset">(G)</span><span class="chordset">(F)</span><span class="chordset">(G)</span>
+
+<span class="chordset">(C)</span>Aisi kabhi<span class="chordset">(Am)</span>pehle
+Hui<span class="chordset">(F)</span>na thi khwahi<span class="chordset">(G)</span>shein
+<span class="chordset">(C)</span>Kisi se bhi<span class="chordset">(Am)</span>milne
+Ki na<span class="chordset">(F)</span>ki thi koshi<span class="chordset">(G)</span>shein
+
+<span class="chordset">(Am)</span>Uljhan meri sul<span class="chordset">(G)</span>jha de
+<span class="chordset">(F)</span>Chahun main ya na<span class="chordset">(G)</span>
+<span class="chordset">(Am)</span>Aankhon aankhon mein ja<span class="chordset">(G)</span>ta de
+<span class="chordset">(F)</span>Chahun main ya na<span class="chordset">(G)</span>
+
+<span class="chordset">(C)</span>Mere chote chote khwaab hain
+Khaabon mein<span class="chordset">(Em)</span>geet hain
+Geeton mein<span class="chordset">(F)</span>zindagi hai<span class="chordset">(G)</span>
+Chaahat hai<span class="chordset">(C)</span>preet hai
+
+Abhi main na dekhoon<span class="chordset">(C)</span>khwaab wo
+Jin mein na<span class="chordset">(Em)</span>tu mile
+Le khole<span class="chordset">(F)</span>honth maine<span class="chordset">(G)</span>
+Ab tak the<span class="chordset">(C)</span>jo sile
+
+<span class="chordset">(Am)</span>Mujhko na jitna mujh pe
+<span class="chordset">(G)</span>Utna is dil ko tujh pe
+<span class="chordset">(F)</span>Hone laga ait<span class="chordset">(E)</span>baar
+<span class="chordset">(Am)</span>Tanha lamhon mein apne
+<span class="chordset">(G)</span>Bunti hoon tere sapne
+<span class="chordset">(F)</span>Tujhse hua mujhko<span class="chordset">(E)</span>pyaar
+
+<span class="chordset">(Am)</span>Poochungi tujhko<span class="chordset">(G)</span>kabhi na
+<span class="chordset">(F)</span>Chahun main ya na<span class="chordset">(G)</span>
+<span class="chordset">(Am)</span>Tere khaabon mein ab<span class="chordset">(G)</span>jeena
+<span class="chordset">(F)</span>Chahun main kyun na<span class="chordset">(G)</span>
+
+<span class="chordset">(Am)</span><span class="chordset">(F)</span><span class="chordset">(G)</span>
+<span class="chordset">(Am)</span><span class="chordset">(F)</span><span class="chordset">(G)</span>
+
+<span class="chordset">(Am)</span>Tu hi ye mujhko<span class="chordset">(G)</span>bata de
+<span class="chordset">(F)</span>Chahun main ya na<span class="chordset">(G)</span>
+<span class="chordset">(Am)</span>Apne tu dil ka<span class="chordset">(G)</span>pata de
+<span class="chordset">(F)</span>Chahun main ya na<span class="chordset">(G)</span></pre>
+
+    </div>
+    <div class="chord-func">
+    <div class="chord-btn">
+      <span id="transpose-txt">SCALE TRANSPOSE</span>
+      <button id="transposeDown">-1</button>
+      <button id="transposeUp">+1</button>
+      <button class="reset-btn" id="reset-scale">RESET</button>
+    </div>
+   
+    <p class="transpose-note">Note: Use the scale transpose buttons to adjust the song's scale to your vocal range. "-" lowers the scale, "+" raises it. This changes all chords on the sheet. Click "RESET" to return to the original scale.</p>
+    <div class="capo-container" id="capo">
+      <div class="capo-h2">
+        <h2>FIND BEST CAPO POSITION</h2>
+      </div>
+      <button id="findBestCapo">Find Best Capo Position</button>
+      <div id="result"></div>
+    </div>
+
+    <div id="controls">
+  <button id="autoscrollBtn">AUTOSCROLL</button>
+  <button id="decreaseSpeed">-</button>
+  <span id="speedIndicator">1.0x</span>
+  <button id="increaseSpeed">+</button>
+  <button id="resetBtn">
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="15"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+  </button>
+</div>
+
+    <div class="menu-overlay">
+    <div class="menu-options">
+            <button class="option-button" onclick="MSTREAMAPI.logout();">Home</button>
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a href="#" class="tab-item" id="transpose-1" >
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" id="exposure-neg"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M4 11v2h8v-2H4zm15 7h-2V7.38L14 8.4V6.7L18.7 5h.3v13z"></path></svg>
+      <span>Transpose</span>
+    </a>
+<a href="#" class="tab-item" id="transpose+1">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" d="M0 0h24v24H0zm0 0h24v24H0z"></path>
+        <path d="M10 7H8v4H4v2h4v4h2v-4h4v-2h-4V7zm10 11h-2V7.38L15 8.4V6.7L19.7 5h.3v13z"></path>
+      </svg>
+      <span>Transpose</span>
+    </a>
+    <button class="menu-button">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+    <a href="#" class="tab-item" id="findNewBestCapo">
+      <svg version="1.1" viewBox="0 0 800 800" width="24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path transform="translate(52,82)" d="m0 0h7l5 3 3 5v23l2 20 7 28 17 50 15 42 4-2 7-3 5 1 7 10 9 15 32 52 13 21 14 23 13 21 48 78 9 14 2 1v-7l5-10 7-7 13-7 9-2h16l8 1 6-13 3-13v-11l-3-15-6-19 1-7 4-4 17-6 10-6 8-7 6-9 4-13-1-17v-28l3-32 4-23 6-20 7-16 16-27 13-19 11-15 11-14 11-13 6-7 9-6 6-2h14l10 3 9 6 7 8 4 10 1 6v14l-3 14-4 9-6 10-7 8-7 5-5 2h-11l-10-5-5-5v-6l5-5 5 2 5 5 2 1h6l6-4 7-8 7-14 1-5v-14l-4-11-4-5-9-3-11 1-8 4-6 5-10 14-9 14-9 16-9 19-6 16-5 21-1 6v32l5 30 7 24 10 25-2 6-8 7-3 6 1 9 4 9 4 6 7 6 13 8 4 5 7 19 8 9 10 3h10l10-2 5 3 8 10 12 16 22 28 13 16 18 22 13 15 9 10 7 8 12 13 23 23 22 18 10 9 8 7 12 11 11 9 11 10 14 11 11 10 7 10 3 6v8l-7 11-6 5-7-1-9-8-4 2-7 8-6-4-7-7-11-9-14-12-14-11-15-12-40-30-36-26-23-16-32-22-43-29-20-13-32-21-22-14-12-8-3-1-15 44-17 45-11 26-6 12-2 3 17 4 33 8 5 1 2-5 4-4 20 4 58 15 64 16 27 7 6 3 2 2-1 15-5 31-4 6-5 1-30-7-139-31-5-2-2-3v-7l1-5h-2l-3 9-4 2-8-6-10-8-13-8-12-5-31-8-26-8-20-8-19-10-13-10-9-9-10-16-12-25-15-36-16-41-17-46-15-41-10-29-17-48-15-43-17-48-19-56-8-28-3-16v-22l3-8 4-5zm65 198m1 1 3 11 33 90 17 46 13 35 10 28 16 47 11 26 5 8 7 4 11 4 11 3h5l-2-9v-19l4-15 8-16 1-5-10-16-11-17-12-19-14-22-12-19-15-23-15-24-11-17-12-19-16-25-14-22-10-15zm197 185-12 3-9 5-6 7-3 11v10l5-4 7-8 1-3h2l7-8 9-10 1-3z"/>
+<path transform="translate(383,664)" d="m0 0h1v5l-2-2z"/>
+<path transform="translate(384,663)" d="m0 0"/>
+<path transform="translate(124,292)" d="m0 0"/>
+<path transform="translate(123,291)" d="m0 0"/>
+<path transform="translate(121,287)" d="m0 0"/>
+</svg>
+      <span>Best Capo</span>
+    </a>
+    <a href="#" class="tab-item" id="reset-scale-new">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+      <span>Reset</span>
+    </a>
+  </nav>
+  </div>
+  </div>`;
+  const yehfitoormera = `<div class="chord-main">
+    <div class="baarish" id="chord-lyrics">
+    <pre class="song-details-pre">
+Song: Yeh Fitoor Mera
+Singer: Arijit Singh
+Music : Amit Trivedi
+Lyrics: Swanand Kirkire
+Movie: Fitoor</pre>
+    <pre>
+[Verse]
+
+<span class="chordset">(F#m)</span>Zindagi ne<span class="chordset">(A)</span>ki hai kaisi<span class="chordset">(B)</span>saazishein,
+<span class="chordset">(F#m)</span>Poori hui<span class="chordset">(A)</span>dil ki wo far<span class="chordset">(B)</span>maishein..<span class="chordset">(E)</span><span class="chordset">(B)</span>
+<span class="chordset">(F#m)</span>Maangi duaa ek<span class="chordset">(A)</span>tujh tak jaa pahunchi,
+<span class="chordset">(B)</span>Parvardigara, parvardigara
+<span class="chordset">(F#m)</span>Kaisi suni tune<span class="chordset">(A)</span>meri khamoshi,
+O<span class="chordset">(B)</span>parvardigara
+
+[Chorus]
+
+Ye fi<span class="chordset">(D)</span>toor me<span class="chordset">(E)</span>ra laaya<span class="chordset">(A)</span>mujhko hai tere ka<span class="chordset">(B)</span>reeb,
+Ye fi<span class="chordset">(D)</span>toor me<span class="chordset">(E)</span>ra rehmat<span class="chordset">(A)</span>teri<span class="chordset">(B)</span>
+Ye fi<span class="chordset">(D)</span>toor me<span class="chordset">(E)</span>ra maine<span class="chordset">(A)</span>badla re mera na<span class="chordset">(B)</span>seeb,
+Ye fi<span class="chordset">(D)</span>toor me<span class="chordset">(E)</span>ra chaahat<span class="chordset">(A)</span>teri
+<span class="chordset">(B)</span>O  parvardigara, parvardigara
+
+[Instrumental]
+
+<span class="chordset">(F#m A B)</span> (X2)
+
+[Verse]
+
+<span class="chordset">(F#m)</span>Dheeme dheeme<span class="chordset">(A)</span>jal rahi thi<span class="chordset">(B)</span>khwaishein,
+<span class="chordset">(F#m)</span>Dil mein dabi,<span class="chordset">(A)</span>ghut rahi far<span class="chordset">(B)</span>maaishein<span class="chordset">(E)</span><span class="chordset">(B)</span>
+<span class="chordset">(F#m)</span>Banke dhuaan wo<span class="chordset">(A)</span>Tujh tak jaa pahunchi,<span class="chordset">(B)</span>parvardigara..
+<span class="chordset">(F#m)</span>Deewangi ki<span class="chordset">(A)</span>hadd maine nochi o<span class="chordset">(B)</span>parvardigara
+
+[Chorus]
+
+Ye fi<span class="chordset">(D)</span>toor me<span class="chordset">(E)</span>ra laaya<span class="chordset">(A)</span>mujhko hai tere ka<span class="chordset">(B)</span>reeb,
+Ye fi<span class="chordset">(D)</span>toor me<span class="chordset">(E)</span>ra rehmat<span class="chordset">(A)</span>teri<span class="chordset">(B)</span>
+Ye fi<span class="chordset">(D)</span>toor me<span class="chordset">(E)</span>ra maine<span class="chordset">(A)</span>badla re mera na<span class="chordset">(B)</span>seeb,
+Ye fi<span class="chordset">(D)</span>toor me<span class="chordset">(E)</span>ra chaahat<span class="chordset">(A)</span>teri
+<span class="chordset">(B)</span>O  parvardigara, parvardigara (COUPLE OF TIMES)
+
+[Instrumental]
+<span class="chordset">(B)</span> (X2)
+<span class="chordset">(F#m)</span> <span class="chordset">(A)</span> <span class="chordset">(B)</span> <span class="chordset">(E)</span>
+<span class="chordset">(D)</span> <span class="chordset">(F#m)</span> <span class="chordset">(A)</span> <span class="chordset">(E)</span> (X2)
+<span class="chordset">(F#m)</span> <span class="chordset">(E)</span> <span class="chordset">(B7)</span> Break
+
+[Chorus]
+
+Ye fi<span class="chordset">(D)</span>toor me<span class="chordset">(E)</span>ra laaya<span class="chordset">(A)</span>mujhko hai tere ka<span class="chordset">(B)</span>reeb,
+Ye fi<span class="chordset">(D)</span>toor me<span class="chordset">(E)</span>ra rehmat<span class="chordset">(A)</span>teri<span class="chordset">(B)</span>
+Ye fi<span class="chordset">(D)</span>toor me<span class="chordset">(E)</span>ra maine<span class="chordset">(A)</span>badla re mera na<span class="chordset">(B)</span>seeb,
+Ye fi<span class="chordset">(D)</span>toor me<span class="chordset">(E)</span>ra chaahat<span class="chordset">(A)</span>teri
+<span class="chordset">(B)</span>O  parvardigara, parvardigara......</pre>
+
+    </div>
+    <div class="chord-func">
+    <div class="chord-btn">
+      <span id="transpose-txt">SCALE TRANSPOSE</span>
+      <button id="transposeDown">-1</button>
+      <button id="transposeUp">+1</button>
+      <button class="reset-btn" id="reset-scale">RESET</button>
+    </div>
+   
+    <p class="transpose-note">Note: Use the scale transpose buttons to adjust the song's scale to your vocal range. "-" lowers the scale, "+" raises it. This changes all chords on the sheet. Click "RESET" to return to the original scale.</p>
+    <div class="capo-container" id="capo">
+      <div class="capo-h2">
+        <h2>FIND BEST CAPO POSITION</h2>
+      </div>
+      <button id="findBestCapo">Find Best Capo Position</button>
+      <div id="result"></div>
+    </div>
+
+    <div id="controls">
+  <button id="autoscrollBtn">AUTOSCROLL</button>
+  <button id="decreaseSpeed">-</button>
+  <span id="speedIndicator">1.0x</span>
+  <button id="increaseSpeed">+</button>
+  <button id="resetBtn">
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="15"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+  </button>
+</div>
+
+    <div class="menu-overlay">
+    <div class="menu-options">
+            <button class="option-button" onclick="MSTREAMAPI.logout();">Home</button>
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a href="#" class="tab-item" id="transpose-1" >
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" id="exposure-neg"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M4 11v2h8v-2H4zm15 7h-2V7.38L14 8.4V6.7L18.7 5h.3v13z"></path></svg>
+      <span>Transpose</span>
+    </a>
+<a href="#" class="tab-item" id="transpose+1">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" d="M0 0h24v24H0zm0 0h24v24H0z"></path>
+        <path d="M10 7H8v4H4v2h4v4h2v-4h4v-2h-4V7zm10 11h-2V7.38L15 8.4V6.7L19.7 5h.3v13z"></path>
+      </svg>
+      <span>Transpose</span>
+    </a>
+    <button class="menu-button">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+    <a href="#" class="tab-item" id="findNewBestCapo">
+      <svg version="1.1" viewBox="0 0 800 800" width="24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path transform="translate(52,82)" d="m0 0h7l5 3 3 5v23l2 20 7 28 17 50 15 42 4-2 7-3 5 1 7 10 9 15 32 52 13 21 14 23 13 21 48 78 9 14 2 1v-7l5-10 7-7 13-7 9-2h16l8 1 6-13 3-13v-11l-3-15-6-19 1-7 4-4 17-6 10-6 8-7 6-9 4-13-1-17v-28l3-32 4-23 6-20 7-16 16-27 13-19 11-15 11-14 11-13 6-7 9-6 6-2h14l10 3 9 6 7 8 4 10 1 6v14l-3 14-4 9-6 10-7 8-7 5-5 2h-11l-10-5-5-5v-6l5-5 5 2 5 5 2 1h6l6-4 7-8 7-14 1-5v-14l-4-11-4-5-9-3-11 1-8 4-6 5-10 14-9 14-9 16-9 19-6 16-5 21-1 6v32l5 30 7 24 10 25-2 6-8 7-3 6 1 9 4 9 4 6 7 6 13 8 4 5 7 19 8 9 10 3h10l10-2 5 3 8 10 12 16 22 28 13 16 18 22 13 15 9 10 7 8 12 13 23 23 22 18 10 9 8 7 12 11 11 9 11 10 14 11 11 10 7 10 3 6v8l-7 11-6 5-7-1-9-8-4 2-7 8-6-4-7-7-11-9-14-12-14-11-15-12-40-30-36-26-23-16-32-22-43-29-20-13-32-21-22-14-12-8-3-1-15 44-17 45-11 26-6 12-2 3 17 4 33 8 5 1 2-5 4-4 20 4 58 15 64 16 27 7 6 3 2 2-1 15-5 31-4 6-5 1-30-7-139-31-5-2-2-3v-7l1-5h-2l-3 9-4 2-8-6-10-8-13-8-12-5-31-8-26-8-20-8-19-10-13-10-9-9-10-16-12-25-15-36-16-41-17-46-15-41-10-29-17-48-15-43-17-48-19-56-8-28-3-16v-22l3-8 4-5zm65 198m1 1 3 11 33 90 17 46 13 35 10 28 16 47 11 26 5 8 7 4 11 4 11 3h5l-2-9v-19l4-15 8-16 1-5-10-16-11-17-12-19-14-22-12-19-15-23-15-24-11-17-12-19-16-25-14-22-10-15zm197 185-12 3-9 5-6 7-3 11v10l5-4 7-8 1-3h2l7-8 9-10 1-3z"/>
+<path transform="translate(383,664)" d="m0 0h1v5l-2-2z"/>
+<path transform="translate(384,663)" d="m0 0"/>
+<path transform="translate(124,292)" d="m0 0"/>
+<path transform="translate(123,291)" d="m0 0"/>
+<path transform="translate(121,287)" d="m0 0"/>
+</svg>
+      <span>Best Capo</span>
+    </a>
+    <a href="#" class="tab-item" id="reset-scale-new">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+      <span>Reset</span>
+    </a>
+  </nav>
+  </div>
+  </div>`;
+  const tujohmila = `<div class="chord-main">
+    <div class="baarish" id="chord-lyrics">
+    <pre class="song-details-pre">
+Song: Tu Jo Mila
+Singer: KK
+Music : Pritam
+Lyrics: Kausar Munir
+Movie: Bajrangi Bhaijaan</pre>
+    <pre>
+<span class="chordset">(C)</span> Aashiyaana <span class="chordset">(Em)</span> mera
+<span class="chordset">(C)</span> Saath tere <span class="chordset">(Em)</span> hai na
+<span class="chordset">(F)</span> Dhoondhte te<span class="chordset">(F)</span>ri gali
+<span class="chordset">(F)</span> Mujhko ghar mi<span class="chordset">(G)</span>la
+
+<span class="chordset">(C)</span> Aab o daana <span class="chordset">(Em)</span> mera
+<span class="chordset">(C)</span> Haath tere <span class="chordset">(Em)</span> hai na
+<span class="chordset">(F)</span> Dhoondhte te<span class="chordset">(F)</span>ra Khuda
+<span class="chordset">(F)</span> Mujhko Rab <span class="chordset">(G)</span> mila
+
+Tu jo mi<span class="chordset">(Dm)</span>la
+Lo ho gaya main kaa<span class="chordset">(G)</span>bil
+Tu jo mi<span class="chordset">(Em)</span>la
+To ho gaya sab haa<span class="chordset">(F)</span>sil <span class="chordset">(C)</span>haan
+
+Mushkil sa<span class="chordset">(Dm)</span>hi
+Aasaan hui man<span class="chordset">(G)</span>zil
+Kyunki <span class="chordset">(F)</span>Tu Dhad<span class="chordset">(G)</span>kan
+Main <span class="chordset">(C)</span> Dil
+
+<span class="chordset">(C)</span> Rooth jaana <span class="chordset">(Em)</span> tera
+<span class="chordset">(C)</span> Maan jaana <span class="chordset">(Em)</span> mera
+<span class="chordset">(F)</span> Dhoondhte te<span class="chordset">(F)</span>ri hansi
+<span class="chordset">(F)</span> Mil gayi meri khu<span class="chordset">(G)</span>shi
+
+<span class="chordset">(C)</span> Raah hoon main <span class="chordset">(Em)</span> teri
+<span class="chordset">(C)</span> Tu hai tu <span class="chordset">(Em)</span> meri
+<span class="chordset">(F)</span> Dhoondhte te<span class="chordset">(F)</span>re nishaan
+<span class="chordset">(F)</span> Mill gayi khu<span class="chordset">(G)</span>di
+
+Tu jo mi<span class="chordset">(Dm)</span>la
+Lo ho gaya main kaa<span class="chordset">(G)</span>bil
+Tu jo mi<span class="chordset">(Em)</span>la
+To ho gaya sab haa<span class="chordset">(F)</span>sil <span class="chordset">(C)</span>haan
+Mushkil sa<span class="chordset">(Dm)</span>hi
+Aasaan hui man<span class="chordset">(G)</span>zil
+Kyunki <span class="chordset">(F)</span> Tu Dhad<span class="chordset">(G)</span>kan
+Main <span class="chordset">(C)</span> Dil
+
+Tu jo mi<span class="chordset">(Dm)</span>la
+Lo ho gaya main aa<span class="chordset">(G)</span>bil
+Tu jo mi<span class="chordset">(Em)</span>la
+To ho gaya sab haa<span class="chordset">(F)</span>sil <span class="chordset">(C)</span>haan
+Mushkil sa<span class="chordset">(Dm)</span>hi
+Aasaan hui man<span class="chordset">(G)</span>zil
+Kyunki <span class="chordset">(F)</span> Tu Dhad<span class="chordset">(G)</span>kan
+Main <span class="chordset">(C)</span> Dil</pre>
+
+    </div>
+    <div class="chord-func">
+    <div class="chord-btn">
+      <span id="transpose-txt">SCALE TRANSPOSE</span>
+      <button id="transposeDown">-1</button>
+      <button id="transposeUp">+1</button>
+      <button class="reset-btn" id="reset-scale">RESET</button>
+    </div>
+   
+    <p class="transpose-note">Note: Use the scale transpose buttons to adjust the song's scale to your vocal range. "-" lowers the scale, "+" raises it. This changes all chords on the sheet. Click "RESET" to return to the original scale.</p>
+    <div class="capo-container" id="capo">
+      <div class="capo-h2">
+        <h2>FIND BEST CAPO POSITION</h2>
+      </div>
+      <button id="findBestCapo">Find Best Capo Position</button>
+      <div id="result"></div>
+    </div>
+
+    <div id="controls">
+  <button id="autoscrollBtn">AUTOSCROLL</button>
+  <button id="decreaseSpeed">-</button>
+  <span id="speedIndicator">1.0x</span>
+  <button id="increaseSpeed">+</button>
+  <button id="resetBtn">
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="15"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+  </button>
+</div>
+
+    <div class="menu-overlay">
+    <div class="menu-options">
+            <button class="option-button" onclick="MSTREAMAPI.logout();">Home</button>
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a href="#" class="tab-item" id="transpose-1" >
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" id="exposure-neg"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M4 11v2h8v-2H4zm15 7h-2V7.38L14 8.4V6.7L18.7 5h.3v13z"></path></svg>
+      <span>Transpose</span>
+    </a>
+<a href="#" class="tab-item" id="transpose+1">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" d="M0 0h24v24H0zm0 0h24v24H0z"></path>
+        <path d="M10 7H8v4H4v2h4v4h2v-4h4v-2h-4V7zm10 11h-2V7.38L15 8.4V6.7L19.7 5h.3v13z"></path>
+      </svg>
+      <span>Transpose</span>
+    </a>
+    <button class="menu-button">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+    <a href="#" class="tab-item" id="findNewBestCapo">
+      <svg version="1.1" viewBox="0 0 800 800" width="24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path transform="translate(52,82)" d="m0 0h7l5 3 3 5v23l2 20 7 28 17 50 15 42 4-2 7-3 5 1 7 10 9 15 32 52 13 21 14 23 13 21 48 78 9 14 2 1v-7l5-10 7-7 13-7 9-2h16l8 1 6-13 3-13v-11l-3-15-6-19 1-7 4-4 17-6 10-6 8-7 6-9 4-13-1-17v-28l3-32 4-23 6-20 7-16 16-27 13-19 11-15 11-14 11-13 6-7 9-6 6-2h14l10 3 9 6 7 8 4 10 1 6v14l-3 14-4 9-6 10-7 8-7 5-5 2h-11l-10-5-5-5v-6l5-5 5 2 5 5 2 1h6l6-4 7-8 7-14 1-5v-14l-4-11-4-5-9-3-11 1-8 4-6 5-10 14-9 14-9 16-9 19-6 16-5 21-1 6v32l5 30 7 24 10 25-2 6-8 7-3 6 1 9 4 9 4 6 7 6 13 8 4 5 7 19 8 9 10 3h10l10-2 5 3 8 10 12 16 22 28 13 16 18 22 13 15 9 10 7 8 12 13 23 23 22 18 10 9 8 7 12 11 11 9 11 10 14 11 11 10 7 10 3 6v8l-7 11-6 5-7-1-9-8-4 2-7 8-6-4-7-7-11-9-14-12-14-11-15-12-40-30-36-26-23-16-32-22-43-29-20-13-32-21-22-14-12-8-3-1-15 44-17 45-11 26-6 12-2 3 17 4 33 8 5 1 2-5 4-4 20 4 58 15 64 16 27 7 6 3 2 2-1 15-5 31-4 6-5 1-30-7-139-31-5-2-2-3v-7l1-5h-2l-3 9-4 2-8-6-10-8-13-8-12-5-31-8-26-8-20-8-19-10-13-10-9-9-10-16-12-25-15-36-16-41-17-46-15-41-10-29-17-48-15-43-17-48-19-56-8-28-3-16v-22l3-8 4-5zm65 198m1 1 3 11 33 90 17 46 13 35 10 28 16 47 11 26 5 8 7 4 11 4 11 3h5l-2-9v-19l4-15 8-16 1-5-10-16-11-17-12-19-14-22-12-19-15-23-15-24-11-17-12-19-16-25-14-22-10-15zm197 185-12 3-9 5-6 7-3 11v10l5-4 7-8 1-3h2l7-8 9-10 1-3z"/>
+<path transform="translate(383,664)" d="m0 0h1v5l-2-2z"/>
+<path transform="translate(384,663)" d="m0 0"/>
+<path transform="translate(124,292)" d="m0 0"/>
+<path transform="translate(123,291)" d="m0 0"/>
+<path transform="translate(121,287)" d="m0 0"/>
+</svg>
+      <span>Best Capo</span>
+    </a>
+    <a href="#" class="tab-item" id="reset-scale-new">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+      <span>Reset</span>
+    </a>
+  </nav>
+  </div>
+  </div>`;
+  const abhimujme = `<div class="chord-main">
+    <div class="baarish" id="chord-lyrics">
+     <pre class="song-details-pre">
+Song: Abhi Mujh Mein Kahin
+Singer: Sonu Nigam
+Music : Ajay Atul
+Lyrics: Amitabh Bhattacharya
+Movie: Agneepath </pre>
+    <pre>
+<span class="chordset">(D)</span> Abhi mujh mein kahin
+Baaki <span class="chordset">(G)</span>thodi si <span class="chordset">(D)</span>hai
+zinda<span class="chordset">(Bm)</span>gi<span class="chordset">(F#)</span>
+ 
+<span class="chordset">(D)</span>Jagi dhadkan nayi
+Jaana <span class="chordset">(G)</span>zinda hoon
+<span class="chordset">(D)</span>main toh a<span class="chordset">(Bm)</span>bhi<span class="chordset">(F#)</span>
+ 
+Kuch <span class="chordset">(G)</span>aisi la<span class="chordset">(A)</span>gan
+Is <span class="chordset">(G)</span>lamhe mein <span class="chordset">(A)</span>hai
+Ye <span class="chordset">(E)</span>lamha ka<span class="chordset">(G)</span>haan tha me<span class="chordset">(A)</span>ra
+ 
+Ab <span class="chordset">(D)</span>hai saam<span class="chordset">(Bm)</span>ne
+Ise <span class="chordset">(D)</span>choo loon za<span class="chordset">(A)</span>ra
+Mar <span class="chordset">(G)</span>jaaoon ya <span class="chordset">(A)</span>jee loon
+za<span class="chordset">(D)</span>raa<span class="chordset">(F#)</span>
+ 
+Khushi<span class="chordset">(D)</span>yaan choom <span class="chordset">(Bm)</span>loon
+Ya <span class="chordset">(D)</span>roloon za<span class="chordset">(A)</span>ra
+Mar <span class="chordset">(G)</span>jaaoon ya <span class="chordset">(A)</span>jee loon
+za<span class="chordset">(D)</span>raa
+ 
+Ho <span class="chordset">(D)</span>Abhi mujh mein kahin
+Baaki <span class="chordset">(G)</span>thodi si <span class="chordset">(D)</span>hai zinda<span class="chordset">(Bm)</span>gi
+ 
+Ho <span class="chordset">(D)</span>dhoop mein
+jal<span class="chordset">(C)</span>te huey tann <span class="chordset">(D)</span>ko
+Chaa<span class="chordset">(Bm)</span>ya ped ki<span class="chordset">(F#)</span>i mil
+ga<span class="chordset">(D)</span>yi<span class="chordset">(F#)</span>
+ 
+<span class="chordset">(D)</span>Roothe bachche
+<span class="chordset">(C)</span>ki hansi jai<span class="chordset">(D)</span>se
+Phus<span class="chordset">(Bm)</span>lane se <span class="chordset">(F#)</span>phir khil
+ga<span class="chordset">(D)</span>yi
+ 
+Kuch ai<span class="chordset">(E)</span>sa hi mehsoos
+dil ko <span class="chordset">(D)</span>ho raha hai
+Barson <span class="chordset">(E)</span>ke puraane zakhmo pell
+mar<span class="chordset">(D)</span>ham laga sa hai
+ 
+Ek <span class="chordset">(G)</span>aisa Re<span class="chordset">(A)</span>hem
+Is <span class="chordset">(G)</span>lamhe mein <span class="chordset">(A)</span>hai
+Ye <span class="chordset">(E)</span>lamha ka<span class="chordset">(G)</span>haan tha me<span class="chordset">(A)</span>ra
+ 
+Ab <span class="chordset">(D)</span>hai saam<span class="chordset">(Bm)</span>ne
+Ise <span class="chordset">(D)</span>choo loon za<span class="chordset">(A)</span>ra
+Mar <span class="chordset">(G)</span>jaaoon ya <span class="chordset">(A)</span>jee loon
+za<span class="chordset">(D)</span>raa<span class="chordset">(F#)</span>
+ 
+Khushi<span class="chordset">(D)</span>yaan choom <span class="chordset">(Bm)</span>loon
+Ya <span class="chordset">(D)</span>roloon za<span class="chordset">(A)</span>ra
+Mar <span class="chordset">(G)</span>jaaoon ya <span class="chordset">(A)</span>jee loon
+za<span class="chordset">(D)</span>raa
+ 
+<span class="chordset">(D)</span>Dor se tu<span class="chordset">(C)</span>ti patang jai<span class="chordset">(D)</span>si
+Thi <span class="chordset">(Bm)</span>ye zinda<span class="chordset">(F#)</span>gani me<span class="chordset">(D)</span>ri<span class="chordset">(F#)</span>
+<span class="chordset">(D)</span>Aaj hai kal <span class="chordset">(C)</span>ho mera na <span class="chordset">(D)</span>ho
+Har <span class="chordset">(Bm)</span>din thi ka<span class="chordset">(F#)</span>hani me<span class="chordset">(D)</span>ri
+ 
+Ek ban<span class="chordset">(E)</span>dhan naya peechhe
+se ab mujh<span class="chordset">(D)</span>ko bulaye
+Aane <span class="chordset">(E)</span>wale kal ki kyun fikar
+mujh<span class="chordset">(D)</span>ko sata jaye
+ 
+Ek <span class="chordset">(G)</span>aisi chu<span class="chordset">(A)</span>bhan
+Is <span class="chordset">(G)</span>lamhe mein <span class="chordset">(A)</span>hai
+Ye <span class="chordset">(E)</span>lamha ka<span class="chordset">(G)</span>haan tha me<span class="chordset">(A)</span>ra
+ 
+Ab <span class="chordset">(D)</span>hai saam<span class="chordset">(Bm)</span>ne
+Ise <span class="chordset">(D)</span>choo loon za<span class="chordset">(A)</span>ra
+Mar <span class="chordset">(G)</span>jaaoon ya <span class="chordset">(A)</span>jee loon
+za<span class="chordset">(D)</span>raa<span class="chordset">(F#)</span>
+ 
+Khushi<span class="chordset">(D)</span>yaan choom <span class="chordset">(Bm)</span>loon
+Ya <span class="chordset">(D)</span>roloon za<span class="chordset">(A)</span>ra
+Mar <span class="chordset">(G)</span>jaaoon ya <span class="chordset">(A)</span>jee loon
+za<span class="chordset">(D)</span>raa</pre>
+
+    </div>
+    <div class="chord-func">
+    <div class="chord-btn">
+      <span id="transpose-txt">SCALE TRANSPOSE</span>
+      <button id="transposeDown">-1</button>
+      <button id="transposeUp">+1</button>
+      <button class="reset-btn" id="reset-scale">RESET</button>
+    </div>
+   
+    <p class="transpose-note">Note: Use the scale transpose buttons to adjust the song's scale to your vocal range. "-" lowers the scale, "+" raises it. This changes all chords on the sheet. Click "RESET" to return to the original scale.</p>
+    <div class="capo-container" id="capo">
+      <div class="capo-h2">
+        <h2>FIND BEST CAPO POSITION</h2>
+      </div>
+      <button id="findBestCapo">Find Best Capo Position</button>
+      <div id="result"></div>
+    </div>
+
+    <div id="controls">
+  <button id="autoscrollBtn">AUTOSCROLL</button>
+  <button id="decreaseSpeed">-</button>
+  <span id="speedIndicator">1.0x</span>
+  <button id="increaseSpeed">+</button>
+  <button id="resetBtn">
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="15"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+  </button>
+</div>
+
+    <div class="menu-overlay">
+    <div class="menu-options">
+            <button class="option-button" onclick="MSTREAMAPI.logout();">Home</button>
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a href="#" class="tab-item" id="transpose-1" >
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" id="exposure-neg"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M4 11v2h8v-2H4zm15 7h-2V7.38L14 8.4V6.7L18.7 5h.3v13z"></path></svg>
+      <span>Transpose</span>
+    </a>
+<a href="#" class="tab-item" id="transpose+1">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" d="M0 0h24v24H0zm0 0h24v24H0z"></path>
+        <path d="M10 7H8v4H4v2h4v4h2v-4h4v-2h-4V7zm10 11h-2V7.38L15 8.4V6.7L19.7 5h.3v13z"></path>
+      </svg>
+      <span>Transpose</span>
+    </a>
+    <button class="menu-button">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+    <a href="#" class="tab-item" id="findNewBestCapo">
+      <svg version="1.1" viewBox="0 0 800 800" width="24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path transform="translate(52,82)" d="m0 0h7l5 3 3 5v23l2 20 7 28 17 50 15 42 4-2 7-3 5 1 7 10 9 15 32 52 13 21 14 23 13 21 48 78 9 14 2 1v-7l5-10 7-7 13-7 9-2h16l8 1 6-13 3-13v-11l-3-15-6-19 1-7 4-4 17-6 10-6 8-7 6-9 4-13-1-17v-28l3-32 4-23 6-20 7-16 16-27 13-19 11-15 11-14 11-13 6-7 9-6 6-2h14l10 3 9 6 7 8 4 10 1 6v14l-3 14-4 9-6 10-7 8-7 5-5 2h-11l-10-5-5-5v-6l5-5 5 2 5 5 2 1h6l6-4 7-8 7-14 1-5v-14l-4-11-4-5-9-3-11 1-8 4-6 5-10 14-9 14-9 16-9 19-6 16-5 21-1 6v32l5 30 7 24 10 25-2 6-8 7-3 6 1 9 4 9 4 6 7 6 13 8 4 5 7 19 8 9 10 3h10l10-2 5 3 8 10 12 16 22 28 13 16 18 22 13 15 9 10 7 8 12 13 23 23 22 18 10 9 8 7 12 11 11 9 11 10 14 11 11 10 7 10 3 6v8l-7 11-6 5-7-1-9-8-4 2-7 8-6-4-7-7-11-9-14-12-14-11-15-12-40-30-36-26-23-16-32-22-43-29-20-13-32-21-22-14-12-8-3-1-15 44-17 45-11 26-6 12-2 3 17 4 33 8 5 1 2-5 4-4 20 4 58 15 64 16 27 7 6 3 2 2-1 15-5 31-4 6-5 1-30-7-139-31-5-2-2-3v-7l1-5h-2l-3 9-4 2-8-6-10-8-13-8-12-5-31-8-26-8-20-8-19-10-13-10-9-9-10-16-12-25-15-36-16-41-17-46-15-41-10-29-17-48-15-43-17-48-19-56-8-28-3-16v-22l3-8 4-5zm65 198m1 1 3 11 33 90 17 46 13 35 10 28 16 47 11 26 5 8 7 4 11 4 11 3h5l-2-9v-19l4-15 8-16 1-5-10-16-11-17-12-19-14-22-12-19-15-23-15-24-11-17-12-19-16-25-14-22-10-15zm197 185-12 3-9 5-6 7-3 11v10l5-4 7-8 1-3h2l7-8 9-10 1-3z"/>
+<path transform="translate(383,664)" d="m0 0h1v5l-2-2z"/>
+<path transform="translate(384,663)" d="m0 0"/>
+<path transform="translate(124,292)" d="m0 0"/>
+<path transform="translate(123,291)" d="m0 0"/>
+<path transform="translate(121,287)" d="m0 0"/>
+</svg>
+      <span>Best Capo</span>
+    </a>
+    <a href="#" class="tab-item" id="reset-scale-new">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+      <span>Reset</span>
+    </a>
+  </nav>
+  </div>
+  </div>`;
+  const hamariadhuri = `<div class="chord-main">
+    <div class="baarish" id="chord-lyrics">
+    <pre class="song-details-pre">
+Song: Hamari Adhuri Kahani
+Singer: Arijit Singh
+Music : Jeet Gannguli
+Lyrics: Rashmi Singh and Virag Mishra
+Movie: Hamari Adhuri Kahani</pre>
+    <pre>
+Paas <span class="chordset">(C)</span>aaye..
+Doori<span class="chordset">(C)</span>yaan phir bhi kam
+naa hu<span class="chordset">(F)</span>i Ek a<span class="chordset">(C)</span>dhuri
+si hamari kahani ra<span class="chordset">(F)</span>hi
+ 
+Aas<span class="chordset">(F)</span>maan ko zameen,
+ye zaroori nahi
+Ja Mi<span class="chordset">(G)</span>le.. Ja Mi<span class="chordset">(C)</span>le..
+ 
+Ishq <span class="chordset">(F)</span>saccha wahi
+Jisko milti nahi
+manzi<span class="chordset">(G)</span>lein.. manzi<span class="chordset">(C)</span>lein..
+ 
+[Hook]
+ 
+Rang <span class="chordset">(C)</span>thhe, noor tha
+Jab ka<span class="chordset">(F)</span>reeb tu tha
+Ek <span class="chordset">(G)</span>jannat sa tha,
+yeh ja<span class="chordset">(C)</span>haan<span class="chordset">(E)</span>
+ 
+Waqt <span class="chordset">(C)</span>ki ret pe
+kuch me<span class="chordset">(F)</span>re naam sa
+Likh ke <span class="chordset">(A#)</span>chhod gaya
+tu ka<span class="chordset">(C)</span>haan<span class="chordset">(G)(C)</span>
+ 
+ 
+[Chorus]
+ 
+Ha<span class="chordset">(Am)</span>mari adhuri ka<span class="chordset">(F)</span>hani..
+Ha<span class="chordset">(G)</span>mari adhuri ka<span class="chordset">(C)</span>hani..
+Ha<span class="chordset">(Am)</span>mari adhuri ka<span class="chordset">(F)</span>hani..
+Ha<span class="chordset">(G)</span>mari adhuri ka<span class="chordset">(C)</span>hani..
+ 
+[Verse]
+ 
+<span class="chordset">(C)</span>Khushbuon se teri
+<span class="chordset">(C)</span>unhi takra ga<span class="chordset">(F)</span>ye
+<span class="chordset">(Dm)</span>Chalte chalte <span class="chordset">(G)</span>dekho na
+<span class="chordset">(Em)</span>Hum kahaan aa ga<span class="chordset">(Am)</span>ye
+ 
+[Hook]
+ 
+Janna<span class="chordset">(C)</span>tein agar yahin
+Tu di<span class="chordset">(F)</span>khe kyon nahin
+Chaand <span class="chordset">(G)</span>suraj sabhi
+hai ya<span class="chordset">(C)</span>haan<span class="chordset">(E)</span>
+ 
+Inte<span class="chordset">(C)</span>zar tera
+sadiyon <span class="chordset">(F)</span>se kar raha
+Pyaasi <span class="chordset">(A#)</span>baithi hai kab se
+ya<span class="chordset">(C)</span>haan<span class="chordset">(G)(C)</span>
+ 
+ 
+[Chorus]
+ 
+Ha<span class="chordset">(Am)</span>mari adhuri ka<span class="chordset">(F)</span>hani..
+Ha<span class="chordset">(G)</span>mari adhuri ka<span class="chordset">(C)</span>hani..
+Ha<span class="chordset">(Am)</span>mari adhuri ka<span class="chordset">(F)</span>hani..
+Ha<span class="chordset">(G)</span>mari adhuri ka<span class="chordset">(C)</span>hani..
+ 
+[Verse]
+ 
+<span class="chordset">(C)</span>Pyaas ka ye safar
+khatam ho jaye<span class="chordset">(F)</span>ga
+<span class="chordset">(Dm)</span>Kuch adhura <span class="chordset">(G)</span>sa jo tha
+<span class="chordset">(Em)</span>poora ho jaye<span class="chordset">(Am)</span>ga
+ 
+ 
+[Hook]
+ 
+Jhuk ga<span class="chordset">(C)</span>ya aasmaan
+Mill ga<span class="chordset">(F)</span>ye do jahaan
+Har ta<span class="chordset">(G)</span>raf hai milan
+ka sa<span class="chordset">(C)</span>maa<span class="chordset">(E)</span>
+ 
+Doli<span class="chordset">(C)</span>ya hain saji,
+khushbo<span class="chordset">(F)</span>yein har kahin
+Padhne <span class="chordset">(A#)</span>aaya Khuda
+khud ya<span class="chordset">(C)</span>haan<span class="chordset">(G)(C)</span>..
+ 
+ 
+[Chorus]
+ 
+Ha<span class="chordset">(Am)</span>mari adhuri ka<span class="chordset">(F)</span>hani..
+Ha<span class="chordset">(G)</span>mari adhuri ka<span class="chordset">(C)</span>hani..
+Ha<span class="chordset">(Am)</span>mari adhuri ka<span class="chordset">(F)</span>hani..
+Ha<span class="chordset">(G)</span>mari adhuri ka<span class="chordset">(C)</span>hani..</pre>
+
+    </div>
+    <div class="chord-func">
+  
+    <div class="chord-btn">
+      <span id="transpose-txt">SCALE TRANSPOSE</span>
+      <button id="transposeDown">-1</button>
+      <button id="transposeUp">+1</button>
+      <button class="reset-btn" id="reset-scale">RESET</button>
+    </div>
+   
+    <p class="transpose-note">Note: Use the scale transpose buttons to adjust the song's scale to your vocal range. "-" lowers the scale, "+" raises it. This changes all chords on the sheet. Click "RESET" to return to the original scale.</p>
+    <div class="capo-container" id="capo">
+      <div class="capo-h2">
+        <h2>FIND BEST CAPO POSITION</h2>
+      </div>
+      <button id="findBestCapo">Find Best Capo Position</button>
+      <div id="result"></div>
+    </div>
+
+    <div id="controls">
+  <button id="autoscrollBtn">AUTOSCROLL</button>
+  <button id="decreaseSpeed">-</button>
+  <span id="speedIndicator">1.0x</span>
+  <button id="increaseSpeed">+</button>
+  <button id="resetBtn">
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="15"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+  </button>
+</div>
+
+    <div class="menu-overlay">
+    <div class="menu-options">
+            <button class="option-button" onclick="MSTREAMAPI.logout();">Home</button>
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a href="#" class="tab-item" id="transpose-1" >
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" id="exposure-neg"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M4 11v2h8v-2H4zm15 7h-2V7.38L14 8.4V6.7L18.7 5h.3v13z"></path></svg>
+      <span>Transpose</span>
+    </a>
+<a href="#" class="tab-item" id="transpose+1">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" d="M0 0h24v24H0zm0 0h24v24H0z"></path>
+        <path d="M10 7H8v4H4v2h4v4h2v-4h4v-2h-4V7zm10 11h-2V7.38L15 8.4V6.7L19.7 5h.3v13z"></path>
+      </svg>
+      <span>Transpose</span>
+    </a>
+    <button class="menu-button">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+    <a href="#" class="tab-item" id="findNewBestCapo">
+      <svg version="1.1" viewBox="0 0 800 800" width="24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path transform="translate(52,82)" d="m0 0h7l5 3 3 5v23l2 20 7 28 17 50 15 42 4-2 7-3 5 1 7 10 9 15 32 52 13 21 14 23 13 21 48 78 9 14 2 1v-7l5-10 7-7 13-7 9-2h16l8 1 6-13 3-13v-11l-3-15-6-19 1-7 4-4 17-6 10-6 8-7 6-9 4-13-1-17v-28l3-32 4-23 6-20 7-16 16-27 13-19 11-15 11-14 11-13 6-7 9-6 6-2h14l10 3 9 6 7 8 4 10 1 6v14l-3 14-4 9-6 10-7 8-7 5-5 2h-11l-10-5-5-5v-6l5-5 5 2 5 5 2 1h6l6-4 7-8 7-14 1-5v-14l-4-11-4-5-9-3-11 1-8 4-6 5-10 14-9 14-9 16-9 19-6 16-5 21-1 6v32l5 30 7 24 10 25-2 6-8 7-3 6 1 9 4 9 4 6 7 6 13 8 4 5 7 19 8 9 10 3h10l10-2 5 3 8 10 12 16 22 28 13 16 18 22 13 15 9 10 7 8 12 13 23 23 22 18 10 9 8 7 12 11 11 9 11 10 14 11 11 10 7 10 3 6v8l-7 11-6 5-7-1-9-8-4 2-7 8-6-4-7-7-11-9-14-12-14-11-15-12-40-30-36-26-23-16-32-22-43-29-20-13-32-21-22-14-12-8-3-1-15 44-17 45-11 26-6 12-2 3 17 4 33 8 5 1 2-5 4-4 20 4 58 15 64 16 27 7 6 3 2 2-1 15-5 31-4 6-5 1-30-7-139-31-5-2-2-3v-7l1-5h-2l-3 9-4 2-8-6-10-8-13-8-12-5-31-8-26-8-20-8-19-10-13-10-9-9-10-16-12-25-15-36-16-41-17-46-15-41-10-29-17-48-15-43-17-48-19-56-8-28-3-16v-22l3-8 4-5zm65 198m1 1 3 11 33 90 17 46 13 35 10 28 16 47 11 26 5 8 7 4 11 4 11 3h5l-2-9v-19l4-15 8-16 1-5-10-16-11-17-12-19-14-22-12-19-15-23-15-24-11-17-12-19-16-25-14-22-10-15zm197 185-12 3-9 5-6 7-3 11v10l5-4 7-8 1-3h2l7-8 9-10 1-3z"/>
+<path transform="translate(383,664)" d="m0 0h1v5l-2-2z"/>
+<path transform="translate(384,663)" d="m0 0"/>
+<path transform="translate(124,292)" d="m0 0"/>
+<path transform="translate(123,291)" d="m0 0"/>
+<path transform="translate(121,287)" d="m0 0"/>
+</svg>
+      <span>Best Capo</span>
+    </a>
+    <a href="#" class="tab-item" id="reset-scale-new">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+      <span>Reset</span>
+    </a>
+  </nav>
+  </div>
+  </div>`;
+  const yehjism = `<div class="chord-main">
+    <div class="baarish" id="chord-lyrics">
+     <pre class="song-details-pre">
+Song: Yeh Jism
+Singer: Ali Azmat
+Music : Arko Pravo Mukherjee
+Lyrics: Arko Pravo Mukherjee,Munish
+Movie: Jism 2</pre>
+    <pre>
+Yeh <span class="chordset">(Em)</span> jism hai toh kya Ye rooh ka libaas hai
+Yeh <span class="chordset">(D)</span> dard hai toh kya Ye ishq ki talash hai
+Fa<span class="chordset">(C)</span>naa kiya mujhe Ye chahne ki aas ne
+Ta<span class="chordset">(D)</span>raa ta<span class="chordset">(C)</span>raa shi<span class="chordset">(Em)</span>kast hi hua
+ 
+Ra<span class="chordset">(Em)</span>za hai kya teri, dilo Jahaan tabaah kiya
+Sa<span class="chordset">(D)</span>zaa bhi kya teri, wafaa ko bewafaa kiya
+<span class="chordset">(C)</span>Wah re zindagi, se yun mujhe juda kiya
+Ka<span class="chordset">(D)</span>haan Ka<span class="chordset">(C)</span>haan, phi<span class="chordset">(Em)</span>run main dhoondta
+ 
+Ra<span class="chordset">(Em)</span>za hai kya teri, dilo Jahaan tabaah kiya
+Sa<span class="chordset">(D)</span>zaa bhi kya teri, wafaa ko bewafaa kiya
+<span class="chordset">(C)</span>Wah re zindagi, se yun mujhe juda kiya
+Ka<span class="chordset">(D)</span>haan Ka<span class="chordset">(C)</span>haan, phi<span class="chordset">(Em)</span>run main dhoondta
+ 
+Wa<span class="chordset">(Em)</span>haan jahaan tuhi mera libaas hai
+Wa<span class="chordset">(D)</span>haan jahaan teri hi bas talash hai
+Wa<span class="chordset">(C)</span>haan jahaan tujhi pe khatam aas hai
+Wa<span class="chordset">(D)</span>hin shu<span class="chordset">(C)</span>ru wa<span class="chordset">(Em)</span>hin pe dafan jaan hai
+ 
+Wa<span class="chordset">(Em)</span>haan jahaan tuhi mera libaas hai
+Wa<span class="chordset">(D)</span>haan jahaan teri hi bas talash hai
+Wa<span class="chordset">(C)</span>haan jahaan tujhi pe khatam aas hai
+Wa<span class="chordset">(D)</span>hin shu<span class="chordset">(C)</span>ru wa<span class="chordset">(Em)</span>hin pe dafan jaan hai
+ 
+Yeh <span class="chordset">(Em)</span> jism hai toh kya Ye rooh ka libaas hai
+Yeh <span class="chordset">(D)</span> dard hai toh kya Ye ishq ki talash hai
+Fa<span class="chordset">(C)</span>naa kiya mujhe Ye chahne ki aas ne
+Ta<span class="chordset">(D)</span>raa ta<span class="chordset">(C)</span>raa shi<span class="chordset">(Em)</span>kast hi hua</pre>
+
+    </div>
+    <div class="chord-func">
+    <div class="chord-btn">
+      <span id="transpose-txt">SCALE TRANSPOSE</span>
+      <button id="transposeDown">-1</button>
+      <button id="transposeUp">+1</button>
+      <button class="reset-btn" id="reset-scale">RESET</button>
+    </div>
+   
+    <p class="transpose-note">Note: Use the scale transpose buttons to adjust the song's scale to your vocal range. "-" lowers the scale, "+" raises it. This changes all chords on the sheet. Click "RESET" to return to the original scale.</p>
+    <div class="capo-container" id="capo">
+      <div class="capo-h2">
+        <h2>FIND BEST CAPO POSITION</h2>
+      </div>
+      <button id="findBestCapo">Find Best Capo Position</button>
+      <div id="result"></div>
+    </div>
+
+    <div id="controls">
+  <button id="autoscrollBtn">AUTOSCROLL</button>
+  <button id="decreaseSpeed">-</button>
+  <span id="speedIndicator">1.0x</span>
+  <button id="increaseSpeed">+</button>
+  <button id="resetBtn">
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="15"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+  </button>
+</div>
+
+    <div class="menu-overlay">
+    <div class="menu-options">
+            <button class="option-button" onclick="MSTREAMAPI.logout();">Home</button>
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a href="#" class="tab-item" id="transpose-1" >
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" id="exposure-neg"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M4 11v2h8v-2H4zm15 7h-2V7.38L14 8.4V6.7L18.7 5h.3v13z"></path></svg>
+      <span>Transpose</span>
+    </a>
+<a href="#" class="tab-item" id="transpose+1">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" d="M0 0h24v24H0zm0 0h24v24H0z"></path>
+        <path d="M10 7H8v4H4v2h4v4h2v-4h4v-2h-4V7zm10 11h-2V7.38L15 8.4V6.7L19.7 5h.3v13z"></path>
+      </svg>
+      <span>Transpose</span>
+    </a>
+    <button class="menu-button">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+    <a href="#" class="tab-item" id="findNewBestCapo">
+      <svg version="1.1" viewBox="0 0 800 800" width="24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path transform="translate(52,82)" d="m0 0h7l5 3 3 5v23l2 20 7 28 17 50 15 42 4-2 7-3 5 1 7 10 9 15 32 52 13 21 14 23 13 21 48 78 9 14 2 1v-7l5-10 7-7 13-7 9-2h16l8 1 6-13 3-13v-11l-3-15-6-19 1-7 4-4 17-6 10-6 8-7 6-9 4-13-1-17v-28l3-32 4-23 6-20 7-16 16-27 13-19 11-15 11-14 11-13 6-7 9-6 6-2h14l10 3 9 6 7 8 4 10 1 6v14l-3 14-4 9-6 10-7 8-7 5-5 2h-11l-10-5-5-5v-6l5-5 5 2 5 5 2 1h6l6-4 7-8 7-14 1-5v-14l-4-11-4-5-9-3-11 1-8 4-6 5-10 14-9 14-9 16-9 19-6 16-5 21-1 6v32l5 30 7 24 10 25-2 6-8 7-3 6 1 9 4 9 4 6 7 6 13 8 4 5 7 19 8 9 10 3h10l10-2 5 3 8 10 12 16 22 28 13 16 18 22 13 15 9 10 7 8 12 13 23 23 22 18 10 9 8 7 12 11 11 9 11 10 14 11 11 10 7 10 3 6v8l-7 11-6 5-7-1-9-8-4 2-7 8-6-4-7-7-11-9-14-12-14-11-15-12-40-30-36-26-23-16-32-22-43-29-20-13-32-21-22-14-12-8-3-1-15 44-17 45-11 26-6 12-2 3 17 4 33 8 5 1 2-5 4-4 20 4 58 15 64 16 27 7 6 3 2 2-1 15-5 31-4 6-5 1-30-7-139-31-5-2-2-3v-7l1-5h-2l-3 9-4 2-8-6-10-8-13-8-12-5-31-8-26-8-20-8-19-10-13-10-9-9-10-16-12-25-15-36-16-41-17-46-15-41-10-29-17-48-15-43-17-48-19-56-8-28-3-16v-22l3-8 4-5zm65 198m1 1 3 11 33 90 17 46 13 35 10 28 16 47 11 26 5 8 7 4 11 4 11 3h5l-2-9v-19l4-15 8-16 1-5-10-16-11-17-12-19-14-22-12-19-15-23-15-24-11-17-12-19-16-25-14-22-10-15zm197 185-12 3-9 5-6 7-3 11v10l5-4 7-8 1-3h2l7-8 9-10 1-3z"/>
+<path transform="translate(383,664)" d="m0 0h1v5l-2-2z"/>
+<path transform="translate(384,663)" d="m0 0"/>
+<path transform="translate(124,292)" d="m0 0"/>
+<path transform="translate(123,291)" d="m0 0"/>
+<path transform="translate(121,287)" d="m0 0"/>
+</svg>
+      <span>Best Capo</span>
+    </a>
+    <a href="#" class="tab-item" id="reset-scale-new">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+      <span>Reset</span>
+    </a>
+  </nav>
+  </div>
+  </div>`;
+  const ajibdastan = `<div class="chord-main">
+    <div class="baarish" id="chord-lyrics">
+    <pre class="song-details-pre">
+Song: Ajib Dastan Hain Yeh
+Singer: Lata Mangeshkar
+Music : Shankar Jaikishan
+Lyrics: Shailendra
+Movie: Dil Apna Aur Preet Parai>/pre>
+
+<pre>
+[Chorus]
+<span class="chordset">(F)</span>Ajeeb dastaan hai <span class="chordset">(F)</span>ye,
+<span class="chordset">(F)</span>Kahan shuru kahan kha-<span class="chordset">(Gm)</span>tam
+<span class="chordset">(Gm)</span>Yeh manzilein hai kaun-<span class="chordset">(A#)</span>si,
+<span class="chordset">(C)</span>Na woh samajh sake na <span class="chordset">(F)</span>hum
+ 
+[Verse 1]
+<span class="chordset">(F)</span>Yeh roshni ke sath <span class="chordset">(A#)</span>kyu,
+Dhuan utha chirag <span class="chordset">(F)</span>se X2
+<span class="chordset">(C)</span>Yeh khwab dekhti hu <span class="chordset">(A#)</span>mai,
+<span class="chordset">(A#)</span>Ke jag padi hu khwab <span class="chordset">(F)</span>se
+ 
+[Chorus]
+<span class="chordset">(F)</span>Ajeeb dastaan hai <span class="chordset">(F)</span>ye,
+<span class="chordset">(F)</span>Kahan shuru kahan kha-<span class="chordset">(Gm)</span>tam
+<span class="chordset">(Gm)</span>Yeh manzilein hai kaun-<span class="chordset">(A#)</span>si,
+<span class="chordset">(C)</span>Na woh samajh sake na <span class="chordset">(F)</span>hum
+  
+[Verse 2]
+<span class="chordset">(F)</span>Mubarke tumhe ke <span class="chordset">(A#)</span>tum,
+Kisi ke nur ho ga<span class="chordset">(F)</span>ye X2
+<span class="chordset">(C)</span>Kisi ke itne pas <span class="chordset">(A#)</span>ho,
+<span class="chordset">(A#)</span>Ke sab se dur ho ga<span class="chordset">(F)</span>ye
+ 
+[Chorus]
+<span class="chordset">(F)</span>Ajeeb dastaan hai <span class="chordset">(F)</span>ye,
+<span class="chordset">(F)</span>Kahan shuru kahan kha-<span class="chordset">(Gm)</span>tam
+<span class="chordset">(Gm)</span>Yeh manzilein hai kaun-<span class="chordset">(A#)</span>si,
+<span class="chordset">(C)</span>Na woh samajh sake na <span class="chordset">(F)</span>hum 
+ 
+[Verse 3]
+<span class="chordset">(F)</span>Kisi ka pyar leke <span class="chordset">(A#)</span>tum,
+Naya jahan basaao-<span class="chordset">(F)</span>ge X2
+<span class="chordset">(C)</span>Yeh shaam jab bhi aaye-<span class="chordset">(A#)</span>gi,
+Tum humko yaad aao-<span class="chordset">(F)</span>ge
+ 
+[Chorus]
+<span class="chordset">(F)</span>Ajeeb dastaan hai <span class="chordset">(F)</span>ye,
+<span class="chordset">(F)</span>Kahan shuru kahan kha-<span class="chordset">(Gm)</span>tam
+<span class="chordset">(Gm)</span>Yeh manzilein hai kaun-<span class="chordset">(A#)</span>si,
+<span class="chordset">(C)</span>Na woh samajh sake na <span class="chordset">(F)</span>hum</pre>
+
+    </div>
+    <div class="chord-func">
+    <div class="chord-btn">
+      <span id="transpose-txt">SCALE TRANSPOSE</span>
+      <button id="transposeDown">-1</button>
+      <button id="transposeUp">+1</button>
+      <button class="reset-btn" id="reset-scale">RESET</button>
+    </div>
+   
+    <p class="transpose-note">Note: Use the scale transpose buttons to adjust the song's scale to your vocal range. "-" lowers the scale, "+" raises it. This changes all chords on the sheet. Click "RESET" to return to the original scale.</p>
+    <div class="capo-container" id="capo">
+      <div class="capo-h2">
+        <h2>FIND BEST CAPO POSITION</h2>
+      </div>
+      <button id="findBestCapo">Find Best Capo Position</button>
+      <div id="result"></div>
+    </div>
+
+    <div id="controls">
+  <button id="autoscrollBtn">AUTOSCROLL</button>
+  <button id="decreaseSpeed">-</button>
+  <span id="speedIndicator">1.0x</span>
+  <button id="increaseSpeed">+</button>
+  <button id="resetBtn">
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="15"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+  </button>
+</div>
+
+    <div class="menu-overlay">
+    <div class="menu-options">
+            <button class="option-button" onclick="MSTREAMAPI.logout();">Home</button>
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a href="#" class="tab-item" id="transpose-1" >
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" id="exposure-neg"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M4 11v2h8v-2H4zm15 7h-2V7.38L14 8.4V6.7L18.7 5h.3v13z"></path></svg>
+      <span>Transpose</span>
+    </a>
+<a href="#" class="tab-item" id="transpose+1">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" d="M0 0h24v24H0zm0 0h24v24H0z"></path>
+        <path d="M10 7H8v4H4v2h4v4h2v-4h4v-2h-4V7zm10 11h-2V7.38L15 8.4V6.7L19.7 5h.3v13z"></path>
+      </svg>
+      <span>Transpose</span>
+    </a>
+    <button class="menu-button">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+    <a href="#" class="tab-item" id="findNewBestCapo">
+      <svg version="1.1" viewBox="0 0 800 800" width="24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path transform="translate(52,82)" d="m0 0h7l5 3 3 5v23l2 20 7 28 17 50 15 42 4-2 7-3 5 1 7 10 9 15 32 52 13 21 14 23 13 21 48 78 9 14 2 1v-7l5-10 7-7 13-7 9-2h16l8 1 6-13 3-13v-11l-3-15-6-19 1-7 4-4 17-6 10-6 8-7 6-9 4-13-1-17v-28l3-32 4-23 6-20 7-16 16-27 13-19 11-15 11-14 11-13 6-7 9-6 6-2h14l10 3 9 6 7 8 4 10 1 6v14l-3 14-4 9-6 10-7 8-7 5-5 2h-11l-10-5-5-5v-6l5-5 5 2 5 5 2 1h6l6-4 7-8 7-14 1-5v-14l-4-11-4-5-9-3-11 1-8 4-6 5-10 14-9 14-9 16-9 19-6 16-5 21-1 6v32l5 30 7 24 10 25-2 6-8 7-3 6 1 9 4 9 4 6 7 6 13 8 4 5 7 19 8 9 10 3h10l10-2 5 3 8 10 12 16 22 28 13 16 18 22 13 15 9 10 7 8 12 13 23 23 22 18 10 9 8 7 12 11 11 9 11 10 14 11 11 10 7 10 3 6v8l-7 11-6 5-7-1-9-8-4 2-7 8-6-4-7-7-11-9-14-12-14-11-15-12-40-30-36-26-23-16-32-22-43-29-20-13-32-21-22-14-12-8-3-1-15 44-17 45-11 26-6 12-2 3 17 4 33 8 5 1 2-5 4-4 20 4 58 15 64 16 27 7 6 3 2 2-1 15-5 31-4 6-5 1-30-7-139-31-5-2-2-3v-7l1-5h-2l-3 9-4 2-8-6-10-8-13-8-12-5-31-8-26-8-20-8-19-10-13-10-9-9-10-16-12-25-15-36-16-41-17-46-15-41-10-29-17-48-15-43-17-48-19-56-8-28-3-16v-22l3-8 4-5zm65 198m1 1 3 11 33 90 17 46 13 35 10 28 16 47 11 26 5 8 7 4 11 4 11 3h5l-2-9v-19l4-15 8-16 1-5-10-16-11-17-12-19-14-22-12-19-15-23-15-24-11-17-12-19-16-25-14-22-10-15zm197 185-12 3-9 5-6 7-3 11v10l5-4 7-8 1-3h2l7-8 9-10 1-3z"/>
+<path transform="translate(383,664)" d="m0 0h1v5l-2-2z"/>
+<path transform="translate(384,663)" d="m0 0"/>
+<path transform="translate(124,292)" d="m0 0"/>
+<path transform="translate(123,291)" d="m0 0"/>
+<path transform="translate(121,287)" d="m0 0"/>
+</svg>
+      <span>Best Capo</span>
+    </a>
+    <a href="#" class="tab-item" id="reset-scale-new">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+      <span>Reset</span>
+    </a>
+  </nav>
+  </div>
+  </div>`;
+  const ikkkudi = `<div class="chord-main">
+    <div class="baarish" id="chord-lyrics">
+    <pre class="song-details-pre">
+Song: Ikk Kudi 
+Singer: Shahid Mallya
+Music : Amit Trivedi
+Lyrics: Late Shri shiv kumar Batalvi
+Movie: Udta Punjab</pre>
+    
+    <pre>
+[Intro]
+<span class="chordset">(F# E B F#)</span> (x2)
+ 
+[Verse 1]
+ 
+<span class="chordset">(F#)</span>Ikk kudi jida<span class="chordset">(E)</span> naam mohabbat
+Gum <span class="chordset">(E)</span>hai, gum <span class="chordset">(B)</span>hai, gum <span class="chordset">(F#)</span>hai...
+<span class="chordset">(F#)</span>O saad muraadi, so<span class="chordset">(E)</span>hni phabbat
+Gum <span class="chordset">(E)</span>hai, gum <span class="chordset">(B)</span>hai, gum <span class="chordset">(F#)</span>hai
+Gum <span class="chordset">(E)</span>hai, gum <span class="chordset">(B)</span>hai, gum <span class="chordset">(F#)</span>hai
+ 
+[Solo]
+<span class="chordset">(F#)</span> <span class="chordset">(E)</span> <span class="chordset">(B)</span> <span class="chordset">(F#)</span>
+ 
+[Bridge]
+ 
+O.. Soo<span class="chordset">(B)</span>rat oss <span class="chordset">(F#)</span>di, pari<span class="chordset">(B)</span>yaan war<span class="chordset">(F#)</span>gi
+See<span class="chordset">(D#m)</span>rat di o<span class="chordset">(E)</span>.. mariyam <span class="chordset">(F#)</span>lagdi
+Has<span class="chordset">(B)</span>ti hai <span class="chordset">(F#)</span>taan phul <span class="chordset">(B)</span>jhad'de <span class="chordset">(F#)</span>ne
+Turdi <span class="chordset">(D#m)</span>hai taan<span class="chordset">(E)</span> ghazal hai <span class="chordset">(F#)</span>lagdi
+<span class="chordset">(E)</span>Lamm salammi<span class="chordset">(B)</span> saru de <span class="chordset">(F#)</span>kad di haaye..
+<span class="chordset">(E)</span>Umar aje hai<span class="chordset">(B)</span> marke <span class="chordset">(F#)</span>agg di
+Par na<span class="chordset">(D#m)</span>ina di<span class="chordset">(E)</span> gal sam<span class="chordset">(F#)</span>ajh di
+ 
+[Verse 2]
+ 
+<span class="chordset">(F#)</span>Ikk kudi jida<span class="chordset">(E)</span> naam mohabbat
+Gum <span class="chordset">(E)</span>hai, gum <span class="chordset">(B)</span>hai, gum <span class="chordset">(F#)</span>hai...
+<span class="chordset">(F#)</span>O saad muraadi, so<span class="chordset">(E)</span>hni phabbat
+Gum <span class="chordset">(E)</span>hai, gum <span class="chordset">(B)</span>hai, gum <span class="chordset">(F#)</span>hai
+Gum <span class="chordset">(E)</span>hai, gum <span class="chordset">(B)</span>hai, gum <span class="chordset">(F#)</span>hai
+Gum <span class="chordset">(E)</span>hai, gum <span class="chordset">(B)</span>hai, gum <span class="chordset">(F#)</span>hai
+Gum <span class="chordset">(E)</span>hai, gum <span class="chordset">(B)</span>hai, gum <span class="chordset">(F#)</span>hai</pre>
+
+    </div>
+    <div class="chord-func">
+    <div class="chord-btn">
+      <span id="transpose-txt">SCALE TRANSPOSE</span>
+      <button id="transposeDown">-1</button>
+      <button id="transposeUp">+1</button>
+      <button class="reset-btn" id="reset-scale">RESET</button>
+    </div>
+   
+    <p class="transpose-note">Note: Use the scale transpose buttons to adjust the song's scale to your vocal range. "-" lowers the scale, "+" raises it. This changes all chords on the sheet. Click "RESET" to return to the original scale.</p>
+    <div class="capo-container" id="capo">
+      <div class="capo-h2">
+        <h2>FIND BEST CAPO POSITION</h2>
+      </div>
+      <button id="findBestCapo">Find Best Capo Position</button>
+      <div id="result"></div>
+    </div>
+
+    <div id="controls">
+  <button id="autoscrollBtn">AUTOSCROLL</button>
+  <button id="decreaseSpeed">-</button>
+  <span id="speedIndicator">1.0x</span>
+  <button id="increaseSpeed">+</button>
+  <button id="resetBtn">
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="15"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+  </button>
+</div>
+
+    <div class="menu-overlay">
+    <div class="menu-options">
+            <button class="option-button" onclick="MSTREAMAPI.logout();">Home</button>
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a href="#" class="tab-item" id="transpose-1" >
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" id="exposure-neg"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M4 11v2h8v-2H4zm15 7h-2V7.38L14 8.4V6.7L18.7 5h.3v13z"></path></svg>
+      <span>Transpose</span>
+    </a>
+<a href="#" class="tab-item" id="transpose+1">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" d="M0 0h24v24H0zm0 0h24v24H0z"></path>
+        <path d="M10 7H8v4H4v2h4v4h2v-4h4v-2h-4V7zm10 11h-2V7.38L15 8.4V6.7L19.7 5h.3v13z"></path>
+      </svg>
+      <span>Transpose</span>
+    </a>
+    <button class="menu-button">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+    <a href="#" class="tab-item" id="findNewBestCapo">
+      <svg version="1.1" viewBox="0 0 800 800" width="24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path transform="translate(52,82)" d="m0 0h7l5 3 3 5v23l2 20 7 28 17 50 15 42 4-2 7-3 5 1 7 10 9 15 32 52 13 21 14 23 13 21 48 78 9 14 2 1v-7l5-10 7-7 13-7 9-2h16l8 1 6-13 3-13v-11l-3-15-6-19 1-7 4-4 17-6 10-6 8-7 6-9 4-13-1-17v-28l3-32 4-23 6-20 7-16 16-27 13-19 11-15 11-14 11-13 6-7 9-6 6-2h14l10 3 9 6 7 8 4 10 1 6v14l-3 14-4 9-6 10-7 8-7 5-5 2h-11l-10-5-5-5v-6l5-5 5 2 5 5 2 1h6l6-4 7-8 7-14 1-5v-14l-4-11-4-5-9-3-11 1-8 4-6 5-10 14-9 14-9 16-9 19-6 16-5 21-1 6v32l5 30 7 24 10 25-2 6-8 7-3 6 1 9 4 9 4 6 7 6 13 8 4 5 7 19 8 9 10 3h10l10-2 5 3 8 10 12 16 22 28 13 16 18 22 13 15 9 10 7 8 12 13 23 23 22 18 10 9 8 7 12 11 11 9 11 10 14 11 11 10 7 10 3 6v8l-7 11-6 5-7-1-9-8-4 2-7 8-6-4-7-7-11-9-14-12-14-11-15-12-40-30-36-26-23-16-32-22-43-29-20-13-32-21-22-14-12-8-3-1-15 44-17 45-11 26-6 12-2 3 17 4 33 8 5 1 2-5 4-4 20 4 58 15 64 16 27 7 6 3 2 2-1 15-5 31-4 6-5 1-30-7-139-31-5-2-2-3v-7l1-5h-2l-3 9-4 2-8-6-10-8-13-8-12-5-31-8-26-8-20-8-19-10-13-10-9-9-10-16-12-25-15-36-16-41-17-46-15-41-10-29-17-48-15-43-17-48-19-56-8-28-3-16v-22l3-8 4-5zm65 198m1 1 3 11 33 90 17 46 13 35 10 28 16 47 11 26 5 8 7 4 11 4 11 3h5l-2-9v-19l4-15 8-16 1-5-10-16-11-17-12-19-14-22-12-19-15-23-15-24-11-17-12-19-16-25-14-22-10-15zm197 185-12 3-9 5-6 7-3 11v10l5-4 7-8 1-3h2l7-8 9-10 1-3z"/>
+<path transform="translate(383,664)" d="m0 0h1v5l-2-2z"/>
+<path transform="translate(384,663)" d="m0 0"/>
+<path transform="translate(124,292)" d="m0 0"/>
+<path transform="translate(123,291)" d="m0 0"/>
+<path transform="translate(121,287)" d="m0 0"/>
+</svg>
+      <span>Best Capo</span>
+    </a>
+    <a href="#" class="tab-item" id="reset-scale-new">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+      <span>Reset</span>
+    </a>
+  </nav>
+  </div>
+  </div>`;
+  const kyamujhepyar = `<div class="chord-main">
+    <div class="baarish" id="chord-lyrics">
+    <pre class="song-details-pre">
+Song: Kya Mujhe Pyar Hain
+Singer: Kk
+Music : Pritam
+Lyrics: Nilesh Mishra
+Movie: Woh Lamhe</pre>
+    <pre>
+[Intro]
+ 
+<span class="chordset">(F#m)</span><span class="chordset">(E)</span><span class="chordset">(D)</span><span class="chordset">(E)</span> X4
+      
+Kyun Aaj<span class="chordset">(F#m)</span>kal Neend Kam Khwaab <span class="chordset">(E)</span>Jyada Hai
+Lagta Khu<span class="chordset">(D)</span>da Tha Koi Nek I<span class="chordset">(E)</span>raada Hain
+Kal Ka Fa<span class="chordset">(F#m)</span>kir Aaj Dil Sheh<span class="chordset">(E)</span>zada Hain
+Lagta Khu<span class="chordset">(D)</span>da Ka Koi Nek I<span class="chordset">(E)</span>raada Hain
+ 
+[Chorus]
+ 
+Kya Mujhe <span class="chordset">(A)</span>Pyar Hain <span class="chordset">(E)</span>Ya
+Kaisa Khu<span class="chordset">(F#m)</span>maar Hain <span class="chordset">(E)</span>Ya
+Kya Mujhe <span class="chordset">(A)</span>Pyar Hain <span class="chordset">(E)</span>Ya
+Kaisa Khu<span class="chordset">(F#m)</span>maar Hain <span class="chordset">(C#m)</span>Ya
+ 
+Oh oh oh <span class="chordset">(F#m)</span>oh -
+oh oh oh oh oh <span class="chordset">(E)</span>oh oh oh Oh
+Oh oh oh <span class="chordset">(D)</span>oh -
+oh oh oh oh oh <span class="chordset">(E)</span>oh oh oh Oh X2
+ 
+[Verse]
+ 
+Pa<span class="chordset">(F#m)</span>thhar Ke Inn Ras<span class="chordset">(E)</span>ton Pe
+Phoo<span class="chordset">(D)</span>lon Ki Ek Cha<span class="chordset">(E)</span>dar Hain
+Jab<span class="chordset">(F#m)</span>se Milen Ho <span class="chordset">(E)</span>Hamko
+Bad<span class="chordset">(D)</span>la Har Ek Man<span class="chordset">(E)</span>zar Hain
+ 
+[Pre Chorus]
+ 
+Dekho Ja<span class="chordset">(F#m)</span>haan Mein Neele Neele Aas<span class="chordset">(E)</span>maan Tale
+Rang Na<span class="chordset">(D)</span>ye Naye Hain Jaise Ghul<span class="chordset">(E)</span>te Hue
+Soye The <span class="chordset">(F#m)</span>Khwaab Mere Jaage Tere <span class="chordset">(E)</span>Waaste
+Tere Kha<span class="chordset">(D)</span>yaalon Me Hai Bheege Mere <span class="chordset">(E)</span>Raaste
+ 
+[Chorus]
+ 
+Kya Mujhe <span class="chordset">(A)</span>Pyar Hain <span class="chordset">(E)</span>Ya
+Kaisa Khu<span class="chordset">(F#m)</span>maar Hain <span class="chordset">(E)</span>Ya
+Kya Mujhe <span class="chordset">(A)</span>Pyar Hain <span class="chordset">(E)</span>Ya
+Kaisa Khu<span class="chordset">(F#m)</span>maar Hain <span class="chordset">(C#m)</span>Ya
+ 
+Oh oh oh <span class="chordset">(F#m)</span>oh -
+oh oh oh oh oh <span class="chordset">(E)</span>oh oh oh Oh
+Oh oh oh <span class="chordset">(D)</span>oh -
+oh oh oh oh oh <span class="chordset">(E)</span>oh oh oh Oh X2
+ 
+[Verse]
+ 
+Tum <span class="chordset">(F#m)</span>Kyon Chale Aa<span class="chordset">(E)</span>te Ho
+Har <span class="chordset">(D)</span>Roj In Khwaa<span class="chordset">(E)</span>bon Mein
+Chup<span class="chordset">(F#m)</span>ke Se Aa Bhi <span class="chordset">(E)</span>Jao
+Ek <span class="chordset">(D)</span>Din Meri Baa<span class="chordset">(E)</span>hon Mein
+ 
+[Pre Chorus]
+ 
+Tere Hi <span class="chordset">(F#m)</span>Sapanen Andheron Mein U<span class="chordset">(E)</span>jaalon Mein
+Koi Na<span class="chordset">(D)</span>sha Hain Teri Aankhon Ke <span class="chordset">(E)</span>Pyaalon Mein
+Tu Mere <span class="chordset">(F#m)</span>Khwaabon Mein Jawaabon Mein Sa<span class="chordset">(E)</span>waalon Mein
+Har Din Chu<span class="chordset">(D)</span>ra Tumehn Main Laata Hoon Kha<span class="chordset">(E)</span>yalon Mein
+ 
+[Chorus]
+ 
+Kya Mujhe <span class="chordset">(A)</span>Pyar Hain <span class="chordset">(E)</span>Ya
+Kaisa Khu<span class="chordset">(F#m)</span>maar Hain <span class="chordset">(E)</span>Ya
+Kya Mujhe <span class="chordset">(A)</span>Pyar Hain <span class="chordset">(E)</span>Ya
+Kaisa Khu<span class="chordset">(F#m)</span>maar Hain <span class="chordset">(C#m)</span>Ya
+ 
+Oh oh oh <span class="chordset">(F#m)</span>oh -
+oh oh oh oh oh <span class="chordset">(E)</span>oh oh oh Oh
+Oh oh oh <span class="chordset">(D)</span>oh -
+oh oh oh oh oh <span class="chordset">(E)</span>oh oh oh Oh X2</pre>
+
+    </div>
+    <div class="chord-func">
+    <div class="chord-btn">
+      <span id="transpose-txt">SCALE TRANSPOSE</span>
+      <button id="transposeDown">-1</button>
+      <button id="transposeUp">+1</button>
+      <button class="reset-btn" id="reset-scale">RESET</button>
+    </div>
+   
+    <p class="transpose-note">Note: Use the scale transpose buttons to adjust the song's scale to your vocal range. "-" lowers the scale, "+" raises it. This changes all chords on the sheet. Click "RESET" to return to the original scale.</p>
+    <div class="capo-container" id="capo">
+      <div class="capo-h2">
+        <h2>FIND BEST CAPO POSITION</h2>
+      </div>
+      <button id="findBestCapo">Find Best Capo Position</button>
+      <div id="result"></div>
+    </div>
+
+    <div id="controls">
+  <button id="autoscrollBtn">AUTOSCROLL</button>
+  <button id="decreaseSpeed">-</button>
+  <span id="speedIndicator">1.0x</span>
+  <button id="increaseSpeed">+</button>
+  <button id="resetBtn">
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="15"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+  </button>
+</div>
+
+    <div class="menu-overlay">
+    <div class="menu-options">
+            <button class="option-button" onclick="MSTREAMAPI.logout();">Home</button>
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a href="#" class="tab-item" id="transpose-1" >
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" id="exposure-neg"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M4 11v2h8v-2H4zm15 7h-2V7.38L14 8.4V6.7L18.7 5h.3v13z"></path></svg>
+      <span>Transpose</span>
+    </a>
+<a href="#" class="tab-item" id="transpose+1">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" d="M0 0h24v24H0zm0 0h24v24H0z"></path>
+        <path d="M10 7H8v4H4v2h4v4h2v-4h4v-2h-4V7zm10 11h-2V7.38L15 8.4V6.7L19.7 5h.3v13z"></path>
+      </svg>
+      <span>Transpose</span>
+    </a>
+    <button class="menu-button">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+    <a href="#" class="tab-item" id="findNewBestCapo">
+      <svg version="1.1" viewBox="0 0 800 800" width="24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path transform="translate(52,82)" d="m0 0h7l5 3 3 5v23l2 20 7 28 17 50 15 42 4-2 7-3 5 1 7 10 9 15 32 52 13 21 14 23 13 21 48 78 9 14 2 1v-7l5-10 7-7 13-7 9-2h16l8 1 6-13 3-13v-11l-3-15-6-19 1-7 4-4 17-6 10-6 8-7 6-9 4-13-1-17v-28l3-32 4-23 6-20 7-16 16-27 13-19 11-15 11-14 11-13 6-7 9-6 6-2h14l10 3 9 6 7 8 4 10 1 6v14l-3 14-4 9-6 10-7 8-7 5-5 2h-11l-10-5-5-5v-6l5-5 5 2 5 5 2 1h6l6-4 7-8 7-14 1-5v-14l-4-11-4-5-9-3-11 1-8 4-6 5-10 14-9 14-9 16-9 19-6 16-5 21-1 6v32l5 30 7 24 10 25-2 6-8 7-3 6 1 9 4 9 4 6 7 6 13 8 4 5 7 19 8 9 10 3h10l10-2 5 3 8 10 12 16 22 28 13 16 18 22 13 15 9 10 7 8 12 13 23 23 22 18 10 9 8 7 12 11 11 9 11 10 14 11 11 10 7 10 3 6v8l-7 11-6 5-7-1-9-8-4 2-7 8-6-4-7-7-11-9-14-12-14-11-15-12-40-30-36-26-23-16-32-22-43-29-20-13-32-21-22-14-12-8-3-1-15 44-17 45-11 26-6 12-2 3 17 4 33 8 5 1 2-5 4-4 20 4 58 15 64 16 27 7 6 3 2 2-1 15-5 31-4 6-5 1-30-7-139-31-5-2-2-3v-7l1-5h-2l-3 9-4 2-8-6-10-8-13-8-12-5-31-8-26-8-20-8-19-10-13-10-9-9-10-16-12-25-15-36-16-41-17-46-15-41-10-29-17-48-15-43-17-48-19-56-8-28-3-16v-22l3-8 4-5zm65 198m1 1 3 11 33 90 17 46 13 35 10 28 16 47 11 26 5 8 7 4 11 4 11 3h5l-2-9v-19l4-15 8-16 1-5-10-16-11-17-12-19-14-22-12-19-15-23-15-24-11-17-12-19-16-25-14-22-10-15zm197 185-12 3-9 5-6 7-3 11v10l5-4 7-8 1-3h2l7-8 9-10 1-3z"/>
+<path transform="translate(383,664)" d="m0 0h1v5l-2-2z"/>
+<path transform="translate(384,663)" d="m0 0"/>
+<path transform="translate(124,292)" d="m0 0"/>
+<path transform="translate(123,291)" d="m0 0"/>
+<path transform="translate(121,287)" d="m0 0"/>
+</svg>
+      <span>Best Capo</span>
+    </a>
+    <a href="#" class="tab-item" id="reset-scale-new">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+      <span>Reset</span>
+    </a>
+  </nav>
+  </div>
+  </div>`;
+  const zehnaseeb = `<div class="chord-main">
+    <div class="baarish" id="chord-lyrics">
+    <pre class="song-details-pre">
+Song: Zehnaseeb 
+Singer: Chinmayi Sripaada,
+Shekhar Ravjiani
+Music : Vishal & Shekar
+Lyrics: Amitabh Bhattacharya
+Movie: Hasee Toh Phasee</pre>
+    <pre>
+Zehna<span class="chordset">(D)</span>seeb, Zehana<span class="chordset">(G)</span>seeb
+Tujhe <span class="chordset">(Am)</span>chaahun beta<span class="chordset">(C)</span>hasha zehna<span class="chordset">(D)</span>seeb
+Mere ka<span class="chordset">(D)</span>reeb, mere ha<span class="chordset">(G)</span>beeb
+Tujhe <span class="chordset">(Am)</span>chaahun beta<span class="chordset">(C)</span>hasha zehna<span class="chordset">(D)</span>seeb
+ 
+<span class="chordset">(D)</span>Tere sang <span class="chordset">(Am)</span>beete har lamhe pe
+humko <span class="chordset">(G)</span>naaz hai
+Tere sang <span class="chordset">(Am)</span>jo na beete
+spe ait<span class="chordset">(G)</span>raaz hai
+Iss kadar <span class="chordset">(G)</span>hum dono ka milna
+ek <span class="chordset">(E)</span>raaz hai
+ 
+Huaa a<span class="chordset">(D)</span>meer dil gha<span class="chordset">(G)</span>reeb
+Tujhe <span class="chordset">(Am)</span>chaahun beta<span class="chordset">(C)</span>hasha zehna<span class="chordset">(D)</span>seeb
+Zehna<span class="chordset">(D)</span>seeb, Zehana<span class="chordset">(G)</span>seeb
+Tujhe <span class="chordset">(Am)</span>chaahun beta<span class="chordset">(C)</span>hasha zehna<span class="chordset">(D)</span>seeb
+ 
+<span class="chordset">(D)</span>Lena-dena nahi duniya se mera
+Bas <span class="chordset">(G)</span>tujh se kaam hai<span class="chordset">(D)</span>
+<span class="chordset">(Am)</span>Teri ankhiyon ke <span class="chordset">(C)</span>sheher me
+Yaara sab <span class="chordset">(D)</span>intezaam hai
+ 
+<span class="chordset">(D)</span>Khushiyon ka ek tukda mile
+Ya mile <span class="chordset">(G)</span>gham ki khurchane<span class="chordset">(D)</span>
+<span class="chordset">(Am)</span>Yaara tere mere <span class="chordset">(C)</span>kharche me
+Dono ka hi <span class="chordset">(D)</span>ek daam hai
+ 
+Hona <span class="chordset">(C)</span>likha tha yun<span class="chordset">(Bm)</span>hi jo hu<span class="chordset">(D)</span>aa
+Yaa hote <span class="chordset">(C)</span>hote a<span class="chordset">(Bm)</span>bhi <span class="chordset">(G)</span>anjaane mein hog<span class="chordset">(D)</span>ya
+ 
+Jo bhi hua<span class="chordset">(D)</span>...hua a<span class="chordset">(G)</span>jeeb
+Tujhe <span class="chordset">(Am)</span>chaahun beta<span class="chordset">(C)</span>hasha zehna<span class="chordset">(D)</span>seeb
+Zehna<span class="chordset">(D)</span>seeb, Zehana<span class="chordset">(G)</span>seeb
+Tujhe <span class="chordset">(Am)</span>chaahun beta<span class="chordset">(C)</span>hasha zehna<span class="chordset">(D)</span>seeb
+ 
+Huaa a<span class="chordset">(D)</span>meer dil gha<span class="chordset">(G)</span>reeb
+Tujhe <span class="chordset">(Am)</span>chaahun beta<span class="chordset">(C)</span>hasha zehna<span class="chordset">(D)</span>seeb
+Zehna<span class="chordset">(D)</span>seeb, Zehana<span class="chordset">(G)</span>seeb
+Tujhe <span class="chordset">(Am)</span>chaahun beta<span class="chordset">(C)</span>hasha zehna<span class="chordset">(D)</span>seeb
+ 
+Zehna<span class="chordset">(D)</span>seeb, Zehana<span class="chordset">(G)</span>seeb
+Tujhe <span class="chordset">(Am)</span>chaahun beta<span class="chordset">(C)</span>hasha
+Tujhe <span class="chordset">(Am)</span>chaahun beta<span class="chordset">(C)</span>hasha zehna<span class="chordset">(D)</span>seeb</pre>
+
+    </div>
+    <div class="chord-func">
+    
+    <div class="chord-btn">
+      <span id="transpose-txt">SCALE TRANSPOSE</span>
+      <button id="transposeDown">-1</button>
+      <button id="transposeUp">+1</button>
+      <button class="reset-btn" id="reset-scale">RESET</button>
+    </div>
+   
+    <p class="transpose-note">Note: Use the scale transpose buttons to adjust the song's scale to your vocal range. "-" lowers the scale, "+" raises it. This changes all chords on the sheet. Click "RESET" to return to the original scale.</p>
+    <div class="capo-container" id="capo">
+      <div class="capo-h2">
+        <h2>FIND BEST CAPO POSITION</h2>
+      </div>
+      <button id="findBestCapo">Find Best Capo Position</button>
+      <div id="result"></div>
+    </div>
+    <div class="control-outer">
+    <div id="controls">
+  <button id="autoscrollBtn">AUTOSCROLL</button>
+  <button id="decreaseSpeed">-</button>
+  <span id="speedIndicator">1.0x</span>
+  <button id="increaseSpeed">+</button>
+  <button id="resetBtn">
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="15"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+  </button>
+</div></div>
+
+    <div class="menu-overlay">
+    <div class="menu-options">
+            <button class="option-button" onclick="MSTREAMAPI.logout();">Home</button>
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a href="#" class="tab-item" id="transpose-1" >
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" id="exposure-neg"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M4 11v2h8v-2H4zm15 7h-2V7.38L14 8.4V6.7L18.7 5h.3v13z"></path></svg>
+      <span>Transpose</span>
+    </a>
+<a href="#" class="tab-item" id="transpose+1">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" d="M0 0h24v24H0zm0 0h24v24H0z"></path>
+        <path d="M10 7H8v4H4v2h4v4h2v-4h4v-2h-4V7zm10 11h-2V7.38L15 8.4V6.7L19.7 5h.3v13z"></path>
+      </svg>
+      <span>Transpose</span>
+    </a>
+    <button class="menu-button">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+    <a href="#" class="tab-item" id="findNewBestCapo">
+      <svg version="1.1" viewBox="0 0 800 800" width="24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path transform="translate(52,82)" d="m0 0h7l5 3 3 5v23l2 20 7 28 17 50 15 42 4-2 7-3 5 1 7 10 9 15 32 52 13 21 14 23 13 21 48 78 9 14 2 1v-7l5-10 7-7 13-7 9-2h16l8 1 6-13 3-13v-11l-3-15-6-19 1-7 4-4 17-6 10-6 8-7 6-9 4-13-1-17v-28l3-32 4-23 6-20 7-16 16-27 13-19 11-15 11-14 11-13 6-7 9-6 6-2h14l10 3 9 6 7 8 4 10 1 6v14l-3 14-4 9-6 10-7 8-7 5-5 2h-11l-10-5-5-5v-6l5-5 5 2 5 5 2 1h6l6-4 7-8 7-14 1-5v-14l-4-11-4-5-9-3-11 1-8 4-6 5-10 14-9 14-9 16-9 19-6 16-5 21-1 6v32l5 30 7 24 10 25-2 6-8 7-3 6 1 9 4 9 4 6 7 6 13 8 4 5 7 19 8 9 10 3h10l10-2 5 3 8 10 12 16 22 28 13 16 18 22 13 15 9 10 7 8 12 13 23 23 22 18 10 9 8 7 12 11 11 9 11 10 14 11 11 10 7 10 3 6v8l-7 11-6 5-7-1-9-8-4 2-7 8-6-4-7-7-11-9-14-12-14-11-15-12-40-30-36-26-23-16-32-22-43-29-20-13-32-21-22-14-12-8-3-1-15 44-17 45-11 26-6 12-2 3 17 4 33 8 5 1 2-5 4-4 20 4 58 15 64 16 27 7 6 3 2 2-1 15-5 31-4 6-5 1-30-7-139-31-5-2-2-3v-7l1-5h-2l-3 9-4 2-8-6-10-8-13-8-12-5-31-8-26-8-20-8-19-10-13-10-9-9-10-16-12-25-15-36-16-41-17-46-15-41-10-29-17-48-15-43-17-48-19-56-8-28-3-16v-22l3-8 4-5zm65 198m1 1 3 11 33 90 17 46 13 35 10 28 16 47 11 26 5 8 7 4 11 4 11 3h5l-2-9v-19l4-15 8-16 1-5-10-16-11-17-12-19-14-22-12-19-15-23-15-24-11-17-12-19-16-25-14-22-10-15zm197 185-12 3-9 5-6 7-3 11v10l5-4 7-8 1-3h2l7-8 9-10 1-3z"/>
+<path transform="translate(383,664)" d="m0 0h1v5l-2-2z"/>
+<path transform="translate(384,663)" d="m0 0"/>
+<path transform="translate(124,292)" d="m0 0"/>
+<path transform="translate(123,291)" d="m0 0"/>
+<path transform="translate(121,287)" d="m0 0"/>
+</svg>
+      <span>Best Capo</span>
+    </a>
+    <a href="#" class="tab-item" id="reset-scale-new">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+      <span>Reset</span>
+    </a>
+  </nav>
+  </div>
+  </div>`;
+  const tuhhimerishabhai = `<div class="chord-main">
+    <div class="baarish" id="chord-lyrics">
+    <pre class="song-details-pre">
+Song: Tu hi Meri Shab Hai
+Singer: Kk
+Music : Pritam
+Lyrics: Sayeed Qadri
+Movie: Gangster</pre>
+    <pre>
+[Intro]
+<span class="chordset">(Am)</span><span class="chordset">(Em)</span><span class="chordset">(F)</span><span class="chordset">(Am)</span>
+<span class="chordset">(Am)</span><span class="chordset">(Em)</span><span class="chordset">(F)</span><span class="chordset">(Am)</span>
+ 
+[Chorus]
+<span class="chordset">(Am)</span>Tu hi meri shab <span class="chordset">(G)</span>hai subha hai
+<span class="chordset">(F)</span>tu hi din hai me<span class="chordset">(Am)</span>ra
+<span class="chordset">(Am)</span>Tu hi mera rab <span class="chordset">(G)</span>hai jahaan ha
+<span class="chordset">(F)</span>tu hi meri duni<span class="chordset">(Am)</span>ya
+ 
+<span class="chordset">(Am)</span>Tu waqt mere li<span class="chordset">(G)</span>ye...
+<span class="chordset">(F)</span>main hoon tera lam<span class="chordset">(Am)</span>ha
+<span class="chordset">(Am)</span>Kaise rahega bha<span class="chordset">(G)</span>la...
+<span class="chordset">(F)</span>hoke tu mujhse ju<span class="chordset">(Am)</span>daa
+ 
+<span class="chordset">(Am)</span>Oh o <span class="chordset">(G)</span>o o <span class="chordset">(F)</span>o o <span class="chordset">(Am)</span>oh...
+<span class="chordset">(Am)</span>Oh o <span class="chordset">(G)</span>o o <span class="chordset">(F)</span>o o <span class="chordset">(Am)</span>oh...
+ 
+<span class="chordset">(Am)</span>Tu hi meri shab <span class="chordset">(G)</span>hai subha hai
+<span class="chordset">(F)</span>tu hi din hai me<span class="chordset">(Am)</span>ra
+<span class="chordset">(Am)</span>Tu hi mera rab <span class="chordset">(G)</span>hai jahaan ha
+<span class="chordset">(F)</span>tu hi meri duni<span class="chordset">(Am)</span>ya
+ 
+<span class="chordset">(Am)</span>Tu waqt mere li<span class="chordset">(G)</span>ye...
+<span class="chordset">(F)</span>main hoon tera lam<span class="chordset">(Am)</span>ha
+<span class="chordset">(Am)</span>Kaise rahega bha<span class="chordset">(G)</span>la...
+<span class="chordset">(F)</span>hoke tu mujhse ju<span class="chordset">(Am)</span>daa
+ 
+<span class="chordset">(Am)</span>Oh o <span class="chordset">(G)</span>o o <span class="chordset">(F)</span>o o <span class="chordset">(Am)</span>oh...
+<span class="chordset">(Am)</span>Oh o <span class="chordset">(G)</span>o o <span class="chordset">(F)</span>o o <span class="chordset">(Am)</span>oh...
+ 
+[Verse]
+<span class="chordset">(Am)</span>Aankhon se <span class="chordset">(Em)</span>padhke tujhe
+<span class="chordset">(G)</span>dil pe ma<span class="chordset">(Am)</span>ine likha
+<span class="chordset">(Am)</span>Tu ban ga<span class="chordset">(Em)</span>ya hai mere
+<span class="chordset">(G)</span>jeene ki <span class="chordset">(Am)</span>ek wajah Hoo...
+ 
+<span class="chordset">(Am)</span>Aankhon se <span class="chordset">(Em)</span>padhke tujhe
+<span class="chordset">(G)</span>dil pe ma<span class="chordset">(Am)</span>ine likha
+<span class="chordset">(Am)</span>Tu ban ga<span class="chordset">(Em)</span>ya hai mere
+<span class="chordset">(G)</span>jeene ki <span class="chordset">(Am)</span>ek wajah
+ 
+<span class="chordset">(Am)</span>Teri ha<span class="chordset">(D)</span>si...
+<span class="chordset">(Am)</span>teri a<span class="chordset">(D)</span>daa...
+<span class="chordset">(Am)</span>Auron se <span class="chordset">(G)</span>hai
+<span class="chordset">(Em)</span>bilkul ju<span class="chordset">(Am)</span>daa...
+ 
+<span class="chordset">(Am)</span>Oh o <span class="chordset">(G)</span>o o <span class="chordset">(F)</span>o o <span class="chordset">(Am)</span>oh...
+<span class="chordset">(Am)</span>Oh o <span class="chordset">(G)</span>o o <span class="chordset">(F)</span>o o <span class="chordset">(Am)</span>oh...
+ 
+[Verse]
+<span class="chordset">(Am)</span>Aankhen te<span class="chordset">(Em)</span>ri shabnami
+<span class="chordset">(G)</span>chehra te<span class="chordset">(Am)</span>ra aaina
+<span class="chordset">(Am)</span>Tu hai u<span class="chordset">(Em)</span>daasi bhari
+<span class="chordset">(G)</span>koi ha<span class="chordset">(Am)</span>seen dastan Hoo...
+ 
+<span class="chordset">(Am)</span>Aankhen te<span class="chordset">(Em)</span>ri shabnami
+<span class="chordset">(G)</span>chehra te<span class="chordset">(Am)</span>ra aaina
+<span class="chordset">(Am)</span>Tu hai u<span class="chordset">(Em)</span>daasi bhari
+<span class="chordset">(G)</span>koi ha<span class="chordset">(Am)</span>seen dastan
+ 
+<span class="chordset">(Am)</span>Dil mein hai <span class="chordset">(D)</span>kya...
+<span class="chordset">(Am)</span>kuchh toh ba<span class="chordset">(D)</span>ta...
+<span class="chordset">(Am)</span>Kyon hai bha<span class="chordset">(G)</span>la...
+<span class="chordset">(Em)</span>khud se kha<span class="chordset">(Am)</span>fa...
+ 
+<span class="chordset">(Am)</span>Oh o <span class="chordset">(G)</span>o o <span class="chordset">(F)</span>o o <span class="chordset">(Am)</span>oh...
+<span class="chordset">(Am)</span>Oh o <span class="chordset">(G)</span>o o <span class="chordset">(F)</span>o o <span class="chordset">(Am)</span>oh...
+ 
+[Chorus]
+<span class="chordset">(Am)</span>Tu hi meri shab <span class="chordset">(G)</span>hai subha hai
+<span class="chordset">(F)</span>tu hi din hai me<span class="chordset">(Am)</span>ra
+<span class="chordset">(Am)</span>Tu hi mera rab <span class="chordset">(G)</span>hai jahaan ha
+<span class="chordset">(F)</span>tu hi meri duni<span class="chordset">(Am)</span>ya
+ 
+<span class="chordset">(Am)</span>Tu waqt mere li<span class="chordset">(G)</span>ye...
+<span class="chordset">(F)</span>main hoon tera lam<span class="chordset">(Am)</span>ha
+<span class="chordset">(Am)</span>Kaise rahega bha<span class="chordset">(G)</span>la...
+<span class="chordset">(F)</span>hoke tu mujhse ju<span class="chordset">(Am)</span>daa
+ 
+<span class="chordset">(Am)</span>Oh o <span class="chordset">(G)</span>o o <span class="chordset">(F)</span>o o <span class="chordset">(Am)</span>oh...
+<span class="chordset">(Am)</span>Oh o <span class="chordset">(G)</span>o o <span class="chordset">(F)</span>o o <span class="chordset">(Am)</span>oh...</pre>
+
+    </div>
+    <div class="chord-func">
+  
+    <div class="chord-btn">
+      <span id="transpose-txt">SCALE TRANSPOSE</span>
+      <button id="transposeDown">-1</button>
+      <button id="transposeUp">+1</button>
+      <button class="reset-btn" id="reset-scale">RESET</button>
+    </div>
+   
+    <p class="transpose-note">Note: Use the scale transpose buttons to adjust the song's scale to your vocal range. "-" lowers the scale, "+" raises it. This changes all chords on the sheet. Click "RESET" to return to the original scale.</p>
+    <div class="capo-container" id="capo">
+      <div class="capo-h2">
+        <h2>FIND BEST CAPO POSITION</h2>
+      </div>
+      <button id="findBestCapo">Find Best Capo Position</button>
+      <div id="result"></div>
+    </div>
+
+    <div id="controls">
+  <button id="autoscrollBtn">AUTOSCROLL</button>
+  <button id="decreaseSpeed">-</button>
+  <span id="speedIndicator">1.0x</span>
+  <button id="increaseSpeed">+</button>
+  <button id="resetBtn">
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="15"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+  </button>
+</div>
+
+    <div class="menu-overlay">
+    <div class="menu-options">
+            <button class="option-button" onclick="MSTREAMAPI.logout();">Home</button>
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a class="tab-item" id="transpose-1" >
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" id="exposure-neg"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M4 11v2h8v-2H4zm15 7h-2V7.38L14 8.4V6.7L18.7 5h.3v13z"></path></svg>
+      <span>Transpose</span>
+    </a>
+<a class="tab-item" id="transpose+1">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" d="M0 0h24v24H0zm0 0h24v24H0z"></path>
+        <path d="M10 7H8v4H4v2h4v4h2v-4h4v-2h-4V7zm10 11h-2V7.38L15 8.4V6.7L19.7 5h.3v13z"></path>
+      </svg>
+      <span>Transpose</span>
+    </a>
+    <button class="menu-button">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+    <a class="tab-item" id="findNewBestCapo">
+      <svg version="1.1" viewBox="0 0 800 800" width="24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path transform="translate(52,82)" d="m0 0h7l5 3 3 5v23l2 20 7 28 17 50 15 42 4-2 7-3 5 1 7 10 9 15 32 52 13 21 14 23 13 21 48 78 9 14 2 1v-7l5-10 7-7 13-7 9-2h16l8 1 6-13 3-13v-11l-3-15-6-19 1-7 4-4 17-6 10-6 8-7 6-9 4-13-1-17v-28l3-32 4-23 6-20 7-16 16-27 13-19 11-15 11-14 11-13 6-7 9-6 6-2h14l10 3 9 6 7 8 4 10 1 6v14l-3 14-4 9-6 10-7 8-7 5-5 2h-11l-10-5-5-5v-6l5-5 5 2 5 5 2 1h6l6-4 7-8 7-14 1-5v-14l-4-11-4-5-9-3-11 1-8 4-6 5-10 14-9 14-9 16-9 19-6 16-5 21-1 6v32l5 30 7 24 10 25-2 6-8 7-3 6 1 9 4 9 4 6 7 6 13 8 4 5 7 19 8 9 10 3h10l10-2 5 3 8 10 12 16 22 28 13 16 18 22 13 15 9 10 7 8 12 13 23 23 22 18 10 9 8 7 12 11 11 9 11 10 14 11 11 10 7 10 3 6v8l-7 11-6 5-7-1-9-8-4 2-7 8-6-4-7-7-11-9-14-12-14-11-15-12-40-30-36-26-23-16-32-22-43-29-20-13-32-21-22-14-12-8-3-1-15 44-17 45-11 26-6 12-2 3 17 4 33 8 5 1 2-5 4-4 20 4 58 15 64 16 27 7 6 3 2 2-1 15-5 31-4 6-5 1-30-7-139-31-5-2-2-3v-7l1-5h-2l-3 9-4 2-8-6-10-8-13-8-12-5-31-8-26-8-20-8-19-10-13-10-9-9-10-16-12-25-15-36-16-41-17-46-15-41-10-29-17-48-15-43-17-48-19-56-8-28-3-16v-22l3-8 4-5zm65 198m1 1 3 11 33 90 17 46 13 35 10 28 16 47 11 26 5 8 7 4 11 4 11 3h5l-2-9v-19l4-15 8-16 1-5-10-16-11-17-12-19-14-22-12-19-15-23-15-24-11-17-12-19-16-25-14-22-10-15zm197 185-12 3-9 5-6 7-3 11v10l5-4 7-8 1-3h2l7-8 9-10 1-3z"/>
+<path transform="translate(383,664)" d="m0 0h1v5l-2-2z"/>
+<path transform="translate(384,663)" d="m0 0"/>
+<path transform="translate(124,292)" d="m0 0"/>
+<path transform="translate(123,291)" d="m0 0"/>
+<path transform="translate(121,287)" d="m0 0"/>
+</svg>
+      <span>Best Capo</span>
+    </a>
+    <a class="tab-item" id="reset-scale-new">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+      <span>Reset</span>
+    </a>
+  </nav>
+  </div>
+  </div>`;
+
+  document.getElementById("mstream-player").style.display = "none";
+  document.getElementById("filelist").style.display = "none";
+  document.getElementById("playlist").style.display = "none";
+  document.getElementById("header_tab").style.display = "none";
+  document.getElementById("backbtn").style.display = "none";
+  document.getElementById("local_search_btn").style.display = "none";
+  document.getElementById("add_all").style.display = "none";
+  document.getElementById("newcontent").style.display = "block";
+  document.getElementById("newcontent").style.flexBasis = "inherit";
+  document.getElementById("newcontent").scrollTop = 0;
+  document.getElementById("newcontent").style.overflowY = "scroll";
+  document.getElementById("content").style.display = "none";
+
+  // Function to update content and URL
+  function updateContentBaarishGuitar(chord) {
+    document.getElementById("newcontent").innerHTML = chord;
+
+    const newUrl = window.location.origin + "/baarish";
+    window.history.pushState({ path: newUrl }, "", newUrl);
+  }
+  function KaisiPaheliZindagani(chord) {
+    document.getElementById("newcontent").innerHTML = chord;
+
+    const newUrl = window.location.origin + "/kaisi-paheli-zindagani";
+    window.history.pushState({ path: newUrl }, "", newUrl);
+  }
+
+  function MainKoiAisaGeet(chord) {
+    document.getElementById("newcontent").innerHTML = chord;
+
+    const newUrl = window.location.origin + "/main-koi-aisa-geet-gaoon";
+    window.history.pushState({ path: newUrl }, "", newUrl);
+  }
+  function Khamoshiyaan(chord) {
+    document.getElementById("newcontent").innerHTML = chord;
+
+    const newUrl = window.location.origin + "/khamoshiyan";
+    window.history.pushState({ path: newUrl }, "", newUrl);
+  }
+  function Dhadak(chord) {
+    document.getElementById("newcontent").innerHTML = chord;
+
+    const newUrl = window.location.origin + "/dhadak";
+    window.history.pushState({ path: newUrl }, "", newUrl);
+  }
+  function Darkhaast(chord) {
+    document.getElementById("newcontent").innerHTML = chord;
+
+    const newUrl = window.location.origin + "/darkhaast";
+    window.history.pushState({ path: newUrl }, "", newUrl);
+  }
+  function Raaz(chord) {
+    document.getElementById("newcontent").innerHTML = chord;
+
+    const newUrl = window.location.origin + "/raaz-aankhei-teri";
+    window.history.pushState({ path: newUrl }, "", newUrl);
+  }
+  function SapnonRani(chord) {
+    document.getElementById("newcontent").innerHTML = chord;
+
+    const newUrl = window.location.origin + "/meri-sapnon-ki-rani";
+    window.history.pushState({ path: newUrl }, "", newUrl);
+  }
+  function ChahunMain(chord) {
+    document.getElementById("newcontent").innerHTML = chord;
+
+    const newUrl = window.location.origin + "/chahun-main-ya-naa";
+    window.history.pushState({ path: newUrl }, "", newUrl);
+  }
+  function YehFitoor(chord) {
+    document.getElementById("newcontent").innerHTML = chord;
+
+    const newUrl = window.location.origin + "/yeh-fitoor-mera";
+    window.history.pushState({ path: newUrl }, "", newUrl);
+  }
+  function TuJohMila(chord) {
+    document.getElementById("newcontent").innerHTML = chord;
+
+    const newUrl = window.location.origin + "/tu-joh-mila";
+    window.history.pushState({ path: newUrl }, "", newUrl);
+  }
+  function AbhiMujh(chord) {
+    document.getElementById("newcontent").innerHTML = chord;
+
+    const newUrl = window.location.origin + "/abhi-mujh-mein-kahin";
+    window.history.pushState({ path: newUrl }, "", newUrl);
+  }
+  function Hamari(chord) {
+    document.getElementById("newcontent").innerHTML = chord;
+
+    const newUrl = window.location.origin + "/hamari-adhuri-kahani";
+    window.history.pushState({ path: newUrl }, "", newUrl);
+  }
+  function Jism(chord) {
+    document.getElementById("newcontent").innerHTML = chord;
+
+    const newUrl = window.location.origin + "/yeh-jism";
+    window.history.pushState({ path: newUrl }, "", newUrl);
+  }
+  function AjibDastan(chord) {
+    document.getElementById("newcontent").innerHTML = chord;
+
+    const newUrl = window.location.origin + "/ajib-dastan";
+    window.history.pushState({ path: newUrl }, "", newUrl);
+  }
+  function IkkKudi(chord) {
+    document.getElementById("newcontent").innerHTML = chord;
+
+    const newUrl = window.location.origin + "/ikk-kudi";
+    window.history.pushState({ path: newUrl }, "", newUrl);
+  }
+  function PyarHain(chord) {
+    document.getElementById("newcontent").innerHTML = chord;
+
+    const newUrl = window.location.origin + "/kya-mujhe-pyar-hain";
+    window.history.pushState({ path: newUrl }, "", newUrl);
+  }
+  function ZehnaSeeb(chord) {
+    document.getElementById("newcontent").innerHTML = chord;
+
+    const newUrl = window.location.origin + "/zehnaseeb";
+    window.history.pushState({ path: newUrl }, "", newUrl);
+  }
+  function Shab(chord) {
+    document.getElementById("newcontent").innerHTML = chord;
+
+    const newUrl = window.location.origin + "/tu-hi-meri-shab-hai";
+    window.history.pushState({ path: newUrl }, "", newUrl);
+  }
+  // function updateContentBaarishPiano(chord) {
+  //   document.getElementById("newcontent").innerHTML = chord;
+
+  //   const newUrl = window.location.origin + "/baarish-piano";
+  //   window.history.pushState({ path: newUrl }, "", newUrl);
+  // }
+
+  // Check URL on page load
+  // document.addEventListener("DOMContentLoaded", function () {
+  //   if (window.location.pathname === "/baarish/guitar") {
+  //     fetch("/api/baarish-chord")
+  //       .then((response) => response.json())
+  //       .then((data) => {
+  //         const newContentElement = document.getElementById("newcontent");
+  //         if (newContentElement) {
+  //           newContentElement.innerHTML = data.chord;
+  //         } else {
+  //           console.error("Element with id 'newcontent' not found");
+  //         }
+  //       })
+  //       .catch((error) => console.error("Error:", error));
+  //   }
+  // });
+
+  if (element == "one") {
+    updateContentBaarishGuitar(chord);
+  } else if (element == "two") {
+    KaisiPaheliZindagani(parineeta);
+  } else if (element == "three") {
+    MainKoiAisaGeet(yess_boss);
+  } else if (element == "four") {
+    Khamoshiyaan(khamoshiyaan);
+  } else if (element == "five") {
+    Dhadak(dhadak);
+  } else if (element == "six") {
+    Darkhaast(darkhast);
+  } else if (element == "seven") {
+    Raaz(raaz);
+  } else if (element == "eight") {
+    SapnonRani(sapnokiraani);
+  } else if (element == "nine") {
+    ChahunMain(chahume);
+  } else if (element == "ten") {
+    YehFitoor(yehfitoormera);
+  } else if (element == "eleven") {
+    TuJohMila(tujohmila);
+  } else if (element == "twelve") {
+    AbhiMujh(abhimujme);
+  } else if (element == "thirteen") {
+    Hamari(hamariadhuri);
+  } else if (element == "fourteen") {
+    Jism(yehjism);
+  } else if (element == "fiveteen") {
+    AjibDastan(ajibdastan);
+  } else if (element == "sixteen") {
+    IkkKudi(ikkkudi);
+  } else if (element == "seventeen") {
+    PyarHain(kyamujhepyar);
+  } else if (element == "18") {
+    ZehnaSeeb(zehnaseeb);
+  } else if (element == "19") {
+    Shab(tuhhimerishabhai);
+  } else {
+    console.log("chord lyrics not found");
+  }
+
+  const content = document.getElementById("chord-lyrics");
+  const autoscrollBtn = document.getElementById("autoscrollBtn");
+  const decreaseSpeed = document.getElementById("decreaseSpeed");
+  const increaseSpeed = document.getElementById("increaseSpeed");
+  const speedIndicator = document.getElementById("speedIndicator");
+  const resetBtn = document.getElementById("resetBtn");
+
+  let isScrolling = false;
+  let scrollSpeed = 1;
+  const minScrollSpeed = 0.1; // Minimum scroll speed
+  const maxScrollSpeed = 2; // Maximum scroll speed
+  const minScrollAmount = 1; // Minimum scroll amount for smoother scrolling
+  let scrollDelay = 80; // Default scroll delay in milliseconds
+
+  const viewportHeight = window.innerHeight;
+  let contentTop;
+
+  function calculateMaxHeight() {
+    const contentRect = content.getBoundingClientRect();
+    contentTop = contentRect.top;
+
+    let availableHeight;
+
+    if (document.getElementById("newcontent").offsetWidth <= 600) {
+      availableHeight = viewportHeight - contentTop - 20;
+    } else {
+      availableHeight = viewportHeight - contentTop;
+    }
+
+    content.style.maxHeight = `${availableHeight}px`;
+    content.style.overflowY = "auto";
+
+    if (
+      document.getElementById("result").style.display == "flex" &&
+      document.getElementById("newcontent").offsetWidth > 600 &&
+      document.getElementById("newcontent").offsetWidth < 1000
+    ) {
+      document.querySelector(".baarish").style.paddingTop = "10.5rem";
+      document.querySelector(".overlay").style.viewportHeight = "15vh";
+    } else if (
+      document.getElementById("result").style.display == "flex" &&
+      document.getElementById("newcontent").offsetWidth <= 600
+    ) {
+      content.style.maxHeight = `${availableHeight}px`;
+      content.style.overflowY = "auto";
+    } else if (document.getElementById("result").style.display == "none") {
+      document.querySelector(".baarish").style.paddingTop = "0rem";
+    }
+  }
+
+  calculateMaxHeight();
+  window.addEventListener("resize", calculateMaxHeight);
+
+  function autoScroll() {
+    if (!isScrolling) return;
+
+    const scrollAmount = Math.max(scrollSpeed, minScrollAmount);
+    content.scrollTop += scrollAmount;
+
+    setTimeout(autoScroll, scrollDelay);
+  }
+
+  function startAutoScroll() {
+    if (!isScrolling) {
+      isScrolling = true;
+      autoscrollBtn.textContent = "STOP";
+      autoScroll();
+    } else {
+      stopAutoScroll();
+    }
+  }
+
+  function stopAutoScroll() {
+    isScrolling = false;
+    autoscrollBtn.textContent = "AUTOSCROLL";
+  }
+
+  function adjustSpeed(increment) {
+    const newSpeed = Math.max(
+      minScrollSpeed,
+      Math.min(scrollSpeed + increment, maxScrollSpeed)
+    );
+
+    if (newSpeed !== scrollSpeed) {
+      scrollSpeed = newSpeed;
+      scrollDelay = 100 + (1 - scrollSpeed) * 50;
+      speedIndicator.textContent = scrollSpeed.toFixed(1) + "x";
+    }
+  }
+
+  function toggleReset() {
+    content.scrollTop = 0;
+  }
+
+  autoscrollBtn.addEventListener("click", startAutoScroll);
+  decreaseSpeed.addEventListener("click", () => adjustSpeed(-0.1));
+  increaseSpeed.addEventListener("click", () => adjustSpeed(0.1));
+  resetBtn.addEventListener("click", toggleReset);
+
+  // Initialize speed indicator
+  // speedIndicator.textContent = scrollSpeed.toFixed(1) + "x";
+
+  // content.style.overflowY = "auto";
+  // content.style.maxHeight = "68vh"; // Set to an appropriate height
+
+  // Ensure proper initialization
+  // document.addEventListener("DOMContentLoaded", () => {
+  //   pauseBtn.textContent = "▶️";
+  // });
+  const chordsElement = document.getElementById("chord-lyrics");
+  const originalChordLyrics = chordsElement.innerHTML;
+  const transposeplus1Button = document.getElementById("transpose+1");
+  const transposeminus1Button = document.getElementById("transpose-1");
+  const transposeUpButton = document.getElementById("transposeUp");
+  const transposeDownButton = document.getElementById("transposeDown");
+
+  if (!chordsElement) {
+    console.error("Chords element not found");
+  }
+  if (!transposeUpButton) {
+    console.error("Transpose Up button not found");
+  }
+  if (!transposeDownButton) {
+    console.error("Transpose Down button not found");
+  }
+
+  const allChords = [
+    "A",
+    "A#",
+    "B",
+    "C",
+    "C#",
+    "D",
+    "D#",
+    "E",
+    "F",
+    "F#",
+    "G",
+    "G#",
+  ];
+  const openChords = ["A", "Am", "C", "D", "Dm", "E", "Em", "G"];
+
+  let currentTransposition = 0;
+
+  function transposeChord(chord, semitones) {
+    const allChords = [
+      "A",
+      "A#",
+      "B",
+      "C",
+      "C#",
+      "D",
+      "D#",
+      "E",
+      "F",
+      "F#",
+      "G",
+      "G#",
+    ];
+    const chordRegex = /^([A-G]#?)([m]?)([57]?)$/;
+    const match = chord.match(chordRegex);
+
+    if (!match) return chord; // Return original if not a recognized chord
+
+    let [, note, minor, extension] = match;
+    let index = allChords.indexOf(note);
+    if (index === -1) return chord; // Return original if note not found
+
+    let newIndex = (index + semitones + 12) % 12;
+    let newNote = allChords[newIndex];
+
+    return newNote + (minor || "") + (extension || "");
+  }
+
+  function transpose(direction) {
+    let textContent = chordsElement.innerHTML;
+    let regex = /(\([^)]*\))/g; // Match chords within parentheses
+
+    currentTransposition += direction === "up" ? 1 : -1;
+
+    let transposedText = textContent.replace(regex, (match, chordGroup) => {
+      let chordsArray = chordGroup.split(" ").map((chord) => {
+        // Remove parentheses and transpose
+        return transposeChord(
+          chord.replace(/[()]/g, ""),
+          direction === "up" ? 1 : -1
+        );
+      });
+      return `(${chordsArray.join(" ")})`;
+    });
+
+    chordsElement.innerHTML = transposedText;
+  }
+
+  function updateLyricsWithTransposedChords(semitones) {
+    const lyricsElement = document.getElementById("chord-lyrics");
+    let newLyrics = lyricsElement.innerHTML;
+
+    const chordRegex = /\(([^)]+)\)/g;
+    newLyrics = newLyrics.replace(chordRegex, (match, chord) => {
+      const transposedChords = chord
+        .split(" ")
+        .map((c) => transposeChord(c, semitones))
+        .join(" ");
+      return `(${transposedChords})`;
+    });
+
+    lyricsElement.innerHTML = newLyrics;
+  }
+
+  function findBestCapoAndUpdate() {
+    const lyricsElement = document.getElementById("chord-lyrics");
+    const chordRegex = /\(([^)]+)\)/g;
+    const chords = [];
+
+    // Extract all chords from the lyrics
+    let match;
+    while ((match = chordRegex.exec(lyricsElement.innerHTML)) !== null) {
+      chords.push(...match[1].split(" "));
+    }
+
+    // Remove duplicates
+    const uniqueChords = [...new Set(chords)];
+
+    // Define open chords and common bar chords
+    const openChords = ["A", "Am", "C", "D", "Dm", "E", "Em", "F", "G"];
+
+    const barChords = [
+      "A#",
+
+      "A#m",
+
+      "B",
+
+      "Bm",
+
+      "Cm",
+
+      "C#",
+
+      "C#m",
+
+      "D#",
+
+      "D#m",
+
+      "Fm",
+
+      "F#",
+
+      "F#m",
+
+      "Gm",
+
+      "G#",
+
+      "G#m",
+    ];
+
+    // Find the best capo positions
+    let capoPositions = [];
+
+    for (let capo = 0; capo <= 11; capo++) {
+      let openChordCount = 0;
+      let barChordCount = 0;
+      for (let chord of uniqueChords) {
+        const transposedChord = transposeChord(chord, -capo);
+        if (openChords.includes(transposedChord)) {
+          openChordCount++;
+        } else if (barChords.includes(transposedChord)) {
+          barChordCount++;
+        }
+      }
+      capoPositions.push({
+        position: capo,
+        openChords: openChordCount,
+        barChords: barChordCount,
+      });
+    }
+
+    // Sort capo positions by number of open chords (descending) and bar chords (ascending)
+    capoPositions.sort((a, b) => {
+      if (b.openChords !== a.openChords) {
+        return b.openChords - a.openChords;
+      }
+      return a.barChords - b.barChords;
+    });
+
+    // Choose the best capo position, preferring lower frets
+    let bestCapo = capoPositions[0].position;
+    if (bestCapo > 6 && capoPositions.length > 1) {
+      bestCapo = capoPositions[1].position;
+    }
+
+    // Transpose chords in the lyrics
+    let newLyrics = lyricsElement.innerHTML;
+    newLyrics = newLyrics.replace(chordRegex, (match, chord) => {
+      const transposedChords = chord
+        .split(" ")
+        .map((c) => transposeChord(c, -bestCapo))
+        .join(" ");
+      return `(${transposedChords})`;
+    });
+
+    lyricsElement.innerHTML = newLyrics;
+
+    // Update the result display
+    let resultHTML = `
+    <p class="capo-pos"><strong><b>Best capo position:</b> </strong>Fret ${bestCapo}</p>
+    <p class="play-chords"><strong><span class="chordset">Chords</span> have been <span class="chordset">transposed</span> in the <span class="chordset">lyrics above.</span></strong></p>
+    <p class="play-chords-below" id="play-below"><strong><span class="chordset">Chords</span> have been <span class="chordset">transposed</span> in the <span class="chordset">lyrics below.</span></strong></p>
+
+  `;
+    document.getElementById("result").innerHTML = resultHTML;
+    document.getElementById("result").style.display = "flex";
+
+    // Get the snackbar DIV
+    var x = document.getElementById("play-below");
+
+    // Add the "show" class to DIV
+    x.className = "show";
+
+    // After 3 seconds, remove the show class from DIV
+    setTimeout(function () {
+      x.className = x.className.replace("show", "");
+      x.style.display = "none";
+      calculateMaxHeight();
+    }, 3000);
+
+    // Reset currentTransposition
+    currentTransposition = -bestCapo;
+    calculateMaxHeight();
+  }
+  document
+    .getElementById("findBestCapo")
+    .addEventListener("click", findBestCapoAndUpdate);
+
+  document
+    .getElementById("findNewBestCapo")
+    .addEventListener("click", findBestCapoAndUpdate);
+
+  document.getElementById("reset-scale").addEventListener("click", () => {
+    chordsElement.innerHTML = originalChordLyrics;
+    currentTransposition = 0;
+    document.getElementById("result").style.display = "none";
+    calculateMaxHeight();
+  });
+
+  document.getElementById("reset-scale-new").addEventListener("click", () => {
+    chordsElement.innerHTML = originalChordLyrics;
+    currentTransposition = 0;
+    document.getElementById("result").style.display = "none";
+    calculateMaxHeight();
+  });
+
+  transposeplus1Button.addEventListener("click", () => {
+    transpose("up");
+  });
+  transposeminus1Button.addEventListener("click", () => {
+    transpose("down");
+  });
+
+  transposeUpButton.addEventListener("click", () => {
+    transpose("up");
+  });
+  transposeDownButton.addEventListener("click", () => {
+    transpose("down");
+  });
+
+  const tabItems = document.querySelectorAll(".tab-item");
+  const menuButton = document.querySelector(".menu-button");
+  const menuOverlay = document.querySelector(".menu-overlay");
+
+  tabItems.forEach((item) => {
+    item.addEventListener("click", (e) => {
+      e.preventDefault();
+      tabItems.forEach((tab) => tab.classList.remove("active"));
+      item.classList.add("active");
+
+      // Add and remove pulse animation
+      item.classList.add("pulse");
+      setTimeout(() => {
+        item.classList.remove("pulse");
+      }, 300);
+    });
+  });
+  function toggleMenu() {
+    menuButton.classList.toggle("active");
+    menuOverlay.style.display =
+      menuOverlay.style.display === "flex" ? "none" : "flex";
+    menuButton.innerHTML = menuButton.classList.contains("active")
+      ? '<i class="fas fa-times"></i>'
+      : '<i class="fas fa-chevron-up"></i>';
+
+    // Add and remove shake animation
+    menuButton.classList.add("shake");
+    setTimeout(() => {
+      menuButton.classList.remove("shake");
+    }, 300);
+  }
+
+  menuButton.addEventListener("click", toggleMenu);
+
+  // document.querySelectorAll(".option-button").forEach((button) => {
+  //   button.addEventListener("click", () => {
+  //     alert(`You clicked: ${button.textContent}`);
+  //     // Here you would typically add the logic to navigate to the selected section
+  //     toggleMenu(); // Close the menu after selection
+  //   });
+  // });
+}
+
+function loadchordset() {
+  // window.location.href = 'instruction.html';
+  const rootUrl = window.location.origin; // This will remove /baarish
+  window.history.pushState({ path: rootUrl }, "", rootUrl);
+  const chordset = `
+  
+  <div class="container-new">
+    <h1>CHORDS LIBRARY</h1>
+    <div class="search-container">
+    
+      <input type="text" placeholder="Search.." name="search" style="padding-left: 1rem;">
+      <span class="clear-search">&times;</span>
+      <button type="submit"><i class="fa fa-search"></i></button>
+  </div>
+    <div class="row-new task__contents">
+        <div class="col-new">
+            <div class="card-new" onclick="chord('one')">
+                <img src="../assets/img/Baarish-thumbnail.JPEG.jpg" alt="Blog post image">
+                <div class="card-body-new">
+                    <h5 class="card-title-new">BAARISH - YAARIYAN</h5>
+                    <p class="card-meta-new martop">Mohammed Irfan & Gajendra Verma</p>
+                    <div class="badge-btns">
+                   <span class="badge-new badge-info-new">GUITAR CHORDS</span>
+                    <span class="badge-new badge-warning-new">PIANO CHORDS</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-new-parineeta">
+            <div class="card-new" onclick="chord('two')">
+                <img src="../assets/img/parineeta.png" alt="Blog post image">
+                <div class="card-body-new">
+                    <h5 class="card-title-new-parineeta">KAISI PAHELI ZINDAGANI - PARINEETA</h5>
+                    <p class="card-meta-new">Sunidhi Chauhan & Shantanu Moitra</p>
+                    <div class="badge-btns">
+                    <span class="badge-new badge-info-new">GUITAR CHORDS</span>
+                    <span class="badge-new badge-warning-new">PIANO CHORDS</span></div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="col-new">
+            <div class="card-new" onclick="chord('three')">
+                <img src="../assets/img/YESS-BOSS-POSTER.jpg" alt="Blog post image">
+                <div class="card-body-new">
+                    <h5 class="card-title-new-parineeta">MAIN KOI AISA GEET GAOON - YESS BOSS</h5>
+                    <p class="card-meta-new">Abhijeet & Alka Yagnik</p>
+                    <div class="badge-btns">
+                    <span class="badge-new badge-info-new">GUITAR CHORDS</span>
+                    <span class="badge-new badge-warning-new">PIANO CHORDS</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-new">
+            <div class="card-new" onclick="chord('four')">
+                <img src="../assets/img/KHAMOSHIYAN.jpg" alt="Blog post image">
+                <div class="card-body-new">
+                    <h5 class="card-title-new">KHAMOSHIYAN - TITLE TRACK</h5>
+                    <p class="card-meta-new">Arjit Singh & Jeet Gannguli</p>
+                    <div class="badge-btns">
+                    <span class="badge-new badge-info-new">GUITAR CHORDS</span>
+                    <span class="badge-new badge-warning-new">PIANO CHORDS</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-new">
+            <div class="card-new" onclick="chord('five')">
+                <img src="../assets/img/Dhadak.jpg" alt="Blog post image">
+                <div class="card-body-new">
+                    <h5 class="card-title-new">DHADAK - TITLE TRACK</h5>
+                    <p class="card-meta-new martop">Ajay Gogavale & Shreya Ghoshal</p>
+                    <div class="badge-btns">
+                    <span class="badge-new badge-info-new">GUITAR CHORDS</span>
+                    <span class="badge-new badge-warning-new">PIANO CHORDS</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-new">
+            <div class="card-new" onclick="chord('six')">
+                <img src="../assets/img/Darkhast.jpg" alt="Blog post image">
+                <div class="card-body-new">
+                    <h5 class="card-title-new">DARKHAAST - SHIVAAY</h5>
+                    <p class="card-meta-new martop">Arijit Singh & Sunidhi Chauhan</p>
+                    <div class="badge-btns">
+                    <span class="badge-new badge-info-new">GUITAR CHORDS</span>
+                    <span class="badge-new badge-warning-new">PIANO CHORDS</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-new">
+            <div class="card-new" onclick="chord('seven')">
+                <img src="../assets/img/raazteri.jpg" alt="Blog post image">
+                <div class="card-body-new">
+                    <h5 class="card-title-new">Raaz Aankhei Teri - razz reboot</h5>
+                    <p class="card-meta-new">Arijit Singh & Jeet Gannguli</p>
+                    <div class="badge-btns">
+                    <span class="badge-new badge-info-new">GUITAR CHORDS</span>
+                    <span class="badge-new badge-warning-new">PIANO CHORDS</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-new">
+            <div class="card-new" onclick="chord('eight')">
+                <img src="../assets/img/merisapno.jpg" alt="Blog post image">
+                <div class="card-body-new">
+                    <h5 class="card-title-new">Meri Sapnon Ki Rani - aradhana</h5>
+                    <p class="card-meta-new">Kishor Kumar & JS. D. Burman</p>
+                    <div class="badge-btns">
+                    <span class="badge-new badge-info-new">GUITAR CHORDS</span>
+                    <span class="badge-new badge-warning-new">PIANO CHORDS</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-new">
+            <div class="card-new" onclick="chord('nine')">
+                <img src="../assets/img/chahume.jpg" alt="Blog post image">
+                <div class="card-body-new">
+                    <h5 class="card-title-new">Chahun Main Ya Naa - aashiqui 2</h5>
+                    <p class="card-meta-new">Arijit Singh & Palak Muchhal</p>
+                    <div class="badge-btns">
+                    <span class="badge-new badge-info-new">GUITAR CHORDS</span>
+                    <span class="badge-new badge-warning-new">PIANO CHORDS</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-new">
+            <div class="card-new" onclick="chord('ten')">
+                <img src="../assets/img/yehfitoor.jpg" alt="Blog post image">
+                <div class="card-body-new">
+                    <h5 class="card-title-new">Yeh Fitoor Mera - fitoor</h5>
+                    <p class="card-meta-new">Arijit Singh & Amit Trivedi</p>
+                    <div class="badge-btns">
+                    <span class="badge-new badge-info-new">GUITAR CHORDS</span>
+                    <span class="badge-new badge-warning-new">PIANO CHORDS</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-new">
+            <div class="card-new" onclick="chord('eleven')">
+                <img src="../assets/img/tujohmila.jpg" alt="Blog post image">
+                <div class="card-body-new">
+                    <h5 class="card-title-new">Tu Jo Mila - bajrangi bhaijaan</h5>
+                    <p class="card-meta-new">KK & Pritam</p>
+                    <div class="badge-btns">
+                    <span class="badge-new badge-info-new">GUITAR CHORDS</span>
+                    <span class="badge-new badge-warning-new">PIANO CHORDS</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-new">
+            <div class="card-new" onclick="chord('twelve')">
+                <img src="../assets/img/abhimujme.jpg" alt="Blog post image">
+                <div class="card-body-new">
+                    <h5 class="card-title-new">Abhi Mujh Mein Kahin - agneepath</h5>
+                    <p class="card-meta-new">Sonu Nigam & Ajay Atul</p>
+                    <div class="badge-btns">
+                    <span class="badge-new badge-info-new">GUITAR CHORDS</span>
+                    <span class="badge-new badge-warning-new">PIANO CHORDS</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-new">
+            <div class="card-new" onclick="chord('thirteen')">
+                <img src="../assets/img/hamariadhuri.jpg" alt="Blog post image">
+                <div class="card-body-new">
+                    <h5 class="card-title-new">Hamari Adhuri Kahani - title track</h5>
+                    <p class="card-meta-new">Arijit Singh & Jeet Gannguli</p>
+                    <div class="badge-btns">
+                    <span class="badge-new badge-info-new">GUITAR CHORDS</span>
+                    <span class="badge-new badge-warning-new">PIANO CHORDS</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-new">
+            <div class="card-new" onclick="chord('fourteen')">
+                <img src="../assets/img/yehjism.jpg" alt="Blog post image">
+                <div class="card-body-new">
+                    <h5 class="card-title-new">Yeh Jism - Jism 2</h5>
+                    <p class="card-meta-new martop">Arko Pravo Mukherjee & Munish</p>
+                    <div class="badge-btns">
+                    <span class="badge-new badge-info-new">GUITAR CHORDS</span>
+                    <span class="badge-new badge-warning-new">PIANO CHORDS</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-new">
+            <div class="card-new" onclick="chord('fiveteen')">
+                <img src="../assets/img/ajibdasta.jpg" alt="Blog post image">
+                <div class="card-body-new">
+                    <h5 class="card-title-new">Ajib Dastan - dil apna aur preet parai</h5>
+                    <p class="card-meta-new">Lata Mangeshkar & Shankar Jaikishan</p>
+                    <div class="badge-btns">
+                    <span class="badge-new badge-info-new">GUITAR CHORDS</span>
+                    <span class="badge-new badge-warning-new">PIANO CHORDS</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-new">
+            <div class="card-new" onclick="chord('sixteen')">
+                <img src="../assets/img/ikkkudi.jpg" alt="Blog post image">
+                <div class="card-body-new">
+                    <h5 class="card-title-new">Ikk Kudi - udta punjab</h5>
+                    <p class="card-meta-new">Shahid Mallya & Amit Trivedi</p>
+                    <div class="badge-btns">
+                    <span class="badge-new badge-info-new">GUITAR CHORDS</span>
+                    <span class="badge-new badge-warning-new">PIANO CHORDS</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-new">
+            <div class="card-new" onclick="chord('seventeen')">
+                <img src="../assets/img/kyamujepyar.jpg" alt="Blog post image">
+                <div class="card-body-new">
+                    <h5 class="card-title-new">Kya Mujhe Pyar Hain - woh lamhe</h5>
+                    <p class="card-meta-new">Pritam & Nilesh Mishra</p>
+                    <div class="badge-btns">
+                    <span class="badge-new badge-info-new">GUITAR CHORDS</span>
+                    <span class="badge-new badge-warning-new">PIANO CHORDS</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-new">
+            <div class="card-new" onclick="chord('18')">
+                <img src="../assets/img/zehnaseeb.png" alt="Blog post image">
+                <div class="card-body-new">
+                    <h5 class="card-title-new">Zehnaseeb - hasee toh phasee</h5>
+                    <p class="card-meta-new">Chinmayi Sripaada & Shekhar Ravjiani</p>
+                    <div class="badge-btns">
+                    <span class="badge-new badge-info-new">GUITAR CHORDS</span>
+                    <span class="badge-new badge-warning-new">PIANO CHORDS</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-new">
+            <div class="card-new card-bottom" onclick="chord('19')">
+                <img src="../assets/img/tuhhimeri.jpg" alt="Blog post image">
+                <div class="card-body-new">
+                    <h5 class="card-title-new">Tu hi Meri Shab Hai - gangster</h5>
+                    <p class="card-meta-new">Kk & Pritam</p>
+                    <div class="badge-btns">
+                    <span class="badge-new badge-info-new">GUITAR CHORDS</span>
+                    <span class="badge-new badge-warning-new">PIANO CHORDS</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="menu-overlay">
+    <div class="menu-options">
+     <button class="option-button">Home</button>
+      <button class="option-button">Reference Videos</button>
+      <button class="option-button">Music Lessons</button>
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a href="#" onclick="MSTREAMAPI.logout();" class="tab-item">
+      <i class="fas fa-home"></i>
+      <span>Home</span>
+    </a>
+    <a href="#" class="tab-item" onclick="changeView(loadinstruction, this)">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>
+      <span>Reference Videos</span>
+    </a>
+    
+    <a href="#" class="tab-item active" onclick="changeView(loadchordset, this)">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="200px" width="200px" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M192 218v-6c0-14.84 10-27 24.24-30.59l174.59-46.68A20 20 0 0 1 416 154v22"></path><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M416 295.94v80c0 13.91-8.93 25.59-22 30l-22 8c-25.9 8.72-52-10.42-52-38h0a33.37 33.37 0 0 1 23-32l51-18.15c13.07-4.4 22-15.94 22-29.85V58a10 10 0 0 0-12.6-9.61L204 102a16.48 16.48 0 0 0-12 16v226c0 13.91-8.93 25.6-22 30l-52 18c-13.88 4.68-22 17.22-22 32h0c0 27.58 26.52 46.55 52 38l22-8c13.07-4.4 22-16.08 22-30v-80"></path></svg>
+      <span>Chords Library</span>
+    </a>
+    
+  </nav>
+  `;
+  document.getElementById("mstream-player").style.display = "none";
+  document.getElementById("filelist").style.display = "none";
+  document.getElementById("playlist").style.display = "none";
+  document.getElementById("header_tab").style.display = "none";
+  document.getElementById("backbtn").style.display = "none";
+  document.getElementById("local_search_btn").style.display = "none";
+  document.getElementById("add_all").style.display = "none";
+  document.getElementById("newcontent").style.display = "block";
+  document.getElementById("newcontent").style.flexBasis = "inherit";
+  document.getElementById("newcontent").style.overflowY = "scroll";
+  document.getElementById("newcontent").scrollTop = 0;
+  if (document.getElementById("newcontent").offsetWidth <= 600) {
+    document.getElementById("newcontent").style.paddingTop = 0;
+  }
+  document.getElementById("content").style.display = "none";
+  document.getElementById("newcontent").innerHTML = chordset;
+
+  const newUrl = window.location.origin + "/chords";
+  window.history.pushState({ path: newUrl }, "", newUrl);
+
+  const taskContents = document.querySelector(".task__contents");
+  const searchName = document.querySelector("[name='search']");
+  const clearButton = document.querySelector(".clear-search");
+
+  // Clear input when clear button is clicked
+  clearButton.addEventListener("click", function () {
+    searchName.value = "";
+    this.style.display = "none";
+    searchName.focus();
+    // Trigger the search function to update results
+    searchName.dispatchEvent(new Event("input"));
+  });
+
+  function searchTask(e) {
+    const searchValue = e.target.value.toLowerCase();
+    const cards = Array.from(
+      taskContents.querySelectorAll(".col-new, .col-new-parineeta")
+    );
+
+    cards.forEach((card) => {
+      const title = card.querySelector(
+        ".card-title-new, .card-title-new-parineeta"
+      );
+      if (title) {
+        const titleText = title.textContent.toLowerCase();
+        if (titleText.includes(searchValue)) {
+          card.style.display = "";
+        } else {
+          card.style.display = "none";
+        }
+      }
+    });
+  }
+
+  searchName.addEventListener("input", function (e) {
+    searchTask.apply(this, arguments);
+    clearButton.style.display = this.value ? "inline" : "none";
+  });
+
+  const tabItems = document.querySelectorAll(".tab-item");
+  const menuButton = document.querySelector(".menu-button");
+  const menuOverlay = document.querySelector(".menu-overlay");
+
+  tabItems.forEach((item) => {
+    item.addEventListener("click", (e) => {
+      e.preventDefault();
+      tabItems.forEach((tab) => tab.classList.remove("active"));
+      item.classList.add("active");
+
+      // Add and remove pulse animation
+      item.classList.add("pulse");
+      setTimeout(() => {
+        item.classList.remove("pulse");
+      }, 300);
+    });
+  });
+  function toggleMenu() {
+    menuButton.classList.toggle("active");
+    menuOverlay.style.display =
+      menuOverlay.style.display === "flex" ? "none" : "flex";
+    menuButton.innerHTML = menuButton.classList.contains("active")
+      ? '<i class="fas fa-times"></i>'
+      : '<i class="fas fa-chevron-up"></i>';
+
+    // Add and remove shake animation
+    menuButton.classList.add("shake");
+    setTimeout(() => {
+      menuButton.classList.remove("shake");
+    }, 300);
+  }
+
+  // menuButton.addEventListener("click", toggleMenu);
 }

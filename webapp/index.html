@@ -3,18 +3,22 @@
 
 <head>
   <meta charset="utf-8">
-  <title>VibeStream</title>
+  <title>Bridge Of Music</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/Vibestream-logo.PNG">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/Vibestream-logo.PNG">
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/Vibestream-logo.PNG">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/bom-top-logo.JPEG.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/bom-top-logo.JPEG.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/bom-top-logo.JPEG.jpg">
   <link rel="manifest" href="assets/fav/site.webmanifest">
   <link rel="mask-icon" href="assets/fav/safari-pinned-tab.svg" color="#5bbad5">
-  <link rel="shortcut icon" href="assets/img/VS-logo.avif">
+  <link rel="shortcut icon" href="assets/img/bom-top-logo.JPEG.jpg">
+
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="msapplication-config" content="assets/fav/browserconfig.xml">
   <meta name="theme-color" content="#ffffff">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 
   <script defer src="assets/js/lib/cookie.min.js"></script>
 
@@ -58,7 +62,7 @@
   <!-- Lazy Loading Polyfill-->
   <script src="assets/js/lib/lazy-load-polyfill.js"></script>
   <link rel="stylesheet" href="assets/css/lazy-load-polyfill.css">
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <script src="assets/js/mstream.jukebox.js"></script>
   <script defer src="assets/js/lib/qr.js"></script>
 
@@ -71,16 +75,20 @@
   <script src="assets/js/lib/dropzone.js"></script>
   <script src="home/index.js"></script>
   <script>
-    window.onload = function () {
-      const isAdmin = localStorage.getItem("isAdmin");
-      console.log(isAdmin);
-      if (isAdmin === 'false') {
-        document.getElementById("admin-side-link").style.display = "none";
-      }
-      else {
-        document.getElementById("admin-side-link").style.display = "flex";
-      }
+    // Redirect to /home if the current path is the root
+    if (window.location.pathname === '/' || window.location.pathname === '') {
+      window.location.replace(window.location.origin + '/home');
     }
+    // window.onload = function () {
+    //   const isAdmin = localStorage.getItem("isAdmin");
+    //   console.log(isAdmin);
+    //   if (isAdmin === 'false') {
+    //     document.getElementById("admin-side-link").style.display = "none";
+    //   }
+    //   else {
+    //     document.getElementById("admin-side-link").style.display = "flex";
+    //   }
+    // }
   </script>
 </head>
 
@@ -283,9 +291,10 @@
   <div id="sidenav">
     <!-- style="padding: 35px 0;" -->
     <div class="side-nav-header">
-      <!-- <img src="assets/img/Vibestream-logo.PNG" alt="img not found" width="70%" height="100"> -->
+      <img src="assets/img/Bridge-music-logo.PNG" style="padding: 18px 0 0 18px;" alt="img not found" width="90%"
+        height="100%">
 
-      <h4><b><i>VibeStream</i></b></h4>
+      <!-- <h4><b><i>VibeStream</i></b></h4> -->
       <!-- <?xml version="1.0" encoding="utf-8"?>
       <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
         x="0px" y="0px" viewBox="0 0 612 153" style="enable-background:new 0 0 612 153;" xml:space="preserve">
@@ -356,35 +365,46 @@
       <span>Instructional Videos</span>
     </div>
 
-    <div class="side-nav-item my-waves" onclick="changeView(loadFileExplorer, this)">
+    <!-- <div class="side-nav-item my-waves" onclick="changeView(loadFileExplorer, this)">
       <?xml version="1.0" encoding="utf-8"?><svg width="24" height="24" xmlns="http://www.w3.org/2000/svg"
         viewBox="6 6 40 40" style="enable-background:new 0 0 48 48">
         <path
           d="M16.516 20.688C16.266 21.25 12 31.906 12 31.906V17c0-.55.45-1 1-1h1.334l.35-1.052C14.857 14.427 15.45 14 16 14h5c.55 0 1.143.427 1.316.948l.35 1.052H32c.55 0 1 .45 1 1v3H17.5c-.275 0-.734.125-.984.688zM41 21H19c-.55 0-1.167.418-1.371.929l-5.258 13.143c-.204.51.079.928.629.928h22c.55 0 1.167-.418 1.371-.929l5.258-13.143c.204-.51-.079-.928-.629-.928z" />
       </svg>
       <span>Music Library</span>
-    </div>
-    <div class="side-nav-item my-waves" onclick="changeView(loadmusicTab, this)">
+    </div> -->
+    <!-- <div class="side-nav-item my-waves" onclick="changeView(loadmusicTab, this)">
+      <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"
+        style="enable-background:new 0 0 48 48">
+        <path
+          d="M452-160q6 20 16.5 41.5T490-80H200q-33 0-56.5-23.5T120-160v-640q0-33 23.5-56.5T200-880h480q33 0 56.5 23.5T760-800v284q-18-2-40-2t-40 2v-284H480v280l-100-60-100 60v-280h-80v640h252ZM720-40q-83 0-141.5-58.5T520-240q0-83 58.5-141.5T720-440q83 0 141.5 58.5T920-240q0 83-58.5 141.5T720-40Zm-50-100 160-100-160-100v200ZM280-800h200-200Zm172 0H200h480-240 12Z" />
+      </svg> -->
+    <!-- <?xml version="1.0" encoding="utf-8"?><svg width="24" height="24" xmlns="http://www.w3.org/2000/svg"
+        viewBox="6 6 40 40" style="enable-background:new 0 0 48 48">
+        <path
+          d="M16.516 20.688C16.266 21.25 12 31.906 12 31.906V17c0-.55.45-1 1-1h1.334l.35-1.052C14.857 14.427 15.45 14 16 14h5c.55 0 1.143.427 1.316.948l.35 1.052H32c.55 0 1 .45 1 1v3H17.5c-.275 0-.734.125-.984.688zM41 21H19c-.55 0-1.167.418-1.371.929l-5.258 13.143c-.204.51.079.928.629.928h22c.55 0 1.167-.418 1.371-.929l5.258-13.143c.204-.51-.079-.928-.629-.928z" /> -->
+    <!-- </svg>
+      <span>Music Lessons</span>
+    </div> -->
+
+    <div class="side-nav-item my-waves" onclick="changeView(loadchordset, this)">
       <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"
         style="enable-background:new 0 0 48 48">
         <path
           d="M452-160q6 20 16.5 41.5T490-80H200q-33 0-56.5-23.5T120-160v-640q0-33 23.5-56.5T200-880h480q33 0 56.5 23.5T760-800v284q-18-2-40-2t-40 2v-284H480v280l-100-60-100 60v-280h-80v640h252ZM720-40q-83 0-141.5-58.5T520-240q0-83 58.5-141.5T720-440q83 0 141.5 58.5T920-240q0 83-58.5 141.5T720-40Zm-50-100 160-100-160-100v200ZM280-800h200-200Zm172 0H200h480-240 12Z" />
       </svg>
-      <!-- <?xml version="1.0" encoding="utf-8"?><svg width="24" height="24" xmlns="http://www.w3.org/2000/svg"
-        viewBox="6 6 40 40" style="enable-background:new 0 0 48 48">
-        <path
-          d="M16.516 20.688C16.266 21.25 12 31.906 12 31.906V17c0-.55.45-1 1-1h1.334l.35-1.052C14.857 14.427 15.45 14 16 14h5c.55 0 1.143.427 1.316.948l.35 1.052H32c.55 0 1 .45 1 1v3H17.5c-.275 0-.734.125-.984.688zM41 21H19c-.55 0-1.167.418-1.371.929l-5.258 13.143c-.204.51.079.928.629.928h22c.55 0 1.167-.418 1.371-.929l5.258-13.143c.204-.51-.079-.928-.629-.928z" /> -->
+
       </svg>
-      <span>Music Lessons</span>
+      <span>Chords</span>
     </div>
-    <div class="side-nav-item my-waves" onclick="changeView(getAllPlaylists, this)">
+    <!-- <div class="side-nav-item my-waves" onclick="changeView(getAllPlaylists, this)">
       <?xml version="1.0" encoding="utf-8"?><svg width="24" height="24" xmlns="http://www.w3.org/2000/svg"
         viewBox="8 5 38 38" style="enable-background:new 0 0 48 48">
         <path
           d="M37.192 23.032c-.847.339-.179-.339-.179-.339s1.422-2.092.406-3.786c-.793-1.321-3.338-1.075-4.42-1.669v14.154c0 .037-.016.07-.022.106-.154 1.504-1.607 3.034-3.696 3.712-2.559.829-5.102.063-5.678-1.711-.574-1.774 1.034-3.887 3.595-4.717.66-.189 2.207-.439 2.801-.193V12.607a.609.609 0 0 1 .608-.607h1.785c.336 0 .608.273.608.607v.549c1.542 1.004 6.18 1.455 6.851 4.139.805 3.225-1.813 5.398-2.659 5.737zM12.5 20H28v-3H12.5c-.275 0-.5.225-.5.5v2c0 .275.225.5.5.5zm0 6H28v-3H12.5c-.275 0-.5.225-.5.5v2c0 .275.225.5.5.5zm10.125 3H12.5c-.275 0-.5.225-.5.5v2c0 .275.225.5.5.5h8.551c.176-1.075.728-2.113 1.574-3z" />
       </svg>
       <span>Playlists</span>
-    </div>
+    </div> -->
     <!-- <div class="side-nav-item my-waves" onclick="changeView(getAllAlbums, this)">
       <?xml version="1.0" encoding="utf-8"?><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
         viewBox="10 12 28 28" style="enable-background:new 0 0 48 48">
@@ -401,47 +421,47 @@
       </svg>
       <span>Artists</span>
     </div> -->
-    <div onclick="changeView(getRecentlyAdded, this)" class="side-nav-item my-waves">
+    <!-- <div onclick="changeView(getRecentlyAdded, this)" class="side-nav-item my-waves">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="22" height="22">
         <path
           d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200zm61.8-104.4l-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6 0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z" />
       </svg>
       <span>Recent Added</span>
-    </div>
-    <div onclick="changeView(getRecentlyPlayed, this)" class="side-nav-item my-waves">
+    </div> -->
+    <!-- <div onclick="changeView(getRecentlyPlayed, this)" class="side-nav-item my-waves">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="22" height="22">
         <path
           d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200zm61.8-104.4l-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6 0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z" />
       </svg>
       <span>Recently Played</span>
-    </div>
-    <div onclick="changeView(getMostPlayed, this)" class="side-nav-item my-waves">
+    </div> -->
+    <!-- <div onclick="changeView(getMostPlayed, this)" class="side-nav-item my-waves">
       <svg xmlns="http://www.w3.org/2000/svg" height="22px" viewBox="0 0 24 24" width="22px" fill="#FFFFFF">
         <path d="M0 0h24v24H0z" fill="none" />
         <path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z" />
       </svg>
       <span>Most Played</span>
-    </div>
-    <div class="side-nav-item my-waves" onclick="changeView(getRatedSongs, this)">
+    </div> -->
+    <!-- <div class="side-nav-item my-waves" onclick="changeView(getRatedSongs, this)">
       <?xml version="1.0" encoding="iso-8859-1"?><svg width="24" height="24" xmlns="http://www.w3.org/2000/svg"
         viewBox="-3 0 62 62" style="enable-background:new 0 0 53.867 53.867">
         <path style="fill:#efce4a"
           d="M26.934 1.318l8.322 16.864 18.611 2.705L40.4 34.013l3.179 18.536-16.645-8.751-16.646 8.751 3.179-18.536L0 20.887l18.611-2.705z" />
       </svg>
       <span>Rated</span>
-    </div>
-    <div class="side-nav-item my-waves" onclick="changeView(setupSearchPanel, this)">
+    </div> -->
+    <!-- <div class="side-nav-item my-waves" onclick="changeView(setupSearchPanel, this)">
       <svg viewBox="-150 -50 1224 1174" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
         <path
           d="M960 832L710.875 582.875C746.438 524.812 768 457.156 768 384 768 171.969 596 0 384 0 171.969 0 0 171.969 0 384c0 212 171.969 384 384 384 73.156 0 140.812-21.562 198.875-57L832 960c17.5 17.5 46.5 17.375 64 0l64-64c17.5-17.5 17.5-46.5 0-64zM384 640c-141.375 0-256-114.625-256-256s114.625-256 256-256 256 114.625 256 256-114.625 256-256 256z">
         </path>
       </svg>
       <span>Search Tracks</span>
-    </div>
+    </div> -->
 
-    <div class="side-nav-header">
+    <!-- <div class="side-nav-header">
       <span>System</span>
-    </div>
+    </div> -->
     <!-- 
     <div onclick="changeView(getMobilePanel, this);" class="side-nav-item my-waves">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -519,13 +539,13 @@
       </svg>
       <span>Jukebox</span>
     </div> -->
-    <div class="side-nav-item my-waves" onclick="changeView(setupLayoutPanel, this);">
+    <!-- <div class="side-nav-item my-waves" onclick="changeView(setupLayoutPanel, this);">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="24" width="24" fill="#FFF">
         <path d="M0 0h24v24H0z" fill="none" />
         <path d="M3 3h8v8H3zm10 0h8v8h-8zM3 13h8v8H3zm15 0h-2v3h-3v2h3v3h2v-3h3v-2h-3z" />
       </svg>
       <span>Layout</span>
-    </div>
+    </div> -->
     <!-- <div class="side-nav-item my-waves" onclick="changeView(advancedConfig, this);">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="24" width="24" fill="#FFF"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 3h8v8H3zm10 0h8v8h-8zM3 13h8v8H3zm15 0h-2v3h-3v2h3v3h2v-3h3v-2h-3z"/></svg>
       <span>Config</span>
@@ -533,7 +553,7 @@
     <div class="side-nav-header">
       <span>Navigation</span>
     </div>
-    <div id="admin-side-link" class="side-nav-item my-waves" onclick="window.open('./admin', '_blank');">
+    <!-- <div id="admin-side-link" class="side-nav-item my-waves" onclick="window.open('./admin', '_blank');">
       <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24"
         width="24">
         <g>
@@ -549,14 +569,14 @@
         </g>
       </svg>
       <span>Admin Panel</span>
-    </div>
+    </div> -->
     <div id="logout-side-link" class="side-nav-item my-waves" onclick="MSTREAMAPI.logout();">
       <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24"
         width="24">
         <rect fill="none" height="24" width="24" />
         <path d="M9,19l1.41-1.41L5.83,13H22V11H5.83l4.59-4.59L9,5l-7,7L9,19z" />
       </svg>
-      <span>Log Out</span>
+      <span>Home</span>
     </div>
   </div>
 
@@ -938,6 +958,7 @@
   </div>
   <script>
 
+
     document.getElementById('svgWrapper').addEventListener('click', function () {
       var newWindow = window.open('', '_blank');
       var iframe = document.createElement('iframe');
@@ -950,17 +971,17 @@
     });
 
     let files = '';
-    response.forEach(value => {
-      currentBrowsingList.push({
-        type: 'file',
-        name: (!value.metadata || !value.metadata.title) ? value.filepath : `${value.metadata.artist} - ${value.metadata.title}`,
-        metadata: value.metadata,
-        filepath: value.filepath,
-        lokiId: value.lokiId
-      });
+    // response.forEach(value => {
+    //   currentBrowsingList.push({
+    //     type: 'file',
+    //     name: (!value.metadata || !value.metadata.title) ? value.filepath : `${value.metadata.artist} - ${value.metadata.title}`,
+    //     metadata: value.metadata,
+    //     filepath: value.filepath,
+    //     lokiId: value.lokiId
+    //   });
 
-      files += renderFileWithMetadataHtml(value.filepath, value.lokiId, value.metadata);
-    });
+    //   files += renderFileWithMetadataHtml(value.filepath, value.lokiId, value.metadata);
+    // });
 
     function renderPlaylist(playlistName) {
       return `<li class="collection-item" data-playlistname="${encodeURIComponent(playlistName)}" class="playlist_row_container">
