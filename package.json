@@ -100,6 +100,8 @@
     "music-metadata": "^7.14.0",
     "nanoid": "^3.3.4",
     "node-localstorage": "^3.0.5",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "tree-kill": "^1.2.2",
     "winston": "^3.11.0",
     "winston-daily-rotate-file": "^4.7.1",
@@ -109,5 +111,4 @@
     "electron-builder": "24.6.4",
     "http-server": "^14.1.1"
   }
-  
 }

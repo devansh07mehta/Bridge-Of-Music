@@ -128,7 +128,7 @@ exports.serveIt = async (configFile) => {
       jwt.verify(req.cookies["x-access-token"], config.program.secret);
       next();
     } catch (err) {
-      return res.redirect(302, "/home");
+      return res.redirect(302, "/");
     }
   });
 
@@ -139,7 +139,7 @@ exports.serveIt = async (configFile) => {
     next();
   });
 
-  mstream.get("/", (req, res, next) => {
+  mstream.get("/home", (req, res, next) => {
     if (Object.keys(config.program.users).length === 0) {
       return next();
     }
@@ -149,12 +149,12 @@ exports.serveIt = async (configFile) => {
       next();
       // return res.redirect(302, '..');
     } catch (err) {
-      return res.redirect(302, "/");
+      return res.redirect(302, "/home");
       // next();
     }
   });
 
-  mstream.get("/home", (req, res, next) => {
+  mstream.get("/", (req, res, next) => {
     if (Object.keys(config.program.users).length === 0) {
       return res.redirect(302, "..");
     }
@@ -224,8 +224,38 @@ exports.serveIt = async (configFile) => {
   mstream.get("/tu-hi-meri-shab-hai", (req, res) => {
     res.sendFile(path.join(__dirname, "../webapp", "shab.html"));
   });
+  mstream.get("/mere-yaaraa", (req, res) => {
+    res.sendFile(path.join(__dirname, "../webapp", "yaara.html"));
+  });
   mstream.get("/chords", (req, res) => {
     res.sendFile(path.join(__dirname, "../webapp", "chords.html"));
+  });
+  mstream.get("/humnava", (req, res) => {
+    res.sendFile(path.join(__dirname, "../webapp", "humnava.html"));
+  });
+  mstream.get("/subhanallah", (req, res) => {
+    res.sendFile(path.join(__dirname, "../webapp", "subhanallah.html"));
+  });
+  mstream.get("/banjaara", (req, res) => {
+    res.sendFile(path.join(__dirname, "../webapp", "banjaara.html"));
+  });
+  mstream.get("/tiktikvajate", (req, res) => {
+    res.sendFile(path.join(__dirname, "../webapp", "tiktikvajate.html"));
+  });
+  mstream.get("/jeevrangla", (req, res) => {
+    res.sendFile(path.join(__dirname, "../webapp", "jeevrangla.html"));
+  });
+  mstream.get("/kakaan", (req, res) => {
+    res.sendFile(path.join(__dirname, "../webapp", "kakaan.html"));
+  });
+  mstream.get("/jyeinkyu", (req, res) => {
+    res.sendFile(path.join(__dirname, "../webapp", "jyeinkyu.html"));
+  });
+  mstream.get("/hawavein", (req, res) => {
+    res.sendFile(path.join(__dirname, "../webapp", "hawavein.html"));
+  });
+  mstream.get("/jashnebahara", (req, res) => {
+    res.sendFile(path.join(__dirname, "../webapp", "jashnebahara.html"));
   });
 
   mstream.get("/instructions", (req, res, next) => {

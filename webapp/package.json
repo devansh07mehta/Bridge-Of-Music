@@ -16,8 +16,8 @@
     "electronVersion": "16.0.2",
     "files": [
       "**/*",
-      "!admin/*",
       "!home/*",
+      "!admin/*",
       "!shared/*",
       "!package-lock.json"
     ],
