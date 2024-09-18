@@ -9949,6 +9949,3353 @@ Aur <span class="chordset">(C#m)</span> Dil Mein Koi
   </nav>
   </div>
   </div>`;
+  const terahonelaga = `<div class="chord-main">
+    <div class="baarish" id="chord-lyrics">
+    <pre class="song-details-pre">
+Song: Tera Hone Laga Hoon
+Singer: Atif Aslam, Alisha Chinai
+Music : Pritam
+Lyrics: Ashish Pandit
+Movie:  Ajab Prem Ki Ghazab Kahani</pre>
+    <pre>
+[Bridge]  
+<span class="chordset">(G#)</span>Shining in the sand in sun like  
+a<span class="chordset">(G#)</span>pearl up on the ocean  
+Come and <span class="chordset">(Fm)</span>feel me, Girl feel me.  
+
+<span class="chordset">(G#)</span>Shining in the shade in sun like  
+a<span class="chordset">(G#)</span>pearl up on the ocean  
+Come and <span class="chordset">(Fm)</span>heal me, Girl heal me  
+
+<span class="chordset">(G#)</span>Thinking about the love we making  
+And <span class="chordset">(G#)</span>the life we sharing  
+Come and <span class="chordset">(Fm)</span>feel me, Girl feel  
+
+<span class="chordset">(G#)</span>Shining in the sand in sun like  
+a<span class="chordset">(G#)</span>pearl up on the ocean  
+Come and <span class="chordset">(Fm)</span>feel me, Come on heal me  
+
+[Verse 1]  
+Oh aaja tu bhi <span class="chordset">(G#)</span>mera mera  
+Tera Jo ik<span class="chordset">(Fm)</span>raar hua  
+Toh kyun na mein bhi  
+<span class="chordset">(G#)</span>Keh dun keh dun  
+Hua mujhe bhi <span class="chordset">(Fm)</span>pyaar hua  
+
+[Chorus]  
+<span class="chordset">(G#)</span>Te<span class="chordset">(Fm)</span>ra  
+<span class="chordset">(Cm)</span>hone la<span class="chordset">(D#)</span>ga hoon<span class="chordset">(G#)</span>  
+Khone La<span class="chordset">(G#)</span>ga hoon  
+Jab se mi<span class="chordset">(Cm)</span>la <span class="chordset">(A#m)</span>hoon<span class="chordset">(G#)</span>  
+
+<span class="chordset">(G#)</span>Te<span class="chordset">(Fm)</span>ra  
+<span class="chordset">(Cm)</span>hone la<span class="chordset">(D#)</span>ga hoon<span class="chordset">(G#)</span>  
+Khone La<span class="chordset">(G#)</span>ga hoon  
+Jab se mi<span class="chordset">(Cm)</span>la <span class="chordset">(A#m)</span>hoon<span class="chordset">(G#)</span>  
+
+[Bridge]  
+<span class="chordset">(G#)</span>Shining in the sand in sun like  
+a<span class="chordset">(G#)</span>pearl up on the ocean  
+Come and <span class="chordset">(Fm)</span>feel me, Girl feel me.  
+
+<span class="chordset">(G#)</span>Shining in the shade in sun like  
+a<span class="chordset">(G#)</span>pearl up on the ocean  
+Come and <span class="chordset">(Fm)</span>heal me, Girl heal me  
+
+<span class="chordset">(G#)</span>Thinking about the love we making  
+And <span class="chordset">(G#)</span>the life we sharing  
+Come and <span class="chordset">(Fm)</span>feel me, Girl feel  
+
+<span class="chordset">(G#)</span>Shining in the sand in sun like  
+a<span class="chordset">(G#)</span>pearl up on the ocean  
+Come and <span class="chordset">(Fm)</span>feel me, Come on heal me  
+
+[Verse 2]  
+<span class="chordset">(G#)</span>Waise to mann mera  
+<span class="chordset">(Fm)</span>Phele bhi raaton mein  
+<span class="chordset">(A#m)</span>Aksar hi <span class="chordset">(D#)</span>chahat ke haan  
+<span class="chordset">(A#)</span>Sapne san<span class="chordset">(D#)</span>jota tha  
+
+<span class="chordset">(G#)</span>Phele bhi dhadkan yeh  
+<span class="chordset">(Fm)</span>Dhun koi gaati thi  
+<span class="chordset">(A#m)</span>Par ab jo <span class="chordset">(D#)</span>hota hai woh  
+<span class="chordset">(A#)</span>Phele na <span class="chordset">(D#)</span>hota tha  
+
+Hua hai tujhe, <span class="chordset">(G#)</span>jo bhi jo bhi  
+Mujhe bhi is <span class="chordset">(Fm)</span>paar hua  
+Toh kyun na main bhi,  
+<span class="chordset">(G#)</span>keh doon keh doon  
+Hua mujhe bhi <span class="chordset">(Fm)</span>pyaar hua  
+
+[Chorus]  
+<span class="chordset">(G#)</span>Te<span class="chordset">(Fm)</span>ra  
+<span class="chordset">(Cm)</span>hone la<span class="chordset">(D#)</span>ga hoon<span class="chordset">(G#)</span>  
+Khone La<span class="chordset">(G#)</span>ga hoon  
+Jab se mi<span class="chordset">(Cm)</span>la <span class="chordset">(A#m)</span>hoon<span class="chordset">(G#)</span>  
+
+<span class="chordset">(G#)</span>Te<span class="chordset">(Fm)</span>ra  
+<span class="chordset">(Cm)</span>hone la<span class="chordset">(D#)</span>ga hoon<span class="chordset">(G#)</span>  
+Khone La<span class="chordset">(G#)</span>ga hoon  
+Jab se mi<span class="chordset">(Cm)</span>la <span class="chordset">(A#m)</span>hoon<span class="chordset">(G#)</span>  
+
+[Verse 3]  
+<span class="chordset">(G#)</span>Aankhon se choo lun ke  
+<span class="chordset">(Fm)</span>Bahein tarasti hai  
+<span class="chordset">(A#m)</span>Dil ne pu<span class="chordset">(D#)</span>kara hai haan  
+<span class="chordset">(A#)</span>Ab toh cha<span class="chordset">(D#)</span>le aao  
+
+<span class="chordset">(G#)</span>Aaoge shabnam ki  
+<span class="chordset">(Fm)</span>Boonde barasthi hai  
+<span class="chordset">(A#m)</span>Mausam i<span class="chordset">(D#)</span>shaara hai haan  
+<span class="chordset">(A#)</span>Ab toh cha<span class="chordset">(D#)</span>le aao  
+
+[Pre-Chorus]  
+Bahon mein dale <span class="chordset">(G#)</span>bahein bahein  
+Bahon ka jaise <span class="chordset">(Fm)</span>haar hua  
+Haan maana main ne <span class="chordset">(G#)</span>maana maana  
+Hua mujhe bhi <span class="chordset">(Fm)</span>pyaar hua  
+
+[Chorus]  
+<span class="chordset">(G#)</span>Te<span class="chordset">(Fm)</span>ra  
+<span class="chordset">(Cm)</span>hone la<span class="chordset">(D#)</span>ga hoon<span class="chordset">(G#)</span>  
+Khone La<span class="chordset">(G#)</span>ga hoon  
+Jab se mi<span class="chordset">(Cm)</span>la <span class="chordset">(A#m)</span>hoon<span class="chordset">(G#)</span>  
+
+<span class="chordset">(G#)</span>Te<span class="chordset">(Fm)</span>ra  
+<span class="chordset">(Cm)</span>hone la<span class="chordset">(D#)</span>ga hoon<span class="chordset">(G#)</span>  
+Khone La<span class="chordset">(G#)</span>ga hoon  
+Jab se mi<span class="chordset">(Cm)</span>la <span class="chordset">(A#m)</span>hoon<span class="chordset">(G#)</span>  
+
+[Bridge]  
+<span class="chordset">(G#)</span>Shining in the sand in sun like  
+a<span class="chordset">(G#)</span</pre>
+
+    </div>
+    <div class="chord-func">
+  
+    <div class="chord-btn">
+      <span id="transpose-txt">SCALE TRANSPOSE</span>
+      <button id="transposeDown">-1</button>
+      <button id="transposeUp">+1</button>
+      <button class="reset-btn" id="reset-scale">RESET</button>
+    </div>
+   
+    <p class="transpose-note">Note: Use the scale transpose buttons to adjust the song's scale to your vocal range. "-" lowers the scale, "+" raises it. This changes all chords on the sheet. Click "RESET" to return to the original scale.</p>
+    <div class="capo-container" id="capo">
+      <div class="capo-h2">
+        <h2>FIND BEST CAPO POSITION</h2>
+      </div>
+      <button id="findBestCapo">Find Best Capo Position</button>
+      <div id="result"></div>
+    </div>
+
+    <div id="controls">
+  <button id="autoscrollBtn">AUTOSCROLL</button>
+  <button id="decreaseSpeed">-</button>
+  <span id="speedIndicator">1.0x</span>
+  <button id="increaseSpeed">+</button>
+  <button id="resetBtn">
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="15"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+  </button>
+</div>
+
+    <div class="menu-overlay">
+    <div class="menu-options">
+            <button class="option-button" onclick="MSTREAMAPI.logout();">Home</button>
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a class="tab-item" id="transpose-1" >
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" id="exposure-neg"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M4 11v2h8v-2H4zm15 7h-2V7.38L14 8.4V6.7L18.7 5h.3v13z"></path></svg>
+      <span>Transpose</span>
+    </a>
+<a class="tab-item" id="transpose+1">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" d="M0 0h24v24H0zm0 0h24v24H0z"></path>
+        <path d="M10 7H8v4H4v2h4v4h2v-4h4v-2h-4V7zm10 11h-2V7.38L15 8.4V6.7L19.7 5h.3v13z"></path>
+      </svg>
+      <span>Transpose</span>
+    </a>
+    <button class="menu-button">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+    <a class="tab-item" id="findNewBestCapo">
+      <svg version="1.1" viewBox="0 0 800 800" width="24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path transform="translate(52,82)" d="m0 0h7l5 3 3 5v23l2 20 7 28 17 50 15 42 4-2 7-3 5 1 7 10 9 15 32 52 13 21 14 23 13 21 48 78 9 14 2 1v-7l5-10 7-7 13-7 9-2h16l8 1 6-13 3-13v-11l-3-15-6-19 1-7 4-4 17-6 10-6 8-7 6-9 4-13-1-17v-28l3-32 4-23 6-20 7-16 16-27 13-19 11-15 11-14 11-13 6-7 9-6 6-2h14l10 3 9 6 7 8 4 10 1 6v14l-3 14-4 9-6 10-7 8-7 5-5 2h-11l-10-5-5-5v-6l5-5 5 2 5 5 2 1h6l6-4 7-8 7-14 1-5v-14l-4-11-4-5-9-3-11 1-8 4-6 5-10 14-9 14-9 16-9 19-6 16-5 21-1 6v32l5 30 7 24 10 25-2 6-8 7-3 6 1 9 4 9 4 6 7 6 13 8 4 5 7 19 8 9 10 3h10l10-2 5 3 8 10 12 16 22 28 13 16 18 22 13 15 9 10 7 8 12 13 23 23 22 18 10 9 8 7 12 11 11 9 11 10 14 11 11 10 7 10 3 6v8l-7 11-6 5-7-1-9-8-4 2-7 8-6-4-7-7-11-9-14-12-14-11-15-12-40-30-36-26-23-16-32-22-43-29-20-13-32-21-22-14-12-8-3-1-15 44-17 45-11 26-6 12-2 3 17 4 33 8 5 1 2-5 4-4 20 4 58 15 64 16 27 7 6 3 2 2-1 15-5 31-4 6-5 1-30-7-139-31-5-2-2-3v-7l1-5h-2l-3 9-4 2-8-6-10-8-13-8-12-5-31-8-26-8-20-8-19-10-13-10-9-9-10-16-12-25-15-36-16-41-17-46-15-41-10-29-17-48-15-43-17-48-19-56-8-28-3-16v-22l3-8 4-5zm65 198m1 1 3 11 33 90 17 46 13 35 10 28 16 47 11 26 5 8 7 4 11 4 11 3h5l-2-9v-19l4-15 8-16 1-5-10-16-11-17-12-19-14-22-12-19-15-23-15-24-11-17-12-19-16-25-14-22-10-15zm197 185-12 3-9 5-6 7-3 11v10l5-4 7-8 1-3h2l7-8 9-10 1-3z"/>
+<path transform="translate(383,664)" d="m0 0h1v5l-2-2z"/>
+<path transform="translate(384,663)" d="m0 0"/>
+<path transform="translate(124,292)" d="m0 0"/>
+<path transform="translate(123,291)" d="m0 0"/>
+<path transform="translate(121,287)" d="m0 0"/>
+</svg>
+      <span>Best Capo</span>
+    </a>
+    <a class="tab-item" id="reset-scale-new">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+      <span>Reset</span>
+    </a>
+  </nav>
+  </div>
+  </div>`;
+  const qaafirana = `<div class="chord-main">
+    <div class="baarish" id="chord-lyrics">
+    <pre class="song-details-pre">
+Song: Qaafirana
+Singer: Arijit & Nikhita
+Music : Amit Trivedi
+Lyrics: Amitabh Bhattacharya
+Movie: Kedarnath</pre>
+    <pre>[Intro]
+<span class="chordset">(E)</span><span class="chordset">(A)</span><span class="chordset">(E)</span><span class="chordset">(A)</span>
+<span class="chordset">(E)</span><span class="chordset">(A)</span><span class="chordset">(E)</span><span class="chordset">(A)</span>
+<span class="chordset">(E)</span><span class="chordset">(A)</span><span class="chordset">(E)</span><span class="chordset">(A)</span>
+
+[Verse]
+<span class="chordset">(E)</span>Inn waadi<span class="chordset">(F#m)</span>yon mein  
+<span class="chordset">(B)</span>Takra chu<span class="chordset">(E)</span>ke hai  
+<span class="chordset">(E)</span>Humse mu<span class="chordset">(F#m)</span>safir  
+<span class="chordset">(A)</span>Yun toh ka<span class="chordset">(B)</span>yi  
+
+<span class="chordset">(E)</span>Dil na la<span class="chordset">(F#m)</span>gaya  
+<span class="chordset">(B)</span>Humne ki<span class="chordset">(E)</span>si se  
+<span class="chordset">(E)</span>Qisse su<span class="chordset">(F#m)</span>ne hai  
+<span class="chordset">(A)</span>Yun toh ka<span class="chordset">(B)</span>yi  
+
+[Pre-Chorus]  
+<span class="chordset">(E)</span>Aise tum mile ho  
+<span class="chordset">(A)</span>Aise tum mi<span class="chordset">(B)</span>le ho  
+<span class="chordset">(E)</span>Jaise mil rahi ho  
+<span class="chordset">(A)</span>Itr se ha<span class="chordset">(B)</span>wa  
+
+[Chorus]  
+Qaafi<span class="chordset">(F#m)</span>rana <span class="chordset">(A)</span>sa hai  
+Ishq <span class="chordset">(B)</span>hai ya <span class="chordset">(E)</span>kya hai  
+
+[Bridge]  
+<span class="chordset">(E)</span>Aise tum mile ho  
+<span class="chordset">(A)</span>Aise tum mi<span class="chordset">(B)</span>le ho  
+<span class="chordset">(E)</span>Jaise mil rahi ho  
+<span class="chordset">(A)</span>Itr se ha<span class="chordset">(B)</span>wa  
+
+[Chorus]  
+Qaafi<span class="chordset">(F#m)</span>rana <span class="chordset">(A)</span>sa hai  
+Ishq <span class="chordset">(B)</span>hai ya <span class="chordset">(E)</span>kya hai  
+
+[Verse]  
+<span class="chordset">(C#m)</span>Khamoshi<span class="chordset">(E)</span>yon mein  
+<span class="chordset">(G#m)</span>Boli tu<span class="chordset">(C#m)</span>mhari  
+<span class="chordset">(A)</span>Kuchh iss ta<span class="chordset">(E)</span>rah  
+<span class="chordset">(B)</span>Goonjti hai  
+
+<span class="chordset">(A)</span>Kaano se <span class="chordset">(E)</span>mere  
+<span class="chordset">(G#m)</span>Hote hu<span class="chordset">(C#m)</span>ye wo  
+<span class="chordset">(A)</span>Dil ka pa<span class="chordset">(E)</span>ta  
+<span class="chordset">(B)</span>Dhoondhti hai  
+
+[Pre-Chorus]  
+<span class="chordset">(E)</span>Beswadiyon mein  
+<span class="chordset">(A)</span>Beswadi<span class="chordset">(B)</span>yon mein  
+<span class="chordset">(E)</span>Jaise mil raha ho  
+<span class="chordset">(A)</span>Koi zay<span class="chordset">(B)</span>ka  
+
+[Chorus]  
+Qaafi<span class="chordset">(F#m)</span>rana <span class="chordset">(A)</span>sa hai  
+Ishq <span class="chordset">(B)</span>hai ya <span class="chordset">(E)</span>kya hai  
+
+[Bridge]  
+<span class="chordset">(E)</span>Aise tum mile ho  
+<span class="chordset">(A)</span>Aise tum mi<span class="chordset">(B)</span>le ho  
+<span class="chordset">(E)</span>Jaise mil rahi ho  
+<span class="chordset">(A)</span>Itr se ha<span class="chordset">(B)</span>wa  
+
+[Chorus]  
+Qaafi<span class="chordset">(F#m)</span>rana <span class="chordset">(A)</span>sa hai  
+Ishq <span class="chordset">(B)</span>hai ya <span class="chordset">(E)</span>kya hai  
+
+La <span class="chordset">(E)</span>la la la  
+<span class="chordset">(A)</span>La la la la  
+La <span class="chordset">(E)</span>la la la  
+<span class="chordset">(A)</span>La la la  
+
+Aah <span class="chordset">(E)</span>ha aah ha  
+<span class="chordset">(A)</span>Aah ha ha ha  
+Aah <span class="chordset">(E)</span>ha  
+<span class="chordset">(A)</span>Ha  
+
+[Verse]  
+<span class="chordset">(E)</span>Godhi mein pahadiyon ki  
+Ujli dopahari gu<span class="chordset">(A)</span>zarna  
+Haaye haaye tere <span class="chordset">(F#m)</span>saath mein  
+<span class="chordset">(E)</span>Acha lage  
+
+<span class="chordset">(C#m)</span>Sharmeeli akhiyon se  
+Tera meri nazrein u<span class="chordset">(A)</span>taarna  
+Haaye haaye har <span class="chordset">(F#m)</span>baat pe  
+<span class="chordset">(E)</span>Acha lage  
+
+<span class="chordset">(E)</span>Dhalti huyi shaam <span class="chordset">(G#m)</span>ne  
+<span class="chordset">(C#m)</span>Bataya hai ki door  
+<span class="chordset">(B)</span>Manzil pe raat<span class="chordset">(A)</span> hai  
+
+<span class="chordset">(E)</span>Mujhko tasalli hai <span class="chordset">(G#m)</span>yeh  
+<span class="chordset">(C#m)</span>Ki hone talak raat  
+<span class="chordset">(B)</span>Hum dono saath <span class="chordset">(A)</span>hai<span class="chordset">(B)</span>  
+
+[Pre-Chorus]  
+<span class="chordset">(E)</span>Sang chal rahe hai  
+<span class="chordset">(A)</span>Sang chal ra<span class="chordset">(B)</span>he hai  
+<span class="chordset">(E)</span>Dhoop ke kinaare  
+<span class="chordset">(A)</span>Chhaaon ki ta<span class="chordset">(B)</span>rah  
+
+[Chorus]  
+Qaafi<span class="chordset">(F#m)</span>rana <span class="chordset">(A)</span>sa hai  
+Ishq <span class="chordset">(B)</span>hai ya <span class="chordset">(E)</span>kya hai  
+
+[Bridge]  
+<span class="chordset">(E)</span>Aise tum mile ho  
+<span class="chordset">(A)</span>Aise tum mi<span class="chordset">(B)</span>le ho  
+<span class="chordset">(E)</span>Jaise mil rahi ho  
+<span class="chordset">(A)</span>Itr se ha<span class="chordset">(B)</span>wa  
+
+[Chorus]  
+Qaafi<span class="chordset">(F#m)</span>rana <span class="chordset">(A)</span>sa hai  
+Ishq <span class="chordset">(B)</span>hai ya <span class="chordset">(E)</span>kya hai</pre>
+
+    </div>
+    <div class="chord-func">
+  
+    <div class="chord-btn">
+      <span id="transpose-txt">SCALE TRANSPOSE</span>
+      <button id="transposeDown">-1</button>
+      <button id="transposeUp">+1</button>
+      <button class="reset-btn" id="reset-scale">RESET</button>
+    </div>
+   
+    <p class="transpose-note">Note: Use the scale transpose buttons to adjust the song's scale to your vocal range. "-" lowers the scale, "+" raises it. This changes all chords on the sheet. Click "RESET" to return to the original scale.</p>
+    <div class="capo-container" id="capo">
+      <div class="capo-h2">
+        <h2>FIND BEST CAPO POSITION</h2>
+      </div>
+      <button id="findBestCapo">Find Best Capo Position</button>
+      <div id="result"></div>
+    </div>
+
+    <div id="controls">
+  <button id="autoscrollBtn">AUTOSCROLL</button>
+  <button id="decreaseSpeed">-</button>
+  <span id="speedIndicator">1.0x</span>
+  <button id="increaseSpeed">+</button>
+  <button id="resetBtn">
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="15"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+  </button>
+</div>
+
+    <div class="menu-overlay">
+    <div class="menu-options">
+            <button class="option-button" onclick="MSTREAMAPI.logout();">Home</button>
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a class="tab-item" id="transpose-1" >
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" id="exposure-neg"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M4 11v2h8v-2H4zm15 7h-2V7.38L14 8.4V6.7L18.7 5h.3v13z"></path></svg>
+      <span>Transpose</span>
+    </a>
+<a class="tab-item" id="transpose+1">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" d="M0 0h24v24H0zm0 0h24v24H0z"></path>
+        <path d="M10 7H8v4H4v2h4v4h2v-4h4v-2h-4V7zm10 11h-2V7.38L15 8.4V6.7L19.7 5h.3v13z"></path>
+      </svg>
+      <span>Transpose</span>
+    </a>
+    <button class="menu-button">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+    <a class="tab-item" id="findNewBestCapo">
+      <svg version="1.1" viewBox="0 0 800 800" width="24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path transform="translate(52,82)" d="m0 0h7l5 3 3 5v23l2 20 7 28 17 50 15 42 4-2 7-3 5 1 7 10 9 15 32 52 13 21 14 23 13 21 48 78 9 14 2 1v-7l5-10 7-7 13-7 9-2h16l8 1 6-13 3-13v-11l-3-15-6-19 1-7 4-4 17-6 10-6 8-7 6-9 4-13-1-17v-28l3-32 4-23 6-20 7-16 16-27 13-19 11-15 11-14 11-13 6-7 9-6 6-2h14l10 3 9 6 7 8 4 10 1 6v14l-3 14-4 9-6 10-7 8-7 5-5 2h-11l-10-5-5-5v-6l5-5 5 2 5 5 2 1h6l6-4 7-8 7-14 1-5v-14l-4-11-4-5-9-3-11 1-8 4-6 5-10 14-9 14-9 16-9 19-6 16-5 21-1 6v32l5 30 7 24 10 25-2 6-8 7-3 6 1 9 4 9 4 6 7 6 13 8 4 5 7 19 8 9 10 3h10l10-2 5 3 8 10 12 16 22 28 13 16 18 22 13 15 9 10 7 8 12 13 23 23 22 18 10 9 8 7 12 11 11 9 11 10 14 11 11 10 7 10 3 6v8l-7 11-6 5-7-1-9-8-4 2-7 8-6-4-7-7-11-9-14-12-14-11-15-12-40-30-36-26-23-16-32-22-43-29-20-13-32-21-22-14-12-8-3-1-15 44-17 45-11 26-6 12-2 3 17 4 33 8 5 1 2-5 4-4 20 4 58 15 64 16 27 7 6 3 2 2-1 15-5 31-4 6-5 1-30-7-139-31-5-2-2-3v-7l1-5h-2l-3 9-4 2-8-6-10-8-13-8-12-5-31-8-26-8-20-8-19-10-13-10-9-9-10-16-12-25-15-36-16-41-17-46-15-41-10-29-17-48-15-43-17-48-19-56-8-28-3-16v-22l3-8 4-5zm65 198m1 1 3 11 33 90 17 46 13 35 10 28 16 47 11 26 5 8 7 4 11 4 11 3h5l-2-9v-19l4-15 8-16 1-5-10-16-11-17-12-19-14-22-12-19-15-23-15-24-11-17-12-19-16-25-14-22-10-15zm197 185-12 3-9 5-6 7-3 11v10l5-4 7-8 1-3h2l7-8 9-10 1-3z"/>
+<path transform="translate(383,664)" d="m0 0h1v5l-2-2z"/>
+<path transform="translate(384,663)" d="m0 0"/>
+<path transform="translate(124,292)" d="m0 0"/>
+<path transform="translate(123,291)" d="m0 0"/>
+<path transform="translate(121,287)" d="m0 0"/>
+</svg>
+      <span>Best Capo</span>
+    </a>
+    <a class="tab-item" id="reset-scale-new">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+      <span>Reset</span>
+    </a>
+  </nav>
+  </div>
+  </div>`;
+  const tumsehi = `<div class="chord-main">
+    <div class="baarish" id="chord-lyrics">
+    <pre class="song-details-pre">
+Song: Tum Se Hi
+Singer: Mohit Chauhan
+Music : Pritam
+Lyrics: Irshad Kamil
+Movie: Jab We Met</pre>
+    <pre>
+    <span class="chordset">(G)</span>Na hai <span class="chordset">(D)</span>yeh pa <span class="chordset">(C)</span>na<br>
+<span class="chordset">(C)</span>Na Kho <span class="chordset">(D)</span>na Hi <span class="chordset">(G)</span>Hai<br>
+Tera <span class="chordset">(G)</span>Na Ho <span class="chordset">(D)</span>na Ja<span class="chordset">(C)</span>ne<br>
+<span class="chordset">(C)</span>Kyun Ho <span class="chordset">(D)</span>na Hi <span class="chordset">(G)</span>Hai<br><br>
+
+<span class="chordset">(D)</span>Tum Se Hi Din <span class="chordset">(C)</span>Hota Hai<br>
+<span class="chordset">(D)</span>Surmaiye Shaam <span class="chordset">(C)</span>Aati<br>
+Tum <span class="chordset">(D)</span>se <span class="chordset">(G)</span>Hi Tum <span class="chordset">(D)</span>se <span class="chordset">(G)</span>Hi<br><br>
+
+<span class="chordset">(D)</span>Har Ghadi Saans <span class="chordset">(C)</span>Aati Hai<br>
+<span class="chordset">(D)</span>Zindagi Keh <span class="chordset">(C)</span>lati Hai<br>
+Tum <span class="chordset">(D)</span>se <span class="chordset">(G)</span>Hi Tum <span class="chordset">(D)</span>se <span class="chordset">(G)</span>Hi<br><br>
+
+<span class="chordset">(G)</span>Na hai <span class="chordset">(D)</span>yeh pa <span class="chordset">(C)</span>na<br>
+<span class="chordset">(C)</span>Na Kho <span class="chordset">(D)</span>na Hi <span class="chordset">(G)</span>Hai<br>
+Tera <span class="chordset">(G)</span>Na Ho <span class="chordset">(D)</span>na Ja<span class="chordset">(C)</span>ne<br>
+<span class="chordset">(C)</span>Kyun Ho <span class="chordset">(D)</span>na Hi <span class="chordset">(G)</span>Hai<br><br>
+
+<span class="chordset">(G)</span>Aankhon Mein Ankhne Teri<br>
+<span class="chordset">(Em)</span>Bahoon Mein Baahein Teri<br>
+<span class="chordset">(C)</span>Mera Na Mujhe Mein Kuch<br>
+Ra<span class="chordset">(D)</span>ha Hu<span class="chordset">(G)</span>a Kya<br><br>
+
+<span class="chordset">(G)</span>Baaton Mein Baatein Teri<br>
+<span class="chordset">(Em)</span>Raatein Saugatein Teri<br>
+<span class="chordset">(C)</span>Kyun Tera Sab Yeh<br>
+Ho Ga<span class="chordset">(D)</span>ya Hu<span class="chordset">(G)</span>a Kya<br><br>
+
+<span class="chordset">(D)</span>Mein Kahin Bhi <span class="chordset">(C)</span>Jata Hoon<br>
+<span class="chordset">(D)</span>Tumse Hi Mil <span class="chordset">(C)</span>Jata Hoon<br>
+Tum <span class="chordset">(D)</span>se <span class="chordset">(G)</span>Hi Tum <span class="chordset">(D)</span>se <span class="chordset">(G)</span>Hi<br><br>
+
+<span class="chordset">(D)</span>Shor Mein Kha<span class="chordset">(C)</span>moshi Hai<br>
+<span class="chordset">(D)</span>Thodi Se Be<span class="chordset">(C)</span>hoshi Hai<br>
+Tum <span class="chordset">(D)</span>se <span class="chordset">(G)</span>Hi Tum <span class="chordset">(D)</span>se <span class="chordset">(G)</span>Hi<br><br>
+
+<span class="chordset">(G)</span>Aadha Sa Wada Kabhi<br>
+<span class="chordset">(Em)</span>Aadhe Se Jayada Kabhi<br>
+<span class="chordset">(C)</span>Jee Chahe Karlu<br>
+Is Ta<span class="chordset">(D)</span>rah Wa<span class="chordset">(G)</span>fa Ka<br><br>
+
+<span class="chordset">(G)</span>Chode Na Chote Kabhi<br>
+<span class="chordset">(Em)</span>Tode Na Tute Kabhi<br>
+<span class="chordset">(C)</span>Jo Dhaga Tumse<br>
+Jud Ga<span class="chordset">(D)</span>ya Wa<span class="chordset">(G)</span>fa Ka<br><br>
+
+<span class="chordset">(D)</span>Mein Tera Shar<span class="chordset">(C)</span>maya Hoon<br>
+<span class="chordset">(D)</span>Jo Mein Ban<span class="chordset">(C)</span>Paya Hoon<br>
+Tum <span class="chordset">(D)</span>se <span class="chordset">(G)</span>Hi Tum <span class="chordset">(D)</span>se <span class="chordset">(G)</span>Hi<br><br>
+
+<span class="chordset">(D)</span>Raste Mil <span class="chordset">(C)</span>jate Hai<br>
+<span class="chordset">(D)</span>Manzile Mil <span class="chordset">(C)</span>jati Hai<br>
+Tum <span class="chordset">(D)</span>se <span class="chordset">(G)</span>Hi Tum <span class="chordset">(D)</span>se <span class="chordset">(G)</span>Hi<br><br>
+
+<span class="chordset">(G)</span>Na Hai <span class="chordset">(D)</span>Yeh Pa <span class="chordset">(C)</span>na<br>
+<span class="chordset">(C)</span>Na Kho <span class="chordset">(D)</span>na Hi <span class="chordset">(G)</span>Hai<br>
+Tera <span class="chordset">(G)</span>Na Ho <span class="chordset">(D)</span>na Ja <span class="chordset">(C)</span>ne<br>
+<span class="chordset">(C)</span>Kyun Ho <span class="chordset">(D)</span>na Hi <span class="chordset">(G)</span>Hai
+</pre>
+
+    </div>
+    <div class="chord-func">
+  
+    <div class="chord-btn">
+      <span id="transpose-txt">SCALE TRANSPOSE</span>
+      <button id="transposeDown">-1</button>
+      <button id="transposeUp">+1</button>
+      <button class="reset-btn" id="reset-scale">RESET</button>
+    </div>
+   
+    <p class="transpose-note">Note: Use the scale transpose buttons to adjust the song's scale to your vocal range. "-" lowers the scale, "+" raises it. This changes all chords on the sheet. Click "RESET" to return to the original scale.</p>
+    <div class="capo-container" id="capo">
+      <div class="capo-h2">
+        <h2>FIND BEST CAPO POSITION</h2>
+      </div>
+      <button id="findBestCapo">Find Best Capo Position</button>
+      <div id="result"></div>
+    </div>
+
+    <div id="controls">
+  <button id="autoscrollBtn">AUTOSCROLL</button>
+  <button id="decreaseSpeed">-</button>
+  <span id="speedIndicator">1.0x</span>
+  <button id="increaseSpeed">+</button>
+  <button id="resetBtn">
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="15"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+  </button>
+</div>
+
+    <div class="menu-overlay">
+    <div class="menu-options">
+            <button class="option-button" onclick="MSTREAMAPI.logout();">Home</button>
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a class="tab-item" id="transpose-1" >
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" id="exposure-neg"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M4 11v2h8v-2H4zm15 7h-2V7.38L14 8.4V6.7L18.7 5h.3v13z"></path></svg>
+      <span>Transpose</span>
+    </a>
+<a class="tab-item" id="transpose+1">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" d="M0 0h24v24H0zm0 0h24v24H0z"></path>
+        <path d="M10 7H8v4H4v2h4v4h2v-4h4v-2h-4V7zm10 11h-2V7.38L15 8.4V6.7L19.7 5h.3v13z"></path>
+      </svg>
+      <span>Transpose</span>
+    </a>
+    <button class="menu-button">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+    <a class="tab-item" id="findNewBestCapo">
+      <svg version="1.1" viewBox="0 0 800 800" width="24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path transform="translate(52,82)" d="m0 0h7l5 3 3 5v23l2 20 7 28 17 50 15 42 4-2 7-3 5 1 7 10 9 15 32 52 13 21 14 23 13 21 48 78 9 14 2 1v-7l5-10 7-7 13-7 9-2h16l8 1 6-13 3-13v-11l-3-15-6-19 1-7 4-4 17-6 10-6 8-7 6-9 4-13-1-17v-28l3-32 4-23 6-20 7-16 16-27 13-19 11-15 11-14 11-13 6-7 9-6 6-2h14l10 3 9 6 7 8 4 10 1 6v14l-3 14-4 9-6 10-7 8-7 5-5 2h-11l-10-5-5-5v-6l5-5 5 2 5 5 2 1h6l6-4 7-8 7-14 1-5v-14l-4-11-4-5-9-3-11 1-8 4-6 5-10 14-9 14-9 16-9 19-6 16-5 21-1 6v32l5 30 7 24 10 25-2 6-8 7-3 6 1 9 4 9 4 6 7 6 13 8 4 5 7 19 8 9 10 3h10l10-2 5 3 8 10 12 16 22 28 13 16 18 22 13 15 9 10 7 8 12 13 23 23 22 18 10 9 8 7 12 11 11 9 11 10 14 11 11 10 7 10 3 6v8l-7 11-6 5-7-1-9-8-4 2-7 8-6-4-7-7-11-9-14-12-14-11-15-12-40-30-36-26-23-16-32-22-43-29-20-13-32-21-22-14-12-8-3-1-15 44-17 45-11 26-6 12-2 3 17 4 33 8 5 1 2-5 4-4 20 4 58 15 64 16 27 7 6 3 2 2-1 15-5 31-4 6-5 1-30-7-139-31-5-2-2-3v-7l1-5h-2l-3 9-4 2-8-6-10-8-13-8-12-5-31-8-26-8-20-8-19-10-13-10-9-9-10-16-12-25-15-36-16-41-17-46-15-41-10-29-17-48-15-43-17-48-19-56-8-28-3-16v-22l3-8 4-5zm65 198m1 1 3 11 33 90 17 46 13 35 10 28 16 47 11 26 5 8 7 4 11 4 11 3h5l-2-9v-19l4-15 8-16 1-5-10-16-11-17-12-19-14-22-12-19-15-23-15-24-11-17-12-19-16-25-14-22-10-15zm197 185-12 3-9 5-6 7-3 11v10l5-4 7-8 1-3h2l7-8 9-10 1-3z"/>
+<path transform="translate(383,664)" d="m0 0h1v5l-2-2z"/>
+<path transform="translate(384,663)" d="m0 0"/>
+<path transform="translate(124,292)" d="m0 0"/>
+<path transform="translate(123,291)" d="m0 0"/>
+<path transform="translate(121,287)" d="m0 0"/>
+</svg>
+      <span>Best Capo</span>
+    </a>
+    <a class="tab-item" id="reset-scale-new">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+      <span>Reset</span>
+    </a>
+  </nav>
+  </div>
+  </div>`;
+  const aajaomeritamanna = `<div class="chord-main">
+    <div class="baarish" id="chord-lyrics">
+    <pre class="song-details-pre">
+Song: Aa Jao Meri Tamanna 
+Singer: Javed Ali and Jojo
+Music : Pritam
+Lyrics: Irshad Kamil
+Movie:  Ajab Prem Ki Ghazab Kahani</pre>
+    <pre>
+    <span class="chordset">[Intro]</span><br>
+Thoda Te<span class="chordset">(Dm)</span>har, Thoda Te<span class="chordset">(C)</span>har<br>
+Sun Le Za<span class="chordset">(Dm)</span>ra, Sun Le Za<span class="chordset">(C)</span>ra<br>
+Dil Keh Ra<span class="chordset">(Dm)</span>ha, Dil Keh Ra<span class="chordset">(C)</span>ha<br>
+De Na Sa<span class="chordset">(Dm)</span>ja Yun Bewa<span class="chordset">(C)</span>ja<br><br>
+
+<span class="chordset">[Pre-Chorus]</span><br>
+<span class="chordset">(Gm)</span>Rooth Kar<br>
+Mujhse Na <span class="chordset">(Am)</span>Ja Abhi<br>
+<span class="chordset">(A#)</span>Bhool Kar<br>
+Shikwa Gi<span class="chordset">(C)</span>la Sabhi Pyaar <span class="chordset">(Am)</span>Ka<br><br>
+
+<span class="chordset">[Chorus]</span><br>
+Aa <span class="chordset">(Dm)</span>Ja<span class="chordset">(C)</span>oo Meri Ta<span class="chordset">(A#)</span>mana<br>
+<span class="chordset">(Dm)</span>Baha<span class="chordset">(C)</span>on Mein <span class="chordset">(A#)</span>Aao<br>
+Ke <span class="chordset">(Dm)</span>Ho<span class="chordset">(C)</span> Na Paye Ju<span class="chordset">(A#)</span>da Hum<br>
+<span class="chordset">(F)</span>Aise <span class="chordset">(C)</span>Mujh Mein Sa<span class="chordset">(A#)</span>mao<br><br>
+
+<span class="chordset">[Verse 1]</span><br>
+Hoo <span class="chordset">(Dm)</span>Har Ghadi Lag Rahi Teri Ka<span class="chordset">(Am)</span>mi<br>
+<span class="chordset">(Dm)</span>Le Chali Kis Gali Yeh Zinda<span class="chordset">(C)</span>gi<br>
+<span class="chordset">(Dm)</span>Hai Pata Lapata Hoon Pyaar <span class="chordset">(Am)</span>Mein<br>
+<span class="chordset">(A#)</span>Ankahi Ansuni Chahat Ja<span class="chordset">(C)</span>gi<br><br>
+
+<span class="chordset">[Pre-Chorus]</span><br>
+<span class="chordset">(Gm)</span>Jo Hua Phele Hu<span class="chordset">(Am)</span>aa Nahi<br>
+<span class="chordset">(A#)</span>Aaj Tum Kar Lo Za<span class="chordset">(C)</span>ra Yakin<br>
+Pyaar <span class="chordset">(Am)</span>Ka<br><br>
+
+<span class="chordset">[Chorus]</span><br>
+Aa <span class="chordset">(Dm)</span>Ja<span class="chordset">(C)</span>oo Meri Ta<span class="chordset">(A#)</span>mana<br>
+<span class="chordset">(Dm)</span>Baha<span class="chordset">(C)</span>on Mein <span class="chordset">(A#)</span>Aao<br>
+Ke <span class="chordset">(Dm)</span>Ho<span class="chordset">(C)</span> Na Paye Ju<span class="chordset">(A#)</span>da Hum<br>
+<span class="chordset">(F)</span>Aise <span class="chordset">(C)</span>Mujh Mein Sa<span class="chordset">(A#)</span>mao<br><br>
+
+<span class="chordset">[Verse 2]</span><br>
+Hoo <span class="chordset">(Dm)</span>Rut Jawan Dil Jawan<br>
+Hasrat Ja<span class="chordset">(Am)</span>wan<br>
+<span class="chordset">(Dm)</span>Tu Hai To Yeh Bhi Hai<br>
+Sare Ja<span class="chordset">(C)</span>wan<br><br>
+
+<span class="chordset">(Dm)</span>Woh Nagar Woh Dagar<br>
+Ho Gi Has<span class="chordset">(Am)</span>sen<br>
+<span class="chordset">(A#)</span>Tu Mile Pyaar Se<br>
+Mujhko Ja<span class="chordset">(C)</span>han<br><br>
+
+<span class="chordset">[Pre-Chorus]</span><br>
+<span class="chordset">(Gm)</span>Pana Hai<br>
+Tujhko Yeh <span class="chordset">(Am)</span>Dil Kahe<br>
+<span class="chordset">(A#)</span>Har Ghadi<br>
+Ab To Na<span class="chordset">(C)</span>sha Rahe Pyaar <span class="chordset">(Am)</span>Ka<br><br>
+
+<span class="chordset">[Chorus]</span><br>
+Aa <span class="chordset">(Dm)</span>Ja<span class="chordset">(C)</span>oo Meri Ta<span class="chordset">(A#)</span>mana<br>
+<span class="chordset">(Dm)</span>Baha<span class="chordset">(C)</span>on Mein <span class="chordset">(A#)</span>Aao<br>
+Ke <span class="chordset">(Dm)</span>Ho<span class="chordset">(C)</span> Na Paye Ju<span class="chordset">(A#)</span>da Hum<br>
+<span class="chordset">(F)</span>Aise <span class="chordset">(C)</span>Mujh Mein Sa<span class="chordset">(A#)</span>mao
+</pre>
+
+    </div>
+    <div class="chord-func">
+  
+    <div class="chord-btn">
+      <span id="transpose-txt">SCALE TRANSPOSE</span>
+      <button id="transposeDown">-1</button>
+      <button id="transposeUp">+1</button>
+      <button class="reset-btn" id="reset-scale">RESET</button>
+    </div>
+   
+    <p class="transpose-note">Note: Use the scale transpose buttons to adjust the song's scale to your vocal range. "-" lowers the scale, "+" raises it. This changes all chords on the sheet. Click "RESET" to return to the original scale.</p>
+    <div class="capo-container" id="capo">
+      <div class="capo-h2">
+        <h2>FIND BEST CAPO POSITION</h2>
+      </div>
+      <button id="findBestCapo">Find Best Capo Position</button>
+      <div id="result"></div>
+    </div>
+
+    <div id="controls">
+  <button id="autoscrollBtn">AUTOSCROLL</button>
+  <button id="decreaseSpeed">-</button>
+  <span id="speedIndicator">1.0x</span>
+  <button id="increaseSpeed">+</button>
+  <button id="resetBtn">
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="15"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+  </button>
+</div>
+
+    <div class="menu-overlay">
+    <div class="menu-options">
+            <button class="option-button" onclick="MSTREAMAPI.logout();">Home</button>
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a class="tab-item" id="transpose-1" >
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" id="exposure-neg"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M4 11v2h8v-2H4zm15 7h-2V7.38L14 8.4V6.7L18.7 5h.3v13z"></path></svg>
+      <span>Transpose</span>
+    </a>
+<a class="tab-item" id="transpose+1">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" d="M0 0h24v24H0zm0 0h24v24H0z"></path>
+        <path d="M10 7H8v4H4v2h4v4h2v-4h4v-2h-4V7zm10 11h-2V7.38L15 8.4V6.7L19.7 5h.3v13z"></path>
+      </svg>
+      <span>Transpose</span>
+    </a>
+    <button class="menu-button">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+    <a class="tab-item" id="findNewBestCapo">
+      <svg version="1.1" viewBox="0 0 800 800" width="24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path transform="translate(52,82)" d="m0 0h7l5 3 3 5v23l2 20 7 28 17 50 15 42 4-2 7-3 5 1 7 10 9 15 32 52 13 21 14 23 13 21 48 78 9 14 2 1v-7l5-10 7-7 13-7 9-2h16l8 1 6-13 3-13v-11l-3-15-6-19 1-7 4-4 17-6 10-6 8-7 6-9 4-13-1-17v-28l3-32 4-23 6-20 7-16 16-27 13-19 11-15 11-14 11-13 6-7 9-6 6-2h14l10 3 9 6 7 8 4 10 1 6v14l-3 14-4 9-6 10-7 8-7 5-5 2h-11l-10-5-5-5v-6l5-5 5 2 5 5 2 1h6l6-4 7-8 7-14 1-5v-14l-4-11-4-5-9-3-11 1-8 4-6 5-10 14-9 14-9 16-9 19-6 16-5 21-1 6v32l5 30 7 24 10 25-2 6-8 7-3 6 1 9 4 9 4 6 7 6 13 8 4 5 7 19 8 9 10 3h10l10-2 5 3 8 10 12 16 22 28 13 16 18 22 13 15 9 10 7 8 12 13 23 23 22 18 10 9 8 7 12 11 11 9 11 10 14 11 11 10 7 10 3 6v8l-7 11-6 5-7-1-9-8-4 2-7 8-6-4-7-7-11-9-14-12-14-11-15-12-40-30-36-26-23-16-32-22-43-29-20-13-32-21-22-14-12-8-3-1-15 44-17 45-11 26-6 12-2 3 17 4 33 8 5 1 2-5 4-4 20 4 58 15 64 16 27 7 6 3 2 2-1 15-5 31-4 6-5 1-30-7-139-31-5-2-2-3v-7l1-5h-2l-3 9-4 2-8-6-10-8-13-8-12-5-31-8-26-8-20-8-19-10-13-10-9-9-10-16-12-25-15-36-16-41-17-46-15-41-10-29-17-48-15-43-17-48-19-56-8-28-3-16v-22l3-8 4-5zm65 198m1 1 3 11 33 90 17 46 13 35 10 28 16 47 11 26 5 8 7 4 11 4 11 3h5l-2-9v-19l4-15 8-16 1-5-10-16-11-17-12-19-14-22-12-19-15-23-15-24-11-17-12-19-16-25-14-22-10-15zm197 185-12 3-9 5-6 7-3 11v10l5-4 7-8 1-3h2l7-8 9-10 1-3z"/>
+<path transform="translate(383,664)" d="m0 0h1v5l-2-2z"/>
+<path transform="translate(384,663)" d="m0 0"/>
+<path transform="translate(124,292)" d="m0 0"/>
+<path transform="translate(123,291)" d="m0 0"/>
+<path transform="translate(121,287)" d="m0 0"/>
+</svg>
+      <span>Best Capo</span>
+    </a>
+    <a class="tab-item" id="reset-scale-new">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+      <span>Reset</span>
+    </a>
+  </nav>
+  </div>
+  </div>`;
+  const agartumsath = `<div class="chord-main">
+    <div class="baarish" id="chord-lyrics">
+    <pre class="song-details-pre">
+Song: Agar Tum Sath Ho
+Singer: Alka Yagnik, Arijit Singh
+Music : A.R Rahman
+Lyrics: Irshad Kamil
+Movie: Tamasha</pre>
+    <pre>
+    <span class="chordset">(D#)</span>Pal bhar tha<span class="chordset">(G#)</span>har jaao<br>
+<span class="chordset">(D#)</span>Dil ye sam<span class="chordset">(G#)</span>bhal jaaye<br>
+<span class="chordset">(D#)</span>Kaise tumhe rok ka<span class="chordset">(G#)</span>run<span class="chordset">(A#)</span><br><br>
+
+<span class="chordset">(D#)</span>Meri ta<span class="chordset">(G#)</span>raf aata<br>
+<span class="chordset">(D#)</span>har gham phi<span class="chordset">(G#)</span>sal jaaye<br>
+<span class="chordset">(D#)</span>Aankhon mein tum<br>
+ko bha<span class="chordset">(G#)</span>run<span class="chordset">(A#)</span><br><br>
+
+<span class="chordset">(D#)</span>Bin bole baatein<br>
+<span class="chordset">(G#)</span>tumse ka<span class="chordset">(A#)</span>run<br>
+Agar <span class="chordset">(G#)</span>tum saath <span class="chordset">(A#)</span>ho..<span class="chordset">(D#)</span><br>
+Agar <span class="chordset">(G#)</span>tum saath <span class="chordset">(A#)</span>ho..<span class="chordset">(D#)</span><br><br>
+
+<span class="chordset">[Verse]</span><br>
+<span class="chordset">(D#)</span>Behti <span class="chordset">(G#)</span>rehti..<span class="chordset">(A#)</span><br>
+<span class="chordset">(D#)</span>Nahar nadi<span class="chordset">(G#)</span>ya si<br>
+teri duni<span class="chordset">(A#)</span>ya mein<br><br>
+
+<span class="chordset">(D#)</span>Meri duni<span class="chordset">(G#)</span>ya hai<br>
+teri chaaha<span class="chordset">(A#)</span>ton mein<br>
+<span class="chordset">(D#)</span>Main dhal jaa<span class="chordset">(G#)</span>ta hoon<br>
+teri aada<span class="chordset">(A#)</span>ton mein<br>
+agar <span class="chordset">(G#)</span>tum saath <span class="chordset">(A#)</span>ho<span class="chordset">(D#)</span><br><br>
+
+<span class="chordset">[Bridge]</span><br>
+<span class="chordset">(G#)</span>Teri nazron mein hai<br>
+<span class="chordset">(A#)</span>tere sapne<br>
+<span class="chordset">(G#)</span>Tere sapno mein hai<br>
+<span class="chordset">(D#)</span>naraazi<br><br>
+
+<span class="chordset">(G#)</span>Mujhe lagta hai ke<br>
+<span class="chordset">(A#)</span>baatein dil ki<br>
+<span class="chordset">(G#)</span>Hoti lafzon ki <span class="chordset">(A#)</span>dhokebaazi<br>
+<span class="chordset">(D#)</span>Tum saath ho ya na ho<br>
+<span class="chordset">(G#)</span>kya fark <span class="chordset">(A#)</span>hai<br><br>
+
+<span class="chordset">(D#)</span>Bedard thi zindagi<br>
+<span class="chordset">(G#)</span>bedard <span class="chordset">(A#)</span>hai<br>
+Agar <span class="chordset">(G#)</span>tum saath <span class="chordset">(A#)</span>ho<span class="chordset">(D#)</span><br>
+Agar <span class="chordset">(G#)</span>tum saath <span class="chordset">(A#)</span>ho<span class="chordset">(D#)</span>
+</pre>
+
+    </div>
+    <div class="chord-func">
+  
+    <div class="chord-btn">
+      <span id="transpose-txt">SCALE TRANSPOSE</span>
+      <button id="transposeDown">-1</button>
+      <button id="transposeUp">+1</button>
+      <button class="reset-btn" id="reset-scale">RESET</button>
+    </div>
+   
+    <p class="transpose-note">Note: Use the scale transpose buttons to adjust the song's scale to your vocal range. "-" lowers the scale, "+" raises it. This changes all chords on the sheet. Click "RESET" to return to the original scale.</p>
+    <div class="capo-container" id="capo">
+      <div class="capo-h2">
+        <h2>FIND BEST CAPO POSITION</h2>
+      </div>
+      <button id="findBestCapo">Find Best Capo Position</button>
+      <div id="result"></div>
+    </div>
+
+    <div id="controls">
+  <button id="autoscrollBtn">AUTOSCROLL</button>
+  <button id="decreaseSpeed">-</button>
+  <span id="speedIndicator">1.0x</span>
+  <button id="increaseSpeed">+</button>
+  <button id="resetBtn">
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="15"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+  </button>
+</div>
+
+    <div class="menu-overlay">
+    <div class="menu-options">
+            <button class="option-button" onclick="MSTREAMAPI.logout();">Home</button>
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a class="tab-item" id="transpose-1" >
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" id="exposure-neg"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M4 11v2h8v-2H4zm15 7h-2V7.38L14 8.4V6.7L18.7 5h.3v13z"></path></svg>
+      <span>Transpose</span>
+    </a>
+<a class="tab-item" id="transpose+1">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" d="M0 0h24v24H0zm0 0h24v24H0z"></path>
+        <path d="M10 7H8v4H4v2h4v4h2v-4h4v-2h-4V7zm10 11h-2V7.38L15 8.4V6.7L19.7 5h.3v13z"></path>
+      </svg>
+      <span>Transpose</span>
+    </a>
+    <button class="menu-button">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+    <a class="tab-item" id="findNewBestCapo">
+      <svg version="1.1" viewBox="0 0 800 800" width="24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path transform="translate(52,82)" d="m0 0h7l5 3 3 5v23l2 20 7 28 17 50 15 42 4-2 7-3 5 1 7 10 9 15 32 52 13 21 14 23 13 21 48 78 9 14 2 1v-7l5-10 7-7 13-7 9-2h16l8 1 6-13 3-13v-11l-3-15-6-19 1-7 4-4 17-6 10-6 8-7 6-9 4-13-1-17v-28l3-32 4-23 6-20 7-16 16-27 13-19 11-15 11-14 11-13 6-7 9-6 6-2h14l10 3 9 6 7 8 4 10 1 6v14l-3 14-4 9-6 10-7 8-7 5-5 2h-11l-10-5-5-5v-6l5-5 5 2 5 5 2 1h6l6-4 7-8 7-14 1-5v-14l-4-11-4-5-9-3-11 1-8 4-6 5-10 14-9 14-9 16-9 19-6 16-5 21-1 6v32l5 30 7 24 10 25-2 6-8 7-3 6 1 9 4 9 4 6 7 6 13 8 4 5 7 19 8 9 10 3h10l10-2 5 3 8 10 12 16 22 28 13 16 18 22 13 15 9 10 7 8 12 13 23 23 22 18 10 9 8 7 12 11 11 9 11 10 14 11 11 10 7 10 3 6v8l-7 11-6 5-7-1-9-8-4 2-7 8-6-4-7-7-11-9-14-12-14-11-15-12-40-30-36-26-23-16-32-22-43-29-20-13-32-21-22-14-12-8-3-1-15 44-17 45-11 26-6 12-2 3 17 4 33 8 5 1 2-5 4-4 20 4 58 15 64 16 27 7 6 3 2 2-1 15-5 31-4 6-5 1-30-7-139-31-5-2-2-3v-7l1-5h-2l-3 9-4 2-8-6-10-8-13-8-12-5-31-8-26-8-20-8-19-10-13-10-9-9-10-16-12-25-15-36-16-41-17-46-15-41-10-29-17-48-15-43-17-48-19-56-8-28-3-16v-22l3-8 4-5zm65 198m1 1 3 11 33 90 17 46 13 35 10 28 16 47 11 26 5 8 7 4 11 4 11 3h5l-2-9v-19l4-15 8-16 1-5-10-16-11-17-12-19-14-22-12-19-15-23-15-24-11-17-12-19-16-25-14-22-10-15zm197 185-12 3-9 5-6 7-3 11v10l5-4 7-8 1-3h2l7-8 9-10 1-3z"/>
+<path transform="translate(383,664)" d="m0 0h1v5l-2-2z"/>
+<path transform="translate(384,663)" d="m0 0"/>
+<path transform="translate(124,292)" d="m0 0"/>
+<path transform="translate(123,291)" d="m0 0"/>
+<path transform="translate(121,287)" d="m0 0"/>
+</svg>
+      <span>Best Capo</span>
+    </a>
+    <a class="tab-item" id="reset-scale-new">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+      <span>Reset</span>
+    </a>
+  </nav>
+  </div>
+  </div>`;
+  const indino = `<div class="chord-main">
+    <div class="baarish" id="chord-lyrics">
+    <pre class="song-details-pre">
+Song : In Dino
+Singer : Soham
+Music : Pritam Chakraborty
+Lyrics: Sayeed Quadri 
+Movie : Life in a Metro</pre>
+    <pre>
+    <span class="chordset">(C)</span>in Di<span class="chordset">(C)</span>no, Dil Mera,<br>
+Mujhse <span class="chordset">(C)</span>Hai Keh Raha<br>
+<span class="chordset">(G)</span>Tu <span class="chordset">(F)</span>Khaab Sa<span class="chordset">(C)</span>ja<br>
+<span class="chordset">(G)</span>Tu<span class="chordset">(F)</span>Ji Le Ja<span class="chordset">(C)</span>ra<br><br>
+
+<span class="chordset">(C)</span>Hai Tujhe Bhi I<span class="chordset">(G)</span>zaazat<br>
+Karle <span class="chordset">(C)</span>Tu Bhi Mu<span class="chordset">(C)</span>habbat<br>
+<span class="chordset">(C)</span>Hai Tujhe Bhi I<span class="chordset">(G)</span>zaazat<br>
+Karle <span class="chordset">(C)</span>Tu Bhi Mu<span class="chordset">(C)</span>habbat<br><br>
+
+<span class="chordset">(C)</span>in Di<span class="chordset">(C)</span>no, Dil Mera,<br>
+Mujhse <span class="chordset">(C)</span>Hai Keh Raha<br>
+<span class="chordset">(G)</span>Tu <span class="chordset">(F)</span>Khaab Sa<span class="chordset">(C)</span>ja<br>
+<span class="chordset">(G)</span>Tu<span class="chordset">(F)</span>Ji Le Ja<span class="chordset">(C)</span>ra<br><br>
+
+<span class="chordset">(C)</span>Hai Tujhe Bhi I<span class="chordset">(G)</span>zaazat<br>
+Karle <span class="chordset">(C)</span>Tu Bhi Mu<span class="chordset">(C)</span>habbat<br>
+<span class="chordset">(C)</span>Hai Tujhe Bhi I<span class="chordset">(G)</span>zaazat<br>
+Karle <span class="chordset">(C)</span>Tu Bhi Mu<span class="chordset">(C)</span>habbat<br><br>
+
+<span class="chordset">(C)</span>berang Si Hai Badi Zindagi<br>
+Kuchh <span class="chordset">(G)</span>Rang To Bha<span class="chordset">(C)</span>roon<br>
+<span class="chordset">(C)</span>Main Apani Tanahaayi Ke Waaste<br>
+Abbb <span class="chordset">(G)</span>Kuchh Toh Ka<span class="chordset">(C)</span>roon<br><br>
+
+<span class="chordset">(C)</span>berang Si Hai Badi Zindagi<br>
+Kuchh <span class="chordset">(G)</span>Rang To Bha<span class="chordset">(C)</span>roon<br>
+<span class="chordset">(C)</span>Main Apani Tanahaayi Ke Waaste<br>
+Abbb <span class="chordset">(G)</span>Kuchh Toh Ka<span class="chordset">(C)</span>roon<br><br>
+
+<span class="chordset">(G)</span>Jab Mi<span class="chordset">(G)</span>le Thodi <span class="chordset">(G)</span>Fursat<br>
+<span class="chordset">(G)</span>Jab Mi<span class="chordset">(G)</span>le Thodi <span class="chordset">(G)</span>Fursat<br>
+Mujhse <span class="chordset">(C)</span>Karle Mu<span class="chordset">(C)</span>habbat<br>
+Hai Tu<span class="chordset">(C)</span>jhe Bhi I<span class="chordset">(G)</span>zaazat<br>
+Karle <span class="chordset">(C)</span>Tu Bhi Mo<span class="chordset">(C)</span>habbat<br><br>
+
+<span class="chordset">(C)</span>(<span class="chordset">(A#)</span><span class="chordset">(Am)</span><span class="chordset">(G#)</span><span class="chordset">(A#)</span>)<br>
+<span class="chordset">(C)</span>(<span class="chordset">(A#)</span><span class="chordset">(Am)</span><span class="chordset">(G#)</span><span class="chordset">(A#)</span>)<br><br>
+
+<span class="chordset">(C)</span>Usako Chhupaakar Main Sabse Kabhi<br>
+Le Cha<span class="chordset">(G)</span>loon Kahin <span class="chordset">(C)</span>Door...<br>
+<span class="chordset">(C)</span>Aankhon Ke Pyaalon Se Pita Rahoon<br>
+Usake <span class="chordset">(G)</span>Chehre Ka <span class="chordset">(C)</span>Noor<br><br>
+
+<span class="chordset">(C)</span>Usako Chhupaakar Main Sabse Kabhi<br>
+Le Cha<span class="chordset">(G)</span>loon Kahin <span class="chordset">(C)</span>Door...<br>
+<span class="chordset">(C)</span>Aankhon Ke Pyaalon Se Pita Rahoon<br>
+Usake <span class="chordset">(G)</span>Chehre Ka <span class="chordset">(C)</span>Noor<br><br>
+
+<span class="chordset">(G)</span>Iss Ja<span class="chordset">(G)</span>maane Se <span class="chordset">(G)</span>Chhupakar<br>
+<span class="chordset">(G)</span>Iss Ja<span class="chordset">(G)</span>maane Se <span class="chordset">(G)</span>Chhupakar…<br>
+Puri <span class="chordset">(C)</span>Karloon Main <span class="chordset">(C)</span>Hasrat<br><br>
+
+Hai <span class="chordset">(C)</span>Tujhe Bhi I<span class="chordset">(G)</span>zaazat<br>
+Karle <span class="chordset">(C)</span>Tu Bhi Mo<span class="chordset">(C)</span>habbat…<br><br>
+
+<span class="chordset">(C)</span>in Di<span class="chordset">(C)</span>no, Dil Mera,<br>
+Mujhse <span class="chordset">(Am)</span>Hai Keh Raha<br>
+<span class="chordset">(G)</span>Tu <span class="chordset">(F)</span>Khaab Sa<span class="chordset">(C)</span>ja<br>
+<span class="chordset">(G)</span>Tu<span class="chordset">(F)</span>Ji Le Ja<span class="chordset">(C)</span>ra<br><br>
+
+<span class="chordset">(C)</span>in Di<span class="chordset">(C)</span>no, Dil Mera,<br>
+Mujhse <span class="chordset">(Am)</span>Hai Keh Raha<br>
+<span class="chordset">(G)</span>Tu <span class="chordset">(F)</span>Khaab Sa<span class="chordset">(C)</span>ja<br>
+<span class="chordset">(G)</span>Tu<span class="chordset">(F)</span>Ji Le Ja<span class="chordset">(C)</span>ra
+</pre>
+
+    </div>
+    <div class="chord-func">
+  
+    <div class="chord-btn">
+      <span id="transpose-txt">SCALE TRANSPOSE</span>
+      <button id="transposeDown">-1</button>
+      <button id="transposeUp">+1</button>
+      <button class="reset-btn" id="reset-scale">RESET</button>
+    </div>
+   
+    <p class="transpose-note">Note: Use the scale transpose buttons to adjust the song's scale to your vocal range. "-" lowers the scale, "+" raises it. This changes all chords on the sheet. Click "RESET" to return to the original scale.</p>
+    <div class="capo-container" id="capo">
+      <div class="capo-h2">
+        <h2>FIND BEST CAPO POSITION</h2>
+      </div>
+      <button id="findBestCapo">Find Best Capo Position</button>
+      <div id="result"></div>
+    </div>
+
+    <div id="controls">
+  <button id="autoscrollBtn">AUTOSCROLL</button>
+  <button id="decreaseSpeed">-</button>
+  <span id="speedIndicator">1.0x</span>
+  <button id="increaseSpeed">+</button>
+  <button id="resetBtn">
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="15"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+  </button>
+</div>
+
+    <div class="menu-overlay">
+    <div class="menu-options">
+            <button class="option-button" onclick="MSTREAMAPI.logout();">Home</button>
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a class="tab-item" id="transpose-1" >
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" id="exposure-neg"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M4 11v2h8v-2H4zm15 7h-2V7.38L14 8.4V6.7L18.7 5h.3v13z"></path></svg>
+      <span>Transpose</span>
+    </a>
+<a class="tab-item" id="transpose+1">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" d="M0 0h24v24H0zm0 0h24v24H0z"></path>
+        <path d="M10 7H8v4H4v2h4v4h2v-4h4v-2h-4V7zm10 11h-2V7.38L15 8.4V6.7L19.7 5h.3v13z"></path>
+      </svg>
+      <span>Transpose</span>
+    </a>
+    <button class="menu-button">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+    <a class="tab-item" id="findNewBestCapo">
+      <svg version="1.1" viewBox="0 0 800 800" width="24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path transform="translate(52,82)" d="m0 0h7l5 3 3 5v23l2 20 7 28 17 50 15 42 4-2 7-3 5 1 7 10 9 15 32 52 13 21 14 23 13 21 48 78 9 14 2 1v-7l5-10 7-7 13-7 9-2h16l8 1 6-13 3-13v-11l-3-15-6-19 1-7 4-4 17-6 10-6 8-7 6-9 4-13-1-17v-28l3-32 4-23 6-20 7-16 16-27 13-19 11-15 11-14 11-13 6-7 9-6 6-2h14l10 3 9 6 7 8 4 10 1 6v14l-3 14-4 9-6 10-7 8-7 5-5 2h-11l-10-5-5-5v-6l5-5 5 2 5 5 2 1h6l6-4 7-8 7-14 1-5v-14l-4-11-4-5-9-3-11 1-8 4-6 5-10 14-9 14-9 16-9 19-6 16-5 21-1 6v32l5 30 7 24 10 25-2 6-8 7-3 6 1 9 4 9 4 6 7 6 13 8 4 5 7 19 8 9 10 3h10l10-2 5 3 8 10 12 16 22 28 13 16 18 22 13 15 9 10 7 8 12 13 23 23 22 18 10 9 8 7 12 11 11 9 11 10 14 11 11 10 7 10 3 6v8l-7 11-6 5-7-1-9-8-4 2-7 8-6-4-7-7-11-9-14-12-14-11-15-12-40-30-36-26-23-16-32-22-43-29-20-13-32-21-22-14-12-8-3-1-15 44-17 45-11 26-6 12-2 3 17 4 33 8 5 1 2-5 4-4 20 4 58 15 64 16 27 7 6 3 2 2-1 15-5 31-4 6-5 1-30-7-139-31-5-2-2-3v-7l1-5h-2l-3 9-4 2-8-6-10-8-13-8-12-5-31-8-26-8-20-8-19-10-13-10-9-9-10-16-12-25-15-36-16-41-17-46-15-41-10-29-17-48-15-43-17-48-19-56-8-28-3-16v-22l3-8 4-5zm65 198m1 1 3 11 33 90 17 46 13 35 10 28 16 47 11 26 5 8 7 4 11 4 11 3h5l-2-9v-19l4-15 8-16 1-5-10-16-11-17-12-19-14-22-12-19-15-23-15-24-11-17-12-19-16-25-14-22-10-15zm197 185-12 3-9 5-6 7-3 11v10l5-4 7-8 1-3h2l7-8 9-10 1-3z"/>
+<path transform="translate(383,664)" d="m0 0h1v5l-2-2z"/>
+<path transform="translate(384,663)" d="m0 0"/>
+<path transform="translate(124,292)" d="m0 0"/>
+<path transform="translate(123,291)" d="m0 0"/>
+<path transform="translate(121,287)" d="m0 0"/>
+</svg>
+      <span>Best Capo</span>
+    </a>
+    <a class="tab-item" id="reset-scale-new">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+      <span>Reset</span>
+    </a>
+  </nav>
+  </div>
+  </div>`;
+  const merebina = `<div class="chord-main">
+    <div class="baarish" id="chord-lyrics">
+    <pre class="song-details-pre">
+Song: Mere Bina 
+Singer: Nikhil Dsouza
+Music : Pritam
+Lyrics: Kumaar
+Movie: Crook</pre>
+    <pre>
+    <span class="chordset">(D)</span><span class="chordset">(A)</span><span class="chordset">(G)</span><br>
+<span class="chordset">(D)</span><span class="chordset">(A)</span><span class="chordset">(G)</span><br><br>
+
+<span class="chordset">[Verse]</span><br>
+Mere Bi<span class="chordset">(D)</span>na main<br>
+rehne la<span class="chordset">(Bm)</span>ga hun<br>
+Teri ha<span class="chordset">(Em)</span>waon me<br>
+behne la<span class="chordset">(A)</span>ga hun<br><br>
+
+Jaane main <span class="chordset">(D)</span>kaise<br>
+tera hu<span class="chordset">(Bm)</span>aa hun<br>
+Mujhe to <span class="chordset">(Em)</span>lagta hai main shayad<br>
+tere <span class="chordset">(A)</span>dil ki dua hu haa<br><br>
+
+<span class="chordset">[Chorus]</span><br>
+<span class="chordset">(D)</span>Tujhko jo paa<span class="chordset">(G)</span>ya ahaa<br>
+<span class="chordset">(Bm)</span>To jeena aa<span class="chordset">(Em)</span>ya<br>
+Ab ye <span class="chordset">(Bm)</span>lamha theher jaye<br>
+<span class="chordset">(Bm)</span>tham jaye bas jaye<br>
+<span class="chordset">(G)</span>hum Dono ke darmi<span class="chordset">(A)</span>yan<br><br>
+
+<span class="chordset">(D)</span>Tujhko jo paa<span class="chordset">(G)</span>ya aha<br>
+<span class="chordset">(Bm)</span>To jeena aa<span class="chordset">(Em)</span>ya<br>
+Ab ye <span class="chordset">(Bm)</span>lamha theher jaye<br>
+<span class="chordset">(Bm)</span>tham jaye bas jaye<br>
+<span class="chordset">(G)</span>hum Dono ke darmi<span class="chordset">(A)</span>yan<br><br>
+
+<span class="chordset">[Verse]</span><br>
+Pehle se <span class="chordset">(D)</span>zyada<br>
+main jee<span class="chordset">(Bm)</span>raha hu<br>
+Jabse main <span class="chordset">(Em)</span>tere<br>
+dil se ju<span class="chordset">(A)</span>da hu<br><br>
+
+Rahon pe <span class="chordset">(D)</span>teri<br>
+main to cha<span class="chordset">(Bm)</span>la hu<br>
+Tu meri <span class="chordset">(Em)</span>manzil hai<br>
+tere <span class="chordset">(Em)</span>kadmon pe bas<br>
+<span class="chordset">(A)</span>rukne laga hu haa<br><br>
+
+<span class="chordset">[Chorus]</span><br>
+<span class="chordset">(D)</span>Tujhko jo paa<span class="chordset">(G)</span>ya aha<br>
+<span class="chordset">(Bm)</span>To jeena aa<span class="chordset">(Em)</span>ya<br>
+Ab ye <span class="chordset">(Bm)</span>lamha theher jaye<br>
+<span class="chordset">(Bm)</span>tham jaye bas jaye<br>
+<span class="chordset">(G)</span>hum Dono ke darmi<span class="chordset">(A)</span>yana<span class="chordset">(D)</span><br><br>
+
+<span class="chordset">(F#m)</span><span class="chordset">(G)</span><span class="chordset">(G)</span><span class="chordset">(A)</span><br>
+<span class="chordset">(F#m)</span><span class="chordset">(G)</span><span class="chordset">(G)</span><span class="chordset">(A)</span><br><br>
+
+<span class="chordset">[Verse]</span><br>
+<span class="chordset">(D)</span>Teri nazar me<br>
+nayi <span class="chordset">(Bm)</span>si adaa hai<br>
+Naya <span class="chordset">(G)</span>sa nasha bhi<br>
+ghula <span class="chordset">(A)</span>hai<br><br>
+
+<span class="chordset">(D)</span>Kayi dino se<br>
+bandha th<span class="chordset">(Bm)</span>aa baadal jo<br>
+Tere <span class="chordset">(G)</span>hi baalon me<br>
+khula <span class="chordset">(A)</span>hai<br><br>
+
+Teri ha<span class="chordset">(G)</span>don me<br>
+meri ba<span class="chordset">(Bm)</span>sar hai<br>
+Ab tu<span class="chordset">(G)</span>jhe bhi<br>
+jana ki<span class="chordset">(A)</span>dhar hai<br><br>
+
+Jahan ra<span class="chordset">(D)</span>he tu<br>
+main wo ja<span class="chordset">(Bm)</span>han hu<br>
+Jise ji<span class="chordset">(Em)</span>ye tu<br>
+main wo sa<span class="chordset">(A)</span>ma hu<br><br>
+
+Teri wa<span class="chordset">(D)</span>ja se<br>
+naya na<span class="chordset">(Bm)</span>ya hu<br>
+Pehle ka<span class="chordset">(D)</span>ha na maine<br>
+ab ye tumse<br>
+<span class="chordset">(A)</span>kehne laga hu..haa<br><br>
+
+<span class="chordset">[Chorus]</span><br>
+<span class="chordset">(D)</span>Tujhko jo paa<span class="chordset">(G)</span>ya aha<br>
+<span class="chordset">(Bm)</span>To jeena aa<span class="chordset">(Em)</span>ya<br>
+Ab ye <span class="chordset">(Bm)</span>lamha theher jaye<br>
+<span class="chordset">(Bm)</span>tham jaye bas jaye<br>
+<span class="chordset">(G)</span>hum Dono ke darmi<span class="chordset">(A)</span>yana<span class="chordset">(D)</span>
+</pre>
+
+    </div>
+    <div class="chord-func">
+  
+    <div class="chord-btn">
+      <span id="transpose-txt">SCALE TRANSPOSE</span>
+      <button id="transposeDown">-1</button>
+      <button id="transposeUp">+1</button>
+      <button class="reset-btn" id="reset-scale">RESET</button>
+    </div>
+   
+    <p class="transpose-note">Note: Use the scale transpose buttons to adjust the song's scale to your vocal range. "-" lowers the scale, "+" raises it. This changes all chords on the sheet. Click "RESET" to return to the original scale.</p>
+    <div class="capo-container" id="capo">
+      <div class="capo-h2">
+        <h2>FIND BEST CAPO POSITION</h2>
+      </div>
+      <button id="findBestCapo">Find Best Capo Position</button>
+      <div id="result"></div>
+    </div>
+
+    <div id="controls">
+  <button id="autoscrollBtn">AUTOSCROLL</button>
+  <button id="decreaseSpeed">-</button>
+  <span id="speedIndicator">1.0x</span>
+  <button id="increaseSpeed">+</button>
+  <button id="resetBtn">
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="15"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+  </button>
+</div>
+
+    <div class="menu-overlay">
+    <div class="menu-options">
+            <button class="option-button" onclick="MSTREAMAPI.logout();">Home</button>
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a class="tab-item" id="transpose-1" >
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" id="exposure-neg"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M4 11v2h8v-2H4zm15 7h-2V7.38L14 8.4V6.7L18.7 5h.3v13z"></path></svg>
+      <span>Transpose</span>
+    </a>
+<a class="tab-item" id="transpose+1">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" d="M0 0h24v24H0zm0 0h24v24H0z"></path>
+        <path d="M10 7H8v4H4v2h4v4h2v-4h4v-2h-4V7zm10 11h-2V7.38L15 8.4V6.7L19.7 5h.3v13z"></path>
+      </svg>
+      <span>Transpose</span>
+    </a>
+    <button class="menu-button">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+    <a class="tab-item" id="findNewBestCapo">
+      <svg version="1.1" viewBox="0 0 800 800" width="24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path transform="translate(52,82)" d="m0 0h7l5 3 3 5v23l2 20 7 28 17 50 15 42 4-2 7-3 5 1 7 10 9 15 32 52 13 21 14 23 13 21 48 78 9 14 2 1v-7l5-10 7-7 13-7 9-2h16l8 1 6-13 3-13v-11l-3-15-6-19 1-7 4-4 17-6 10-6 8-7 6-9 4-13-1-17v-28l3-32 4-23 6-20 7-16 16-27 13-19 11-15 11-14 11-13 6-7 9-6 6-2h14l10 3 9 6 7 8 4 10 1 6v14l-3 14-4 9-6 10-7 8-7 5-5 2h-11l-10-5-5-5v-6l5-5 5 2 5 5 2 1h6l6-4 7-8 7-14 1-5v-14l-4-11-4-5-9-3-11 1-8 4-6 5-10 14-9 14-9 16-9 19-6 16-5 21-1 6v32l5 30 7 24 10 25-2 6-8 7-3 6 1 9 4 9 4 6 7 6 13 8 4 5 7 19 8 9 10 3h10l10-2 5 3 8 10 12 16 22 28 13 16 18 22 13 15 9 10 7 8 12 13 23 23 22 18 10 9 8 7 12 11 11 9 11 10 14 11 11 10 7 10 3 6v8l-7 11-6 5-7-1-9-8-4 2-7 8-6-4-7-7-11-9-14-12-14-11-15-12-40-30-36-26-23-16-32-22-43-29-20-13-32-21-22-14-12-8-3-1-15 44-17 45-11 26-6 12-2 3 17 4 33 8 5 1 2-5 4-4 20 4 58 15 64 16 27 7 6 3 2 2-1 15-5 31-4 6-5 1-30-7-139-31-5-2-2-3v-7l1-5h-2l-3 9-4 2-8-6-10-8-13-8-12-5-31-8-26-8-20-8-19-10-13-10-9-9-10-16-12-25-15-36-16-41-17-46-15-41-10-29-17-48-15-43-17-48-19-56-8-28-3-16v-22l3-8 4-5zm65 198m1 1 3 11 33 90 17 46 13 35 10 28 16 47 11 26 5 8 7 4 11 4 11 3h5l-2-9v-19l4-15 8-16 1-5-10-16-11-17-12-19-14-22-12-19-15-23-15-24-11-17-12-19-16-25-14-22-10-15zm197 185-12 3-9 5-6 7-3 11v10l5-4 7-8 1-3h2l7-8 9-10 1-3z"/>
+<path transform="translate(383,664)" d="m0 0h1v5l-2-2z"/>
+<path transform="translate(384,663)" d="m0 0"/>
+<path transform="translate(124,292)" d="m0 0"/>
+<path transform="translate(123,291)" d="m0 0"/>
+<path transform="translate(121,287)" d="m0 0"/>
+</svg>
+      <span>Best Capo</span>
+    </a>
+    <a class="tab-item" id="reset-scale-new">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+      <span>Reset</span>
+    </a>
+  </nav>
+  </div>
+  </div>`;
+  const lomaanliya = `<div class="chord-main">
+    <div class="baarish" id="chord-lyrics">
+    <pre class="song-details-pre">
+Song: Lo Maan Liya
+Singer: Arijit Singh
+Music : Jeet Gannguli
+Lyrics: Jeet Gannguli, kausar Munir
+Movie: Raaz Reboot</pre>
+    <pre>
+    <span class="chordset">[Chorus]</span><br>
+Lo <span class="chordset">(F#m)</span>maan liya hum<span class="chordset">(Bm)</span>ne<br>
+Hai <span class="chordset">(C#)</span>pyar nahi tum<span class="chordset">(F#m)</span>ko<br>
+Tum <span class="chordset">(F#m)</span>yaad nahi hum<span class="chordset">(Bm)</span>ko<br>
+Hum <span class="chordset">(C#)</span>yaad nahi tum<span class="chordset">(F#m)</span>ko<br><br>
+
+<span class="chordset">[Pre-Chorus]</span><br>
+Bas <span class="chordset">(C#m)</span>ek dafaa mud<span class="chordset">(D)</span>ke dekho<br>
+Aye <span class="chordset">(C#)</span>yaar zara hum<span class="chordset">(A)</span>ko<br><br>
+
+<span class="chordset">[Chorus]</span><br>
+Lo <span class="chordset">(F#m)</span>maan liya hum<span class="chordset">(Bm)</span>ne<br>
+Hai <span class="chordset">(C#)</span>pyar nahi tum<span class="chordset">(F#m)</span>ko<br>
+Tum <span class="chordset">(F#m)</span>yaad nahi hum<span class="chordset">(Bm)</span>ko<br>
+Hum <span class="chordset">(C#)</span>yaad nahi tum<span class="chordset">(F#m)</span>ko<br><br>
+
+<span class="chordset">[Verse]</span><br>
+Lo <span class="chordset">(A)</span>maan liya de<span class="chordset">(E)</span>kha hi nahi<br>
+Tere <span class="chordset">(C#)</span>kaandhe ka wo <span class="chordset">(F#m)</span>til<br>
+Lo <span class="chordset">(A)</span>maan liya too<span class="chordset">(E)</span>ta hi nahi<br>
+Tere <span class="chordset">(C#)</span>hathon se mera <span class="chordset">(F#m)</span>dil<br><br>
+
+<span class="chordset">[Pre-Chorus]</span><br>
+Chha<span class="chordset">(C#m)</span>aon mein teri bee<span class="chordset">(D)</span>ti hi nahi<br>
+Wo <span class="chordset">(C#)</span>garmi ki baa<span class="chordset">(A)</span>tein<br>
+Baa<span class="chordset">(C#m)</span)hon mein teri guz<span class="chordset">(D)</span>ri hi nahi<br>
+Wo <span class="chordset">(C#)</span>sardi ki raa<span class="chordset">(A)</span)tein<br><br>
+
+<span class="chordset">[Chorus]</span><br>
+Lo <span class="chordset">(F#m)</span>maan liya hum<span class="chordset">(Bm)</span>ne<br>
+Hai <span class="chordset">(C#)</span>pyar nahi tum<span class="chordset">(F#m)</span>ko<br>
+Tum <span class="chordset">(F#m)</span>yaad nahi hum<span class="chordset">(Bm)</span>ko<br>
+Hum <span class="chordset">(C#)</span>yaad nahi tum<span class="chordset">(F#m)</span>ko<br><br>
+
+<span class="chordset">[Verse]</span><br>
+Jaa<span class="chordset">(A)</span>o le jaao <span class="chordset">(E)</span>neend meri<br>
+<span class="chordset">(C#)</span>Uff na karenge <span class="chordset">(F#m)</span>hum<br>
+Jo <span class="chordset">(A)</span>le jaaoge <span class="chordset">(E)</span>khwaab mere<br>
+Toh <span class="chordset">(C#)</span>kaise jiyenge <span class="chordset">(F#m)</span>hum<br><br>
+
+<span class="chordset">[Pre-Chorus]</span><br>
+Jee<span class="chordset">(C#m)</span>na humko aa<span class="chordset">(D)</span>ta hi nahi<br>
+Teri <span class="chordset">(C#)</span>saanson ke si<span class="chordset">(A)</span>va<br>
+Mar<span class="chordset">(C#m)</span>na bhi ab na<span class="chordset">(D)</span>mumkin hai<br>
+Teri <span class="chordset">(C#)</span>baahon ke si<span class="chordset">(A)</span>va<br><br>
+
+<span class="chordset">[Chorus]</span><br>
+Lo <span class="chordset">(F#m)</span>maan liya hum<span class="chordset">(Bm)</span>ne<br>
+Par<span class="chordset">(C#)</span>wah nahi tum<span class="chordset">(F#m)</span>ko<br>
+Tum <span class="chordset">(F#m)</span>yaad nahi hum<span class="chordset">(Bm)</span>ko<br>
+Hum <span class="chordset">(C#)</span>yaad nahi tum<span class="chordset">(F#m)</span>ko
+</pre>
+
+    </div>
+    <div class="chord-func">
+  
+    <div class="chord-btn">
+      <span id="transpose-txt">SCALE TRANSPOSE</span>
+      <button id="transposeDown">-1</button>
+      <button id="transposeUp">+1</button>
+      <button class="reset-btn" id="reset-scale">RESET</button>
+    </div>
+   
+    <p class="transpose-note">Note: Use the scale transpose buttons to adjust the song's scale to your vocal range. "-" lowers the scale, "+" raises it. This changes all chords on the sheet. Click "RESET" to return to the original scale.</p>
+    <div class="capo-container" id="capo">
+      <div class="capo-h2">
+        <h2>FIND BEST CAPO POSITION</h2>
+      </div>
+      <button id="findBestCapo">Find Best Capo Position</button>
+      <div id="result"></div>
+    </div>
+
+    <div id="controls">
+  <button id="autoscrollBtn">AUTOSCROLL</button>
+  <button id="decreaseSpeed">-</button>
+  <span id="speedIndicator">1.0x</span>
+  <button id="increaseSpeed">+</button>
+  <button id="resetBtn">
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="15"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+  </button>
+</div>
+
+    <div class="menu-overlay">
+    <div class="menu-options">
+            <button class="option-button" onclick="MSTREAMAPI.logout();">Home</button>
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a class="tab-item" id="transpose-1" >
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" id="exposure-neg"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M4 11v2h8v-2H4zm15 7h-2V7.38L14 8.4V6.7L18.7 5h.3v13z"></path></svg>
+      <span>Transpose</span>
+    </a>
+<a class="tab-item" id="transpose+1">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" d="M0 0h24v24H0zm0 0h24v24H0z"></path>
+        <path d="M10 7H8v4H4v2h4v4h2v-4h4v-2h-4V7zm10 11h-2V7.38L15 8.4V6.7L19.7 5h.3v13z"></path>
+      </svg>
+      <span>Transpose</span>
+    </a>
+    <button class="menu-button">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+    <a class="tab-item" id="findNewBestCapo">
+      <svg version="1.1" viewBox="0 0 800 800" width="24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path transform="translate(52,82)" d="m0 0h7l5 3 3 5v23l2 20 7 28 17 50 15 42 4-2 7-3 5 1 7 10 9 15 32 52 13 21 14 23 13 21 48 78 9 14 2 1v-7l5-10 7-7 13-7 9-2h16l8 1 6-13 3-13v-11l-3-15-6-19 1-7 4-4 17-6 10-6 8-7 6-9 4-13-1-17v-28l3-32 4-23 6-20 7-16 16-27 13-19 11-15 11-14 11-13 6-7 9-6 6-2h14l10 3 9 6 7 8 4 10 1 6v14l-3 14-4 9-6 10-7 8-7 5-5 2h-11l-10-5-5-5v-6l5-5 5 2 5 5 2 1h6l6-4 7-8 7-14 1-5v-14l-4-11-4-5-9-3-11 1-8 4-6 5-10 14-9 14-9 16-9 19-6 16-5 21-1 6v32l5 30 7 24 10 25-2 6-8 7-3 6 1 9 4 9 4 6 7 6 13 8 4 5 7 19 8 9 10 3h10l10-2 5 3 8 10 12 16 22 28 13 16 18 22 13 15 9 10 7 8 12 13 23 23 22 18 10 9 8 7 12 11 11 9 11 10 14 11 11 10 7 10 3 6v8l-7 11-6 5-7-1-9-8-4 2-7 8-6-4-7-7-11-9-14-12-14-11-15-12-40-30-36-26-23-16-32-22-43-29-20-13-32-21-22-14-12-8-3-1-15 44-17 45-11 26-6 12-2 3 17 4 33 8 5 1 2-5 4-4 20 4 58 15 64 16 27 7 6 3 2 2-1 15-5 31-4 6-5 1-30-7-139-31-5-2-2-3v-7l1-5h-2l-3 9-4 2-8-6-10-8-13-8-12-5-31-8-26-8-20-8-19-10-13-10-9-9-10-16-12-25-15-36-16-41-17-46-15-41-10-29-17-48-15-43-17-48-19-56-8-28-3-16v-22l3-8 4-5zm65 198m1 1 3 11 33 90 17 46 13 35 10 28 16 47 11 26 5 8 7 4 11 4 11 3h5l-2-9v-19l4-15 8-16 1-5-10-16-11-17-12-19-14-22-12-19-15-23-15-24-11-17-12-19-16-25-14-22-10-15zm197 185-12 3-9 5-6 7-3 11v10l5-4 7-8 1-3h2l7-8 9-10 1-3z"/>
+<path transform="translate(383,664)" d="m0 0h1v5l-2-2z"/>
+<path transform="translate(384,663)" d="m0 0"/>
+<path transform="translate(124,292)" d="m0 0"/>
+<path transform="translate(123,291)" d="m0 0"/>
+<path transform="translate(121,287)" d="m0 0"/>
+</svg>
+      <span>Best Capo</span>
+    </a>
+    <a class="tab-item" id="reset-scale-new">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+      <span>Reset</span>
+    </a>
+  </nav>
+  </div>
+  </div>`;
+  const ennasona = `<div class="chord-main">
+    <div class="baarish" id="chord-lyrics">
+    <pre class="song-details-pre">
+Song: Enna Sona 
+Singer: Arijit Singh
+Music : A.R Rahman
+Lyrics: Gulzar
+Movie: OK Jaanu</pre>
+    <pre>
+    <span class="chordset">[Intro]</span><br>
+<span class="chordset">(Gm)</span><span class="chordset">(F)</span><span class="chordset">(D#)</span><span class="chordset">(F)</span><br>
+<span class="chordset">(Gm)</span><span class="chordset">(F)</span><span class="chordset">(D#)</span><span class="chordset">(Dm)</span><br><br>
+
+<span class="chordset">[Chorus]</span><br>
+Enna <span class="chordset">(Gm)</span>sona kyun<span class="chordset">(F)</span><br>
+Rabb ne ba<span class="chordset">(D#)</span>naya..<span class="chordset">(F)</span><br>
+Enna <span class="chordset">(Gm)</span>sona kyun<span class="chordset">(F)</span><br>
+Rabb ne ba<span class="chordset">(D#)</span>naya..<span class="chordset">(Dm)</span><br><br>
+
+Enna <span class="chordset">(Gm)</span>sona kyun<span class="chordset">(F)</span><br>
+Rabb ne ba<span class="chordset">(D#)</span>naya..<span class="chordset">(F)</span><br>
+Enna <span class="chordset">(Gm)</span>sona kyun<span class="chordset">(F)</span><br>
+Rabb ne ba<span class="chordset">(D#)</span>naya..<span class="chordset">(Dm)</span><br><br>
+
+Aavan <span class="chordset">(Gm)</span>javan te main<br>
+<span class="chordset">(F)</span>yaara nu ma<span class="chordset">(D#)</span>na<span class="chordset">(F)</span>van<br>
+Aavan <span class="chordset">(Gm)</span>javan te main<br>
+<span class="chordset">(F)</span>yaara nu ma<span class="chordset">(D#)</span>na<span class="chordset">(Dm)</span>van<br><br>
+
+Enna <span class="chordset">(Gm)</span>sona<span class="chordset">(F)</span>, enna <span class="chordset">(D#)</span>sona<span class="chordset">(F)</span><br>
+Enna <span class="chordset">(Gm)</span>sona<span class="chordset">(F)</span> <span class="chordset">(D#)</span>o…<span class="chordset">(A#)</span><br><br>
+
+Enna <span class="chordset">(Gm)</span>Sona <span class="chordset">(F)</span>Ooo<br>
+Enna <span class="chordset">(D#)</span>Sona <span class="chordset">(Dm)</span>Ooo<br>
+Enna <span class="chordset">(Gm)</span>Sona...<span class="chordset">(F)</span><br>
+Enna <span class="chordset">(D#)</span>Sona...<span class="chordset">(F)</span><br><br>
+
+<span class="chordset">[Instrumental]</span><br>
+<span class="chordset">(Gm)</span><span class="chordset">(F)</span><span class="chordset">(A#)</span><span class="chordset">(F)</span><br>
+<span class="chordset">(A#)</span><span class="chordset">(G#)</span><span class="chordset">(G)</span><span class="chordset">(G)</span><br><br>
+
+<span class="chordset">[Instrumental]</span><br>
+<span class="chordset">(C)</span><span class="chordset">(D#)</span><span class="chordset">(A#)</span><span class="chordset">(F)</span><br>
+<span class="chordset">(C)</span><span class="chordset">(D#)</span><span class="chordset">(Dm)</span><span class="chordset">(Gm/A#)</span><br><br>
+
+<span class="chordset">[Verse]</span><br>
+Kol <span class="chordset">(F)</span>hove te<span class="chordset">(A#)</span><br>
+sekh lag<span class="chordset">(D#)</span>da ae<span class="chordset">(F)</span><br>
+Door <span class="chordset">(A#)</span>jaave te<span class="chordset">(F)</span><br>
+dil jal<span class="chordset">(Gm)</span>da ae<span class="chordset">(F)</span><br><br>
+
+Kehdi <span class="chordset">(A#)</span>agg na<span class="chordset">(F)</span>al<br>
+Rabb ne ba<span class="chordset">(Gm)</span>naya<span class="chordset">(D#)</span><br>
+Rabb ne ba<span class="chordset">(F)</span>naya, Rabb ne ba<span class="chordset">(D)</span>naya<br><br>
+
+<span class="chordset">[Chorus]</span><br>
+Enna <span class="chordset">(Gm)</span>sona kyun<span class="chordset">(F)</span><br>
+Rabb ne ba<span class="chordset">(D#)</span>naya..<span class="chordset">(A#)</span><br>
+Enna <span class="chordset">(Gm)</span>sona kyun<span class="chordset">(F)</span><br>
+Rabb ne ba<span class="chordset">(D#)</span>naya..<span class="chordset">(Dm)</span><br><br>
+
+Aavan <span class="chordset">(Gm)</span>javan te main<br>
+<span class="chordset">(F)</span>yaara nu ma<span class="chordset">(D#)</span>na<span class="chordset">(Dm)</span>van<br>
+Aavan <span class="chordset">(Gm)</span>javan te main<br>
+<span class="chordset">(F)</span>yaara nu ma<span class="chordset">(D#)</span>na<span class="chordset">(Dm)</span>van<br><br>
+
+Enna <span class="chordset">(Gm)</span>sona<span class="chordset">(F)</span>, enna <span class="chordset">(D#)</span>sona<span class="chordset">(Dm)</span><br>
+Enna <span class="chordset">(Gm)</span>sona<span class="chordset">(F)</span> <span class="chordset">(D#)</span>o…<span class="chordset">(Dm)</span><br><br>
+
+<span class="chordset">[Instrumental Solo]</span><br>
+<span class="chordset">(Gm/D#)</span><span class="chordset">(F/A#)</span><span class="chordset">(Dm/Gm)</span><span class="chordset">(D#/F)</span><br>
+<span class="chordset">(Gm/D#)</span><span class="chordset">(F/A#)</span><span class="chordset">(F/D#)</span><span class="chordset">(Gm/A)</span><br>
+<span class="chordset">(Dm/F)</span><span class="chordset">(F/A#)</span><br><br>
+
+<span class="chordset">[Verse]</span><br>
+Taap <span class="chordset">(F)</span>lagge na<span class="chordset">(A#)</span><br>
+tatti chan<span class="chordset">(D#)</span>dni da<span class="chordset">(F)</span><br>
+Saari <span class="chordset">(A#)</span>raati main<span class="chordset">(F)</span><br>
+oss chid<span class="chordset">(Gm)</span>kavan<span class="chordset">(F)</span><br><br>
+
+Kinne <span class="chordset">(A#)</span>dardan naal<span class="chordset">(Dm)</span><br>
+Rabb ne ba<span class="chordset">(Gm)</span>naya<span class="chordset">(D#)</span><br>
+Rabb ne ba<span class="chordset">(F)</span>naya,<br>
+Rabb ne ba<span class="chordset">(D)</span>naya<span class="chordset">(Gm)</span><br><br>
+
+<span class="chordset">[Chorus]</span><br>
+Enna <span class="chordset">(Gm)</span>sona kyun<span class="chordset">(F)</span><br>
+Rabb ne ba<span class="chordset">(D#)</span>naya..<span class="chordset">(F)</span><br>
+Enna <span class="chordset">(Gm)</span>sona kyun<span class="chordset">(F)</span><br>
+Rabb ne ba<span class="chordset">(D#)</span>naya..<span class="chordset">(Dm)</span><br><br>
+
+Aavan <span class="chordset">(Gm)</span>javan te main<br>
+<span class="chordset">(F)</span>yaara nu ma<span class="chordset">(D#)</span>na<span class="chordset">(Dm)</span>van<br>
+Aavan <span class="chordset">(Gm)</span>javan te main<br>
+<span class="chordset">(F)</span>yaara nu ma<span class="chordset">(D#)</span>na<span class="chordset">(Dm)</span>van<br><br>
+
+Enna <span class="chordset">(Gm)</span>sona<span class="chordset">(F)</span>, enna <span class="chordset">(D#)</span>sona<span class="chordset">(F)</span><br>
+Enna <span class="chordset">(Gm)</span>sona<span class="chordset">(F)</span> <span class="chordset">(D#)</span>o…<span class="chordset">(A#)</span>
+</pre>
+
+    </div>
+    <div class="chord-func">
+  
+    <div class="chord-btn">
+      <span id="transpose-txt">SCALE TRANSPOSE</span>
+      <button id="transposeDown">-1</button>
+      <button id="transposeUp">+1</button>
+      <button class="reset-btn" id="reset-scale">RESET</button>
+    </div>
+   
+    <p class="transpose-note">Note: Use the scale transpose buttons to adjust the song's scale to your vocal range. "-" lowers the scale, "+" raises it. This changes all chords on the sheet. Click "RESET" to return to the original scale.</p>
+    <div class="capo-container" id="capo">
+      <div class="capo-h2">
+        <h2>FIND BEST CAPO POSITION</h2>
+      </div>
+      <button id="findBestCapo">Find Best Capo Position</button>
+      <div id="result"></div>
+    </div>
+
+    <div id="controls">
+  <button id="autoscrollBtn">AUTOSCROLL</button>
+  <button id="decreaseSpeed">-</button>
+  <span id="speedIndicator">1.0x</span>
+  <button id="increaseSpeed">+</button>
+  <button id="resetBtn">
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="15"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+  </button>
+</div>
+
+    <div class="menu-overlay">
+    <div class="menu-options">
+            <button class="option-button" onclick="MSTREAMAPI.logout();">Home</button>
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a class="tab-item" id="transpose-1" >
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" id="exposure-neg"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M4 11v2h8v-2H4zm15 7h-2V7.38L14 8.4V6.7L18.7 5h.3v13z"></path></svg>
+      <span>Transpose</span>
+    </a>
+<a class="tab-item" id="transpose+1">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" d="M0 0h24v24H0zm0 0h24v24H0z"></path>
+        <path d="M10 7H8v4H4v2h4v4h2v-4h4v-2h-4V7zm10 11h-2V7.38L15 8.4V6.7L19.7 5h.3v13z"></path>
+      </svg>
+      <span>Transpose</span>
+    </a>
+    <button class="menu-button">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+    <a class="tab-item" id="findNewBestCapo">
+      <svg version="1.1" viewBox="0 0 800 800" width="24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path transform="translate(52,82)" d="m0 0h7l5 3 3 5v23l2 20 7 28 17 50 15 42 4-2 7-3 5 1 7 10 9 15 32 52 13 21 14 23 13 21 48 78 9 14 2 1v-7l5-10 7-7 13-7 9-2h16l8 1 6-13 3-13v-11l-3-15-6-19 1-7 4-4 17-6 10-6 8-7 6-9 4-13-1-17v-28l3-32 4-23 6-20 7-16 16-27 13-19 11-15 11-14 11-13 6-7 9-6 6-2h14l10 3 9 6 7 8 4 10 1 6v14l-3 14-4 9-6 10-7 8-7 5-5 2h-11l-10-5-5-5v-6l5-5 5 2 5 5 2 1h6l6-4 7-8 7-14 1-5v-14l-4-11-4-5-9-3-11 1-8 4-6 5-10 14-9 14-9 16-9 19-6 16-5 21-1 6v32l5 30 7 24 10 25-2 6-8 7-3 6 1 9 4 9 4 6 7 6 13 8 4 5 7 19 8 9 10 3h10l10-2 5 3 8 10 12 16 22 28 13 16 18 22 13 15 9 10 7 8 12 13 23 23 22 18 10 9 8 7 12 11 11 9 11 10 14 11 11 10 7 10 3 6v8l-7 11-6 5-7-1-9-8-4 2-7 8-6-4-7-7-11-9-14-12-14-11-15-12-40-30-36-26-23-16-32-22-43-29-20-13-32-21-22-14-12-8-3-1-15 44-17 45-11 26-6 12-2 3 17 4 33 8 5 1 2-5 4-4 20 4 58 15 64 16 27 7 6 3 2 2-1 15-5 31-4 6-5 1-30-7-139-31-5-2-2-3v-7l1-5h-2l-3 9-4 2-8-6-10-8-13-8-12-5-31-8-26-8-20-8-19-10-13-10-9-9-10-16-12-25-15-36-16-41-17-46-15-41-10-29-17-48-15-43-17-48-19-56-8-28-3-16v-22l3-8 4-5zm65 198m1 1 3 11 33 90 17 46 13 35 10 28 16 47 11 26 5 8 7 4 11 4 11 3h5l-2-9v-19l4-15 8-16 1-5-10-16-11-17-12-19-14-22-12-19-15-23-15-24-11-17-12-19-16-25-14-22-10-15zm197 185-12 3-9 5-6 7-3 11v10l5-4 7-8 1-3h2l7-8 9-10 1-3z"/>
+<path transform="translate(383,664)" d="m0 0h1v5l-2-2z"/>
+<path transform="translate(384,663)" d="m0 0"/>
+<path transform="translate(124,292)" d="m0 0"/>
+<path transform="translate(123,291)" d="m0 0"/>
+<path transform="translate(121,287)" d="m0 0"/>
+</svg>
+      <span>Best Capo</span>
+    </a>
+    <a class="tab-item" id="reset-scale-new">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+      <span>Reset</span>
+    </a>
+  </nav>
+  </div>
+  </div>`;
+  const tujaanena = `<div class="chord-main">
+    <div class="baarish" id="chord-lyrics">
+    <pre class="song-details-pre">
+Song: Tu Jaane Na 
+Singer: Atif Aslam
+Music : Pritam
+Lyrics: rshad Kamil
+Movie:  Ajab Prem Ki Ghazab Kahani</pre>
+    <pre>
+    <span class="chordset">(G)</span>Kaise Bataye <span class="chordset">(Em)</span>Kyu Tujhko Chahe<br>
+<span class="chordset">(Am)</span>Yaara Bata Naa <span class="chordset">(D)</span>Paye<br>
+<span class="chordset">(G)</span>Baate Dilo Ki <span class="chordset">(Em)</span>Dekho Zuban Ki<br>
+<span class="chordset">(Am)</span>Aankhe Tujhe Sam<span class="chordset">(D)</span>jhaye<br><br>
+
+Tu Jaane <span class="chordset">(G)</span>Na <span class="chordset">(D)</span>Aa<br>
+Tu Jaane <span class="chordset">(G)</span>Na<br>
+Tu Jaane <span class="chordset">(G)</span>Na <span class="chordset">(D)</span>Aa<br>
+Tu Jaane <span class="chordset">(G)</span>Na<br><br>
+
+Mil Ke Bhi <span class="chordset">(G)</span>Hum Na Mi<span class="chordset">(D)</span>le<br>
+Tum <span class="chordset">(Em)</span>Se Na Jaane K<span class="chordset">(D)</span>yu<br>
+Milo Ke <span class="chordset">(G)</span>Hai Faas<span class="chordset">(C)</span>le<br>
+Tum <span class="chordset">(Am)</span>Se Na Jaane K<span class="chordset">(D)</span>yu<br><br>
+
+Anjaane <span class="chordset">(G)</span>Hai Silsi<span class="chordset">(D)</span>le<br>
+Tum <span class="chordset">(Em)</span>Se Na Jaane K<span class="chordset">(D)</span>yu<br>
+Sapne Hai <span class="chordset">(G)</span>Palko Ta<span class="chordset">(C)</span>le<br>
+Tum <span class="chordset">(Am)</span>Se Na Jaane K<span class="chordset">(D)</span>yu<br><br>
+
+<span class="chordset">(G)</span>Kaise Bataye <span class="chordset">(Em)</span>Kyu Tujhko Chahe<br>
+<span class="chordset">(Am)</span>Yaara Bata Naa <span class="chordset">(D)</span>Paye<br>
+<span class="chordset">(G)</span>Baate Dilo Ki <span class="chordset">(Em)</span>Dekho Zuban Ki<br>
+<span class="chordset">(Am)</span>Aankhe Tujhe Sam<span class="chordset">(D)</span>jhaye<br><br>
+
+Tu Jaane <span class="chordset">(G)</span>Na <span class="chordset">(D)</span>Aa<br>
+Tu Jaane <span class="chordset">(G)</span>Na<br>
+Tu Jaane <span class="chordset">(G)</span>Na <span class="chordset">(D)</span>Aa<br>
+Tu Jaane <span class="chordset">(G)</span>Na<br><br>
+
+<span class="chordset">(G)</span>Nigahon Mein Dekho Meri<br>
+<span class="chordset">(C)</span>Jo Hai Bas Gaya<br>
+<span class="chordset">(G)</span>Wo Hai Milta Tumse<br>
+Huba<span class="chordset">(D)</span>hoo Ooo<br><br>
+
+<span class="chordset">(G)</span>Jaane Teri Aankhe Thi Ya<br>
+<span class="chordset">(C)</span>Baate Thi Wajah<br>
+<span class="chordset">(G)</span>Hue Tum Jo Dil Ki Aar<span class="chordset">(D)</span>zoo<br><br>
+
+Tum Paas <span class="chordset">(C)</span>Hoke Bhi<br>
+Tum Aas <span class="chordset">(G)</span>Hoke Bhi<br>
+Ehsaas <span class="chordset">(C)</span>Hoke Bhi<br>
+Apne Na<span class="chordset">(G)</span>hi Aise Ho <span class="chordset">(D)</span><br><br>
+
+Hum Ko Gi<span class="chordset">(D)</span>le<br>
+Tum <span class="chordset">(Em)</span>Se Na Jaane K<span class="chordset">(D)</span>yu<br>
+Milo Ke <span class="chordset">(G)</span>Hai Faas<span class="chordset">(C)</span>le<br>
+Tum <span class="chordset">(Am)</span>Se Na Jaane Kyu<span class="chordset">(D)</span>Uuu<br><br>
+
+Tu Jaane <span class="chordset">(G)</span>Na <span class="chordset">(D)</span>Aa<br>
+Tu Jaane <span class="chordset">(G)</span>Na<br>
+Tu Jaane <span class="chordset">(G)</span>Na <span class="chordset">(D)</span>Aa<br>
+Tu Jaane <span class="chordset">(G)</span>Na<br><br>
+
+<span class="chordset">(G)</span>Khayalon Mein <span class="chordset">(D)</span>Laakhon Baate<br>
+<span class="chordset">(C)</span>Yun To Keh Gaya<br>
+<span class="chordset">(G)</span>Bola Kuch Na<br>
+<span class="chordset">(D)</span>Tere Saam<span class="chordset">(Em)</span>ne Ooo<br><br>
+
+<span class="chordset">(G)</span>Hue Na Be<span class="chordset">(D)</span>gaane Bhi Tum<br>
+<span class="chordset">(C)</span>Hoke Aur <span class="chordset">(D)</span>Ke<br>
+<span class="chordset">(G)</span>Dekho Tum Na<br>
+<span class="chordset">(D)</span>Mere Hi Ba<span class="chordset">(Em)</span>ne<br><br>
+
+Afsos <span class="chordset">(C)</span>Hota Hai<br>
+Dil Bhi Ye <span class="chordset">(G)</span>Rota Hai<br>
+Sapne San<span class="chordset">(C)</span>jota Hai<br>
+Badla Hua<span class="chordset">(G)</span>a Soche Ye<span class="chordset">(D)</span><br><br>
+
+Hum The Mi<span class="chordset">(D)</span>le<br>
+Tum <span class="chordset">(Em)</span>Se Na Jaane K<span class="chordset">(D)</span>yu<br>
+Milon Ke <span class="chordset">(G)</span>Hai Faas<span class="chordset">(C)</span>le<br>
+Tum <span class="chordset">(Am)</span>Se Na Jaane K<span class="chordset">(D)</span>yu<br><br>
+
+Anjaane<span class="chordset">(G)</span> Hai Silsi<span class="chordset">(D)</span>le<br>
+Tum <span class="chordset">(Em)</span>Se Na Jaane K<span class="chordset">(D)</span>yu<br>
+Sapne Hai<span class="chordset">(G)</span> Palkon Ta<span class="chordset">(C)</span>le<br>
+Tum <span class="chordset">(Am)</span>Se Na Jaane K<span class="chordset">(D)</span>yu<br><br>
+
+<span class="chordset">(G)</span>Kaise Bataye <span class="chordset">(Em)</span>Kyu Tujhko Chahe<br>
+<span class="chordset">(Am)</span>Yaara Bata Naa <span class="chordset">(D)</span>Paye<br>
+<span class="chordset">(G)</span>Baate Dilo Ki <span class="chordset">(Em)</span>Dekho Zuban Ki<br>
+<span class="chordset">(Am)</span>Aankhe Tujhe Sam<span class="chordset">(D)</span>jhaye<br><br>
+
+Tu Jaane <span class="chordset">(G)</span>Na <span class="chordset">(D)</span>Aa<br>
+Tu Jaane <span class="chordset">(G)</span>Na<br>
+Tu Jaane <span class="chordset">(G)</span>Na <span class="chordset">(D)</span>Aa<br>
+Tu Jaane <span class="chordset">(G)</span>Na
+</pre>
+
+    </div>
+    <div class="chord-func">
+  
+    <div class="chord-btn">
+      <span id="transpose-txt">SCALE TRANSPOSE</span>
+      <button id="transposeDown">-1</button>
+      <button id="transposeUp">+1</button>
+      <button class="reset-btn" id="reset-scale">RESET</button>
+    </div>
+   
+    <p class="transpose-note">Note: Use the scale transpose buttons to adjust the song's scale to your vocal range. "-" lowers the scale, "+" raises it. This changes all chords on the sheet. Click "RESET" to return to the original scale.</p>
+    <div class="capo-container" id="capo">
+      <div class="capo-h2">
+        <h2>FIND BEST CAPO POSITION</h2>
+      </div>
+      <button id="findBestCapo">Find Best Capo Position</button>
+      <div id="result"></div>
+    </div>
+
+    <div id="controls">
+  <button id="autoscrollBtn">AUTOSCROLL</button>
+  <button id="decreaseSpeed">-</button>
+  <span id="speedIndicator">1.0x</span>
+  <button id="increaseSpeed">+</button>
+  <button id="resetBtn">
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="15"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+  </button>
+</div>
+
+    <div class="menu-overlay">
+    <div class="menu-options">
+            <button class="option-button" onclick="MSTREAMAPI.logout();">Home</button>
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a class="tab-item" id="transpose-1" >
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" id="exposure-neg"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M4 11v2h8v-2H4zm15 7h-2V7.38L14 8.4V6.7L18.7 5h.3v13z"></path></svg>
+      <span>Transpose</span>
+    </a>
+<a class="tab-item" id="transpose+1">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" d="M0 0h24v24H0zm0 0h24v24H0z"></path>
+        <path d="M10 7H8v4H4v2h4v4h2v-4h4v-2h-4V7zm10 11h-2V7.38L15 8.4V6.7L19.7 5h.3v13z"></path>
+      </svg>
+      <span>Transpose</span>
+    </a>
+    <button class="menu-button">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+    <a class="tab-item" id="findNewBestCapo">
+      <svg version="1.1" viewBox="0 0 800 800" width="24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path transform="translate(52,82)" d="m0 0h7l5 3 3 5v23l2 20 7 28 17 50 15 42 4-2 7-3 5 1 7 10 9 15 32 52 13 21 14 23 13 21 48 78 9 14 2 1v-7l5-10 7-7 13-7 9-2h16l8 1 6-13 3-13v-11l-3-15-6-19 1-7 4-4 17-6 10-6 8-7 6-9 4-13-1-17v-28l3-32 4-23 6-20 7-16 16-27 13-19 11-15 11-14 11-13 6-7 9-6 6-2h14l10 3 9 6 7 8 4 10 1 6v14l-3 14-4 9-6 10-7 8-7 5-5 2h-11l-10-5-5-5v-6l5-5 5 2 5 5 2 1h6l6-4 7-8 7-14 1-5v-14l-4-11-4-5-9-3-11 1-8 4-6 5-10 14-9 14-9 16-9 19-6 16-5 21-1 6v32l5 30 7 24 10 25-2 6-8 7-3 6 1 9 4 9 4 6 7 6 13 8 4 5 7 19 8 9 10 3h10l10-2 5 3 8 10 12 16 22 28 13 16 18 22 13 15 9 10 7 8 12 13 23 23 22 18 10 9 8 7 12 11 11 9 11 10 14 11 11 10 7 10 3 6v8l-7 11-6 5-7-1-9-8-4 2-7 8-6-4-7-7-11-9-14-12-14-11-15-12-40-30-36-26-23-16-32-22-43-29-20-13-32-21-22-14-12-8-3-1-15 44-17 45-11 26-6 12-2 3 17 4 33 8 5 1 2-5 4-4 20 4 58 15 64 16 27 7 6 3 2 2-1 15-5 31-4 6-5 1-30-7-139-31-5-2-2-3v-7l1-5h-2l-3 9-4 2-8-6-10-8-13-8-12-5-31-8-26-8-20-8-19-10-13-10-9-9-10-16-12-25-15-36-16-41-17-46-15-41-10-29-17-48-15-43-17-48-19-56-8-28-3-16v-22l3-8 4-5zm65 198m1 1 3 11 33 90 17 46 13 35 10 28 16 47 11 26 5 8 7 4 11 4 11 3h5l-2-9v-19l4-15 8-16 1-5-10-16-11-17-12-19-14-22-12-19-15-23-15-24-11-17-12-19-16-25-14-22-10-15zm197 185-12 3-9 5-6 7-3 11v10l5-4 7-8 1-3h2l7-8 9-10 1-3z"/>
+<path transform="translate(383,664)" d="m0 0h1v5l-2-2z"/>
+<path transform="translate(384,663)" d="m0 0"/>
+<path transform="translate(124,292)" d="m0 0"/>
+<path transform="translate(123,291)" d="m0 0"/>
+<path transform="translate(121,287)" d="m0 0"/>
+</svg>
+      <span>Best Capo</span>
+    </a>
+    <a class="tab-item" id="reset-scale-new">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+      <span>Reset</span>
+    </a>
+  </nav>
+  </div>
+  </div>`;
+  const jeelezaraa = `<div class="chord-main">
+    <div class="baarish" id="chord-lyrics">
+    <pre class="song-details-pre">
+Song: Jee Le Zaraa
+Singer: Vishal Dadlani
+Music : Ram Sampath
+Lyrics: Javed Akhtar
+Movie: Talaash</pre>
+    <pre>
+    <span class="chordset">(Am)</span>Main hoon gumsum tu bhi<br>
+<span class="chordset">(C)</span>khaamosh <span class="chordset">(Em)</span>hai<br>
+<span class="chordset">(Am)</span>Sach hai samay ka hi<br>
+<span class="chordset">(C)</span>sab dosh <span class="chordset">(Em)</span>hai<br><br>
+
+<span class="chordset">(Dm)</span>Dhadkan dhadkan<br>
+<span class="chordset">(F)</span>ik gam rehta <span class="chordset">(G)</span>hai<br>
+<span class="chordset">(Dm)</span>Jaane kyu phir<br>
+<span class="chordset">(F)</span>bhi dil kehta <span class="chordset">(G)</span>hai<br><br>
+
+Jee le za<span class="chordset">(Am)</span>ra, jee le za<span class="chordset">(G)</span>ra<br>
+Kehta hai <span class="chordset">(Am)</span>dil, jee le za<span class="chordset">(G)</span>ra<br>
+<span class="chordset">(F)</span>Aye humsa<span class="chordset">(G)</span>far, aye humna<span class="chordset">(Am)</span>va<br>
+<span class="chordset">(F)</span>Aa paas <span class="chordset">(G)</span>aa, jee le za<span class="chordset">(Am)</span>ra<br><br>
+
+<span class="chordset">(Am)</span>Hai zindagi mana <span class="chordset">(G)</span>dard bhari<br>
+Phir bhi <span class="chordset">(F)</span>isme ye <span class="chordset">(G)</span>raahat<br>
+bhi <span class="chordset">(Am)</span>hai<br><br>
+
+<span class="chordset">(Am)</span>Main hoon tera aur <span class="chordset">(G)</span>tu hai meri<br>
+Yunhi ra<span class="chordset">(F)</span>he hum ye <span class="chordset">(G)</span>chahat<br>
+bhi <span class="chordset">(Am)</span>hai<br><br>
+
+<span class="chordset">(Dm)</span>Phir dil ke dil se<br>
+<span class="chordset">(G)</span>pul kyu toote <span class="chordset">(Am)</span>hain<br>
+<span class="chordset">(Dm)</span>kyun hum jeene se<br>
+<span class="chordset">(G)</span>itne roothe <span class="chordset">(Am)</span>hain<br><br>
+
+<span class="chordset">(Dm)</span>Aa dil ke dar<span class="chordset">(F)</span>waze<br>
+hum kho <span class="chordset">(G)</span>le<br>
+<span class="chordset">(Dm)</span>Aa hum dono <span class="chordset">(F)</span>jee bhar<br>
+ke ro <span class="chordset">(G)</span>le<br><br>
+
+Jee le za<span class="chordset">(Am)</span>ra, jee le za<span class="chordset">(G)</span>ra<br>
+Kehta hai <span class="chordset">(Am)</span>dil, jee le za<span class="chordset">(G)</span>ra<br>
+<span class="chordset">(F)</span>Aye humsa<span class="chordset">(G)</span>far, aye humna<span class="chordset">(Am)</span>va<br>
+<span class="chordset">(F)</span>Aa paas <span class="chordset">(G)</span>aa, jee le za<span class="chordset">(Am)</span>ra<br><br>
+
+<span class="chordset">(Am)</span>Gam ke ye baadal gu<span class="chordset">(G)</span>zar jaane de<br>
+<span class="chordset">(Am)</span>Ab zindagi ko ni<span class="chordset">(G)</span>khar jaane de<br>
+<span class="chordset">(Dm)</span>Chod de ab yaa<span class="chordset">(F)</span>don ke dukh seh<span class="chordset">(G)</span>na<br>
+<span class="chordset">(Dm)</span>Sun bhi le jo <span class="chordset">(F)</span>dil ka hai keh<span class="chordset">(G)</span>na<br><br>
+
+Jee le za<span class="chordset">(Am)</span>ra, jee le za<span class="chordset">(G)</span>ra<br>
+Kehta hai <span class="chordset">(Am)</span>dil, jee le za<span class="chordset">(G)</span>ra<br>
+<span class="chordset">(F)</span>Aye humsa<span class="chordset">(G)</span>far, aye humna<span class="chordset">(Am)</span>va<br>
+<span class="chordset">(F)</span>Aa paas <span class="chordset">(G)</span>aa, jee le za<span class="chordset">(Am)</span>ra
+</pre>
+
+    </div>
+    <div class="chord-func">
+  
+    <div class="chord-btn">
+      <span id="transpose-txt">SCALE TRANSPOSE</span>
+      <button id="transposeDown">-1</button>
+      <button id="transposeUp">+1</button>
+      <button class="reset-btn" id="reset-scale">RESET</button>
+    </div>
+   
+    <p class="transpose-note">Note: Use the scale transpose buttons to adjust the song's scale to your vocal range. "-" lowers the scale, "+" raises it. This changes all chords on the sheet. Click "RESET" to return to the original scale.</p>
+    <div class="capo-container" id="capo">
+      <div class="capo-h2">
+        <h2>FIND BEST CAPO POSITION</h2>
+      </div>
+      <button id="findBestCapo">Find Best Capo Position</button>
+      <div id="result"></div>
+    </div>
+
+    <div id="controls">
+  <button id="autoscrollBtn">AUTOSCROLL</button>
+  <button id="decreaseSpeed">-</button>
+  <span id="speedIndicator">1.0x</span>
+  <button id="increaseSpeed">+</button>
+  <button id="resetBtn">
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="15"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+  </button>
+</div>
+
+    <div class="menu-overlay">
+    <div class="menu-options">
+            <button class="option-button" onclick="MSTREAMAPI.logout();">Home</button>
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a class="tab-item" id="transpose-1" >
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" id="exposure-neg"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M4 11v2h8v-2H4zm15 7h-2V7.38L14 8.4V6.7L18.7 5h.3v13z"></path></svg>
+      <span>Transpose</span>
+    </a>
+<a class="tab-item" id="transpose+1">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" d="M0 0h24v24H0zm0 0h24v24H0z"></path>
+        <path d="M10 7H8v4H4v2h4v4h2v-4h4v-2h-4V7zm10 11h-2V7.38L15 8.4V6.7L19.7 5h.3v13z"></path>
+      </svg>
+      <span>Transpose</span>
+    </a>
+    <button class="menu-button">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+    <a class="tab-item" id="findNewBestCapo">
+      <svg version="1.1" viewBox="0 0 800 800" width="24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path transform="translate(52,82)" d="m0 0h7l5 3 3 5v23l2 20 7 28 17 50 15 42 4-2 7-3 5 1 7 10 9 15 32 52 13 21 14 23 13 21 48 78 9 14 2 1v-7l5-10 7-7 13-7 9-2h16l8 1 6-13 3-13v-11l-3-15-6-19 1-7 4-4 17-6 10-6 8-7 6-9 4-13-1-17v-28l3-32 4-23 6-20 7-16 16-27 13-19 11-15 11-14 11-13 6-7 9-6 6-2h14l10 3 9 6 7 8 4 10 1 6v14l-3 14-4 9-6 10-7 8-7 5-5 2h-11l-10-5-5-5v-6l5-5 5 2 5 5 2 1h6l6-4 7-8 7-14 1-5v-14l-4-11-4-5-9-3-11 1-8 4-6 5-10 14-9 14-9 16-9 19-6 16-5 21-1 6v32l5 30 7 24 10 25-2 6-8 7-3 6 1 9 4 9 4 6 7 6 13 8 4 5 7 19 8 9 10 3h10l10-2 5 3 8 10 12 16 22 28 13 16 18 22 13 15 9 10 7 8 12 13 23 23 22 18 10 9 8 7 12 11 11 9 11 10 14 11 11 10 7 10 3 6v8l-7 11-6 5-7-1-9-8-4 2-7 8-6-4-7-7-11-9-14-12-14-11-15-12-40-30-36-26-23-16-32-22-43-29-20-13-32-21-22-14-12-8-3-1-15 44-17 45-11 26-6 12-2 3 17 4 33 8 5 1 2-5 4-4 20 4 58 15 64 16 27 7 6 3 2 2-1 15-5 31-4 6-5 1-30-7-139-31-5-2-2-3v-7l1-5h-2l-3 9-4 2-8-6-10-8-13-8-12-5-31-8-26-8-20-8-19-10-13-10-9-9-10-16-12-25-15-36-16-41-17-46-15-41-10-29-17-48-15-43-17-48-19-56-8-28-3-16v-22l3-8 4-5zm65 198m1 1 3 11 33 90 17 46 13 35 10 28 16 47 11 26 5 8 7 4 11 4 11 3h5l-2-9v-19l4-15 8-16 1-5-10-16-11-17-12-19-14-22-12-19-15-23-15-24-11-17-12-19-16-25-14-22-10-15zm197 185-12 3-9 5-6 7-3 11v10l5-4 7-8 1-3h2l7-8 9-10 1-3z"/>
+<path transform="translate(383,664)" d="m0 0h1v5l-2-2z"/>
+<path transform="translate(384,663)" d="m0 0"/>
+<path transform="translate(124,292)" d="m0 0"/>
+<path transform="translate(123,291)" d="m0 0"/>
+<path transform="translate(121,287)" d="m0 0"/>
+</svg>
+      <span>Best Capo</span>
+    </a>
+    <a class="tab-item" id="reset-scale-new">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+      <span>Reset</span>
+    </a>
+  </nav>
+  </div>
+  </div>`;
+  const kyahuwaterawada = `<div class="chord-main">
+    <div class="baarish" id="chord-lyrics">
+    <pre class="song-details-pre">
+Song: Kya Hua Tera Wada  
+Singer: Mohammed Rafi
+Music : R.D Burman
+Lyrics: Majrooh Sultanpuri
+Movie: Hum Kisise kum nahi</pre>
+    <pre>
+    <span class="chordset">(A#)</span>Kya hua tera <span class="chordset">(F)</span>vaada<br>
+woh ka<span class="chordset">(A#)</span>sam woh i<span class="chordset">(F)</span>rada<br><br>
+
+<span class="chordset">(A#)</span>Kya hua tera <span class="chordset">(F)</span>vaada<br>
+woh ka<span class="chordset">(A#)</span>sam woh i<span class="chordset">(F)</span>rada<br>
+Bhoolega <span class="chordset">(F)</span>dil jis din tumhein<br>
+Woh din <span class="chordset">(C)</span>zindagi ka aakhiri<br>
+<span class="chordset">(F)</span>din hoga<br><br>
+
+<span class="chordset">(A#)</span>Kya hua tera <span class="chordset">(F)</span>vaada<br>
+woh ka<span class="chordset">(A#)</span>sam woh i<span class="chordset">(F)</span>rada<br><br>
+
+[Verse 1]<br>
+Yaad hai <span class="chordset">(Dm)</span>mujhko<br>
+toone ka<span class="chordset">(A#)</span>ha tha<br>
+Tumse na<span class="chordset">(Am)</span>hin roo<span class="chordset">(C)</span>thenge<br>
+ka<span class="chordset">(F)</span>bhi<br><br>
+
+Dil ki ta<span class="chordset">(Dm)</span>rah se<br>
+aaj mi<span class="chordset">(A#)</span>le hain<br>
+Kaise bha<span class="chordset">(Am)</span>la chhoo<span class="chordset">(C)</span>tenge<br>
+ka<span class="chordset">(F)</span>bhi<br><br>
+
+<span class="chordset">(F)</span>Teri baa<span class="chordset">(C)</span>hon mein<br>
+<span class="chordset">(F)</span>beeti har <span class="chordset">(C)</span>shaam<br>
+<span class="chordset">(A#)</span>Bewafa yeh bhi kya<br>
+<span class="chordset">(F)</span>ya<span class="chordset">(C)</span>d na<span class="chordset">(F)</span>hin<br><br>
+
+<span class="chordset">(A#)</span>Kya hua tera <span class="chordset">(F)</span>vaada<br>
+woh ka<span class="chordset">(A#)</span>sam woh i<span class="chordset">(F)</span>rada<br>
+Bhoolega <span class="chordset">(F)</span>dil jis din tumhein<br>
+Woh din <span class="chordset">(C)</span>zindagi ka aakhiri<br>
+<span class="chordset">(F)</span>din hoga<br><br>
+
+<span class="chordset">(A#)</span>Kya hua tera <span class="chordset">(F)</span>vaada<br>
+woh ka<span class="chordset">(A#)</span>sam woh i<span class="chordset">(F)</span>rada<br><br>
+
+[Verse 2]<br>
+O kehne <span class="chordset">(A#)</span>waale<br>
+mujhko farebi<br>
+Kaun farebi<br>
+<span class="chordset">(C)</span>hai yeh ba<span class="chordset">(F)</span>ta<br><br>
+
+Woh jisne <span class="chordset">(A#)</span>gham liya<br>
+pyaar ki khatir Ya jisne<br>
+<span class="chordset">(C)</span>pyaar ko bech di<span class="chordset">(F)</span>ya<br><br>
+
+<span class="chordset">(F)</span>Nasha dau<span class="chordset">(C)</span>lat ka<br>
+<span class="chordset">(F)</span>aisa bhi <span class="chordset">(C)</span>kya<br>
+<span class="chordset">(A#)</span>Ke tujhe kuchh bhi<br>
+<span class="chordset">(F)</span>yaa<span class="chordset">(C)</span>d na<span class="chordset">(F)</span>hin<br><br>
+
+<span class="chordset">(A#)</span>Kya hua tera <span class="chordset">(F)</span>vaada<br>
+woh ka<span class="chordset">(A#)</span>sam woh i<span class="chordset">(F)</span>rada<br>
+Bhoolega <span class="chordset">(F)</span>dil jis din tumhein<br>
+Woh din <span class="chordset">(C)</span>zindagi ka aakhiri<br>
+<span class="chordset">(F)</span>din hoga<br><br>
+
+<span class="chordset">(A#)</span>Kya hua tera <span class="chordset">(F)</span>vaada<br>
+woh ka<span class="chordset">(A#)</span>sam woh i<span class="chordset">(F)</span>rada
+</pre>
+
+    </div>
+    <div class="chord-func">
+  
+    <div class="chord-btn">
+      <span id="transpose-txt">SCALE TRANSPOSE</span>
+      <button id="transposeDown">-1</button>
+      <button id="transposeUp">+1</button>
+      <button class="reset-btn" id="reset-scale">RESET</button>
+    </div>
+   
+    <p class="transpose-note">Note: Use the scale transpose buttons to adjust the song's scale to your vocal range. "-" lowers the scale, "+" raises it. This changes all chords on the sheet. Click "RESET" to return to the original scale.</p>
+    <div class="capo-container" id="capo">
+      <div class="capo-h2">
+        <h2>FIND BEST CAPO POSITION</h2>
+      </div>
+      <button id="findBestCapo">Find Best Capo Position</button>
+      <div id="result"></div>
+    </div>
+
+    <div id="controls">
+  <button id="autoscrollBtn">AUTOSCROLL</button>
+  <button id="decreaseSpeed">-</button>
+  <span id="speedIndicator">1.0x</span>
+  <button id="increaseSpeed">+</button>
+  <button id="resetBtn">
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="15"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+  </button>
+</div>
+
+    <div class="menu-overlay">
+    <div class="menu-options">
+            <button class="option-button" onclick="MSTREAMAPI.logout();">Home</button>
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a class="tab-item" id="transpose-1" >
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" id="exposure-neg"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M4 11v2h8v-2H4zm15 7h-2V7.38L14 8.4V6.7L18.7 5h.3v13z"></path></svg>
+      <span>Transpose</span>
+    </a>
+<a class="tab-item" id="transpose+1">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" d="M0 0h24v24H0zm0 0h24v24H0z"></path>
+        <path d="M10 7H8v4H4v2h4v4h2v-4h4v-2h-4V7zm10 11h-2V7.38L15 8.4V6.7L19.7 5h.3v13z"></path>
+      </svg>
+      <span>Transpose</span>
+    </a>
+    <button class="menu-button">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+    <a class="tab-item" id="findNewBestCapo">
+      <svg version="1.1" viewBox="0 0 800 800" width="24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path transform="translate(52,82)" d="m0 0h7l5 3 3 5v23l2 20 7 28 17 50 15 42 4-2 7-3 5 1 7 10 9 15 32 52 13 21 14 23 13 21 48 78 9 14 2 1v-7l5-10 7-7 13-7 9-2h16l8 1 6-13 3-13v-11l-3-15-6-19 1-7 4-4 17-6 10-6 8-7 6-9 4-13-1-17v-28l3-32 4-23 6-20 7-16 16-27 13-19 11-15 11-14 11-13 6-7 9-6 6-2h14l10 3 9 6 7 8 4 10 1 6v14l-3 14-4 9-6 10-7 8-7 5-5 2h-11l-10-5-5-5v-6l5-5 5 2 5 5 2 1h6l6-4 7-8 7-14 1-5v-14l-4-11-4-5-9-3-11 1-8 4-6 5-10 14-9 14-9 16-9 19-6 16-5 21-1 6v32l5 30 7 24 10 25-2 6-8 7-3 6 1 9 4 9 4 6 7 6 13 8 4 5 7 19 8 9 10 3h10l10-2 5 3 8 10 12 16 22 28 13 16 18 22 13 15 9 10 7 8 12 13 23 23 22 18 10 9 8 7 12 11 11 9 11 10 14 11 11 10 7 10 3 6v8l-7 11-6 5-7-1-9-8-4 2-7 8-6-4-7-7-11-9-14-12-14-11-15-12-40-30-36-26-23-16-32-22-43-29-20-13-32-21-22-14-12-8-3-1-15 44-17 45-11 26-6 12-2 3 17 4 33 8 5 1 2-5 4-4 20 4 58 15 64 16 27 7 6 3 2 2-1 15-5 31-4 6-5 1-30-7-139-31-5-2-2-3v-7l1-5h-2l-3 9-4 2-8-6-10-8-13-8-12-5-31-8-26-8-20-8-19-10-13-10-9-9-10-16-12-25-15-36-16-41-17-46-15-41-10-29-17-48-15-43-17-48-19-56-8-28-3-16v-22l3-8 4-5zm65 198m1 1 3 11 33 90 17 46 13 35 10 28 16 47 11 26 5 8 7 4 11 4 11 3h5l-2-9v-19l4-15 8-16 1-5-10-16-11-17-12-19-14-22-12-19-15-23-15-24-11-17-12-19-16-25-14-22-10-15zm197 185-12 3-9 5-6 7-3 11v10l5-4 7-8 1-3h2l7-8 9-10 1-3z"/>
+<path transform="translate(383,664)" d="m0 0h1v5l-2-2z"/>
+<path transform="translate(384,663)" d="m0 0"/>
+<path transform="translate(124,292)" d="m0 0"/>
+<path transform="translate(123,291)" d="m0 0"/>
+<path transform="translate(121,287)" d="m0 0"/>
+</svg>
+      <span>Best Capo</span>
+    </a>
+    <a class="tab-item" id="reset-scale-new">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+      <span>Reset</span>
+    </a>
+  </nav>
+  </div>
+  </div>`;
+  const kalank = `<div class="chord-main">
+    <div class="baarish" id="chord-lyrics">
+    <pre class="song-details-pre">
+Song: Kalank 
+Singer: Arijit Singh
+Music : Pritam
+Lyrics: Amitabh Bhattacharya
+Movie: Kalank</pre>
+    <pre>
+    <span class="chordset">(A#)</span>(<span class="chordset">Gm</span>)(<span class="chordset">F#</span>)<br>
+<span class="chordset">(A#)</span>(<span class="chordset">Gm</span>)(<span class="chordset">F#</span>)<br><br>
+
+[VERSE 1]<br>
+Hawaao me bah<span class="chordset">(D#)</span>engey<br>
+Ghaaton me ra<span class="chordset">(F#)</span>henge<br>
+Tu barkhaa me<span class="chordset">(Gm)</span>ri<br>
+Me te<span class="chordset">(F#)</span>ra baadal pi<span class="chordset">(D#)</span>ya<br><br>
+
+Jo tere naa hu<span class="chordset">(D#)</span>e toh<br>
+Kisike naa rah<span class="chordset">(F#)</span>henge<br>
+Diwaani tu me<span class="chordset">(Gm)</span>ri<br>
+Main te<span class="chordset">(F#)</span>ra paagal pi<span class="chordset">(D#)</span>ya<br><br>
+
+[CHORUS]<br>
+Hazaaro meki<span class="chordset">(Gm)</span>si <span class="chordset">(D#)</span>ko<br>
+Takdeer <span class="chordset">(F#)</span>ai<span class="chordset">(A#)</span>si<br>
+Milli hai ek <span class="chordset">(Gm)</span>raan <span class="chordset">(D#)</span>jhaa<br>
+Aur heer <span class="chordset">(F#)</span>jai<span class="chordset">(A#)</span>si<br><br>
+
+Naa jane yeh ja<span class="chordset">(D#)</span>maana<br>
+Kyu chahey yeh mi<span class="chordset">(F#)</span>taana<br>
+Kalank na<span class="chordset">(Gm)</span>hi ishq <span class="chordset">(F#)</span>hai<br>
+kaajal pi<span class="chordset">(D#)</span>ya<br>
+Kalank na<span class="chordset">(Gm)</span>hi ishq <span class="chordset">(F#)</span>hai<br>
+kajal pi<span class="chordset">(D#)</span>ya<br><br>
+
+[Piya Re Part]<br>
+<span class="chordset">(Cm)</span>(<span class="chordset">F</span>)(<span class="chordset">Gm</span>)(<span class="chordset">D#</span>)<br>
+<span class="chordset">(Cm)</span>(<span class="chordset">F</span>)(<span class="chordset">Gm</span>)(<span class="chordset">D#</span>)<br>
+<span class="chordset">(A#)</span>(<span class="chordset">A#</span>)(<span class="chordset">D#</span>)(<span class="chordset">D#</span>)<br>
+<span class="chordset">(A#)</span>(<span class="chordset">A#</span>)(<span class="chordset">Gm</span>)(<span class="chordset">Cm</span>)<br><br>
+
+INSTRUMENTAL<br>
+<span class="chordset">(Cm)</span>(<span class="chordset">F</span>)(<span class="chordset">Gm</span>)(<span class="chordset">D#</span>)<br>
+<span class="chordset">(Cm)</span>(<span class="chordset">F</span>)(<span class="chordset">Gm</span>)(<span class="chordset">D#</span>)<br><br>
+
+[VERSE 2]<br>
+<span class="chordset">(A#)</span>Duniya ki nazron mein<br>
+<span class="chordset">(A#m)</span>ye rog hai<br>
+<span class="chordset">(A#)</span>Ho jinko <span class="chordset">(Gm)</span>vo jaane<br>
+<span class="chordset">(A#)</span>ye jog hai<br><br>
+
+<span class="chordset">(A#)</span>Ek tarfa shayad ho<br>
+<span class="chordset">(A#m)</span>dil ka bharam<br>
+<span class="chordset">(A#)</span>Do tarfa <span class="chordset">(Gm)</span>hai to ye<br>
+<span class="chordset">(A#)</span>sanjog hai<br><br>
+
+Laai re humein <span class="chordset">(Cm)</span>zindgaani<br>
+<span class="chordset">(F#)</span>ki kahani <span class="chordset">(Cm)</span>kaise mod <span class="chordset">(A#)</span>pe<br>
+Huye re khud <span class="chordset">(Gm)</span>se paraaye<br>
+<span class="chordset">(F#)</span>Hum kisi se <span class="chordset">(Cm)</span>naata jod <span class="chordset">(A#)</span>ke<br><br>
+
+[CHORUS]<br>
+Hazaron mein ki<span class="chordset">(Gm)</span>si <span class="chordset">(D#)</span>ko<br>
+takdir <span class="chordset">(F#)</span>ai<span class="chordset">(A#)</span>si<br>
+Mili hai ek <span class="chordset">(Gm)</span>raan<span class="chordset">(D#)</span>Jha<br>
+aur heer <span class="chordset">(F#)</span>jai<span class="chordset">(A#)</span>si<br><br>
+
+Na jaane ye ja<span class="chordset">(D#)</span>maana,<br>
+kyun chaahe re mi<span class="chordset">(F#)</span>taana<br>
+Kalank na<span class="chordset">(Gm)</span>hi ishq <span class="chordset">(F#)</span>hai<br>
+kajal pi<span class="chordset">(A#)</span>ya<br>
+Kalank na<span class="chordset">(Gm)</span>hi ishq <span class="chordset">(F#)</span>hai<br>
+kajal pi<span class="chordset">(D#)</span>ya<br><br>
+
+[HOOK]<br>
+Me <span class="chordset">(Cm)</span>tera me… tera<br>
+me <span class="chordset">(F)</span>tera main<br>
+tera me <span class="chordset">(Gm)</span>tera<br>
+me <span class="chordset">(D#)</span>tera<br><br>
+
+Main <span class="chordset">(Cm)</span>gehra tamas,<br>
+tu su<span class="chordset">(F)</span>nehra saveraa<br>
+Main <span class="chordset">(Gm)</span>tera, ho main <span class="chordset">(D#)</span>tera<br><br>
+
+Mu<span class="chordset">(Cm)</span>safir main bhatka,<br>
+tu <span class="chordset">(F)</span>mera baseraa<br>
+Main <span class="chordset">(Gm)</span>tera, ho main <span class="chordset">(D#)</span>tera<br><br>
+
+Tu <span class="chordset">(Cm)</span>jugnu chamkta,<br>
+main <span class="chordset">(F)</span>jungle ghanera<br>
+Main <span class="chordset">(Gm)</span>tera....<span class="chordset">(D#)</span><br><br>
+
+[OUTRO]<br>
+Ho, piya <span class="chordset">(Cm)</span>main <span class="chordset">(F)</span>tera,<br>
+main <span class="chordset">(Gm)</span>tera, main <span class="chordset">(D#)</span>tera<br>
+<span class="chordset">(Cm)</span>oo.. oo.. oo <span class="chordset">(F)</span>oh<br>
+Main <span class="chordset">(Gm)</span>tera, ho main <span class="chordset">(D#)</span>tera<br><br>
+
+<span class="chordset">(Cm)</span>oo.. oo.. oo <span class="chordset">(F)</span>oh<br>
+oh<span class="chordset">(Gm)</span>oo ho o… <span class="chordset">(D#)</span>o<br>
+<span class="chordset">(Cm)</span>oo.. oo.. oo <span class="chordset">(F)</span>oh<br>
+oh<span class="chordset">(Gm)</span>oo ho o… <span class="chordset">(D#)</span>o<br>
+Ooo<span class="chordset">(A#)</span>
+</pre>
+
+    </div>
+    <div class="chord-func">
+  
+    <div class="chord-btn">
+      <span id="transpose-txt">SCALE TRANSPOSE</span>
+      <button id="transposeDown">-1</button>
+      <button id="transposeUp">+1</button>
+      <button class="reset-btn" id="reset-scale">RESET</button>
+    </div>
+   
+    <p class="transpose-note">Note: Use the scale transpose buttons to adjust the song's scale to your vocal range. "-" lowers the scale, "+" raises it. This changes all chords on the sheet. Click "RESET" to return to the original scale.</p>
+    <div class="capo-container" id="capo">
+      <div class="capo-h2">
+        <h2>FIND BEST CAPO POSITION</h2>
+      </div>
+      <button id="findBestCapo">Find Best Capo Position</button>
+      <div id="result"></div>
+    </div>
+
+    <div id="controls">
+  <button id="autoscrollBtn">AUTOSCROLL</button>
+  <button id="decreaseSpeed">-</button>
+  <span id="speedIndicator">1.0x</span>
+  <button id="increaseSpeed">+</button>
+  <button id="resetBtn">
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="15"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+  </button>
+</div>
+
+    <div class="menu-overlay">
+    <div class="menu-options">
+            <button class="option-button" onclick="MSTREAMAPI.logout();">Home</button>
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a class="tab-item" id="transpose-1" >
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" id="exposure-neg"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M4 11v2h8v-2H4zm15 7h-2V7.38L14 8.4V6.7L18.7 5h.3v13z"></path></svg>
+      <span>Transpose</span>
+    </a>
+<a class="tab-item" id="transpose+1">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" d="M0 0h24v24H0zm0 0h24v24H0z"></path>
+        <path d="M10 7H8v4H4v2h4v4h2v-4h4v-2h-4V7zm10 11h-2V7.38L15 8.4V6.7L19.7 5h.3v13z"></path>
+      </svg>
+      <span>Transpose</span>
+    </a>
+    <button class="menu-button">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+    <a class="tab-item" id="findNewBestCapo">
+      <svg version="1.1" viewBox="0 0 800 800" width="24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path transform="translate(52,82)" d="m0 0h7l5 3 3 5v23l2 20 7 28 17 50 15 42 4-2 7-3 5 1 7 10 9 15 32 52 13 21 14 23 13 21 48 78 9 14 2 1v-7l5-10 7-7 13-7 9-2h16l8 1 6-13 3-13v-11l-3-15-6-19 1-7 4-4 17-6 10-6 8-7 6-9 4-13-1-17v-28l3-32 4-23 6-20 7-16 16-27 13-19 11-15 11-14 11-13 6-7 9-6 6-2h14l10 3 9 6 7 8 4 10 1 6v14l-3 14-4 9-6 10-7 8-7 5-5 2h-11l-10-5-5-5v-6l5-5 5 2 5 5 2 1h6l6-4 7-8 7-14 1-5v-14l-4-11-4-5-9-3-11 1-8 4-6 5-10 14-9 14-9 16-9 19-6 16-5 21-1 6v32l5 30 7 24 10 25-2 6-8 7-3 6 1 9 4 9 4 6 7 6 13 8 4 5 7 19 8 9 10 3h10l10-2 5 3 8 10 12 16 22 28 13 16 18 22 13 15 9 10 7 8 12 13 23 23 22 18 10 9 8 7 12 11 11 9 11 10 14 11 11 10 7 10 3 6v8l-7 11-6 5-7-1-9-8-4 2-7 8-6-4-7-7-11-9-14-12-14-11-15-12-40-30-36-26-23-16-32-22-43-29-20-13-32-21-22-14-12-8-3-1-15 44-17 45-11 26-6 12-2 3 17 4 33 8 5 1 2-5 4-4 20 4 58 15 64 16 27 7 6 3 2 2-1 15-5 31-4 6-5 1-30-7-139-31-5-2-2-3v-7l1-5h-2l-3 9-4 2-8-6-10-8-13-8-12-5-31-8-26-8-20-8-19-10-13-10-9-9-10-16-12-25-15-36-16-41-17-46-15-41-10-29-17-48-15-43-17-48-19-56-8-28-3-16v-22l3-8 4-5zm65 198m1 1 3 11 33 90 17 46 13 35 10 28 16 47 11 26 5 8 7 4 11 4 11 3h5l-2-9v-19l4-15 8-16 1-5-10-16-11-17-12-19-14-22-12-19-15-23-15-24-11-17-12-19-16-25-14-22-10-15zm197 185-12 3-9 5-6 7-3 11v10l5-4 7-8 1-3h2l7-8 9-10 1-3z"/>
+<path transform="translate(383,664)" d="m0 0h1v5l-2-2z"/>
+<path transform="translate(384,663)" d="m0 0"/>
+<path transform="translate(124,292)" d="m0 0"/>
+<path transform="translate(123,291)" d="m0 0"/>
+<path transform="translate(121,287)" d="m0 0"/>
+</svg>
+      <span>Best Capo</span>
+    </a>
+    <a class="tab-item" id="reset-scale-new">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+      <span>Reset</span>
+    </a>
+  </nav>
+  </div>
+  </div>`;
+  const uskahibanana = `<div class="chord-main">
+    <div class="baarish" id="chord-lyrics">
+    <pre class="song-details-pre">
+Song : Uska Hi Banana
+Singer : Arijit Singh
+Music : Chirantan
+Lyrics: Junaid Wasi
+Movie : 1920 Evil Returns</pre>
+    <pre>
+    <span class="chordset">(Cm)</span>(<span class="chordset">Fm</span>)(<span class="chordset">G</span>)(<span class="chordset">G</span>)<br>
+<span class="chordset">(Cm)</span>(<span class="chordset">Fm</span>)(<span class="chordset">G</span>)(<span class="chordset">G</span>)<br><br>
+
+[Verse 1]<br>
+Meri <span class="chordset">(Cm)</span>Kismat Ke<br>
+Har Ek <span class="chordset">(Cm)</span>Panne Pe<br>
+Mere <span class="chordset">(Fm)</span>Jeete Ji<br>
+Baad <span class="chordset">(Fm)</span>Marne Ke<br><br>
+
+Mere <span class="chordset">(G)</span>Har Ek Kal<br>
+Har Ek <span class="chordset">(Cm)</span>Lamhein Mein<br>
+Tu <span class="chordset">(A#)</span>Likh De <span class="chordset">(G#)</span>Mera U<span class="chordset">(G)</span><br><br>
+
+Har Ka<span class="chordset">(Cm)</span>hani Mein<br>
+Saare <span class="chordset">(Cm)</span>Kisson Mein<br>
+Dil Ki <span class="chordset">(Fm)</span>Duniya Ke<br>
+Sacche <span class="chordset">(Fm)</span>Rishton Mein<br><br>
+
+Zinda<span class="chordset">(G)</span>gaani Ke<br>
+Saare <span class="chordset">(Cm)</span>Hisson Mein<br>
+Tu <span class="chordset">(A#)</span>Likh De <span class="chordset">(G#)</span>Mera U<span class="chordset">(G)</span><br><br>
+
+[Chorus]<br>
+Aye Khu<span class="chordset">(Cm)</span>da Aye Khu<span class="chordset">(A#)</span>da<br>
+Jab Ba<span class="chordset">(G#)</span>na Uska Hi Ba<span class="chordset">(G)</span>na<br>
+Aye Khu<span class="chordset">(Cm)</span>da Aye Khu<span class="chordset">(A#)</span>da<br>
+Jab Ba<span class="chordset">(G#)</span>na Uska Hi Ba<span class="chordset">(G)</span>na<br><br>
+
+<span class="chordset">(Cm)</span>(<span class="chordset">G#</span>)(<span class="chordset">D#</span>)(<span class="chordset">A#</span>)<br>
+<span class="chordset">(Cm)</span>(<span class="chordset">G#</span>)(<span class="chordset">D#</span>)(<span class="chordset">A#</span>)<br><br>
+
+[Verse 2]<br>
+<span class="chordset">(Cm)</span>Uska Hoon Us<br>
+<span class="chordset">(Fm)</span>Main Hoon Usse Hoon<br>
+U<span class="chordset">(Gm)</span>si Ka Rehne <span class="chordset">(Cm)</span>De..<br><br>
+
+<span class="chordset">(Cm)</span>Main Toh Pyasa Hoon Hai<br>
+<span class="chordset">(Fm)</span>Dariya Wo Zariya Woh<br>
+<span class="chordset">(Gm)</span>Jeene Ka Me<span class="chordset">(Cm)</span>re<br><br>
+
+<span class="chordset">(Cm)</span>Mujhe Ghar De<br>
+Ga<span class="chordset">(Fm)</span>li De Shehar De<br>
+U<span class="chordset">(Gm)</span>si Ke Naam <span class="chordset">(Cm)</span>Ke<br><br>
+
+<span class="chordset">(Cm)</span>Kadam Yeh<br>
+Cha<span class="chordset">(Fm)</span>lein Ya Ruken Ab<br>
+U<span class="chordset">(Gm)</span>si Ke Vaas<span class="chordset">(Cm)</span>te<br><br>
+
+Dil <span class="chordset">(A#)</span>Mujhe De A<span class="chordset">(G#)</span>gar<br>
+Dard <span class="chordset">(Gm)</span>De Uska <span class="chordset">(Cm)</span>Par<span class="chordset">(A#)</span><br>
+Uski <span class="chordset">(Gm)</span>Ho Woh Ha<span class="chordset">(G#)</span>si<br>
+Gunje <span class="chordset">(A#)</span>Jo Mera <span class="chordset">(G)</span>Ghar<br><br>
+
+[Chorus]<br>
+Aye Khu<span class="chordset">(Cm)</span>da Aye Khu<span class="chordset">(A#)</span>da<br>
+Jab Ba<span class="chordset">(G#)</span>na Uska Hi Ba<span class="chordset">(G)</span>na<br>
+Aye Khu<span class="chordset">(Cm)</span>da Aye Khu<span class="chordset">(A#)</span>da<br>
+Jab Ba<span class="chordset">(G#)</span>na Uska Hi Ba<span class="chordset">(G)</span>na<br><br>
+
+<span class="chordset">(Cm)</span>(<span class="chordset">G#</span>)(<span class="chordset">D#</span>)(<span class="chordset">A#</span>)<br>
+<span class="chordset">(Cm)</span>(<span class="chordset">G#</span>)(<span class="chordset">D#</span>)(<span class="chordset">A#</span>)<br><br>
+
+[Verse 3]<br>
+<span class="chordset">(Cm)</span>Mere Hisse Ki<br>
+Khu<span class="chordset">(Fm)</span>shi Ko Hashi Ko Tu<br>
+<span class="chordset">(Gm)</span>Chaahe Aadha <span class="chordset">(Cm)</span>Kar<br><br>
+
+<span class="chordset">(Cm)</span>Chahe Lele Tu<br>
+Me<span class="chordset">(Fm)</span>ri Zindagi Par<br>
+Ye <span class="chordset">(Gm)</span>Mujh Se Vaada <span class="chordset">(Cm)</span>Kar<br><br>
+
+<span class="chordset">(Cm)</span>Uske Ashkon Pe<br>
+Gu<span class="chordset">(Fm)</span>mon Pe Dukhon Pe<br>
+Har <span class="chordset">(Gm)</span>Uske Zakhm <span class="chordset">(Cm)</span>Par<br><br>
+
+Haq Mera Hi<br>
+Ra<span class="chordset">(Fm)</span>he Har Jagah<br>
+Har Gha<span class="chordset">(Gm)</span>di Haan Umar <span class="chordset">(Cm)</span>Bhar<br><br>
+
+Ab Fa<span class="chordset">(A#)</span>kht Ho Ye<span class="chordset">(G#)</span>hi<br>
+Woh Ra<span class="chordset">(Gm)</span>he Mujh Mein <span class="chordset">(Cm)</span>Hi<span class="chordset">(A#)</span><br>
+Woh Ju<span class="chordset">(Gm)</span>da Kehne <span class="chordset">(G#)</span>Ko<br>
+Bichjde <span class="chordset">(A#)</span>Na Par Ka<span class="chordset">(G)</span>hi<br><br>
+
+[Chorus]<br>
+Aye Khu<span class="chordset">(Cm)</span>da Aye Khu<span class="chordset">(A#)</span>da<br>
+Jab Ba<span class="chordset">(G#)</span>na Uska Hi Ba<span class="chordset">(G)</span>na<br>
+Aye Khu<span class="chordset">(Cm)</span>da Aye Khu<span class="chordset">(A#)</span>da<br>
+Jab Ba<span class="chordset">(G#)</span>na Uska Hi Ba<span class="chordset">(G)</span>na<br><br>
+
+[Verse 4]<br>
+Meri <span class="chordset">(Cm)</span>Kismat Ke<br>
+Har Ek <span class="chordset">(Cm)</span>Panne Pe<br>
+Mere <span class="chordset">(Fm)</span>Jeete Ji<br>
+Baad <span class="chordset">(Fm)</span>Marne Ke<br><br>
+
+Mere <span class="chordset">(G)</span>Har Ek Kal<br>
+Har Ek <span class="chordset">(Cm)</span>Lamhein Mein<br>
+Tu <span class="chordset">(A#)</span>Likh De <span class="chordset">(G#)</span>Mera U<span class="chordset">(G)</span><br><br>
+
+[Outro]<br>
+<span class="chordset">(Cm)</span>(<span class="chordset">Cm</span>)(<span class="chordset">Fm</span>)(<span class="chordset">Fm</span>)<br>
+(<span class="chordset">G</span>)(<span class="chordset">Cm</span>)(<span class="chordset">A#</span>)(<span class="chordset">G#</span>)(<span class="chordset">G</span>)<br>
+Aye Khu<span class="chordset">(Cm)</span>da Aye Khu<span class="chordset">(A#)</span>da<br>
+Aye Khu<span class="chordset">(A#)</span>da Aye Khu<span class="chordset">(G#)</span>da<br><br>
+
+(<span class="chordset">G#m</span>)(<span class="chordset">G</span>)(<span class="chordset">Cm</span>)(<span class="chordset">A#</span>)(<span class="chordset">G#</span>)<br>
+(<span class="chordset">G</span>)(<span class="chordset">Cm</span>)
+</pre>
+
+    </div>
+    <div class="chord-func">
+  
+    <div class="chord-btn">
+      <span id="transpose-txt">SCALE TRANSPOSE</span>
+      <button id="transposeDown">-1</button>
+      <button id="transposeUp">+1</button>
+      <button class="reset-btn" id="reset-scale">RESET</button>
+    </div>
+   
+    <p class="transpose-note">Note: Use the scale transpose buttons to adjust the song's scale to your vocal range. "-" lowers the scale, "+" raises it. This changes all chords on the sheet. Click "RESET" to return to the original scale.</p>
+    <div class="capo-container" id="capo">
+      <div class="capo-h2">
+        <h2>FIND BEST CAPO POSITION</h2>
+      </div>
+      <button id="findBestCapo">Find Best Capo Position</button>
+      <div id="result"></div>
+    </div>
+
+    <div id="controls">
+  <button id="autoscrollBtn">AUTOSCROLL</button>
+  <button id="decreaseSpeed">-</button>
+  <span id="speedIndicator">1.0x</span>
+  <button id="increaseSpeed">+</button>
+  <button id="resetBtn">
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="15"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+  </button>
+</div>
+
+    <div class="menu-overlay">
+    <div class="menu-options">
+            <button class="option-button" onclick="MSTREAMAPI.logout();">Home</button>
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a class="tab-item" id="transpose-1" >
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" id="exposure-neg"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M4 11v2h8v-2H4zm15 7h-2V7.38L14 8.4V6.7L18.7 5h.3v13z"></path></svg>
+      <span>Transpose</span>
+    </a>
+<a class="tab-item" id="transpose+1">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" d="M0 0h24v24H0zm0 0h24v24H0z"></path>
+        <path d="M10 7H8v4H4v2h4v4h2v-4h4v-2h-4V7zm10 11h-2V7.38L15 8.4V6.7L19.7 5h.3v13z"></path>
+      </svg>
+      <span>Transpose</span>
+    </a>
+    <button class="menu-button">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+    <a class="tab-item" id="findNewBestCapo">
+      <svg version="1.1" viewBox="0 0 800 800" width="24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path transform="translate(52,82)" d="m0 0h7l5 3 3 5v23l2 20 7 28 17 50 15 42 4-2 7-3 5 1 7 10 9 15 32 52 13 21 14 23 13 21 48 78 9 14 2 1v-7l5-10 7-7 13-7 9-2h16l8 1 6-13 3-13v-11l-3-15-6-19 1-7 4-4 17-6 10-6 8-7 6-9 4-13-1-17v-28l3-32 4-23 6-20 7-16 16-27 13-19 11-15 11-14 11-13 6-7 9-6 6-2h14l10 3 9 6 7 8 4 10 1 6v14l-3 14-4 9-6 10-7 8-7 5-5 2h-11l-10-5-5-5v-6l5-5 5 2 5 5 2 1h6l6-4 7-8 7-14 1-5v-14l-4-11-4-5-9-3-11 1-8 4-6 5-10 14-9 14-9 16-9 19-6 16-5 21-1 6v32l5 30 7 24 10 25-2 6-8 7-3 6 1 9 4 9 4 6 7 6 13 8 4 5 7 19 8 9 10 3h10l10-2 5 3 8 10 12 16 22 28 13 16 18 22 13 15 9 10 7 8 12 13 23 23 22 18 10 9 8 7 12 11 11 9 11 10 14 11 11 10 7 10 3 6v8l-7 11-6 5-7-1-9-8-4 2-7 8-6-4-7-7-11-9-14-12-14-11-15-12-40-30-36-26-23-16-32-22-43-29-20-13-32-21-22-14-12-8-3-1-15 44-17 45-11 26-6 12-2 3 17 4 33 8 5 1 2-5 4-4 20 4 58 15 64 16 27 7 6 3 2 2-1 15-5 31-4 6-5 1-30-7-139-31-5-2-2-3v-7l1-5h-2l-3 9-4 2-8-6-10-8-13-8-12-5-31-8-26-8-20-8-19-10-13-10-9-9-10-16-12-25-15-36-16-41-17-46-15-41-10-29-17-48-15-43-17-48-19-56-8-28-3-16v-22l3-8 4-5zm65 198m1 1 3 11 33 90 17 46 13 35 10 28 16 47 11 26 5 8 7 4 11 4 11 3h5l-2-9v-19l4-15 8-16 1-5-10-16-11-17-12-19-14-22-12-19-15-23-15-24-11-17-12-19-16-25-14-22-10-15zm197 185-12 3-9 5-6 7-3 11v10l5-4 7-8 1-3h2l7-8 9-10 1-3z"/>
+<path transform="translate(383,664)" d="m0 0h1v5l-2-2z"/>
+<path transform="translate(384,663)" d="m0 0"/>
+<path transform="translate(124,292)" d="m0 0"/>
+<path transform="translate(123,291)" d="m0 0"/>
+<path transform="translate(121,287)" d="m0 0"/>
+</svg>
+      <span>Best Capo</span>
+    </a>
+    <a class="tab-item" id="reset-scale-new">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+      <span>Reset</span>
+    </a>
+  </nav>
+  </div>
+  </div>`;
+  const lakhduniyakahe = `<div class="chord-main">
+    <div class="baarish" id="chord-lyrics">
+    <pre class="song-details-pre">
+Song :Lakh Duniya Kahe
+Singer :Ram Sampath
+Music :Ram Sampath
+Lyrics:Javed Akhtar
+Movie :Talaash</pre>
+    <pre>
+    [Chorus]:<br>
+<span class="chordset">(A)</span>Lakh duniya ka<span class="chordset">(E)</span>he<br>
+Tum na<span class="chordset">(F#m)</span>hi ho<span class="chordset">(A)</span><br>
+Tum ya<span class="chordset">(D)</span>hin <span class="chordset">(E)</span>ho<br>
+Tum ya<span class="chordset">(A)</span>hin ho<br><br>
+
+<span class="chordset">(A)</span>Lakh duniya ka<span class="chordset">(E)</span>he<br>
+Tum na<span class="chordset">(F#m)</span>hi ho<span class="chordset">(A)</span><br>
+Tum ya<span class="chordset">(D)</span>hin <span class="chordset">(E)</span>ho<br>
+Tum ya<span class="chordset">(A)</span>hin ho<br><br>
+
+Meri <span class="chordset">(A)</span>har soch me<br>
+Meri <span class="chordset">(F#m)</span>har baat me<br>
+Mere <span class="chordset">(D)</span>ehsas me<br>
+Mere <span class="chordset">(E)</span>jazbat <span class="chordset">(A)</span>me<br><br>
+
+Tum hi <span class="chordset">(B)</span>tum ho<br>
+Tum har ka<span class="chordset">(E)</span>hin ho<br><br>
+
+<span class="chordset">(A)</span>Lakh duniya ka<span class="chordset">(E)</span>he<br>
+Tum na<span class="chordset">(F#m)</span>hi ho<span class="chordset">(A)</span><br>
+Tum ya<span class="chordset">(D)</span>hin <span class="chordset">(E)</span>ho<br>
+Tum ya<span class="chordset">(A)</span>hin ho<br><br>
+
+<span class="chordset">(A)</span>Lakh duniya ka<span class="chordset">(E)</span>he<br>
+Tum na<span class="chordset">(F#m)</span>hi ho<span class="chordset">(A)</span><br>
+Tum ya<span class="chordset">(D)</span>hin <span class="chordset">(E)</span>ho<br>
+Tum ya<span class="chordset">(A)</span>hin ho<br><br>
+
+<span class="chordset">(A)</span>...(E)...(D)...(E)<br><br>
+
+Tumne <span class="chordset">(F#m)</span>choda hai,<br>
+<span class="chordset">(E)</span>Kab saath <span class="chordset">(A)</span>mera.<br>
+Thaame <span class="chordset">(D)</span>ho aaj <span class="chordset">(E)</span>bhi<br>
+Haath <span class="chordset">(A)</span>mera,<br><br>
+
+Koi <span class="chordset">(Bm)</span>manzil ko<span class="chordset">(E)</span>i<br>
+reh gu<span class="chordset">(A)</span>zar ho.<br>
+Aaj <span class="chordset">(D)</span>bhi tum me<span class="chordset">(E)</span>re<br>
+hum<span class="chordset">(A)</span>safar ho<br>
+Jaun <span class="chordset">(B)</span>chahe Jahan<br>
+tum wa<span class="chordset">(E)</span>hin ho...<br><br>
+
+<span class="chordset">(A)</span>Lakh duniya ka<span class="chordset">(E)</span>he<br>
+Tum na<span class="chordset">(F#m)</span>hi ho<span class="chordset">(A)</span><br>
+Tum ya<span class="chordset">(D)</span>hin <span class="chordset">(E)</span>ho<br>
+Tum ya<span class="chordset">(A)</span>hin ho<br><br>
+
+<span class="chordset">(A)</span>Lakh duniya ka<span class="chordset">(E)</span>he<br>
+Tum na<span class="chordset">(F#m)</span>hi ho<span class="chordset">(A)</span><br>
+Tum ya<span class="chordset">(D)</span>hin <span class="chordset">(E)</span>ho<br>
+Tum ya<span class="chordset">(A)</span>hin ho<br><br>
+
+The rest of the song<br>
+is played in the same pattern...
+</pre>
+
+    </div>
+    <div class="chord-func">
+  
+    <div class="chord-btn">
+      <span id="transpose-txt">SCALE TRANSPOSE</span>
+      <button id="transposeDown">-1</button>
+      <button id="transposeUp">+1</button>
+      <button class="reset-btn" id="reset-scale">RESET</button>
+    </div>
+   
+    <p class="transpose-note">Note: Use the scale transpose buttons to adjust the song's scale to your vocal range. "-" lowers the scale, "+" raises it. This changes all chords on the sheet. Click "RESET" to return to the original scale.</p>
+    <div class="capo-container" id="capo">
+      <div class="capo-h2">
+        <h2>FIND BEST CAPO POSITION</h2>
+      </div>
+      <button id="findBestCapo">Find Best Capo Position</button>
+      <div id="result"></div>
+    </div>
+
+    <div id="controls">
+  <button id="autoscrollBtn">AUTOSCROLL</button>
+  <button id="decreaseSpeed">-</button>
+  <span id="speedIndicator">1.0x</span>
+  <button id="increaseSpeed">+</button>
+  <button id="resetBtn">
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="15"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+  </button>
+</div>
+
+    <div class="menu-overlay">
+    <div class="menu-options">
+            <button class="option-button" onclick="MSTREAMAPI.logout();">Home</button>
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a class="tab-item" id="transpose-1" >
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" id="exposure-neg"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M4 11v2h8v-2H4zm15 7h-2V7.38L14 8.4V6.7L18.7 5h.3v13z"></path></svg>
+      <span>Transpose</span>
+    </a>
+<a class="tab-item" id="transpose+1">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" d="M0 0h24v24H0zm0 0h24v24H0z"></path>
+        <path d="M10 7H8v4H4v2h4v4h2v-4h4v-2h-4V7zm10 11h-2V7.38L15 8.4V6.7L19.7 5h.3v13z"></path>
+      </svg>
+      <span>Transpose</span>
+    </a>
+    <button class="menu-button">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+    <a class="tab-item" id="findNewBestCapo">
+      <svg version="1.1" viewBox="0 0 800 800" width="24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path transform="translate(52,82)" d="m0 0h7l5 3 3 5v23l2 20 7 28 17 50 15 42 4-2 7-3 5 1 7 10 9 15 32 52 13 21 14 23 13 21 48 78 9 14 2 1v-7l5-10 7-7 13-7 9-2h16l8 1 6-13 3-13v-11l-3-15-6-19 1-7 4-4 17-6 10-6 8-7 6-9 4-13-1-17v-28l3-32 4-23 6-20 7-16 16-27 13-19 11-15 11-14 11-13 6-7 9-6 6-2h14l10 3 9 6 7 8 4 10 1 6v14l-3 14-4 9-6 10-7 8-7 5-5 2h-11l-10-5-5-5v-6l5-5 5 2 5 5 2 1h6l6-4 7-8 7-14 1-5v-14l-4-11-4-5-9-3-11 1-8 4-6 5-10 14-9 14-9 16-9 19-6 16-5 21-1 6v32l5 30 7 24 10 25-2 6-8 7-3 6 1 9 4 9 4 6 7 6 13 8 4 5 7 19 8 9 10 3h10l10-2 5 3 8 10 12 16 22 28 13 16 18 22 13 15 9 10 7 8 12 13 23 23 22 18 10 9 8 7 12 11 11 9 11 10 14 11 11 10 7 10 3 6v8l-7 11-6 5-7-1-9-8-4 2-7 8-6-4-7-7-11-9-14-12-14-11-15-12-40-30-36-26-23-16-32-22-43-29-20-13-32-21-22-14-12-8-3-1-15 44-17 45-11 26-6 12-2 3 17 4 33 8 5 1 2-5 4-4 20 4 58 15 64 16 27 7 6 3 2 2-1 15-5 31-4 6-5 1-30-7-139-31-5-2-2-3v-7l1-5h-2l-3 9-4 2-8-6-10-8-13-8-12-5-31-8-26-8-20-8-19-10-13-10-9-9-10-16-12-25-15-36-16-41-17-46-15-41-10-29-17-48-15-43-17-48-19-56-8-28-3-16v-22l3-8 4-5zm65 198m1 1 3 11 33 90 17 46 13 35 10 28 16 47 11 26 5 8 7 4 11 4 11 3h5l-2-9v-19l4-15 8-16 1-5-10-16-11-17-12-19-14-22-12-19-15-23-15-24-11-17-12-19-16-25-14-22-10-15zm197 185-12 3-9 5-6 7-3 11v10l5-4 7-8 1-3h2l7-8 9-10 1-3z"/>
+<path transform="translate(383,664)" d="m0 0h1v5l-2-2z"/>
+<path transform="translate(384,663)" d="m0 0"/>
+<path transform="translate(124,292)" d="m0 0"/>
+<path transform="translate(123,291)" d="m0 0"/>
+<path transform="translate(121,287)" d="m0 0"/>
+</svg>
+      <span>Best Capo</span>
+    </a>
+    <a class="tab-item" id="reset-scale-new">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+      <span>Reset</span>
+    </a>
+  </nav>
+  </div>
+  </div>`;
+  const terideewani = `<div class="chord-main">
+    <div class="baarish" id="chord-lyrics">
+    <pre class="song-details-pre">
+Song: Teri Deewani 
+Singer: Kailash Kher
+Music : Kailash, Paresh, Naresh
+Lyrics: Kailash, Paresh, Naresh
+Movie: Album</pre>
+    <pre>
+    <span class="chordset">(Em)</span>Preet ki lat mohe aisi laagi<br>
+<span class="chordset">(C)</span>Ho gayi main mat<span class="chordset">(Em)</span>waari<br>
+<span class="chordset">(D)</span>Bal bal jaau apne piya ko<br>
+Hey main <span class="chordset">(C)</span>jaau waari <span class="chordset">(Em)</span>waari<br><br>
+
+<span class="chordset">(D)</span>Mohe <span class="chordset">(D)</span>sudh budh nahi rahi tan mann ki<br>
+<span class="chordset">(C)</span>Ye toh <span class="chordset">(Em)</span>jaane duniya saari<br>
+<span class="chordset">(C)</span>Be<span class="chordset">(D)</span>bas aur laa<span class="chordset">(D)</span>chaar phiru main<br>
+<span class="chordset">(D)</span>Haari main dil <span class="chordset">(Em)</span>haari<br>
+<span class="chordset">(D)</span>Haari main dil <span class="chordset">(Em)</span>haari<br><br>
+
+<span class="chordset">(D)</span>Tere naam se jee loon<br>
+<span class="chordset">(C)</span>Tere naam se mar jaau <span class="chordset">(Em)</span><br><br>
+
+<span class="chordset">(D)</span>Tere naam se jee loon<br>
+<span class="chordset">(C)</span>Tere naam se mar jaau<br>
+<span class="chordset">(D)</span>Teri jaan ke sadke main<br>
+<span class="chordset">(C)</span>Kuch aisa kar<span class="chordset">(Em)</span>jaau<br><br>
+
+<span class="chordset">(Em)</span>Tune kya <span class="chordset">(D)</span>kar daala<br>
+<span class="chordset">(C)</span>Mar gayi main <span class="chordset">(Bm)</span>mit gayi main<br>
+<span class="chordset">(Am)</span>Ho ji <span class="chordset">(G)</span>haan ji<br>
+<span class="chordset">(D)</span>ho gayi main <span class="chordset">(Em)</span><br><br>
+
+<span class="chordset">(D)</span>Teri <span class="chordset">(C)</span>deewani <span class="chordset">(Em)</span>deewani<br>
+<span class="chordset">(D)</span>Teri <span class="chordset">(C)</span>deewani <span class="chordset">(Em)</span>deewani<br><br>
+
+<span class="chordset">(Em)</span>Tune kya <span class="chordset">(D)</span>kar daala<br>
+<span class="chordset">(C)</span>Mar gayi main <span class="chordset">(Bm)</span>mit gayi main<br>
+<span class="chordset">(Am)</span>Ho ji <span class="chordset">(G)</span>haan ji<br>
+<span class="chordset">(D)</span>ho gayi main <span class="chordset">(Em)</span><br><br>
+
+<span class="chordset">(D)</span>Teri <span class="chordset">(C)</span>deewani <span class="chordset">(Em)</span>deewani<br>
+<span class="chordset">(D)</span>Teri <span class="chordset">(C)</span>deewani <span class="chordset">(Em)</span>deewani<br><br>
+
+<span class="chordset">(Em)</span>Ishq junoon jab had se<br>
+<span class="chordset">(C)</span>badh jaye<span class="chordset">(D)</span><br>
+<span class="chordset">(Em)</span>Ishq junoon jab had se<br>
+<span class="chordset">(C)</span>badh jaye<span class="chordset">(D)</span><br>
+<span class="chordset">(Em)</span>Haste haste aashiq<br>
+<span class="chordset">(C)</span>sooli chadh <span class="chordset">(Em)</span>jaye<br><br>
+
+<span class="chordset">(Em)</span>Ishq ka jadoo<br>
+<span class="chordset">(C)</span>sar chadh<span class="chordset">(D)</span>kar bole<br>
+<span class="chordset">(Em)</span>Ishq ka jadoo<br>
+<span class="chordset">(C)</span>sar chadh<span class="chordset">(D)</span>kar bole<br>
+<span class="chordset">(Em)</span>Khoob lagalo pehre<br>
+<span class="chordset">(C)</span>raste rab <span class="chordset">(Em)</span>khole<br><br>
+
+<span class="chordset">(D)</span>Yahi ishq di marzi hai<br>
+<span class="chordset">(C)</span>Yahi rab di marzi hai <span class="chordset">(Em)</span><br><br>
+
+<span class="chordset">(D)</span>Yahi ishq di marzi hai<br>
+<span class="chordset">(C)</span>Yahi rab di marzi hai<br>
+<span class="chordset">(D)</span>Tere bin jina kaisa<br>
+<span class="chordset">(C)</span>Kya Kudgarzi Hai<br><br>
+
+<span class="chordset">(Em)</span>Tune kya <span class="chordset">(D)</span>kar daala<br>
+<span class="chordset">(C)</span>Mar gayi main <span class="chordset">(Bm)</span>mit gayi main<br>
+<span class="chordset">(Am)</span>Ho ji <span class="chordset">(G)</span>haan ji<br>
+<span class="chordset">(D)</span>ho gayi main <span class="chordset">(Em)</span><br><br>
+
+<span class="chordset">(D)</span>Teri <span class="chordset">(C)</span>deewani <span class="chordset">(Em)</span>deewani<br>
+<span class="chordset">(D)</span>Teri <span class="chordset">(C)</span>deewani <span class="chordset">(Em)</span>deewani<br><br>
+
+<span class="chordset">(D)</span>(D)<br>
+<span class="chordset">(Em)</span>(Em)<br>
+<span class="chordset">(D)</span>(D)<br>
+<span class="chordset">(Em)</span>(Em)<br><br>
+
+<span class="chordset">(Em)</span>Aye main <span class="chordset">(Em)</span>rang rangeeli<br>
+<span class="chordset">(C)</span>deewa<span class="chordset">(D)</span>ni<br>
+<span class="chordset">(Em)</span>Aye main <span class="chordset">(Em)</span>rang rangeeli<br>
+<span class="chordset">(C)</span>deewa<span class="chordset">(D)</span>ni<br>
+<span class="chordset">(Em)</span>Aye main <span class="chordset">(Em)</span>albeli, main<br>
+<span class="chordset">(C)</span>mastaa<span class="chordset">(D)</span>ni<br><br>
+
+<span class="chordset">(D)</span>Gau ba<span class="chordset">(C)</span>jaau<br>
+<span class="chordset">(Em)</span> sabko rijhau<br>
+<span class="chordset">(Em)</span>Aye main <span class="chordset">(Em)</span>din dharam se<br>
+<span class="chordset">(C)</span>begaani<span class="chordset">(D)</span><br>
+<span class="chordset">(Em)</span>Aye main <span class="chordset">(Em)</span>deewani main<br>
+<span class="chordset">(C)</span>deewani<br><br>
+
+<span class="chordset">(D)</span>Tere naam se jee loon<br>
+<span class="chordset">(C)</span>Tere naam se mar jaau <span class="chordset">(Em)</span><br><br>
+
+<span class="chordset">(D)</span>Tere naam se jee loon<br>
+<span class="chordset">(C)</span>Tere naam se mar jaau<br>
+<span class="chordset">(D)</span>Teri jaan ke sadke main<br>
+<span class="chordset">(C)</span>Kuch aisa kar<span class="chordset">(Em)</span>jaau<br><br>
+
+<span class="chordset">(Em)</span>Tune kya <span class="chordset">(D)</span>kar daala<br>
+<span class="chordset">(C)</span>Mar gayi main <span class="chordset">(Bm)</span>mit gayi main<br>
+<span class="chordset">(Am)</span>Ho ji <span class="chordset">(G)</span>haan ji<br>
+<span class="chordset">(D)</span>ho gayi main <span class="chordset">(Em)</span><br><br>
+
+<span class="chordset">(D)</span>Teri <span class="chordset">(C)</span>deewani <span class="chordset">(Em)</span>deewani<br>
+<span class="chordset">(D)</span>Teri <span class="chordset">(C)</span>deewani <span class="chordset">(Em)</span>deewani<br>
+</pre>
+
+    </div>
+    <div class="chord-func">
+  
+    <div class="chord-btn">
+      <span id="transpose-txt">SCALE TRANSPOSE</span>
+      <button id="transposeDown">-1</button>
+      <button id="transposeUp">+1</button>
+      <button class="reset-btn" id="reset-scale">RESET</button>
+    </div>
+   
+    <p class="transpose-note">Note: Use the scale transpose buttons to adjust the song's scale to your vocal range. "-" lowers the scale, "+" raises it. This changes all chords on the sheet. Click "RESET" to return to the original scale.</p>
+    <div class="capo-container" id="capo">
+      <div class="capo-h2">
+        <h2>FIND BEST CAPO POSITION</h2>
+      </div>
+      <button id="findBestCapo">Find Best Capo Position</button>
+      <div id="result"></div>
+    </div>
+
+    <div id="controls">
+  <button id="autoscrollBtn">AUTOSCROLL</button>
+  <button id="decreaseSpeed">-</button>
+  <span id="speedIndicator">1.0x</span>
+  <button id="increaseSpeed">+</button>
+  <button id="resetBtn">
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="15"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+  </button>
+</div>
+
+    <div class="menu-overlay">
+    <div class="menu-options">
+            <button class="option-button" onclick="MSTREAMAPI.logout();">Home</button>
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a class="tab-item" id="transpose-1" >
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" id="exposure-neg"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M4 11v2h8v-2H4zm15 7h-2V7.38L14 8.4V6.7L18.7 5h.3v13z"></path></svg>
+      <span>Transpose</span>
+    </a>
+<a class="tab-item" id="transpose+1">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" d="M0 0h24v24H0zm0 0h24v24H0z"></path>
+        <path d="M10 7H8v4H4v2h4v4h2v-4h4v-2h-4V7zm10 11h-2V7.38L15 8.4V6.7L19.7 5h.3v13z"></path>
+      </svg>
+      <span>Transpose</span>
+    </a>
+    <button class="menu-button">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+    <a class="tab-item" id="findNewBestCapo">
+      <svg version="1.1" viewBox="0 0 800 800" width="24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path transform="translate(52,82)" d="m0 0h7l5 3 3 5v23l2 20 7 28 17 50 15 42 4-2 7-3 5 1 7 10 9 15 32 52 13 21 14 23 13 21 48 78 9 14 2 1v-7l5-10 7-7 13-7 9-2h16l8 1 6-13 3-13v-11l-3-15-6-19 1-7 4-4 17-6 10-6 8-7 6-9 4-13-1-17v-28l3-32 4-23 6-20 7-16 16-27 13-19 11-15 11-14 11-13 6-7 9-6 6-2h14l10 3 9 6 7 8 4 10 1 6v14l-3 14-4 9-6 10-7 8-7 5-5 2h-11l-10-5-5-5v-6l5-5 5 2 5 5 2 1h6l6-4 7-8 7-14 1-5v-14l-4-11-4-5-9-3-11 1-8 4-6 5-10 14-9 14-9 16-9 19-6 16-5 21-1 6v32l5 30 7 24 10 25-2 6-8 7-3 6 1 9 4 9 4 6 7 6 13 8 4 5 7 19 8 9 10 3h10l10-2 5 3 8 10 12 16 22 28 13 16 18 22 13 15 9 10 7 8 12 13 23 23 22 18 10 9 8 7 12 11 11 9 11 10 14 11 11 10 7 10 3 6v8l-7 11-6 5-7-1-9-8-4 2-7 8-6-4-7-7-11-9-14-12-14-11-15-12-40-30-36-26-23-16-32-22-43-29-20-13-32-21-22-14-12-8-3-1-15 44-17 45-11 26-6 12-2 3 17 4 33 8 5 1 2-5 4-4 20 4 58 15 64 16 27 7 6 3 2 2-1 15-5 31-4 6-5 1-30-7-139-31-5-2-2-3v-7l1-5h-2l-3 9-4 2-8-6-10-8-13-8-12-5-31-8-26-8-20-8-19-10-13-10-9-9-10-16-12-25-15-36-16-41-17-46-15-41-10-29-17-48-15-43-17-48-19-56-8-28-3-16v-22l3-8 4-5zm65 198m1 1 3 11 33 90 17 46 13 35 10 28 16 47 11 26 5 8 7 4 11 4 11 3h5l-2-9v-19l4-15 8-16 1-5-10-16-11-17-12-19-14-22-12-19-15-23-15-24-11-17-12-19-16-25-14-22-10-15zm197 185-12 3-9 5-6 7-3 11v10l5-4 7-8 1-3h2l7-8 9-10 1-3z"/>
+<path transform="translate(383,664)" d="m0 0h1v5l-2-2z"/>
+<path transform="translate(384,663)" d="m0 0"/>
+<path transform="translate(124,292)" d="m0 0"/>
+<path transform="translate(123,291)" d="m0 0"/>
+<path transform="translate(121,287)" d="m0 0"/>
+</svg>
+      <span>Best Capo</span>
+    </a>
+    <a class="tab-item" id="reset-scale-new">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+      <span>Reset</span>
+    </a>
+  </nav>
+  </div>
+  </div>`;
+  const beintehaan = `<div class="chord-main">
+    <div class="baarish" id="chord-lyrics">
+    <pre class="song-details-pre">
+Song :Be Intehaan
+Singer : Atif Aslam & Sunidhi Chauhan
+Music : Pritam
+Lyrics: Mayur Puri 
+Movie : Race 2</pre>
+    <pre>
+    <span class="chordset">(Em)</span>Suno na kahe kya suno na<br>
+Dil mera <span class="chordset">(C)</span>suno na<br>
+Suno za<span class="chordset">(D)</span>ra<br>
+Teri <span class="chordset">(C)</span>baahon <span class="chordset">(D)</span>me<br>
+Mujhe <span class="chordset">(Em)</span>rehna hai <span class="chordset">(G)</span>raat bhar<br>
+Teri <span class="chordset">(C)</span>baahon <span class="chordset">(D)</span>me hogi su<span class="chordset">(Am)</span>bah<br><br>
+
+<span class="chordset">[Chorus]</span><br>
+Be inte<span class="chordset">(G)</span>haan be inte<span class="chordset">(Em)</span>haan<br>
+Yun pyaar <span class="chordset">(C)</span>kar be inte<span class="chordset">(D)</span>haan<br>
+Dekha ka<span class="chordset">(G)</span>run saari u<span class="chordset">(Em)</span>mar<br>
+Tere ni<span class="chordset">(C)</span>shaan be inte<span class="chordset">(D)</span>haan<br><br>
+
+Koi ka<span class="chordset">(C)</span>sar naa ra<span class="chordset">(D)</span>he<br>
+Meri kha<span class="chordset">(C)</span>bar naa rahe<br>
+Chhu le mu<span class="chordset">(Em)</span>jhe is ka<span class="chordset">(D)</span>dar<br>
+Be inte<span class="chordset">(C)</span>haan<br><br>
+
+<span class="chordset">[Verse 2]</span><br>
+Jab <span class="chordset">(Em)</span>saanson me teri<br>
+Saansen ghuli toh<br>
+<span class="chordset">(Am)</span>Phir sulagne la<span class="chordset">(Em)</span>ge<br>
+Eh<span class="chordset">(C)</span>saas mere <span class="chordset">(D)</span>mujhse kehne la<span class="chordset">(G)</span>ge<br><br>
+
+Haa <span class="chordset">(Em)</span>baahon me teri<br>
+aake jahaan do<br>
+<span class="chordset">(Am)</span>Yun simatne la<span class="chordset">(Em)</span>ge<br>
+Sai<span class="chordset">(C)</span>laab jaise <span class="chordset">(D)</span>koi behne la<span class="chordset">(G)</span>ge<br><br>
+
+<span class="chordset">[Bridge]</span><br>
+Khoya hoon <span class="chordset">(C)</span>main aagosh <span class="chordset">(D)</span>mein<br>
+Tu bhi <span class="chordset">(C)</span>kahaan ab hosh <span class="chordset">(D)</span>mein<br>
+Makh<span class="chordset">(C)</span>mali raat <span class="chordset">(D)</span>ki ho naa su<span class="chordset">(Am)</span>bah<br><br>
+
+<span class="chordset">[Chorus]</span><br>
+Be inte<span class="chordset">(G)</span>haan be inte<span class="chordset">(Em)</span>haan<br>
+Yun pyaar <span class="chordset">(C)</span>kar be inte<span class="chordset">(D)</span>haan<br><br>
+
+<span class="chordset">[Bridge]</span><br>
+Gustakhi<span class="chordset">(Em)</span>yan kuch tum karo<br>
+Kuch hum ka<span class="chordset">(Am)</span>re iss ta<span class="chordset">(D)</span>rah<br>
+Sharrma ke <span class="chordset">(G)</span>do saaye hain <span class="chordset">(Am)</span>jo<br>
+Muh pher <span class="chordset">(D)</span>le hum se ya<span class="chordset">(Am)</span]haan<br><br>
+
+<span class="chordset">[Verse 3]</span><br>
+Haan <span class="chordset">(Em)</span>chhu toh liya<br>
+hai ye jism tune<br>
+<span class="chordset">(Am)</span>Rooh bhi choom <span class="chordset">(Em)</span>le<br>
+Al<span class="chordset">(C)</span>faaz bhige<br>
+<span class="chordset">(D)</span>bhige kyun hai me<span class="chordset">(G)</span>re<br><br>
+
+Haan <span class="chordset">(Em)</span>yun choor ho ke<br>
+majboor ho ke<br>
+<span class="chordset">(Am)</span>Qatra qatra ka<span class="chordset">(Em)</span>he<br>
+Eh<span class="chordset">(C)</span>saas bheege<br>
+<span class="chordset">(D)</span>bheege kyun hain me<span class="chordset">(G)</span>re<br><br>
+
+<span class="chordset">[Bridge]</span><br>
+Do bekha<span class="chordset">(C)</span>bar bheege ba<span class="chordset">(D)</span>dan<br>
+Ho besa<span class="chordset">(C)</span>bar bheege ba<span class="chordset">(D)</span>dan<br>
+Le ra<span class="chordset">(C)</span>he raat <span class="chordset">(D)</span>bhar angdai<span class="chordset">(Am)</span>yaan<br><br>
+
+<span class="chordset">[Chorus]</span><br>
+Be inte<span class="chordset">(G)</span>haan be inte<span class="chordset">(Em)</span>haan<br>
+Yun pyaar <span class="chordset">(C)</span>kar be inte<span class="chordset">(D)</span>haan<br>
+Dekha ka<span class="chordset">(G)</span>run saari u<span class="chordset">(Em)</span>mar<br>
+Tere ni<span class="chordset">(C)</span>shaan be inte<span class="chordset">(D)</span>haan<br><br>
+
+<span class="chordset">[Outro]</span><br>
+Koi ka<span class="chordset">(C)</span>sar naa ra<span class="chordset">(D)</span>he<br>
+Meri kha<span class="chordset">(C)</span>bar naa rahe<br>
+Chhu le mu<span class="chordset">(Em)</span>jhe is ka<span class="chordset">(D)</span>dar<br>
+Be inte<span class="chordset">(C)</span>haan
+</pre>
+
+    </div>
+    <div class="chord-func">
+  
+    <div class="chord-btn">
+      <span id="transpose-txt">SCALE TRANSPOSE</span>
+      <button id="transposeDown">-1</button>
+      <button id="transposeUp">+1</button>
+      <button class="reset-btn" id="reset-scale">RESET</button>
+    </div>
+   
+    <p class="transpose-note">Note: Use the scale transpose buttons to adjust the song's scale to your vocal range. "-" lowers the scale, "+" raises it. This changes all chords on the sheet. Click "RESET" to return to the original scale.</p>
+    <div class="capo-container" id="capo">
+      <div class="capo-h2">
+        <h2>FIND BEST CAPO POSITION</h2>
+      </div>
+      <button id="findBestCapo">Find Best Capo Position</button>
+      <div id="result"></div>
+    </div>
+
+    <div id="controls">
+  <button id="autoscrollBtn">AUTOSCROLL</button>
+  <button id="decreaseSpeed">-</button>
+  <span id="speedIndicator">1.0x</span>
+  <button id="increaseSpeed">+</button>
+  <button id="resetBtn">
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="15"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+  </button>
+</div>
+
+    <div class="menu-overlay">
+    <div class="menu-options">
+            <button class="option-button" onclick="MSTREAMAPI.logout();">Home</button>
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a class="tab-item" id="transpose-1" >
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" id="exposure-neg"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M4 11v2h8v-2H4zm15 7h-2V7.38L14 8.4V6.7L18.7 5h.3v13z"></path></svg>
+      <span>Transpose</span>
+    </a>
+<a class="tab-item" id="transpose+1">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" d="M0 0h24v24H0zm0 0h24v24H0z"></path>
+        <path d="M10 7H8v4H4v2h4v4h2v-4h4v-2h-4V7zm10 11h-2V7.38L15 8.4V6.7L19.7 5h.3v13z"></path>
+      </svg>
+      <span>Transpose</span>
+    </a>
+    <button class="menu-button">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+    <a class="tab-item" id="findNewBestCapo">
+      <svg version="1.1" viewBox="0 0 800 800" width="24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path transform="translate(52,82)" d="m0 0h7l5 3 3 5v23l2 20 7 28 17 50 15 42 4-2 7-3 5 1 7 10 9 15 32 52 13 21 14 23 13 21 48 78 9 14 2 1v-7l5-10 7-7 13-7 9-2h16l8 1 6-13 3-13v-11l-3-15-6-19 1-7 4-4 17-6 10-6 8-7 6-9 4-13-1-17v-28l3-32 4-23 6-20 7-16 16-27 13-19 11-15 11-14 11-13 6-7 9-6 6-2h14l10 3 9 6 7 8 4 10 1 6v14l-3 14-4 9-6 10-7 8-7 5-5 2h-11l-10-5-5-5v-6l5-5 5 2 5 5 2 1h6l6-4 7-8 7-14 1-5v-14l-4-11-4-5-9-3-11 1-8 4-6 5-10 14-9 14-9 16-9 19-6 16-5 21-1 6v32l5 30 7 24 10 25-2 6-8 7-3 6 1 9 4 9 4 6 7 6 13 8 4 5 7 19 8 9 10 3h10l10-2 5 3 8 10 12 16 22 28 13 16 18 22 13 15 9 10 7 8 12 13 23 23 22 18 10 9 8 7 12 11 11 9 11 10 14 11 11 10 7 10 3 6v8l-7 11-6 5-7-1-9-8-4 2-7 8-6-4-7-7-11-9-14-12-14-11-15-12-40-30-36-26-23-16-32-22-43-29-20-13-32-21-22-14-12-8-3-1-15 44-17 45-11 26-6 12-2 3 17 4 33 8 5 1 2-5 4-4 20 4 58 15 64 16 27 7 6 3 2 2-1 15-5 31-4 6-5 1-30-7-139-31-5-2-2-3v-7l1-5h-2l-3 9-4 2-8-6-10-8-13-8-12-5-31-8-26-8-20-8-19-10-13-10-9-9-10-16-12-25-15-36-16-41-17-46-15-41-10-29-17-48-15-43-17-48-19-56-8-28-3-16v-22l3-8 4-5zm65 198m1 1 3 11 33 90 17 46 13 35 10 28 16 47 11 26 5 8 7 4 11 4 11 3h5l-2-9v-19l4-15 8-16 1-5-10-16-11-17-12-19-14-22-12-19-15-23-15-24-11-17-12-19-16-25-14-22-10-15zm197 185-12 3-9 5-6 7-3 11v10l5-4 7-8 1-3h2l7-8 9-10 1-3z"/>
+<path transform="translate(383,664)" d="m0 0h1v5l-2-2z"/>
+<path transform="translate(384,663)" d="m0 0"/>
+<path transform="translate(124,292)" d="m0 0"/>
+<path transform="translate(123,291)" d="m0 0"/>
+<path transform="translate(121,287)" d="m0 0"/>
+</svg>
+      <span>Best Capo</span>
+    </a>
+    <a class="tab-item" id="reset-scale-new">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+      <span>Reset</span>
+    </a>
+  </nav>
+  </div>
+  </div>`;
+  const sunonasangemarmar = `<div class="chord-main">
+    <div class="baarish" id="chord-lyrics">
+    <pre class="song-details-pre">
+Song: Suno Na Sangemarmar 
+Singer: Arijit Singh
+Music : Jeet Ganguly
+Lyrics: Kausar Munir
+Movie: Youngistaan</pre>
+    <pre>
+    <span class="chordset">[Chorus]</span><br>
+<span class="chordset">(Cm)</span>Suno na sange<span class="chordset">(A#)</span>marmar<br>
+<span class="chordset">(G#)</span>Ki yeh mi<span class="chordset">(Cm)</span>naare<br>
+<span class="chordset">(Cm)</span>Kuch bhi na<span class="chordset">(A#)</span>hi hai<br>
+<span class="chordset">(G#)</span>Aage tum<span class="chordset">(Cm)</span>haare<br><br>
+
+<span class="chordset">(Cm)</span>Aaj se <span class="chordset">(A#)</span>dil pe mere<br>
+<span class="chordset">(G#)</span>Raaj tum<span class="chordset">(D#)</span>haara<br>
+<span class="chordset">(G)</span>Taj tum<span class="chordset">(D#)</span>hara<br><br>
+
+<span class="chordset">(Cm)</span>Suno na sange<span class="chordset">(A#)</span>marmar<br>
+<span class="chordset">(G#)</span>Ki yeh mi<span class="chordset">(Cm)</span>naare<br><br>
+
+<span class="chordset">[Verse 1]</span><br>
+Bin tere <span class="chordset">(D#)</span>maddham maddham<br>
+<span class="chordset">(A#)</span>Bhi chal ra<span class="chordset">(D#)</span>hi thi dhadkan<br>
+<span class="chordset">(F)</span>Jab se mi<span class="chordset">(A#)</span>le tum humein<br>
+<span class="chordset">(F)</span>Aanchal se <span class="chordset">(A#)</span>tere bandhe<br>
+<span class="chordset">(G)</span>Dil ud ra<span class="chordset">(D#)</span>ha hai<br><br>
+
+<span class="chordset">[Chorus]</span><br>
+<span class="chordset">(Cm)</span>Suno na aas<span class="chordset">(A#)</span>maano<br>
+<span class="chordset">(G#)</span>ke yeh si<span class="chordset">(Cm)</span>tare<br>
+<span class="chordset">(Cm)</span>Kuch bhi na<span class="chordset">(A#)</span>hi hai<br>
+<span class="chordset">(G#)</span>Aage tum<span class="chordset">(Cm)</span>hare<br><br>
+
+<span class="chordset">[Verse 2]</span><br>
+Yeh dekho <span class="chordset">(D#)</span>sapne mere<br>
+<span class="chordset">(A#)</span>Neendon se <span class="chordset">(D#)</span>hoke tere<br>
+<span class="chordset">(F)</span>Raaton se <span class="chordset">(A#)</span>kehte hain lo<br>
+<span class="chordset">(F)</span>Hum toh sa<span class="chordset">(A#)</span>vere hai wo<br>
+<span class="chordset">(G)</span>Sach gaye jo<span class="chordset">(D#)</span><br><br>
+
+<span class="chordset">[Outro]</span><br>
+<span class="chordset">(Cm)</span>Suno na do ja<span class="chordset">(A#)</span>hano<br>
+<span class="chordset">(G#)</span>Ke yeh na<span class="chordset">(Cm)</span>zare<br>
+<span class="chordset">(Cm)</span>Kuch bhi na<span class="chordset">(A#)</span>hi hai<br>
+<span class="chordset">(G#)</span>Aage tum<span class="chordset">(Cm)</span>hare<br><br>
+
+<span class="chordset">(Cm)</span>Aaj se <span class="chordset">(A#)</span>dil pe mere<br>
+<span class="chordset">(G#)</span>Raaj tum<span class="chordset">(Cm)</span>haara<br>
+<span class="chordset">(G)</span>Taj tum<span class="chordset">(D#)</span>hara<br>
+<span class="chordset">(Cm)</span>Suno na sange<span class="chordset">(A#)</span>marmar<br>
+<span class="chordset">(G#)</span>Ki yeh mi<span class="chordset">(Cm)</span>naare
+</pre>
+
+    </div>
+    <div class="chord-func">
+  
+    <div class="chord-btn">
+      <span id="transpose-txt">SCALE TRANSPOSE</span>
+      <button id="transposeDown">-1</button>
+      <button id="transposeUp">+1</button>
+      <button class="reset-btn" id="reset-scale">RESET</button>
+    </div>
+   
+    <p class="transpose-note">Note: Use the scale transpose buttons to adjust the song's scale to your vocal range. "-" lowers the scale, "+" raises it. This changes all chords on the sheet. Click "RESET" to return to the original scale.</p>
+    <div class="capo-container" id="capo">
+      <div class="capo-h2">
+        <h2>FIND BEST CAPO POSITION</h2>
+      </div>
+      <button id="findBestCapo">Find Best Capo Position</button>
+      <div id="result"></div>
+    </div>
+
+    <div id="controls">
+  <button id="autoscrollBtn">AUTOSCROLL</button>
+  <button id="decreaseSpeed">-</button>
+  <span id="speedIndicator">1.0x</span>
+  <button id="increaseSpeed">+</button>
+  <button id="resetBtn">
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="15"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+  </button>
+</div>
+
+    <div class="menu-overlay">
+    <div class="menu-options">
+            <button class="option-button" onclick="MSTREAMAPI.logout();">Home</button>
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a class="tab-item" id="transpose-1" >
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" id="exposure-neg"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M4 11v2h8v-2H4zm15 7h-2V7.38L14 8.4V6.7L18.7 5h.3v13z"></path></svg>
+      <span>Transpose</span>
+    </a>
+<a class="tab-item" id="transpose+1">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" d="M0 0h24v24H0zm0 0h24v24H0z"></path>
+        <path d="M10 7H8v4H4v2h4v4h2v-4h4v-2h-4V7zm10 11h-2V7.38L15 8.4V6.7L19.7 5h.3v13z"></path>
+      </svg>
+      <span>Transpose</span>
+    </a>
+    <button class="menu-button">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+    <a class="tab-item" id="findNewBestCapo">
+      <svg version="1.1" viewBox="0 0 800 800" width="24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path transform="translate(52,82)" d="m0 0h7l5 3 3 5v23l2 20 7 28 17 50 15 42 4-2 7-3 5 1 7 10 9 15 32 52 13 21 14 23 13 21 48 78 9 14 2 1v-7l5-10 7-7 13-7 9-2h16l8 1 6-13 3-13v-11l-3-15-6-19 1-7 4-4 17-6 10-6 8-7 6-9 4-13-1-17v-28l3-32 4-23 6-20 7-16 16-27 13-19 11-15 11-14 11-13 6-7 9-6 6-2h14l10 3 9 6 7 8 4 10 1 6v14l-3 14-4 9-6 10-7 8-7 5-5 2h-11l-10-5-5-5v-6l5-5 5 2 5 5 2 1h6l6-4 7-8 7-14 1-5v-14l-4-11-4-5-9-3-11 1-8 4-6 5-10 14-9 14-9 16-9 19-6 16-5 21-1 6v32l5 30 7 24 10 25-2 6-8 7-3 6 1 9 4 9 4 6 7 6 13 8 4 5 7 19 8 9 10 3h10l10-2 5 3 8 10 12 16 22 28 13 16 18 22 13 15 9 10 7 8 12 13 23 23 22 18 10 9 8 7 12 11 11 9 11 10 14 11 11 10 7 10 3 6v8l-7 11-6 5-7-1-9-8-4 2-7 8-6-4-7-7-11-9-14-12-14-11-15-12-40-30-36-26-23-16-32-22-43-29-20-13-32-21-22-14-12-8-3-1-15 44-17 45-11 26-6 12-2 3 17 4 33 8 5 1 2-5 4-4 20 4 58 15 64 16 27 7 6 3 2 2-1 15-5 31-4 6-5 1-30-7-139-31-5-2-2-3v-7l1-5h-2l-3 9-4 2-8-6-10-8-13-8-12-5-31-8-26-8-20-8-19-10-13-10-9-9-10-16-12-25-15-36-16-41-17-46-15-41-10-29-17-48-15-43-17-48-19-56-8-28-3-16v-22l3-8 4-5zm65 198m1 1 3 11 33 90 17 46 13 35 10 28 16 47 11 26 5 8 7 4 11 4 11 3h5l-2-9v-19l4-15 8-16 1-5-10-16-11-17-12-19-14-22-12-19-15-23-15-24-11-17-12-19-16-25-14-22-10-15zm197 185-12 3-9 5-6 7-3 11v10l5-4 7-8 1-3h2l7-8 9-10 1-3z"/>
+<path transform="translate(383,664)" d="m0 0h1v5l-2-2z"/>
+<path transform="translate(384,663)" d="m0 0"/>
+<path transform="translate(124,292)" d="m0 0"/>
+<path transform="translate(123,291)" d="m0 0"/>
+<path transform="translate(121,287)" d="m0 0"/>
+</svg>
+      <span>Best Capo</span>
+    </a>
+    <a class="tab-item" id="reset-scale-new">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+      <span>Reset</span>
+    </a>
+  </nav>
+  </div>
+  </div>`;
+  const basekbaar = `<div class="chord-main">
+    <div class="baarish" id="chord-lyrics">
+    <pre class="song-details-pre">
+Song: Bas Ek Baar 
+Singer: Soham Naik
+Music : Anurag Saikia
+Lyrics: Kunaal Vermaa
+Movie: Solo Album</pre>
+    <pre>
+    <span class="chordset">[Verse 1]</span><br>
+<span class="chordset">(C)</span>Meri nazron ko tune<br>
+<span class="chordset">(Dm)</span>sapna dikhaya<br>
+<span class="chordset">(F)</span>Ja<span class="chordset">(G)</span>gaya mu<span class="chordset">(C)</span>jhe raaton<br>
+<span class="chordset">(C)</span>mein<br><br>
+
+<span class="chordset">(C)</span>Dabi dabi saanson mein<br>
+<span class="chordset">(Dm)</span>khushboo le aaya<br>
+<span class="chordset">(F)</span>Ka<span class="chordset">(G)</span>bhi jo naa <span class="chordset">(C)</span>thi raahon<br>
+<span class="chordset">(C)</span>mein<br><br>
+
+<span class="chordset">[Pre-Chorus]</span><br>
+<span class="chordset">(F)</span>Aisa mera <span class="chordset">(C)</span>dil kabhi na tha<br>
+<span class="chordset">(Dm)</span>Jai<span class="chordset">(F)</span>sa yeh ho gaya<br>
+<span class="chordset">(Dm)</span>Ka<span class="chordset">(F)</span>ramaat teri hai yeh<br><br>
+
+<span class="chordset">[Chorus]</span><br>
+<span class="chordset">(C)</span>Bas <span class="chordset">(Dm)</span>ek baar tumko<br>
+<span class="chordset">(F)</span>dekhne ko tarsun<br>
+<span class="chordset">(G)</span>Maano na <span class="chordset">(C)</span>kehna me<br><br>
+
+<span class="chordset">Main toh bas</span> <span class="chordset">(C)</span>ek baar tumko<br>
+<span class="chordset">(Dm)</span>dekhne ko tarsun<br>
+<span class="chordset">(F)</span>Kehta hai <span class="chordset">(G)</span>dil yeh <span class="chordset">(C)</span>mera<br><br>
+
+<span class="chordset">[Instrumental]</span><br>
+<span class="chordset">(Am)</span>(Em)<span class="chordset">(F)</span><br>
+<span class="chordset">(Am)</span>(Em)<span class="chordset">(F)</span><br><br>
+
+<span class="chordset">[Verse 2]</span><br>
+<span class="chordset">(C)</span>Aate aate <span class="chordset">(Am)</span>tum le aana<br>
+<span class="chordset">(Dm)</span>Be <span class="chordset">(G)</span>mausam ki<br>
+kuch baarishein yahaan<br><br>
+
+<span class="chordset">(C)</span>Aadhe aadhe <span class="chordset">(Am)</span>bheege dono<br>
+hon <span class="chordset">(Dm)</span>Phir apni<br>
+kuch <span class="chordset">(G)</span>khwahishein riha<br><br>
+
+<span class="chordset">[Pre-Chorus]</span><br>
+<span class="chordset">(F)</span>Aisa mera <span class="chordset">(C)</span>dil kabhi na tha<br>
+<span class="chordset">(Dm)</span>Hai<span class="chordset">(F)</span>raan bewajah<br>
+<span class="chordset">(Dm)</span>Saugaat teri hai yeh<br><br>
+
+<span class="chordset">[Chorus]</span><br>
+<span class="chordset">(C)</span>Bas <span class="chordset">(Dm)</span>ek baar tumko<br>
+<span class="chordset">(F)</span>dekhne ko tarsun<br>
+<span class="chordset">(G)</span>Kehta hai <span class="chordset">(C)</span>dil yeh mera<br><br>
+
+<span class="chordset">Haan bas</span> <span class="chordset">(C)</span>ek baar tumko<br>
+<span class="chordset">(Dm)</span>dekhne ko tarsun<br>
+<span class="chordset">(F)</span>Kehta hai <span class="chordset">(G)</span>dil yeh <span class="chordset">(C)</span>mera<br><br>
+
+<span class="chordset">[Instrumental]</span><br>
+<span class="chordset">(C)</span>(Em)<span class="chordset">(F)</span>(G)<br><br>
+
+<span class="chordset">[Bridge]</span><br>
+<span class="chordset">(C)</span>Baithe baithe <span class="chordset">(Am)</span>soche tumko<br>
+Do <span class="chordset">(Dm)</span>ankhein hi<br>
+<span class="chordset">(G)</span>bun<span class="chordset">(C)</span>ti kahaniyaan<br><br>
+
+<span class="chordset">(C)</span>Hanste hanste <span class="chordset">(Am)</span>baatein karte<br>
+Ik <span class="chordset">(Dm)</span>dooje se<br>
+<span class="chordset">(G)</span>khwaa<span class="chordset">(C)</span>bon ke darmiyaan<br><br>
+
+<span class="chordset">[Pre-Chorus]</span><br>
+<span class="chordset">(F)</span>Aisa mera <span class="chordset">(C)</span>dil kabhi na tha<br>
+<span class="chordset">(Dm)</span>Is <span class="chordset">(F)</span>baar ho gaya<br>
+<span class="chordset">(Dm)</span>Khu<span class="chordset">(F)</span>rafat teri hai yeh<br><br>
+
+<span class="chordset">[Chorus]</span><br>
+<span class="chordset">(C)</span>Bas <span class="chordset">(Dm)</span>ek baar tumko<br>
+<span class="chordset">(F)</span>dekhne ko tarsun<br>
+<span class="chordset">(G)</span>Kehta hai <span class="chordset">(C)</span>dil yeh mera<br><br>
+
+<span class="chordset">Haan bas</span> <span class="chordset">(C)</span>ek baar tumko<br>
+<span class="chordset">(Dm)</span>dekhne ko tarsun<br>
+<span class="chordset">(F)</span>Maano na <span class="chordset">(G)</span>kehna me<br><br>
+
+<span class="chordset">[Outro]</span><br>
+<span class="chordset">Main toh bas</span> <span class="chordset">(C)</span>ek baar tumko<br>
+<span class="chordset">(Dm)</span>dekhne ko tarsun<br>
+<span class="chordset">(F)</span>Kehta hai <span class="chordset">(G)</span>dil yeh <span class="chordset">(C)</span>mera
+</pre>
+
+    </div>
+    <div class="chord-func">
+  
+    <div class="chord-btn">
+      <span id="transpose-txt">SCALE TRANSPOSE</span>
+      <button id="transposeDown">-1</button>
+      <button id="transposeUp">+1</button>
+      <button class="reset-btn" id="reset-scale">RESET</button>
+    </div>
+   
+    <p class="transpose-note">Note: Use the scale transpose buttons to adjust the song's scale to your vocal range. "-" lowers the scale, "+" raises it. This changes all chords on the sheet. Click "RESET" to return to the original scale.</p>
+    <div class="capo-container" id="capo">
+      <div class="capo-h2">
+        <h2>FIND BEST CAPO POSITION</h2>
+      </div>
+      <button id="findBestCapo">Find Best Capo Position</button>
+      <div id="result"></div>
+    </div>
+
+    <div id="controls">
+  <button id="autoscrollBtn">AUTOSCROLL</button>
+  <button id="decreaseSpeed">-</button>
+  <span id="speedIndicator">1.0x</span>
+  <button id="increaseSpeed">+</button>
+  <button id="resetBtn">
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="15"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+  </button>
+</div>
+
+    <div class="menu-overlay">
+    <div class="menu-options">
+            <button class="option-button" onclick="MSTREAMAPI.logout();">Home</button>
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a class="tab-item" id="transpose-1" >
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" id="exposure-neg"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M4 11v2h8v-2H4zm15 7h-2V7.38L14 8.4V6.7L18.7 5h.3v13z"></path></svg>
+      <span>Transpose</span>
+    </a>
+<a class="tab-item" id="transpose+1">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" d="M0 0h24v24H0zm0 0h24v24H0z"></path>
+        <path d="M10 7H8v4H4v2h4v4h2v-4h4v-2h-4V7zm10 11h-2V7.38L15 8.4V6.7L19.7 5h.3v13z"></path>
+      </svg>
+      <span>Transpose</span>
+    </a>
+    <button class="menu-button">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+    <a class="tab-item" id="findNewBestCapo">
+      <svg version="1.1" viewBox="0 0 800 800" width="24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path transform="translate(52,82)" d="m0 0h7l5 3 3 5v23l2 20 7 28 17 50 15 42 4-2 7-3 5 1 7 10 9 15 32 52 13 21 14 23 13 21 48 78 9 14 2 1v-7l5-10 7-7 13-7 9-2h16l8 1 6-13 3-13v-11l-3-15-6-19 1-7 4-4 17-6 10-6 8-7 6-9 4-13-1-17v-28l3-32 4-23 6-20 7-16 16-27 13-19 11-15 11-14 11-13 6-7 9-6 6-2h14l10 3 9 6 7 8 4 10 1 6v14l-3 14-4 9-6 10-7 8-7 5-5 2h-11l-10-5-5-5v-6l5-5 5 2 5 5 2 1h6l6-4 7-8 7-14 1-5v-14l-4-11-4-5-9-3-11 1-8 4-6 5-10 14-9 14-9 16-9 19-6 16-5 21-1 6v32l5 30 7 24 10 25-2 6-8 7-3 6 1 9 4 9 4 6 7 6 13 8 4 5 7 19 8 9 10 3h10l10-2 5 3 8 10 12 16 22 28 13 16 18 22 13 15 9 10 7 8 12 13 23 23 22 18 10 9 8 7 12 11 11 9 11 10 14 11 11 10 7 10 3 6v8l-7 11-6 5-7-1-9-8-4 2-7 8-6-4-7-7-11-9-14-12-14-11-15-12-40-30-36-26-23-16-32-22-43-29-20-13-32-21-22-14-12-8-3-1-15 44-17 45-11 26-6 12-2 3 17 4 33 8 5 1 2-5 4-4 20 4 58 15 64 16 27 7 6 3 2 2-1 15-5 31-4 6-5 1-30-7-139-31-5-2-2-3v-7l1-5h-2l-3 9-4 2-8-6-10-8-13-8-12-5-31-8-26-8-20-8-19-10-13-10-9-9-10-16-12-25-15-36-16-41-17-46-15-41-10-29-17-48-15-43-17-48-19-56-8-28-3-16v-22l3-8 4-5zm65 198m1 1 3 11 33 90 17 46 13 35 10 28 16 47 11 26 5 8 7 4 11 4 11 3h5l-2-9v-19l4-15 8-16 1-5-10-16-11-17-12-19-14-22-12-19-15-23-15-24-11-17-12-19-16-25-14-22-10-15zm197 185-12 3-9 5-6 7-3 11v10l5-4 7-8 1-3h2l7-8 9-10 1-3z"/>
+<path transform="translate(383,664)" d="m0 0h1v5l-2-2z"/>
+<path transform="translate(384,663)" d="m0 0"/>
+<path transform="translate(124,292)" d="m0 0"/>
+<path transform="translate(123,291)" d="m0 0"/>
+<path transform="translate(121,287)" d="m0 0"/>
+</svg>
+      <span>Best Capo</span>
+    </a>
+    <a class="tab-item" id="reset-scale-new">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+      <span>Reset</span>
+    </a>
+  </nav>
+  </div>
+  </div>`;
+  const piyaorepiya = `<div class="chord-main">
+    <div class="baarish" id="chord-lyrics">
+    <pre class="song-details-pre">
+Song : Piya O Re Piya
+Singer : Atif Aslam & Shreya Ghoshal
+Music : Sachin Jigar
+Lyrics: Priya Panchal 
+Movie : Tere Naal Love Ho Gaya</pre>
+    <pre>
+    <span class="chordset">Main</span> <span class="chordset">(D)</span>vaari jawan<br>
+<span class="chordset">Main</span> <span class="chordset">(D)</span>vaari jawan<br>
+<span class="chordset">(Bm)</span>Saantho ki hoya ve ka<span class="chordset">(A)</span>soor re<br><br>
+
+<span class="chordset">Main</span> <span class="chordset">(D)</span>vaari jawan<br>
+<span class="chordset">Main</span> <span class="chordset">(D)</span>vaari jawan<br>
+<span class="chordset">(Bm)</span>Dil toh hoya maj<span class="chordset">(A)</span>boor<br><br>
+
+<span class="chordset">Main</span> <span class="chordset">(D)</span>vaari jawan<br>
+<span class="chordset">Main</span> <span class="chordset">(D)</span>vaari jawan<br><br>
+
+<span class="chordset">(D)</span>Chhu liya tune<br>
+<span class="chordset">(Bm)</span>Labh se aankhon ko<br>
+<span class="chordset">(D)</span>Mannatein puri tum se <span class="chordset">(A)</span>hi<br><br>
+
+<span class="chordset">(D)</span>Tu mile jahan<br>
+<span class="chordset">(Bm)</span>Mera jahan hai wahan<br>
+<span class="chordset">(D)</span>Raunakein saari tum se <span class="chordset">(D)</span>hi<span class="chordset">(A)</span><span class="chordset">(G)</span><br><br>
+
+<span class="chordset">Hoo</span> <span class="chordset">(D)</span>chhu liya tune<br>
+<span class="chordset">(Bm)</span>Labh se aankhon ko<br>
+<span class="chordset">(D)</span>Mannatein puri tum se <span class="chordset">(A)</span>hi<br><br>
+
+<span class="chordset">(D)</span>Tu mile jahan<br>
+<span class="chordset">(Bm)</span>Mera jahan hai wahan<br>
+<span class="chordset">(D)</span>Raunakein saari tum se <span class="chordset">(A)</span>hi<br><br>
+
+<span class="chordset">Pi</span><span class="chordset">(D)</span>ya o're pi<span class="chordset">(G)</span>ya<br>
+<span class="chordset">Pi</span><span class="chordset">(Bm)</span>ya re pi<span class="chordset">(A)</span>ya re pi<span class="chordset">(D)</span>ya<br>
+<span class="chordset">Pi</span><span class="chordset">(D)</span>ya o're pi<span class="chordset">(G)</span>ya<br>
+<span class="chordset">Pi</span><span class="chordset">(Bm)</span>ya re pi<span class="chordset">(F#)</span>ya re pi<span class="chordset">(D)</span>ya<br><br>
+
+<span class="chordset">(Bm)</span>In dooriyon ne<br>
+<span class="chordset">(G)</span>Nazdikeinyon se<br>
+<span class="chordset">(A)</span>Sauda koyi kar li<span class="chordset">(D)</span>ya<br><br>
+
+<span class="chordset">Hoo</span> <span class="chordset">(Bm)</span>jhukke nigahon ne<br>
+<span class="chordset">(G)</span>Dil se ishq ka<br>
+<span class="chordset">(A)</span>Waada koyi kar li<span class="chordset">(D)</span>ya<br><br>
+
+<span class="chordset">Main</span> <span class="chordset">(D)</span>vaari jawan<br>
+<span class="chordset">Main</span> <span class="chordset">(D)</span>vaari jawan<br>
+<span class="chordset">(G)</span>Saantho ki hoya ve ka<span class="chordset">(A)</span>soor re<br><br>
+
+<span class="chordset">(D)</span>Sau sau taaron se<br>
+Bhar <span class="chordset">(Bm)</span>ke yeh daaman<br>
+<span class="chordset">(D)</span>Le chal mukhe kahin <span class="chordset">(A)</span>door<br><br>
+
+<span class="chordset">Pi</span><span class="chordset">(D)</span>ya o're pi<span class="chordset">(G)</span>ya<br>
+<span class="chordset">Pi</span><span class="chordset">(Bm)</span>ya re pi<span class="chordset">(F#)</span>ya re pi<span class="chordset">(D)</span>ya<br>
+<span class="chordset">Pi</span><span class="chordset">(D)</span>ya o're pi<span class="chordset">(G)</span>ya<br>
+<span class="chordset">Pi</span><span class="chordset">(Bm)</span>ya re pi<span class="chordset">(F#)</span>ya re pi<span class="chordset">(D)</span>ya<br><br>
+
+<span class="chordset">(D)</span>Koyi kami si thi <span class="chordset">(Bm)</span>jeene mein<br>
+<span class="chordset">(C)</span>Jana yeh humne ka<span class="chordset">(D)</span>han<br>
+<span class="chordset">(D)</span>Aise mile ho <span class="chordset">(Bm)</span>jaise humpe<br>
+<span class="chordset">(F#)</span>Ho mehere<span class="chordset">(F)</span>ban<span class="chordset">(G)</span> yeh khu<span class="chordset">(D)</span>da<br><br>
+
+<span class="chordset">Ho</span> <span class="chordset">Main</span> <span class="chordset">(D)</span>vaari jawan<br>
+<span class="chordset">Main</span> <span class="chordset">(D)</span>vaari jawan<br>
+<span class="chordset">(Bm)</span>Saantho ki hoya ve ka<span class="chordset">(A)</span>soor re<br><br>
+
+<span class="chordset">Rab</span> <span class="chordset">(D)</span>di marzi hai ap<span class="chordset">(Bm)</span>na yeh milna<br>
+<span class="chordset">(G)</span>Barsa hai humpe uska <span class="chordset">(A)</span>noor<br><br>
+
+<span class="chordset">Pi</span><span class="chordset">(D)</span>ya o're pi<span class="chordset">(G)</span>ya<br>
+<span class="chordset">Pi</span><span class="chordset">(Bm)</span>ya re pi<span class="chordset">(F#)</span>ya re pi<span class="chordset">(D)</span>ya<br>
+<span class="chordset">Pi</span><span class="chordset">(D)</span>ya o're pi<span class="chordset">(G)</span>ya<br>
+<span class="chordset">Pi</span><span class="chordset">(Bm)</span>ya re pi<span class="chordset">(F#)</span>ya re pi<span class="chordset">(D)</span>ya
+</pre>
+
+    </div>
+    <div class="chord-func">
+  
+    <div class="chord-btn">
+      <span id="transpose-txt">SCALE TRANSPOSE</span>
+      <button id="transposeDown">-1</button>
+      <button id="transposeUp">+1</button>
+      <button class="reset-btn" id="reset-scale">RESET</button>
+    </div>
+   
+    <p class="transpose-note">Note: Use the scale transpose buttons to adjust the song's scale to your vocal range. "-" lowers the scale, "+" raises it. This changes all chords on the sheet. Click "RESET" to return to the original scale.</p>
+    <div class="capo-container" id="capo">
+      <div class="capo-h2">
+        <h2>FIND BEST CAPO POSITION</h2>
+      </div>
+      <button id="findBestCapo">Find Best Capo Position</button>
+      <div id="result"></div>
+    </div>
+
+    <div id="controls">
+  <button id="autoscrollBtn">AUTOSCROLL</button>
+  <button id="decreaseSpeed">-</button>
+  <span id="speedIndicator">1.0x</span>
+  <button id="increaseSpeed">+</button>
+  <button id="resetBtn">
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="15"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+  </button>
+</div>
+
+    <div class="menu-overlay">
+    <div class="menu-options">
+            <button class="option-button" onclick="MSTREAMAPI.logout();">Home</button>
+      <button class="option-button" onclick="changeView(loadinstruction, this)">Reference Videos</button>
+      
+      <button class="option-button" onclick="changeView(loadchordset, this)">Chords Library</button>
+    </div>
+  </div>
+
+  <nav class="tab-bar">
+    <a class="tab-item" id="transpose-1" >
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" id="exposure-neg"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M4 11v2h8v-2H4zm15 7h-2V7.38L14 8.4V6.7L18.7 5h.3v13z"></path></svg>
+      <span>Transpose</span>
+    </a>
+<a class="tab-item" id="transpose+1">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" d="M0 0h24v24H0zm0 0h24v24H0z"></path>
+        <path d="M10 7H8v4H4v2h4v4h2v-4h4v-2h-4V7zm10 11h-2V7.38L15 8.4V6.7L19.7 5h.3v13z"></path>
+      </svg>
+      <span>Transpose</span>
+    </a>
+    <button class="menu-button">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+    <a class="tab-item" id="findNewBestCapo">
+      <svg version="1.1" viewBox="0 0 800 800" width="24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path transform="translate(52,82)" d="m0 0h7l5 3 3 5v23l2 20 7 28 17 50 15 42 4-2 7-3 5 1 7 10 9 15 32 52 13 21 14 23 13 21 48 78 9 14 2 1v-7l5-10 7-7 13-7 9-2h16l8 1 6-13 3-13v-11l-3-15-6-19 1-7 4-4 17-6 10-6 8-7 6-9 4-13-1-17v-28l3-32 4-23 6-20 7-16 16-27 13-19 11-15 11-14 11-13 6-7 9-6 6-2h14l10 3 9 6 7 8 4 10 1 6v14l-3 14-4 9-6 10-7 8-7 5-5 2h-11l-10-5-5-5v-6l5-5 5 2 5 5 2 1h6l6-4 7-8 7-14 1-5v-14l-4-11-4-5-9-3-11 1-8 4-6 5-10 14-9 14-9 16-9 19-6 16-5 21-1 6v32l5 30 7 24 10 25-2 6-8 7-3 6 1 9 4 9 4 6 7 6 13 8 4 5 7 19 8 9 10 3h10l10-2 5 3 8 10 12 16 22 28 13 16 18 22 13 15 9 10 7 8 12 13 23 23 22 18 10 9 8 7 12 11 11 9 11 10 14 11 11 10 7 10 3 6v8l-7 11-6 5-7-1-9-8-4 2-7 8-6-4-7-7-11-9-14-12-14-11-15-12-40-30-36-26-23-16-32-22-43-29-20-13-32-21-22-14-12-8-3-1-15 44-17 45-11 26-6 12-2 3 17 4 33 8 5 1 2-5 4-4 20 4 58 15 64 16 27 7 6 3 2 2-1 15-5 31-4 6-5 1-30-7-139-31-5-2-2-3v-7l1-5h-2l-3 9-4 2-8-6-10-8-13-8-12-5-31-8-26-8-20-8-19-10-13-10-9-9-10-16-12-25-15-36-16-41-17-46-15-41-10-29-17-48-15-43-17-48-19-56-8-28-3-16v-22l3-8 4-5zm65 198m1 1 3 11 33 90 17 46 13 35 10 28 16 47 11 26 5 8 7 4 11 4 11 3h5l-2-9v-19l4-15 8-16 1-5-10-16-11-17-12-19-14-22-12-19-15-23-15-24-11-17-12-19-16-25-14-22-10-15zm197 185-12 3-9 5-6 7-3 11v10l5-4 7-8 1-3h2l7-8 9-10 1-3z"/>
+<path transform="translate(383,664)" d="m0 0h1v5l-2-2z"/>
+<path transform="translate(384,663)" d="m0 0"/>
+<path transform="translate(124,292)" d="m0 0"/>
+<path transform="translate(123,291)" d="m0 0"/>
+<path transform="translate(121,287)" d="m0 0"/>
+</svg>
+      <span>Best Capo</span>
+    </a>
+    <a class="tab-item" id="reset-scale-new">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-width="2"
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9">
+        </path>
+      </svg>
+      <span>Reset</span>
+    </a>
+  </nav>
+  </div>
+  </div>`;
+
 
   document.getElementById("mstream-player").style.display = "none";
   document.getElementById("filelist").style.display = "none";
@@ -10157,10 +13504,130 @@ Aur <span class="chordset">(C#m)</span> Dil Mein Koi
     const newUrl = window.location.origin + "/hawayein";
     window.history.pushState({ path: newUrl }, "", newUrl);
   }
+  function Terahonelaga(chord) {
+    document.getElementById("newcontent").innerHTML = chord;
+
+    const newUrl = window.location.origin + "/terahonelaga";
+    window.history.pushState({ path: newUrl }, "", newUrl);
+  }
   function Jashnebahara(chord) {
     document.getElementById("newcontent").innerHTML = chord;
 
     const newUrl = window.location.origin + "/jashnebahara";
+    window.history.pushState({ path: newUrl }, "", newUrl);
+  }
+  function Qaafirana(chord) {
+    document.getElementById("newcontent").innerHTML = chord;
+
+    const newUrl = window.location.origin + "/qaafirana";
+    window.history.pushState({ path: newUrl }, "", newUrl);
+  }
+  function Tumsehi(chord) {
+    document.getElementById("newcontent").innerHTML = chord;
+
+    const newUrl = window.location.origin + "/tumsehi";
+    window.history.pushState({ path: newUrl }, "", newUrl);
+  }
+  function Aajaomeritamanna(chord) {
+    document.getElementById("newcontent").innerHTML = chord;
+
+    const newUrl = window.location.origin + "/aajaomeritamanna";
+    window.history.pushState({ path: newUrl }, "", newUrl);
+  }
+  function Indino(chord) {
+    document.getElementById("newcontent").innerHTML = chord;
+
+    const newUrl = window.location.origin + "/indino";
+    window.history.pushState({ path: newUrl }, "", newUrl);
+  }
+  function Agartumsath(chord) {
+    document.getElementById("newcontent").innerHTML = chord;
+
+    const newUrl = window.location.origin + "/agartumsath";
+    window.history.pushState({ path: newUrl }, "", newUrl);
+  }
+  function Merebina(chord) {
+    document.getElementById("newcontent").innerHTML = chord;
+
+    const newUrl = window.location.origin + "/merebina";
+    window.history.pushState({ path: newUrl }, "", newUrl);
+  }
+  function Lomaanliya(chord) {
+    document.getElementById("newcontent").innerHTML = chord;
+
+    const newUrl = window.location.origin + "/lomaanliya";
+    window.history.pushState({ path: newUrl }, "", newUrl);
+  }
+  function Ennasona(chord) {
+    document.getElementById("newcontent").innerHTML = chord;
+
+    const newUrl = window.location.origin + "/ennasona";
+    window.history.pushState({ path: newUrl }, "", newUrl);
+  }
+  function Tujaanena(chord) {
+    document.getElementById("newcontent").innerHTML = chord;
+
+    const newUrl = window.location.origin + "/tujaanena";
+    window.history.pushState({ path: newUrl }, "", newUrl);
+  }
+  function Jeelezaraa(chord) {
+    document.getElementById("newcontent").innerHTML = chord;
+
+    const newUrl = window.location.origin + "/jeelezaraa";
+    window.history.pushState({ path: newUrl }, "", newUrl);
+  }
+  function Kyahuwaterawada(chord) {
+    document.getElementById("newcontent").innerHTML = chord;
+
+    const newUrl = window.location.origin + "/kyahuwaterawada";
+    window.history.pushState({ path: newUrl }, "", newUrl);
+  }
+  function Kalank(chord) {
+    document.getElementById("newcontent").innerHTML = chord;
+
+    const newUrl = window.location.origin + "/kalank";
+    window.history.pushState({ path: newUrl }, "", newUrl);
+  }
+  function Uskahibanana(chord) {
+    document.getElementById("newcontent").innerHTML = chord;
+
+    const newUrl = window.location.origin + "/uskahibanana";
+    window.history.pushState({ path: newUrl }, "", newUrl);
+  }
+  function Lakhduniyakahe(chord) {
+    document.getElementById("newcontent").innerHTML = chord;
+
+    const newUrl = window.location.origin + "/lakhduniyakahe";
+    window.history.pushState({ path: newUrl }, "", newUrl);
+  }
+  function Terideewani(chord) {
+    document.getElementById("newcontent").innerHTML = chord;
+
+    const newUrl = window.location.origin + "/terideewani";
+    window.history.pushState({ path: newUrl }, "", newUrl);
+  }
+  function Beintehaan(chord) {
+    document.getElementById("newcontent").innerHTML = chord;
+
+    const newUrl = window.location.origin + "/beintehaan";
+    window.history.pushState({ path: newUrl }, "", newUrl);
+  }
+  function Sunonasangemarmar(chord) {
+    document.getElementById("newcontent").innerHTML = chord;
+
+    const newUrl = window.location.origin + "/sunonasangemarmar";
+    window.history.pushState({ path: newUrl }, "", newUrl);
+  }
+  function Basekbaar(chord) {
+    document.getElementById("newcontent").innerHTML = chord;
+
+    const newUrl = window.location.origin + "/basekbaar";
+    window.history.pushState({ path: newUrl }, "", newUrl);
+  }
+  function Piyaorepiya(chord) {
+    document.getElementById("newcontent").innerHTML = chord;
+
+    const newUrl = window.location.origin + "/piyaorepiya";
     window.history.pushState({ path: newUrl }, "", newUrl);
   }
   // function updateContentBaarishPiano(chord) {
@@ -10254,6 +13721,66 @@ Aur <span class="chordset">(C#m)</span> Dil Mein Koi
   }
   else if (element == "33") {
     Jashnebahara(jashnebahara);
+  }
+  else if (element == "34") {
+    Terahonelaga(terahonelaga);
+  }
+  else if (element == "35") {
+    Qaafirana(qaafirana);
+  }
+  else if (element == "36") {
+    Tumsehi(tumsehi);
+  }
+  else if (element == "37") {
+    Aajaomeritamanna(aajaomeritamanna);
+  }
+  else if (element == "38") {
+    Agartumsath(agartumsath);
+  }
+  else if (element == "39") {
+    Indino(indino);
+  }
+  else if (element == "40") {
+    Merebina(merebina);
+  }
+  else if (element == "41") {
+    Lomaanliya(lomaanliya);
+  }
+  else if (element == "42") {
+    Ennasona(ennasona);
+  }
+  else if (element == "43") {
+    Tujaanena(tujaanena);
+  }
+  else if (element == "44") {
+    Jeelezaraa(jeelezaraa);
+  }
+  else if (element == "45") {
+    Kyahuwaterawada(kyahuwaterawada);
+  }
+  else if (element == "46") {
+    Kalank(kalank);
+  }
+  else if (element == "47") {
+    Uskahibanana(uskahibanana);
+  }
+  else if (element == "48") {
+    Lakhduniyakahe(lakhduniyakahe);
+  }
+  else if (element == "49") {
+    Terideewani(terideewani);
+  }
+  else if (element == "50") {
+    Beintehaan(beintehaan);
+  }
+  else if (element == "51") {
+    Sunonasangemarmar(sunonasangemarmar);
+  }
+  else if (element == "52") {
+    Basekbaar(basekbaar);
+  }
+  else if (element == "53") {
+    Piyaorepiya(piyaorepiya);
   }
   else {
     console.log("chord lyrics not found");
@@ -11079,6 +14606,246 @@ Bann,Rochak Kohli & Ayushmann Khurrana</p>
                 <div class="card-body-new">
                     <h5 class="card-title-new">Jashn-E-Bahaaraa - Jodhaa Akbar</h5>
                     <p class="card-meta-new">Javed Ali & A.R.Rahman </p>
+                    <div class="badge-btns">
+                    <span class="badge-new badge-info-new">GUITAR CHORDS</span>
+                    <span class="badge-new badge-warning-new">PIANO CHORDS</span></div>
+                </div>
+            </div>
+        </div>
+    <div class="col-new">
+            <div class="card-new card-bottom" onclick="chord('34')">
+                <img src="../assets/img/tera_hone_laga_hu.jpg" alt="Tera Hone Laga Hu">
+                <div class="card-body-new">
+                    <h5 class="card-title-new">Tera Hone Laga Hu - Ajab Prem Ki Ghazab Kahani</h5>
+                    <p class="card-meta-new">Atif Aslam, Alisha Chinai </p>
+                    <div class="badge-btns">
+                    <span class="badge-new badge-info-new">GUITAR CHORDS</span>
+                    <span class="badge-new badge-warning-new">PIANO CHORDS</span></div>
+                </div>
+            </div>
+        </div>
+    <div class="col-new">
+            <div class="card-new card-bottom" onclick="chord('35')">
+                <img src="../assets/img/Quaafirana.jpg" alt="Quaafirana">
+                <div class="card-body-new">
+                    <h5 class="card-title-new">Quaafirana - Kedarnath</h5>
+                    <p class="card-meta-new">Arijit & Nikhita </p>
+                    <div class="badge-btns">
+                    <span class="badge-new badge-info-new">GUITAR CHORDS</span>
+                    <span class="badge-new badge-warning-new">PIANO CHORDS</span></div>
+                </div>
+            </div>
+        </div>
+    <div class="col-new">
+            <div class="card-new card-bottom" onclick="chord('36')">
+                <img src="../assets/img/Tum se Hi.jpg" alt="Tum Se Hi">
+                <div class="card-body-new">
+                    <h5 class="card-title-new">Tum Se Hi - Jab We Met</h5>
+                    <p class="card-meta-new">Mohit Chauhan </p>
+                    <div class="badge-btns">
+                    <span class="badge-new badge-info-new">GUITAR CHORDS</span>
+                    <span class="badge-new badge-warning-new">PIANO CHORDS</span></div>
+                </div>
+            </div>
+        </div>
+    <div class="col-new">
+            <div class="card-new card-bottom" onclick="chord('37')">
+                <img src="../assets/img/aajao_mere_tamanna.jpg" alt="Aa Jao Meri Tamanna">
+                <div class="card-body-new">
+                    <h5 class="card-title-new">Aa Jao Meri Tamanna - Ajab Prem Ki Ghazab Kahani</h5>
+                    <p class="card-meta-new">Javed Ali and Jojo </p>
+                    <div class="badge-btns">
+                    <span class="badge-new badge-info-new">GUITAR CHORDS</span>
+                    <span class="badge-new badge-warning-new">PIANO CHORDS</span></div>
+                </div>
+            </div>
+        </div>
+    <div class="col-new">
+            <div class="card-new card-bottom" onclick="chord('38')">
+                <img src="../assets/img/agar_tum_sath_ho.jpg" alt="Agar Tum Sath Ho">
+                <div class="card-body-new">
+                    <h5 class="card-title-new">Agar Tum Sath Ho - Tamasha</h5>
+                    <p class="card-meta-new">Alka Yagnik, Arijit Singh</p>
+                    <div class="badge-btns">
+                    <span class="badge-new badge-info-new">GUITAR CHORDS</span>
+                    <span class="badge-new badge-warning-new">PIANO CHORDS</span></div>
+                </div>
+            </div>
+        </div>
+    <div class="col-new">
+            <div class="card-new card-bottom" onclick="chord('39')">
+                <img src="../assets/img/in_dino.jpg" alt="In Dinoa">
+                <div class="card-body-new">
+                    <h5 class="card-title-new">In Dino - Life in a Metro</h5>
+                    <p class="card-meta-new">Soham & Pritam Chakraborty</p>
+                    <div class="badge-btns">
+                    <span class="badge-new badge-info-new">GUITAR CHORDS</span>
+                    <span class="badge-new badge-warning-new">PIANO CHORDS</span></div>
+                </div>
+            </div>
+        </div>
+    <div class="col-new">
+            <div class="card-new card-bottom" onclick="chord('40')">
+                <img src="../assets/img/mere bina.jpg" alt="Mere Bina">
+                <div class="card-body-new">
+                    <h5 class="card-title-new">Mere Bina - Crook</h5>
+                    <p class="card-meta-new">Nikhil Dsouza</p>
+                    <div class="badge-btns">
+                    <span class="badge-new badge-info-new">GUITAR CHORDS</span>
+                    <span class="badge-new badge-warning-new">PIANO CHORDS</span></div>
+                </div>
+            </div>
+        </div>
+    <div class="col-new">
+            <div class="card-new card-bottom" onclick="chord('41')">
+                <img src="../assets/img/lo maan liya.jpg" alt="Lo Maan Liya">
+                <div class="card-body-new">
+                    <h5 class="card-title-new">Lo Maan Liya - Raaz Reboot</h5>
+                    <p class="card-meta-new">Arijit Singh</p>
+                    <div class="badge-btns">
+                    <span class="badge-new badge-info-new">GUITAR CHORDS</span>
+                    <span class="badge-new badge-warning-new">PIANO CHORDS</span></div>
+                </div>
+            </div>
+        </div>
+    <div class="col-new">
+            <div class="card-new card-bottom" onclick="chord('42')">
+                <img src="../assets/img/Enna_sona.jpg" alt="Enna Sona">
+                <div class="card-body-new">
+                    <h5 class="card-title-new">Enna Sona - OK Jaanu</h5>
+                    <p class="card-meta-new">Arijit Singh</p>
+                    <div class="badge-btns">
+                    <span class="badge-new badge-info-new">GUITAR CHORDS</span>
+                    <span class="badge-new badge-warning-new">PIANO CHORDS</span></div>
+                </div>
+            </div>
+        </div>
+    <div class="col-new">
+            <div class="card-new card-bottom" onclick="chord('43')">
+                <img src="../assets/img/Tu_jane_naa.jpg" alt="Tu Jaane Na">
+                <div class="card-body-new">
+                    <h5 class="card-title-new">Tu Jaane Na - Ajab Prem Ki Ghazab Kahani</h5>
+                    <p class="card-meta-new">Atif Aslam</p>
+                    <div class="badge-btns">
+                    <span class="badge-new badge-info-new">GUITAR CHORDS</span>
+                    <span class="badge-new badge-warning-new">PIANO CHORDS</span></div>
+                </div>
+            </div>
+        </div>
+    <div class="col-new">
+            <div class="card-new card-bottom" onclick="chord('44')">
+                <img src="../assets/img/jee le zaraa.jpg" alt="Jee Le Zaraa">
+                <div class="card-body-new">
+                    <h5 class="card-title-new">Jee Le Zaraa - Talaash</h5>
+                    <p class="card-meta-new">Vishal Dadlani</p>
+                    <div class="badge-btns">
+                    <span class="badge-new badge-info-new">GUITAR CHORDS</span>
+                    <span class="badge-new badge-warning-new">PIANO CHORDS</span></div>
+                </div>
+            </div>
+        </div>
+    <div class="col-new">
+            <div class="card-new card-bottom" onclick="chord('45')">
+                <img src="../assets/img/kya_hua_tera_wada.jpg" alt="Kya Hua Tera Wada">
+                <div class="card-body-new">
+                    <h5 class="card-title-new">Kya Hua Tera Wada - Hum Kisise kum nahi</h5>
+                    <p class="card-meta-new">Mohammed Rafi</p>
+                    <div class="badge-btns">
+                    <span class="badge-new badge-info-new">GUITAR CHORDS</span>
+                    <span class="badge-new badge-warning-new">PIANO CHORDS</span></div>
+                </div>
+            </div>
+        </div>
+    <div class="col-new">
+            <div class="card-new card-bottom" onclick="chord('46')">
+                <img src="../assets/img/Kalank.jpg" alt="Kalank">
+                <div class="card-body-new">
+                    <h5 class="card-title-new">Kalank - Kalank</h5>
+                    <p class="card-meta-new">Arijit Singh</p>
+                    <div class="badge-btns">
+                    <span class="badge-new badge-info-new">GUITAR CHORDS</span>
+                    <span class="badge-new badge-warning-new">PIANO CHORDS</span></div>
+                </div>
+            </div>
+        </div>
+    <div class="col-new">
+            <div class="card-new card-bottom" onclick="chord('47')">
+                <img src="../assets/img/uska he bana.jpg" alt="Uska Hi Banana">
+                <div class="card-body-new">
+                    <h5 class="card-title-new">Uska Hi Banana - 1920 Evil Returns</h5>
+                    <p class="card-meta-new">Arijit Singh</p>
+                    <div class="badge-btns">
+                    <span class="badge-new badge-info-new">GUITAR CHORDS</span>
+                    <span class="badge-new badge-warning-new">PIANO CHORDS</span></div>
+                </div>
+            </div>
+        </div>
+    <div class="col-new">
+            <div class="card-new card-bottom" onclick="chord('48')">
+                <img src="../assets/img/lakh duniya kahe.jpg" alt="Lakh Duniya Kahe">
+                <div class="card-body-new">
+                    <h5 class="card-title-new">Lakh Duniya Kahe - Talaash</h5>
+                    <p class="card-meta-new">Ram Sampath</p>
+                    <div class="badge-btns">
+                    <span class="badge-new badge-info-new">GUITAR CHORDS</span>
+                    <span class="badge-new badge-warning-new">PIANO CHORDS</span></div>
+                </div>
+            </div>
+        </div>
+    <div class="col-new">
+            <div class="card-new card-bottom" onclick="chord('49')">
+                <img src="../assets/img/terideewani.jpg" alt="Teri Deewani">
+                <div class="card-body-new">
+                    <h5 class="card-title-new">Teri Deewani - Album</h5>
+                    <p class="card-meta-new">Kailash Kher</p>
+                    <div class="badge-btns">
+                    <span class="badge-new badge-info-new">GUITAR CHORDS</span>
+                    <span class="badge-new badge-warning-new">PIANO CHORDS</span></div>
+                </div>
+            </div>
+        </div>
+    <div class="col-new">
+            <div class="card-new card-bottom" onclick="chord('50')">
+                <img src="../assets/img/be_inteha.jpg" alt="Be Intehaan">
+                <div class="card-body-new">
+                    <h5 class="card-title-new">Be Intehaan - Race 2</h5>
+                    <p class="card-meta-new">Atif Aslam & Sunidhi Chauhan</p>
+                    <div class="badge-btns">
+                    <span class="badge-new badge-info-new">GUITAR CHORDS</span>
+                    <span class="badge-new badge-warning-new">PIANO CHORDS</span></div>
+                </div>
+            </div>
+        </div>
+    <div class="col-new">
+            <div class="card-new card-bottom" onclick="chord('51')">
+                <img src="../assets/img/sunonasangemarmar.jpg" alt="Suno Na Sangemarmar">
+                <div class="card-body-new">
+                    <h5 class="card-title-new">Suno Na Sangemarmar - Youngistaan</h5>
+                    <p class="card-meta-new">Arijit Singh</p>
+                    <div class="badge-btns">
+                    <span class="badge-new badge-info-new">GUITAR CHORDS</span>
+                    <span class="badge-new badge-warning-new">PIANO CHORDS</span></div>
+                </div>
+            </div>
+        </div>
+    <div class="col-new">
+            <div class="card-new card-bottom" onclick="chord('52')">
+                <img src="../assets/img/bas_ek_bar.jpg" alt="Bas Ek Baar">
+                <div class="card-body-new">
+                    <h5 class="card-title-new">Bas Ek Baar - Solo Album</h5>
+                    <p class="card-meta-new">Soham Naik</p>
+                    <div class="badge-btns">
+                    <span class="badge-new badge-info-new">GUITAR CHORDS</span>
+                    <span class="badge-new badge-warning-new">PIANO CHORDS</span></div>
+                </div>
+            </div>
+        </div>
+    <div class="col-new">
+            <div class="card-new card-bottom" onclick="chord('53')">
+                <img src="../assets/img/piya_o_re_piya.jpg" alt="Piya O Re Piya">
+                <div class="card-body-new">
+                    <h5 class="card-title-new">Piya O Re Piya - Tere Naal Love Ho Gaya</h5>
+                    <p class="card-meta-new">Atif Aslam & Shreya Ghoshal</p>
                     <div class="badge-btns">
                     <span class="badge-new badge-info-new">GUITAR CHORDS</span>
                     <span class="badge-new badge-warning-new">PIANO CHORDS</span></div>

@@ -257,6 +257,66 @@ exports.serveIt = async (configFile) => {
   mstream.get("/jashnebahara", (req, res) => {
     res.sendFile(path.join(__dirname, "../webapp", "jashnebahara.html"));
   });
+  mstream.get("/terahonelaga", (req, res) => {
+    res.sendFile(path.join(__dirname, "../webapp", "terahonelaga.html"));
+  });
+  mstream.get("/qaafirana", (req, res) => {
+    res.sendFile(path.join(__dirname, "../webapp", "qaafirana.html"));
+  });
+  mstream.get("/tumsehi", (req, res) => {
+    res.sendFile(path.join(__dirname, "../webapp", "tumsehi.html"));
+  });
+  mstream.get("/aajaomeritamanna", (req, res) => {
+    res.sendFile(path.join(__dirname, "../webapp", "aajaomeritamanna.html"));
+  });
+  mstream.get("/agartumsath", (req, res) => {
+    res.sendFile(path.join(__dirname, "../webapp", "agartumsath.html"));
+  });
+  mstream.get("/indino", (req, res) => {
+    res.sendFile(path.join(__dirname, "../webapp", "indino.html"));
+  });
+  mstream.get("/merebina", (req, res) => {
+    res.sendFile(path.join(__dirname, "../webapp", "merebina.html"));
+  });
+  mstream.get("/lomaanliya", (req, res) => {
+    res.sendFile(path.join(__dirname, "../webapp", "lomaanliya.html"));
+  });
+  mstream.get("/ennasona", (req, res) => {
+    res.sendFile(path.join(__dirname, "../webapp", "ennasona.html"));
+  });
+  mstream.get("/tujaanena", (req, res) => {
+    res.sendFile(path.join(__dirname, "../webapp", "tujaanena.html"));
+  });
+  mstream.get("/jeelezaraa", (req, res) => {
+    res.sendFile(path.join(__dirname, "../webapp", "jeelezaraa.html"));
+  });
+  mstream.get("/kyahuwaterawada", (req, res) => {
+    res.sendFile(path.join(__dirname, "../webapp", "kyahuwaterawada.html"));
+  });
+  mstream.get("/kalank", (req, res) => {
+    res.sendFile(path.join(__dirname, "../webapp", "kalank.html"));
+  });
+  mstream.get("/uskahibanana", (req, res) => {
+    res.sendFile(path.join(__dirname, "../webapp", "uskahibanana.html"));
+  });
+  mstream.get("/lakhduniyakahe", (req, res) => {
+    res.sendFile(path.join(__dirname, "../webapp", "lakhduniyakahe.html"));
+  });
+  mstream.get("/terideewani", (req, res) => {
+    res.sendFile(path.join(__dirname, "../webapp", "terideewani.html"));
+  });
+  mstream.get("/beintehaan", (req, res) => {
+    res.sendFile(path.join(__dirname, "../webapp", "beintehaan.html"));
+  });
+  mstream.get("/sunonasangemarmar", (req, res) => {
+    res.sendFile(path.join(__dirname, "../webapp", "sunonasangemarmar.html"));
+  });
+  mstream.get("/basekbaar", (req, res) => {
+    res.sendFile(path.join(__dirname, "../webapp", "basekbaar.html"));
+  });
+  mstream.get("/piyaorepiya", (req, res) => {
+    res.sendFile(path.join(__dirname, "../webapp", "piyaorepiya.html"));
+  });
 
   mstream.get("/instructions", (req, res, next) => {
     // Use the same logic as the home route
