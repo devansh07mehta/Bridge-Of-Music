@@ -10518,63 +10518,64 @@ Music : Pritam
 Lyrics: Irshad Kamil
 Movie:  Ajab Prem Ki Ghazab Kahani</pre>
     <pre>
-    <span class="chordset">[Intro]</span><br>
-Thoda Te<span class="chordset">(Dm)</span>har, Thoda Te<span class="chordset">(C)</span>har<br>
-Sun Le Za<span class="chordset">(Dm)</span>ra, Sun Le Za<span class="chordset">(C)</span>ra<br>
-Dil Keh Ra<span class="chordset">(Dm)</span>ha, Dil Keh Ra<span class="chordset">(C)</span>ha<br>
-De Na Sa<span class="chordset">(Dm)</span>ja Yun Bewa<span class="chordset">(C)</span>ja<br><br>
+[Intro]
+Thoda Te<span class="chordset">(Dm)</span>har, Thoda Te<span class="chordset">(C)</span>har
+Sun Le Za<span class="chordset">(Dm)</span>ra, Sun Le Za<span class="chordset">(C)</span>ra
+Dil Keh Ra<span class="chordset">(Dm)</span>ha, Dil Keh Ra<span class="chordset">(C)</span>ha
+De Na Sa<span class="chordset">(Dm)</span>ja Yun Bewa<span class="chordset">(C)</span>ja
 
-<span class="chordset">[Pre-Chorus]</span><br>
-<span class="chordset">(Gm)</span>Rooth Kar<br>
-Mujhse Na <span class="chordset">(Am)</span>Ja Abhi<br>
-<span class="chordset">(A#)</span>Bhool Kar<br>
-Shikwa Gi<span class="chordset">(C)</span>la Sabhi Pyaar <span class="chordset">(Am)</span>Ka<br><br>
+[Pre-Chorus]
+<span class="chordset">(Gm)</span>Rooth Kar
+Mujhse Na <span class="chordset">(Am)</span>Ja Abhi
+<span class="chordset">(A#)</span>Bhool Kar
+Shikwa Gi<span class="chordset">(C)</span>la Sabhi Pyaar <span class="chordset">(Am)</span>Ka
 
-<span class="chordset">[Chorus]</span><br>
-Aa <span class="chordset">(Dm)</span>Ja<span class="chordset">(C)</span>oo Meri Ta<span class="chordset">(A#)</span>mana<br>
-<span class="chordset">(Dm)</span>Baha<span class="chordset">(C)</span>on Mein <span class="chordset">(A#)</span>Aao<br>
-Ke <span class="chordset">(Dm)</span>Ho<span class="chordset">(C)</span> Na Paye Ju<span class="chordset">(A#)</span>da Hum<br>
-<span class="chordset">(F)</span>Aise <span class="chordset">(C)</span>Mujh Mein Sa<span class="chordset">(A#)</span>mao<br><br>
-
-<span class="chordset">[Verse 1]</span><br>
-Hoo <span class="chordset">(Dm)</span>Har Ghadi Lag Rahi Teri Ka<span class="chordset">(Am)</span>mi<br>
-<span class="chordset">(Dm)</span>Le Chali Kis Gali Yeh Zinda<span class="chordset">(C)</span>gi<br>
-<span class="chordset">(Dm)</span>Hai Pata Lapata Hoon Pyaar <span class="chordset">(Am)</span>Mein<br>
-<span class="chordset">(A#)</span>Ankahi Ansuni Chahat Ja<span class="chordset">(C)</span>gi<br><br>
-
-<span class="chordset">[Pre-Chorus]</span><br>
-<span class="chordset">(Gm)</span>Jo Hua Phele Hu<span class="chordset">(Am)</span>aa Nahi<br>
-<span class="chordset">(A#)</span>Aaj Tum Kar Lo Za<span class="chordset">(C)</span>ra Yakin<br>
-Pyaar <span class="chordset">(Am)</span>Ka<br><br>
-
-<span class="chordset">[Chorus]</span><br>
-Aa <span class="chordset">(Dm)</span>Ja<span class="chordset">(C)</span>oo Meri Ta<span class="chordset">(A#)</span>mana<br>
-<span class="chordset">(Dm)</span>Baha<span class="chordset">(C)</span>on Mein <span class="chordset">(A#)</span>Aao<br>
-Ke <span class="chordset">(Dm)</span>Ho<span class="chordset">(C)</span> Na Paye Ju<span class="chordset">(A#)</span>da Hum<br>
-<span class="chordset">(F)</span>Aise <span class="chordset">(C)</span>Mujh Mein Sa<span class="chordset">(A#)</span>mao<br><br>
-
-<span class="chordset">[Verse 2]</span><br>
-Hoo <span class="chordset">(Dm)</span>Rut Jawan Dil Jawan<br>
-Hasrat Ja<span class="chordset">(Am)</span>wan<br>
-<span class="chordset">(Dm)</span>Tu Hai To Yeh Bhi Hai<br>
-Sare Ja<span class="chordset">(C)</span>wan<br><br>
-
-<span class="chordset">(Dm)</span>Woh Nagar Woh Dagar<br>
-Ho Gi Has<span class="chordset">(Am)</span>sen<br>
-<span class="chordset">(A#)</span>Tu Mile Pyaar Se<br>
-Mujhko Ja<span class="chordset">(C)</span>han<br><br>
-
-<span class="chordset">[Pre-Chorus]</span><br>
-<span class="chordset">(Gm)</span>Pana Hai<br>
-Tujhko Yeh <span class="chordset">(Am)</span>Dil Kahe<br>
-<span class="chordset">(A#)</span>Har Ghadi<br>
-Ab To Na<span class="chordset">(C)</span>sha Rahe Pyaar <span class="chordset">(Am)</span>Ka<br><br>
-
-<span class="chordset">[Chorus]</span><br>
-Aa <span class="chordset">(Dm)</span>Ja<span class="chordset">(C)</span>oo Meri Ta<span class="chordset">(A#)</span>mana<br>
-<span class="chordset">(Dm)</span>Baha<span class="chordset">(C)</span>on Mein <span class="chordset">(A#)</span>Aao<br>
-Ke <span class="chordset">(Dm)</span>Ho<span class="chordset">(C)</span> Na Paye Ju<span class="chordset">(A#)</span>da Hum<br>
+[Chorus]
+Aa <span class="chordset">(Dm)</span>Ja<span class="chordset">(C)</span>oo Meri Ta<span class="chordset">(A#)</span>mana
+<span class="chordset">(Dm)</span>Baha<span class="chordset">(C)</span>on Mein <span class="chordset">(A#)</span>Aao
+Ke <span class="chordset">(Dm)</span>Ho<span class="chordset">(C)</span> Na Paye Ju<span class="chordset">(A#)</span>da Hum
 <span class="chordset">(F)</span>Aise <span class="chordset">(C)</span>Mujh Mein Sa<span class="chordset">(A#)</span>mao
+
+[Verse 1]
+Hoo <span class="chordset">(Dm)</span>Har Ghadi Lag Rahi Teri Ka<span class="chordset">(Am)</span>mi
+<span class="chordset">(Dm)</span>Le Chali Kis Gali Yeh Zinda<span class="chordset">(C)</span>gi
+<span class="chordset">(Dm)</span>Hai Pata Lapata Hoon Pyaar <span class="chordset">(Am)</span>Mein
+<span class="chordset">(A#)</span>Ankahi Ansuni Chahat Ja<span class="chordset">(C)</span>gi
+
+[Pre-Chorus]
+<span class="chordset">(Gm)</span>Jo Hua Phele Hu<span class="chordset">(Am)</span>aa Nahi
+<span class="chordset">(A#)</span>Aaj Tum Kar Lo Za<span class="chordset">(C)</span>ra Yakin
+Pyaar <span class="chordset">(Am)</span>Ka
+
+<span class="chordset">[Chorus]</span>
+Aa <span class="chordset">(Dm)</span>Ja<span class="chordset">(C)</span>oo Meri Ta<span class="chordset">(A#)</span>mana
+<span class="chordset">(Dm)</span>Baha<span class="chordset">(C)</span>on Mein <span class="chordset">(A#)</span>Aao
+Ke <span class="chordset">(Dm)</span>Ho<span class="chordset">(C)</span> Na Paye Ju<span class="chordset">(A#)</span>da Hum
+<span class="chordset">(F)</span>Aise <span class="chordset">(C)</span>Mujh Mein Sa<span class="chordset">(A#)</span>mao
+
+[Verse 2]
+Hoo <span class="chordset">(Dm)</span>Rut Jawan Dil Jawan
+Hasrat Ja<span class="chordset">(Am)</span>wan
+<span class="chordset">(Dm)</span>Tu Hai To Yeh Bhi Hai
+Sare Ja<span class="chordset">(C)</span>wan
+
+<span class="chordset">(Dm)</span>Woh Nagar Woh Dagar
+Ho Gi Has<span class="chordset">(Am)</span>sen
+<span class="chordset">(A#)</span>Tu Mile Pyaar Se
+Mujhko Ja<span class="chordset">(C)</span>han
+
+[Pre-Chorus]
+<span class="chordset">(Gm)</span>Pana Hai
+Tujhko Yeh <span class="chordset">(Am)</span>Dil Kahe
+<span class="chordset">(A#)</span>Har Ghadi
+Ab To Na<span class="chordset">(C)</span>sha Rahe Pyaar <span class="chordset">(Am)</span>Ka
+
+[Chorus]
+Aa <span class="chordset">(Dm)</span>Ja<span class="chordset">(C)</span>oo Meri Ta<span class="chordset">(A#)</span>mana
+<span class="chordset">(Dm)</span>Baha<span class="chordset">(C)</span>on Mein <span class="chordset">(A#)</span>Aao
+Ke <span class="chordset">(Dm)</span>Ho<span class="chordset">(C)</span> Na Paye Ju<span class="chordset">(A#)</span>da Hum
+<span class="chordset">(F)</span>Aise <span class="chordset">(C)</span>Mujh Mein Sa<span class="chordset">(A#)</span>mao
+
 </pre>
 
     </div>
@@ -10668,46 +10669,46 @@ Music : A.R Rahman
 Lyrics: Irshad Kamil
 Movie: Tamasha</pre>
     <pre>
-    <span class="chordset">(D#)</span>Pal bhar tha<span class="chordset">(G#)</span>har jaao<br>
-<span class="chordset">(D#)</span>Dil ye sam<span class="chordset">(G#)</span>bhal jaaye<br>
-<span class="chordset">(D#)</span>Kaise tumhe rok ka<span class="chordset">(G#)</span>run<span class="chordset">(A#)</span><br><br>
+    <span class="chordset">(D#)</span>Pal bhar tha<span class="chordset">(G#)</span>har jaao
+<span class="chordset">(D#)</span>Dil ye sam<span class="chordset">(G#)</span>bhal jaaye
+<span class="chordset">(D#)</span>Kaise tumhe rok ka<span class="chordset">(G#)</span>run<span class="chordset">(A#)</span>
 
-<span class="chordset">(D#)</span>Meri ta<span class="chordset">(G#)</span>raf aata<br>
-<span class="chordset">(D#)</span>har gham phi<span class="chordset">(G#)</span>sal jaaye<br>
-<span class="chordset">(D#)</span>Aankhon mein tum<br>
-ko bha<span class="chordset">(G#)</span>run<span class="chordset">(A#)</span><br><br>
+<span class="chordset">(D#)</span>Meri ta<span class="chordset">(G#)</span>raf aata
+<span class="chordset">(D#)</span>har gham phi<span class="chordset">(G#)</span>sal jaaye
+<span class="chordset">(D#)</span>Aankhon mein tum ko bha<span class="chordset">(G#)</span>run<span class="chordset">(A#)</span>
 
-<span class="chordset">(D#)</span>Bin bole baatein<br>
-<span class="chordset">(G#)</span>tumse ka<span class="chordset">(A#)</span>run<br>
-Agar <span class="chordset">(G#)</span>tum saath <span class="chordset">(A#)</span>ho..<span class="chordset">(D#)</span><br>
-Agar <span class="chordset">(G#)</span>tum saath <span class="chordset">(A#)</span>ho..<span class="chordset">(D#)</span><br><br>
+<span class="chordset">(D#)</span>Bin bole baatein
+<span class="chordset">(G#)</span>tumse ka<span class="chordset">(A#)</span>run
+Agar <span class="chordset">(G#)</span>tum saath <span class="chordset">(A#)</span>ho..<span class="chordset">(D#)</span>
+Agar <span class="chordset">(G#)</span>tum saath <span class="chordset">(A#)</span>ho..<span class="chordset">(D#)</span>
 
-<span class="chordset">[Verse]</span><br>
-<span class="chordset">(D#)</span>Behti <span class="chordset">(G#)</span>rehti..<span class="chordset">(A#)</span><br>
-<span class="chordset">(D#)</span>Nahar nadi<span class="chordset">(G#)</span>ya si<br>
-teri duni<span class="chordset">(A#)</span>ya mein<br><br>
+[Verse]
 
-<span class="chordset">(D#)</span>Meri duni<span class="chordset">(G#)</span>ya hai<br>
-teri chaaha<span class="chordset">(A#)</span>ton mein<br>
-<span class="chordset">(D#)</span>Main dhal jaa<span class="chordset">(G#)</span>ta hoon<br>
-teri aada<span class="chordset">(A#)</span>ton mein<br>
-agar <span class="chordset">(G#)</span>tum saath <span class="chordset">(A#)</span>ho<span class="chordset">(D#)</span><br><br>
+<span class="chordset">(D#)</span>Behti <span class="chordset">(G#)</span>rehti..<span class="chordset">(A#)</span>
+<span class="chordset">(D#)</span>Nahar nadi<span class="chordset">(G#)</span>ya si teri duni<span class="chordset">(A#)</span>ya mein
 
-<span class="chordset">[Bridge]</span><br>
-<span class="chordset">(G#)</span>Teri nazron mein hai<br>
-<span class="chordset">(A#)</span>tere sapne<br>
-<span class="chordset">(G#)</span>Tere sapno mein hai<br>
-<span class="chordset">(D#)</span>naraazi<br><br>
+<span class="chordset">(D#)</span>Meri duni<span class="chordset">(G#)</span>ya hai
+teri chaaha<span class="chordset">(A#)</span>ton mein
+<span class="chordset">(D#)</span>Main dhal jaa<span class="chordset">(G#)</span>ta hoon
+teri aada<span class="chordset">(A#)</span>ton mein
+agar <span class="chordset">(G#)</span>tum saath <span class="chordset">(A#)</span>ho<span class="chordset">(D#)</span>
 
-<span class="chordset">(G#)</span>Mujhe lagta hai ke<br>
-<span class="chordset">(A#)</span>baatein dil ki<br>
-<span class="chordset">(G#)</span>Hoti lafzon ki <span class="chordset">(A#)</span>dhokebaazi<br>
-<span class="chordset">(D#)</span>Tum saath ho ya na ho<br>
-<span class="chordset">(G#)</span>kya fark <span class="chordset">(A#)</span>hai<br><br>
+[Bridge]
 
-<span class="chordset">(D#)</span>Bedard thi zindagi<br>
-<span class="chordset">(G#)</span>bedard <span class="chordset">(A#)</span>hai<br>
-Agar <span class="chordset">(G#)</span>tum saath <span class="chordset">(A#)</span>ho<span class="chordset">(D#)</span><br>
+<span class="chordset">(G#)</span>Teri nazron mein hai
+<span class="chordset">(A#)</span>tere sapne
+<span class="chordset">(G#)</span>Tere sapno mein hai
+<span class="chordset">(D#)</span>naraazi
+
+<span class="chordset">(G#)</span>Mujhe lagta hai ke
+<span class="chordset">(A#)</span>baatein dil ki
+<span class="chordset">(G#)</span>Hoti lafzon ki <span class="chordset">(A#)</span>dhokebaazi
+<span class="chordset">(D#)</span>Tum saath ho ya na ho
+<span class="chordset">(G#)</span>kya fark <span class="chordset">(A#)</span>hai
+
+<span class="chordset">(D#)</span>Bedard thi zindagi
+<span class="chordset">(G#)</span>bedard <span class="chordset">(A#)</span>hai
+Agar <span class="chordset">(G#)</span>tum saath <span class="chordset">(A#)</span>ho<span class="chordset">(D#)</span>
 Agar <span class="chordset">(G#)</span>tum saath <span class="chordset">(A#)</span>ho<span class="chordset">(D#)</span>
 </pre>
 
@@ -10802,70 +10803,69 @@ Music : Pritam Chakraborty
 Lyrics: Sayeed Quadri 
 Movie : Life in a Metro</pre>
     <pre>
-    <span class="chordset">(C)</span>in Di<span class="chordset">(C)</span>no, Dil Mera,<br>
-Mujhse <span class="chordset">(C)</span>Hai Keh Raha<br>
-<span class="chordset">(G)</span>Tu <span class="chordset">(F)</span>Khaab Sa<span class="chordset">(C)</span>ja<br>
-<span class="chordset">(G)</span>Tu<span class="chordset">(F)</span>Ji Le Ja<span class="chordset">(C)</span>ra<br><br>
+    <span class="chordset">(C)</span>in Di<span class="chordset">(C)</span>no, Dil Mera,<br> Mujhse <span class="chordset">(C)</span>Hai Keh Raha
+<span class="chordset">(G)</span>Tu <span class="chordset">(F)</span>Khaab Sa<span class="chordset">(C)</span>ja
+<span class="chordset">(G)</span>Tu<span class="chordset">(F)</span>Ji Le Ja<span class="chordset">(C)</span>ra
 
-<span class="chordset">(C)</span>Hai Tujhe Bhi I<span class="chordset">(G)</span>zaazat<br>
-Karle <span class="chordset">(C)</span>Tu Bhi Mu<span class="chordset">(C)</span>habbat<br>
-<span class="chordset">(C)</span>Hai Tujhe Bhi I<span class="chordset">(G)</span>zaazat<br>
-Karle <span class="chordset">(C)</span>Tu Bhi Mu<span class="chordset">(C)</span>habbat<br><br>
+<span class="chordset">(C)</span>Hai Tujhe Bhi I<span class="chordset">(G)</span>zaazat
+Karle <span class="chordset">(C)</span>Tu Bhi Mu<span class="chordset">(C)</span>habbat
+<span class="chordset">(C)</span>Hai Tujhe Bhi I<span class="chordset">(G)</span>zaazat
+Karle <span class="chordset">(C)</span>Tu Bhi Mu<span class="chordset">(C)</span>habbat
 
-<span class="chordset">(C)</span>in Di<span class="chordset">(C)</span>no, Dil Mera,<br>
-Mujhse <span class="chordset">(C)</span>Hai Keh Raha<br>
-<span class="chordset">(G)</span>Tu <span class="chordset">(F)</span>Khaab Sa<span class="chordset">(C)</span>ja<br>
-<span class="chordset">(G)</span>Tu<span class="chordset">(F)</span>Ji Le Ja<span class="chordset">(C)</span>ra<br><br>
+<span class="chordset">(C)</span>in Di<span class="chordset">(C)</span>no, Dil Mera,
+Mujhse <span class="chordset">(C)</span>Hai Keh Raha
+<span class="chordset">(G)</span>Tu <span class="chordset">(F)</span>Khaab Sa<span class="chordset">(C)</span>ja
+<span class="chordset">(G)</span>Tu<span class="chordset">(F)</span>Ji Le Ja<span class="chordset">(C)</span>ra
 
-<span class="chordset">(C)</span>Hai Tujhe Bhi I<span class="chordset">(G)</span>zaazat<br>
-Karle <span class="chordset">(C)</span>Tu Bhi Mu<span class="chordset">(C)</span>habbat<br>
-<span class="chordset">(C)</span>Hai Tujhe Bhi I<span class="chordset">(G)</span>zaazat<br>
-Karle <span class="chordset">(C)</span>Tu Bhi Mu<span class="chordset">(C)</span>habbat<br><br>
+<span class="chordset">(C)</span>Hai Tujhe Bhi I<span class="chordset">(G)</span>zaazat
+Karle <span class="chordset">(C)</span>Tu Bhi Mu<span class="chordset">(C)</span>habbat
+<span class="chordset">(C)</span>Hai Tujhe Bhi I<span class="chordset">(G)</span>zaazat
+Karle <span class="chordset">(C)</span>Tu Bhi Mu<span class="chordset">(C)</span>habbat
 
-<span class="chordset">(C)</span>berang Si Hai Badi Zindagi<br>
-Kuchh <span class="chordset">(G)</span>Rang To Bha<span class="chordset">(C)</span>roon<br>
-<span class="chordset">(C)</span>Main Apani Tanahaayi Ke Waaste<br>
-Abbb <span class="chordset">(G)</span>Kuchh Toh Ka<span class="chordset">(C)</span>roon<br><br>
+<span class="chordset">(C)</span>berang Si Hai Badi Zindagi
+Kuchh <span class="chordset">(G)</span>Rang To Bha<span class="chordset">(C)</span>roon
+<span class="chordset">(C)</span>Main Apani Tanahaayi Ke Waaste
+Abbb <span class="chordset">(G)</span>Kuchh Toh Ka<span class="chordset">(C)</span>roon
 
-<span class="chordset">(C)</span>berang Si Hai Badi Zindagi<br>
-Kuchh <span class="chordset">(G)</span>Rang To Bha<span class="chordset">(C)</span>roon<br>
-<span class="chordset">(C)</span>Main Apani Tanahaayi Ke Waaste<br>
-Abbb <span class="chordset">(G)</span>Kuchh Toh Ka<span class="chordset">(C)</span>roon<br><br>
+<span class="chordset">(C)</span>berang Si Hai Badi Zindagi
+Kuchh <span class="chordset">(G)</span>Rang To Bha<span class="chordset">(C)</span>roon
+<span class="chordset">(C)</span>Main Apani Tanahaayi Ke Waaste
+Abbb <span class="chordset">(G)</span>Kuchh Toh Ka<span class="chordset">(C)</span>roon
 
-<span class="chordset">(G)</span>Jab Mi<span class="chordset">(G)</span>le Thodi <span class="chordset">(G)</span>Fursat<br>
-<span class="chordset">(G)</span>Jab Mi<span class="chordset">(G)</span>le Thodi <span class="chordset">(G)</span>Fursat<br>
-Mujhse <span class="chordset">(C)</span>Karle Mu<span class="chordset">(C)</span>habbat<br>
-Hai Tu<span class="chordset">(C)</span>jhe Bhi I<span class="chordset">(G)</span>zaazat<br>
-Karle <span class="chordset">(C)</span>Tu Bhi Mo<span class="chordset">(C)</span>habbat<br><br>
+<span class="chordset">(G)</span>Jab Mi<span class="chordset">(G)</span>le Thodi <span class="chordset">(G)</span>Fursat
+<span class="chordset">(G)</span>Jab Mi<span class="chordset">(G)</span>le Thodi <span class="chordset">(G)</span>Fursat
+Mujhse <span class="chordset">(C)</span>Karle Mu<span class="chordset">(C)</span>habbat
+Hai Tu<span class="chordset">(C)</span>jhe Bhi I<span class="chordset">(G)</span>zaazat
+Karle <span class="chordset">(C)</span>Tu Bhi Mo<span class="chordset">(C)</span>habbat
 
-<span class="chordset">(C)</span>(<span class="chordset">(A#)</span><span class="chordset">(Am)</span><span class="chordset">(G#)</span><span class="chordset">(A#)</span>)<br>
-<span class="chordset">(C)</span>(<span class="chordset">(A#)</span><span class="chordset">(Am)</span><span class="chordset">(G#)</span><span class="chordset">(A#)</span>)<br><br>
+<span class="chordset">(C)</span>(<span class="chordset">(A#)</span><span class="chordset">(Am)</span><span class="chordset">(G#)</span><span class="chordset">(A#)</span>)
+<span class="chordset">(C)</span>(<span class="chordset">(A#)</span><span class="chordset">(Am)</span><span class="chordset">(G#)</span><span class="chordset">(A#)</span>)
 
-<span class="chordset">(C)</span>Usako Chhupaakar Main Sabse Kabhi<br>
-Le Cha<span class="chordset">(G)</span>loon Kahin <span class="chordset">(C)</span>Door...<br>
-<span class="chordset">(C)</span>Aankhon Ke Pyaalon Se Pita Rahoon<br>
-Usake <span class="chordset">(G)</span>Chehre Ka <span class="chordset">(C)</span>Noor<br><br>
+<span class="chordset">(C)</span>Usako Chhupaakar Main Sabse Kabhi
+Le Cha<span class="chordset">(G)</span>loon Kahin <span class="chordset">(C)</span>Door...
+<span class="chordset">(C)</span>Aankhon Ke Pyaalon Se Pita Rahoon
+Usake <span class="chordset">(G)</span>Chehre Ka <span class="chordset">(C)</span>Noor
 
-<span class="chordset">(C)</span>Usako Chhupaakar Main Sabse Kabhi<br>
-Le Cha<span class="chordset">(G)</span>loon Kahin <span class="chordset">(C)</span>Door...<br>
-<span class="chordset">(C)</span>Aankhon Ke Pyaalon Se Pita Rahoon<br>
-Usake <span class="chordset">(G)</span>Chehre Ka <span class="chordset">(C)</span>Noor<br><br>
+<span class="chordset">(C)</span>Usako Chhupaakar Main Sabse Kabhi
+Le Cha<span class="chordset">(G)</span>loon Kahin <span class="chordset">(C)</span>Door...
+<span class="chordset">(C)</span>Aankhon Ke Pyaalon Se Pita Rahoon
+Usake <span class="chordset">(G)</span>Chehre Ka <span class="chordset">(C)</span>Noor
 
-<span class="chordset">(G)</span>Iss Ja<span class="chordset">(G)</span>maane Se <span class="chordset">(G)</span>Chhupakar<br>
-<span class="chordset">(G)</span>Iss Ja<span class="chordset">(G)</span>maane Se <span class="chordset">(G)</span>Chhupakar…<br>
-Puri <span class="chordset">(C)</span>Karloon Main <span class="chordset">(C)</span>Hasrat<br><br>
+<span class="chordset">(G)</span>Iss Ja<span class="chordset">(G)</span>maane Se <span class="chordset">(G)</span>Chhupakar
+<span class="chordset">(G)</span>Iss Ja<span class="chordset">(G)</span>maane Se <span class="chordset">(G)</span>Chhupakar…
+Puri <span class="chordset">(C)</span>Karloon Main <span class="chordset">(C)</span>Hasrat
 
-Hai <span class="chordset">(C)</span>Tujhe Bhi I<span class="chordset">(G)</span>zaazat<br>
-Karle <span class="chordset">(C)</span>Tu Bhi Mo<span class="chordset">(C)</span>habbat…<br><br>
+Hai <span class="chordset">(C)</span>Tujhe Bhi I<span class="chordset">(G)</span>zaazat
+Karle <span class="chordset">(C)</span>Tu Bhi Mo<span class="chordset">(C)</span>habbat…
 
-<span class="chordset">(C)</span>in Di<span class="chordset">(C)</span>no, Dil Mera,<br>
-Mujhse <span class="chordset">(Am)</span>Hai Keh Raha<br>
-<span class="chordset">(G)</span>Tu <span class="chordset">(F)</span>Khaab Sa<span class="chordset">(C)</span>ja<br>
-<span class="chordset">(G)</span>Tu<span class="chordset">(F)</span>Ji Le Ja<span class="chordset">(C)</span>ra<br><br>
+<span class="chordset">(C)</span>in Di<span class="chordset">(C)</span>no, Dil Mera,
+Mujhse <span class="chordset">(Am)</span>Hai Keh Raha
+<span class="chordset">(G)</span>Tu <span class="chordset">(F)</span>Khaab Sa<span class="chordset">(C)</span>ja
+<span class="chordset">(G)</span>Tu<span class="chordset">(F)</span>Ji Le Ja<span class="chordset">(C)</span>ra
 
-<span class="chordset">(C)</span>in Di<span class="chordset">(C)</span>no, Dil Mera,<br>
-Mujhse <span class="chordset">(Am)</span>Hai Keh Raha<br>
-<span class="chordset">(G)</span>Tu <span class="chordset">(F)</span>Khaab Sa<span class="chordset">(C)</span>ja<br>
+<span class="chordset">(C)</span>in Di<span class="chordset">(C)</span>no, Dil Mera,
+Mujhse <span class="chordset">(Am)</span>Hai Keh Raha
+<span class="chordset">(G)</span>Tu <span class="chordset">(F)</span>Khaab Sa<span class="chordset">(C)</span>ja
 <span class="chordset">(G)</span>Tu<span class="chordset">(F)</span>Ji Le Ja<span class="chordset">(C)</span>ra
 </pre>
 
@@ -10960,88 +10960,88 @@ Music : Pritam
 Lyrics: Kumaar
 Movie: Crook</pre>
     <pre>
-    <span class="chordset">(D)</span><span class="chordset">(A)</span><span class="chordset">(G)</span><br>
-<span class="chordset">(D)</span><span class="chordset">(A)</span><span class="chordset">(G)</span><br><br>
+<span class="chordset">(D)</span><span class="chordset">(A)</span><span class="chordset">(G)</span>
+<span class="chordset">(D)</span><span class="chordset">(A)</span><span class="chordset">(G)</span>
 
-<span class="chordset">[Verse]</span><br>
-Mere Bi<span class="chordset">(D)</span>na main<br>
-rehne la<span class="chordset">(Bm)</span>ga hun<br>
-Teri ha<span class="chordset">(Em)</span>waon me<br>
-behne la<span class="chordset">(A)</span>ga hun<br><br>
+[Verse]
+Mere Bi<span class="chordset">(D)</span>na main
+rehne la<span class="chordset">(Bm)</span>ga hun
+Teri ha<span class="chordset">(Em)</span>waon me
+behne la<span class="chordset">(A)</span>ga hun
 
-Jaane main <span class="chordset">(D)</span>kaise<br>
-tera hu<span class="chordset">(Bm)</span>aa hun<br>
-Mujhe to <span class="chordset">(Em)</span>lagta hai main shayad<br>
-tere <span class="chordset">(A)</span>dil ki dua hu haa<br><br>
+Jaane main <span class="chordset">(D)</span>kaise
+tera hu<span class="chordset">(Bm)</span>aa hun
+Mujhe to <span class="chordset">(Em)</span>lagta hai main shayad
+tere <span class="chordset">(A)</span>dil ki dua hu haa
 
-<span class="chordset">[Chorus]</span><br>
-<span class="chordset">(D)</span>Tujhko jo paa<span class="chordset">(G)</span>ya ahaa<br>
-<span class="chordset">(Bm)</span>To jeena aa<span class="chordset">(Em)</span>ya<br>
-Ab ye <span class="chordset">(Bm)</span>lamha theher jaye<br>
-<span class="chordset">(Bm)</span>tham jaye bas jaye<br>
-<span class="chordset">(G)</span>hum Dono ke darmi<span class="chordset">(A)</span>yan<br><br>
+[Chorus]
+<span class="chordset">(D)</span>Tujhko jo paa<span class="chordset">(G)</span>ya ahaa
+<span class="chordset">(Bm)</span>To jeena aa<span class="chordset">(Em)</span>ya
+Ab ye <span class="chordset">(Bm)</span>lamha theher jaye
+<span class="chordset">(Bm)</span>tham jaye bas jaye
+<span class="chordset">(G)</span>hum Dono ke darmi<span class="chordset">(A)</span>yan
 
-<span class="chordset">(D)</span>Tujhko jo paa<span class="chordset">(G)</span>ya aha<br>
-<span class="chordset">(Bm)</span>To jeena aa<span class="chordset">(Em)</span>ya<br>
-Ab ye <span class="chordset">(Bm)</span>lamha theher jaye<br>
-<span class="chordset">(Bm)</span>tham jaye bas jaye<br>
-<span class="chordset">(G)</span>hum Dono ke darmi<span class="chordset">(A)</span>yan<br><br>
+<span class="chordset">(D)</span>Tujhko jo paa<span class="chordset">(G)</span>ya aha
+<span class="chordset">(Bm)</span>To jeena aa<span class="chordset">(Em)</span>ya
+Ab ye <span class="chordset">(Bm)</span>lamha theher jaye
+<span class="chordset">(Bm)</span>tham jaye bas jaye
+<span class="chordset">(G)</span>hum Dono ke darmi<span class="chordset">(A)</span>yan
 
-<span class="chordset">[Verse]</span><br>
-Pehle se <span class="chordset">(D)</span>zyada<br>
-main jee<span class="chordset">(Bm)</span>raha hu<br>
-Jabse main <span class="chordset">(Em)</span>tere<br>
-dil se ju<span class="chordset">(A)</span>da hu<br><br>
+[Verse]
+Pehle se <span class="chordset">(D)</span>zyada
+main jee<span class="chordset">(Bm)</span>raha hu
+Jabse main <span class="chordset">(Em)</span>tere
+dil se ju<span class="chordset">(A)</span>da hu
 
-Rahon pe <span class="chordset">(D)</span>teri<br>
-main to cha<span class="chordset">(Bm)</span>la hu<br>
-Tu meri <span class="chordset">(Em)</span>manzil hai<br>
-tere <span class="chordset">(Em)</span>kadmon pe bas<br>
-<span class="chordset">(A)</span>rukne laga hu haa<br><br>
+Rahon pe <span class="chordset">(D)</span>teri
+main to cha<span class="chordset">(Bm)</span>la hu
+Tu meri <span class="chordset">(Em)</span>manzil hai
+tere <span class="chordset">(Em)</span>kadmon pe bas
+<span class="chordset">(A)</span>rukne laga hu haa
 
-<span class="chordset">[Chorus]</span><br>
-<span class="chordset">(D)</span>Tujhko jo paa<span class="chordset">(G)</span>ya aha<br>
-<span class="chordset">(Bm)</span>To jeena aa<span class="chordset">(Em)</span>ya<br>
-Ab ye <span class="chordset">(Bm)</span>lamha theher jaye<br>
-<span class="chordset">(Bm)</span>tham jaye bas jaye<br>
-<span class="chordset">(G)</span>hum Dono ke darmi<span class="chordset">(A)</span>yana<span class="chordset">(D)</span><br><br>
-
-<span class="chordset">(F#m)</span><span class="chordset">(G)</span><span class="chordset">(G)</span><span class="chordset">(A)</span><br>
-<span class="chordset">(F#m)</span><span class="chordset">(G)</span><span class="chordset">(G)</span><span class="chordset">(A)</span><br><br>
-
-<span class="chordset">[Verse]</span><br>
-<span class="chordset">(D)</span>Teri nazar me<br>
-nayi <span class="chordset">(Bm)</span>si adaa hai<br>
-Naya <span class="chordset">(G)</span>sa nasha bhi<br>
-ghula <span class="chordset">(A)</span>hai<br><br>
-
-<span class="chordset">(D)</span>Kayi dino se<br>
-bandha th<span class="chordset">(Bm)</span>aa baadal jo<br>
-Tere <span class="chordset">(G)</span>hi baalon me<br>
-khula <span class="chordset">(A)</span>hai<br><br>
-
-Teri ha<span class="chordset">(G)</span>don me<br>
-meri ba<span class="chordset">(Bm)</span>sar hai<br>
-Ab tu<span class="chordset">(G)</span>jhe bhi<br>
-jana ki<span class="chordset">(A)</span>dhar hai<br><br>
-
-Jahan ra<span class="chordset">(D)</span>he tu<br>
-main wo ja<span class="chordset">(Bm)</span>han hu<br>
-Jise ji<span class="chordset">(Em)</span>ye tu<br>
-main wo sa<span class="chordset">(A)</span>ma hu<br><br>
-
-Teri wa<span class="chordset">(D)</span>ja se<br>
-naya na<span class="chordset">(Bm)</span>ya hu<br>
-Pehle ka<span class="chordset">(D)</span>ha na maine<br>
-ab ye tumse<br>
-<span class="chordset">(A)</span>kehne laga hu..haa<br><br>
-
-<span class="chordset">[Chorus]</span><br>
-<span class="chordset">(D)</span>Tujhko jo paa<span class="chordset">(G)</span>ya aha<br>
-<span class="chordset">(Bm)</span>To jeena aa<span class="chordset">(Em)</span>ya<br>
-Ab ye <span class="chordset">(Bm)</span>lamha theher jaye<br>
-<span class="chordset">(Bm)</span>tham jaye bas jaye<br>
+[Chorus]
+<span class="chordset">(D)</span>Tujhko jo paa<span class="chordset">(G)</span>ya aha
+<span class="chordset">(Bm)</span>To jeena aa<span class="chordset">(Em)</span>ya
+Ab ye <span class="chordset">(Bm)</span>lamha theher jaye
+<span class="chordset">(Bm)</span>tham jaye bas jaye
 <span class="chordset">(G)</span>hum Dono ke darmi<span class="chordset">(A)</span>yana<span class="chordset">(D)</span>
+
+<span class="chordset">(F#m)</span><span class="chordset">(G)</span><span class="chordset">(G)</span><span class="chordset">(A)</span>
+<span class="chordset">(F#m)</span><span class="chordset">(G)</span><span class="chordset">(G)</span><span class="chordset">(A)</span>
+
+[Verse]
+<span class="chordset">(D)</span>Teri nazar me
+nayi <span class="chordset">(Bm)</span>si adaa hai
+Naya <span class="chordset">(G)</span>sa nasha bhi
+ghula <span class="chordset">(A)</span>hai
+
+<span class="chordset">(D)</span>Kayi dino se
+bandha th<span class="chordset">(Bm)</span>aa baadal jo
+Tere <span class="chordset">(G)</span>hi baalon me
+khula <span class="chordset">(A)</span>hai
+
+Teri ha<span class="chordset">(G)</span>don me
+meri ba<span class="chordset">(Bm)</span>sar hai
+Ab tu<span class="chordset">(G)</span>jhe bhi
+jana ki<span class="chordset">(A)</span>dhar hai
+
+Jahan ra<span class="chordset">(D)</span>he tu
+main wo ja<span class="chordset">(Bm)</span>han hu
+Jise ji<span class="chordset">(Em)</span>ye tu
+main wo sa<span class="chordset">(A)</span>ma hu
+
+Teri wa<span class="chordset">(D)</span>ja se
+naya na<span class="chordset">(Bm)</span>ya hu
+Pehle ka<span class="chordset">(D)</span>ha na maine
+ab ye tumse
+<span class="chordset">(A)</span>kehne laga hu..haa
+
+[Chorus]
+<span class="chordset">(D)</span>Tujhko jo paa<span="chordset">(G)</span>ya aha
+<span class="chordset">(Bm)</span>To jeena aa<span="chordset">(Em)</span>ya
+Ab ye <span class="chordset">(Bm)</span>lamha theher jaye
+<span class="chordset">(Bm)</span>tham jaye bas jaye
+<span class="chordset">(G)</span>hum Dono ke darmi<span="chordset">(A)</span>yana<span="chordset">(D)</span>
 </pre>
 
     </div>
@@ -11135,56 +11135,56 @@ Music : Jeet Gannguli
 Lyrics: Jeet Gannguli, kausar Munir
 Movie: Raaz Reboot</pre>
     <pre>
-    <span class="chordset">[Chorus]</span><br>
-Lo <span class="chordset">(F#m)</span>maan liya hum<span class="chordset">(Bm)</span>ne<br>
-Hai <span class="chordset">(C#)</span>pyar nahi tum<span class="chordset">(F#m)</span>ko<br>
-Tum <span class="chordset">(F#m)</span>yaad nahi hum<span class="chordset">(Bm)</span>ko<br>
-Hum <span class="chordset">(C#)</span>yaad nahi tum<span class="chordset">(F#m)</span>ko<br><br>
+    <span class="chordset">[Chorus]</span>
+Lo <span class="chordset">(F#m)</span>maan liya hum<span class="chordset">(Bm)</span>ne
+Hai <span class="chordset">(C#)</span>pyar nahi tum<span class="chordset">(F#m)</span>ko
+Tum <span class="chordset">(F#m)</span>yaad nahi hum<span class="chordset">(Bm)</span>ko
+Hum <span class="chordset">(C#)</span>yaad nahi tum<span class="chordset">(F#m)</span>ko
 
-<span class="chordset">[Pre-Chorus]</span><br>
-Bas <span class="chordset">(C#m)</span>ek dafaa mud<span class="chordset">(D)</span>ke dekho<br>
-Aye <span class="chordset">(C#)</span>yaar zara hum<span class="chordset">(A)</span>ko<br><br>
+<span class="chordset">[Pre-Chorus]</span>
+Bas <span class="chordset">(C#m)</span>ek dafaa mud<span class="chordset">(D)</span>ke dekho
+Aye <span class="chordset">(C#)</span>yaar zara hum<span class="chordset">(A)</span>ko
 
-<span class="chordset">[Chorus]</span><br>
-Lo <span class="chordset">(F#m)</span>maan liya hum<span class="chordset">(Bm)</span>ne<br>
-Hai <span class="chordset">(C#)</span>pyar nahi tum<span class="chordset">(F#m)</span>ko<br>
-Tum <span class="chordset">(F#m)</span>yaad nahi hum<span class="chordset">(Bm)</span>ko<br>
-Hum <span class="chordset">(C#)</span>yaad nahi tum<span class="chordset">(F#m)</span>ko<br><br>
+<span class="chordset">[Chorus]</span>
+Lo <span class="chordset">(F#m)</span>maan liya hum<span class="chordset">(Bm)</span>ne
+Hai <span class="chordset">(C#)</span>pyar nahi tum<span class="chordset">(F#m)</span>ko
+Tum <span class="chordset">(F#m)</span>yaad nahi hum<span class="chordset">(Bm)</span>ko
+Hum <span class="chordset">(C#)</span>yaad nahi tum<span class="chordset">(F#m)</span>ko
 
-<span class="chordset">[Verse]</span><br>
-Lo <span class="chordset">(A)</span>maan liya de<span class="chordset">(E)</span>kha hi nahi<br>
-Tere <span class="chordset">(C#)</span>kaandhe ka wo <span class="chordset">(F#m)</span>til<br>
-Lo <span class="chordset">(A)</span>maan liya too<span class="chordset">(E)</span>ta hi nahi<br>
-Tere <span class="chordset">(C#)</span>hathon se mera <span class="chordset">(F#m)</span>dil<br><br>
+<span class="chordset">[Verse]</span>
+Lo <span class="chordset">(A)</span>maan liya de<span class="chordset">(E)</span>kha hi nahi
+Tere <span class="chordset">(C#)</span>kaandhe ka wo <span class="chordset">(F#m)</span>til
+Lo <span class="chordset">(A)</span>maan liya too<span class="chordset">(E)</span>ta hi nahi
+Tere <span class="chordset">(C#)</span>hathon se mera <span class="chordset">(F#m)</span>dil
 
-<span class="chordset">[Pre-Chorus]</span><br>
-Chha<span class="chordset">(C#m)</span>aon mein teri bee<span class="chordset">(D)</span>ti hi nahi<br>
-Wo <span class="chordset">(C#)</span>garmi ki baa<span class="chordset">(A)</span>tein<br>
-Baa<span class="chordset">(C#m)</span)hon mein teri guz<span class="chordset">(D)</span>ri hi nahi<br>
-Wo <span class="chordset">(C#)</span>sardi ki raa<span class="chordset">(A)</span)tein<br><br>
+<span class="chordset">[Pre-Chorus]</span>
+Chha<span class="chordset">(C#m)</span>aon mein teri bee<span class="chordset">(D)</span>ti hi nahi
+Wo <span class="chordset">(C#)</span>garmi ki baa<span class="chordset">(A)</span>tein
+Baa<span class="chordset">(C#m)</span>hon mein teri guz<span class="chordset">(D)</span>ri hi nahi
+Wo <span class="chordset">(C#)</span>sardi ki raa<span class="chordset">(A)</span)tein
 
-<span class="chordset">[Chorus]</span><br>
-Lo <span class="chordset">(F#m)</span>maan liya hum<span class="chordset">(Bm)</span>ne<br>
-Hai <span class="chordset">(C#)</span>pyar nahi tum<span class="chordset">(F#m)</span>ko<br>
-Tum <span class="chordset">(F#m)</span>yaad nahi hum<span class="chordset">(Bm)</span>ko<br>
-Hum <span class="chordset">(C#)</span>yaad nahi tum<span class="chordset">(F#m)</span>ko<br><br>
+<span class="chordset">[Chorus]</span>
+Lo <span class="chordset">(F#m)</span>maan liya hum<span class="chordset">(Bm)</span>ne
+Hai <span class="chordset">(C#)</span>pyar nahi tum<span class="chordset">(F#m)</span>ko
+Tum <span class="chordset">(F#m)</span>yaad nahi hum<span class="chordset">(Bm)</span>ko
+Hum <span class="chordset">(C#)</span>yaad nahi tum<span class="chordset">(F#m)</span>ko
 
-<span class="chordset">[Verse]</span><br>
-Jaa<span class="chordset">(A)</span>o le jaao <span class="chordset">(E)</span>neend meri<br>
-<span class="chordset">(C#)</span>Uff na karenge <span class="chordset">(F#m)</span>hum<br>
-Jo <span class="chordset">(A)</span>le jaaoge <span class="chordset">(E)</span>khwaab mere<br>
-Toh <span class="chordset">(C#)</span>kaise jiyenge <span class="chordset">(F#m)</span>hum<br><br>
+<span class="chordset">[Verse]</span>
+Jaa<span class="chordset">(A)</span>o le jaao <span class="chordset">(E)</span>neend meri
+<span class="chordset">(C#)</span>Uff na karenge <span class="chordset">(F#m)</span>hum
+Jo <span class="chordset">(A)</span>le jaaoge <span class="chordset">(E)</span>khwaab mere
+Toh <span class="chordset">(C#)</span>kaise jiyenge <span class="chordset">(F#m)</span>hum
 
-<span class="chordset">[Pre-Chorus]</span><br>
-Jee<span class="chordset">(C#m)</span>na humko aa<span class="chordset">(D)</span>ta hi nahi<br>
-Teri <span class="chordset">(C#)</span>saanson ke si<span class="chordset">(A)</span>va<br>
-Mar<span class="chordset">(C#m)</span>na bhi ab na<span class="chordset">(D)</span>mumkin hai<br>
-Teri <span class="chordset">(C#)</span>baahon ke si<span class="chordset">(A)</span>va<br><br>
+<span class="chordset">[Pre-Chorus]</span>
+Jee<span class="chordset">(C#m)</span>na humko aa<span class="chordset">(D)</span>ta hi nahi
+Teri <span class="chordset">(C#)</span>saanson ke si<span class="chordset">(A)</span>va
+Mar<span class="chordset">(C#m)</span>na bhi ab na<span class="chordset">(D)</span>mumkin hai
+Teri <span class="chordset">(C#)</span>baahon ke si<span class="chordset">(A)</span>va
 
-<span class="chordset">[Chorus]</span><br>
-Lo <span class="chordset">(F#m)</span>maan liya hum<span class="chordset">(Bm)</span>ne<br>
-Par<span class="chordset">(C#)</span>wah nahi tum<span class="chordset">(F#m)</span>ko<br>
-Tum <span class="chordset">(F#m)</span>yaad nahi hum<span class="chordset">(Bm)</span>ko<br>
+<span class="chordset">[Chorus]</span>
+Lo <span class="chordset">(F#m)</span>maan liya hum<span class="chordset">(Bm)</span>ne
+Par<span class="chordset">(C#)</span>wah nahi tum<span class="chordset">(F#m)</span>ko
+Tum <span class="chordset">(F#m)</span>yaad nahi hum<span class="chordset">(Bm)</span>ko
 Hum <span class="chordset">(C#)</span>yaad nahi tum<span class="chordset">(F#m)</span>ko
 </pre>
 
@@ -11279,94 +11279,94 @@ Music : A.R Rahman
 Lyrics: Gulzar
 Movie: OK Jaanu</pre>
     <pre>
-    <span class="chordset">[Intro]</span><br>
-<span class="chordset">(Gm)</span><span class="chordset">(F)</span><span class="chordset">(D#)</span><span class="chordset">(F)</span><br>
-<span class="chordset">(Gm)</span><span class="chordset">(F)</span><span class="chordset">(D#)</span><span class="chordset">(Dm)</span><br><br>
+[Intro]
+<span class="chordset">(Gm)</span><span class="chordset">(F)</span><span class="chordset">(D#)</span><span class="chordset">(F)</s
+<span class="chordset">(Gm)</span><span class="chordset">(F)</span><span class="chordset">(D#)</span><span class="chordset">(Dm)</s
 
-<span class="chordset">[Chorus]</span><br>
-Enna <span class="chordset">(Gm)</span>sona kyun<span class="chordset">(F)</span><br>
-Rabb ne ba<span class="chordset">(D#)</span>naya..<span class="chordset">(F)</span><br>
-Enna <span class="chordset">(Gm)</span>sona kyun<span class="chordset">(F)</span><br>
-Rabb ne ba<span class="chordset">(D#)</span>naya..<span class="chordset">(Dm)</span><br><br>
+[Chorus]
+Enna <span class="chordset">(Gm)</span>sona kyun<span class="chordset">(F)</span>
+Rabb ne ba<span class="chordset">(D#)</span>naya..<span class="chordset">(F)</span>
+Enna <span class="chordset">(Gm)</span>sona kyun<span class="chordset">(F)</span>
+Rabb ne ba<span class="chordset">(D#)</span>naya..<span class="chordset">(Dm)</span>
 
-Enna <span class="chordset">(Gm)</span>sona kyun<span class="chordset">(F)</span><br>
-Rabb ne ba<span class="chordset">(D#)</span>naya..<span class="chordset">(F)</span><br>
-Enna <span class="chordset">(Gm)</span>sona kyun<span class="chordset">(F)</span><br>
-Rabb ne ba<span class="chordset">(D#)</span>naya..<span class="chordset">(Dm)</span><br><br>
+Enna <span class="chordset">(Gm)</span>sona kyun<span class="chordset">(F)</span>
+Rabb ne ba<span class="chordset">(D#)</span>naya..<span class="chordset">(F)</span>
+Enna <span class="chordset">(Gm)</span>sona kyun<span class="chordset">(F)</span>
+Rabb ne ba<span class="chordset">(D#)</span>naya..<span class="chordset">(Dm)</span>
 
-Aavan <span class="chordset">(Gm)</span>javan te main<br>
-<span class="chordset">(F)</span>yaara nu ma<span class="chordset">(D#)</span>na<span class="chordset">(F)</span>van<br>
-Aavan <span class="chordset">(Gm)</span>javan te main<br>
-<span class="chordset">(F)</span>yaara nu ma<span class="chordset">(D#)</span>na<span class="chordset">(Dm)</span>van<br><br>
+Aavan <span class="chordset">(Gm)</span>javan te main
+<span class="chordset">(F)</span>yaara nu ma<span class="chordset">(D#)</span>na<span class="chordset">(F)</span>van
+Aavan <span class="chordset">(Gm)</span>javan te main
+<span class="chordset">(F)</span>yaara nu ma<span class="chordset">(D#)</span>na<span class="chordset">(Dm)</span>van
 
-Enna <span class="chordset">(Gm)</span>sona<span class="chordset">(F)</span>, enna <span class="chordset">(D#)</span>sona<span class="chordset">(F)</span><br>
-Enna <span class="chordset">(Gm)</span>sona<span class="chordset">(F)</span> <span class="chordset">(D#)</span>o…<span class="chordset">(A#)</span><br><br>
+Enna <span class="chordset">(Gm)</span>sona<span class="chordset">(F)</span>, enna <span class="chordset">(D#)</span>sona<span class="chordset">(F)</span>
+Enna <span class="chordset">(Gm)</span>sona<span class="chordset">(F)</span> <span class="chordset">(D#)</span>o…<span class="chordset">(A#)</span>
 
-Enna <span class="chordset">(Gm)</span>Sona <span class="chordset">(F)</span>Ooo<br>
-Enna <span class="chordset">(D#)</span>Sona <span class="chordset">(Dm)</span>Ooo<br>
-Enna <span class="chordset">(Gm)</span>Sona...<span class="chordset">(F)</span><br>
-Enna <span class="chordset">(D#)</span>Sona...<span class="chordset">(F)</span><br><br>
+Enna <span class="chordset">(Gm)</span>Sona <span class="chordset">(F)</span>Ooo
+Enna <span class="chordset">(D#)</span>Sona <span class="chordset">(Dm)</span>Ooo
+Enna <span class="chordset">(Gm)</span>Sona...<span class="chordset">(F)</span>
+Enna <span class="chordset">(D#)</span>Sona...<span class="chordset">(F)</span>
 
-<span class="chordset">[Instrumental]</span><br>
-<span class="chordset">(Gm)</span><span class="chordset">(F)</span><span class="chordset">(A#)</span><span class="chordset">(F)</span><br>
-<span class="chordset">(A#)</span><span class="chordset">(G#)</span><span class="chordset">(G)</span><span class="chordset">(G)</span><br><br>
+[Instrumental]
+<span class="chordset">(Gm)</span><span class="chordset">(F)</span><span class="chordset">(A#)</span><span class="chordset">(F)</span>
+<span class="chordset">(A#)</span><span class="chordset">(G#)</span><span class="chordset">(G)</span><span class="chordset">(G)</span>
 
-<span class="chordset">[Instrumental]</span><br>
-<span class="chordset">(C)</span><span class="chordset">(D#)</span><span class="chordset">(A#)</span><span class="chordset">(F)</span><br>
-<span class="chordset">(C)</span><span class="chordset">(D#)</span><span class="chordset">(Dm)</span><span class="chordset">(Gm/A#)</span><br><br>
+[Instrumental]
+<span class="chordset">(C)</span><span class="chordset">(D#)</span><span class="chordset">(A#)</span><span class="chordset">(F)</span>
+<span class="chordset">(C)</span><span class="chordset">(D#)</span><span class="chordset">(Dm)</span><span class="chordset">(Gm/A#)</span>
 
-<span class="chordset">[Verse]</span><br>
-Kol <span class="chordset">(F)</span>hove te<span class="chordset">(A#)</span><br>
-sekh lag<span class="chordset">(D#)</span>da ae<span class="chordset">(F)</span><br>
-Door <span class="chordset">(A#)</span>jaave te<span class="chordset">(F)</span><br>
-dil jal<span class="chordset">(Gm)</span>da ae<span class="chordset">(F)</span><br><br>
+[Verse]
+Kol <span class="chordset">(F)</span>hove te<span class="chordset">(A#)</span>
+sekh lag<span class="chordset">(D#)</span>da ae<span class="chordset">(F)</span>
+Door <span class="chordset">(A#)</span>jaave te<span class="chordset">(F)</span>
+dil jal<span class="chordset">(Gm)</span>da ae<span class="chordset">(F)</span>
 
-Kehdi <span class="chordset">(A#)</span>agg na<span class="chordset">(F)</span>al<br>
-Rabb ne ba<span class="chordset">(Gm)</span>naya<span class="chordset">(D#)</span><br>
-Rabb ne ba<span class="chordset">(F)</span>naya, Rabb ne ba<span class="chordset">(D)</span>naya<br><br>
+Kehdi <span class="chordset">(A#)</span>agg na<span class="chordset">(F)</span>al
+Rabb ne ba<span class="chordset">(Gm)</span>naya<span class="chordset">(D#)</span>
+Rabb ne ba<span class="chordset">(F)</span>naya, Rabb ne ba<span class="chordset">(D)</span>naya
 
-<span class="chordset">[Chorus]</span><br>
-Enna <span class="chordset">(Gm)</span>sona kyun<span class="chordset">(F)</span><br>
-Rabb ne ba<span class="chordset">(D#)</span>naya..<span class="chordset">(A#)</span><br>
-Enna <span class="chordset">(Gm)</span>sona kyun<span class="chordset">(F)</span><br>
-Rabb ne ba<span class="chordset">(D#)</span>naya..<span class="chordset">(Dm)</span><br><br>
+[Chorus]
+Enna <span class="chordset">(Gm)</span>sona kyun<span class="chordset">(F)</span>
+Rabb ne ba<span class="chordset">(D#)</span>naya..<span class="chordset">(A#)</span>
+Enna <span class="chordset">(Gm)</span>sona kyun<span class="chordset">(F)</span>
+Rabb ne ba<span class="chordset">(D#)</span>naya..<span class="chordset">(Dm)</span>
 
-Aavan <span class="chordset">(Gm)</span>javan te main<br>
-<span class="chordset">(F)</span>yaara nu ma<span class="chordset">(D#)</span>na<span class="chordset">(Dm)</span>van<br>
-Aavan <span class="chordset">(Gm)</span>javan te main<br>
-<span class="chordset">(F)</span>yaara nu ma<span class="chordset">(D#)</span>na<span class="chordset">(Dm)</span>van<br><br>
+Aavan <span class="chordset">(Gm)</span>javan te main
+<span class="chordset">(F)</span>yaara nu ma<span class="chordset">(D#)</span>na<span class="chordset">(Dm)</span>van
+Aavan <span class="chordset">(Gm)</span>javan te main
+<span class="chordset">(F)</span>yaara nu ma<span class="chordset">(D#)</span>na<span class="chordset">(Dm)</span>van
 
-Enna <span class="chordset">(Gm)</span>sona<span class="chordset">(F)</span>, enna <span class="chordset">(D#)</span>sona<span class="chordset">(Dm)</span><br>
-Enna <span class="chordset">(Gm)</span>sona<span class="chordset">(F)</span> <span class="chordset">(D#)</span>o…<span class="chordset">(Dm)</span><br><br>
+Enna <span class="chordset">(Gm)</span>sona<span class="chordset">(F)</span>, enna <span class="chordset">(D#)</span>sona<span class="chordset">(Dm)</span>
+Enna <span class="chordset">(Gm)</span>sona<span class="chordset">(F)</span> <span class="chordset">(D#)</span>o…<span class="chordset">(Dm)</span>
 
-<span class="chordset">[Instrumental Solo]</span><br>
-<span class="chordset">(Gm/D#)</span><span class="chordset">(F/A#)</span><span class="chordset">(Dm/Gm)</span><span class="chordset">(D#/F)</span><br>
-<span class="chordset">(Gm/D#)</span><span class="chordset">(F/A#)</span><span class="chordset">(F/D#)</span><span class="chordset">(Gm/A)</span><br>
-<span class="chordset">(Dm/F)</span><span class="chordset">(F/A#)</span><br><br>
+[Instrumental Solo]
+<span class="chordset">(Gm/D#)</span><span class="chordset">(F/A#)</span><span class="chordset">(Dm/Gm)</span><span class="chordset">(D#/F)</span>
+<span class="chordset">(Gm/D#)</span><span class="chordset">(F/A#)</span><span class="chordset">(F/D#)</span><span class="chordset">(Gm/A)</span>
+<span class="chordset">(Dm/F)</span><span class="chordset">(F/A#)</span>
 
-<span class="chordset">[Verse]</span><br>
-Taap <span class="chordset">(F)</span>lagge na<span class="chordset">(A#)</span><br>
-tatti chan<span class="chordset">(D#)</span>dni da<span class="chordset">(F)</span><br>
-Saari <span class="chordset">(A#)</span>raati main<span class="chordset">(F)</span><br>
-oss chid<span class="chordset">(Gm)</span>kavan<span class="chordset">(F)</span><br><br>
+[Verse]
+Taap <span class="chordset">(F)</span>lagge na<span class="chordset">(A#)</span>
+tatti chan<span class="chordset">(D#)</span>dni da<span class="chordset">(F)</span>
+Saari <span class="chordset">(A#)</span>raati main<span class="chordset">(F)</span>
+oss chid<span class="chordset">(Gm)</span>kavan<span class="chordset">(F)</span>
 
-Kinne <span class="chordset">(A#)</span>dardan naal<span class="chordset">(Dm)</span><br>
-Rabb ne ba<span class="chordset">(Gm)</span>naya<span class="chordset">(D#)</span><br>
-Rabb ne ba<span class="chordset">(F)</span>naya,<br>
-Rabb ne ba<span class="chordset">(D)</span>naya<span class="chordset">(Gm)</span><br><br>
+Kinne <span class="chordset">(A#)</span>dardan naal<span class="chordset">(Dm)</span>
+Rabb ne ba<span class="chordset">(Gm)</span>naya<span class="chordset">(D#)</span>
+Rabb ne ba<span class="chordset">(F)</span>naya,
+Rabb ne ba<span class="chordset">(D)</span>naya<span class="chordset">(Gm)</span>
 
-<span class="chordset">[Chorus]</span><br>
-Enna <span class="chordset">(Gm)</span>sona kyun<span class="chordset">(F)</span><br>
-Rabb ne ba<span class="chordset">(D#)</span>naya..<span class="chordset">(F)</span><br>
-Enna <span class="chordset">(Gm)</span>sona kyun<span class="chordset">(F)</span><br>
-Rabb ne ba<span class="chordset">(D#)</span>naya..<span class="chordset">(Dm)</span><br><br>
+[Chorus]
+Enna <span class="chordset">(Gm)</span>sona kyun<span class="chordset">(F)</span>
+Rabb ne ba<span class="chordset">(D#)</span>naya..<span class="chordset">(F)</span>
+Enna <span class="chordset">(Gm)</span>sona kyun<span class="chordset">(F)</span>
+Rabb ne ba<span class="chordset">(D#)</span>naya..<span class="chordset">(Dm)</span>
 
-Aavan <span class="chordset">(Gm)</span>javan te main<br>
-<span class="chordset">(F)</span>yaara nu ma<span class="chordset">(D#)</span>na<span class="chordset">(Dm)</span>van<br>
-Aavan <span class="chordset">(Gm)</span>javan te main<br>
-<span class="chordset">(F)</span>yaara nu ma<span class="chordset">(D#)</span>na<span class="chordset">(Dm)</span>van<br><br>
+Aavan <span class="chordset">(Gm)</span>javan te main
+<span class="chordset">(F)</span>yaara nu ma<span class="chordset">(D#)</span>na<span class="chordset">(Dm)</span>van
+Aavan <span class="chordset">(Gm)</span>javan te main
+<span class="chordset">(F)</span>yaara nu ma<span class="chordset">(D#)</span>na<span class="chordset">(Dm)</span>van
 
-Enna <span class="chordset">(Gm)</span>sona<span class="chordset">(F)</span>, enna <span class="chordset">(D#)</span>sona<span class="chordset">(F)</span><br>
+Enna <span class="chordset">(Gm)</span>sona<span class="chordset">(F)</span>, enna <span class="chordset">(D#)</span>sona<span class="chordset">(F)</span>
 Enna <span class="chordset">(Gm)</span>sona<span class="chordset">(F)</span> <span class="chordset">(D#)</span>o…<span class="chordset">(A#)</span>
 </pre>
 
@@ -11461,94 +11461,67 @@ Music : Pritam
 Lyrics: rshad Kamil
 Movie:  Ajab Prem Ki Ghazab Kahani</pre>
     <pre>
-    <span class="chordset">(G)</span>Kaise Bataye <span class="chordset">(Em)</span>Kyu Tujhko Chahe<br>
-<span class="chordset">(Am)</span>Yaara Bata Naa <span class="chordset">(D)</span>Paye<br>
-<span class="chordset">(G)</span>Baate Dilo Ki <span class="chordset">(Em)</span>Dekho Zuban Ki<br>
-<span class="chordset">(Am)</span>Aankhe Tujhe Sam<span class="chordset">(D)</span>jhaye<br><br>
+    <span class="chordset">(G)</span>Kaise Bataye <span class="chordset">(Em)</span>Kyu Tujhko Chahe
+<span class="chordset">(Am)</span>Yaara Bata Naa <span class="chordset">(D)</span>Paye
+<span class="chordset">(G)</span>Baate Dilo Ki <span class="chordset">(Em)</span>Dekho Zuban Ki
+<span class="chordset">(Am)</span>Aankhe Tujhe Sam<span class="chordset">(D)</span>jhaye
 
-Tu Jaane <span class="chordset">(G)</span>Na <span class="chordset">(D)</span>Aa<br>
-Tu Jaane <span class="chordset">(G)</span>Na<br>
-Tu Jaane <span class="chordset">(G)</span>Na <span class="chordset">(D)</span>Aa<br>
-Tu Jaane <span class="chordset">(G)</span>Na<br><br>
+<span class="chordset">(G)</span>Tu Jaane Na <span class="chordset">(D)</span>Aa
+<span class="chordset">(G)</span>Tu Jaane Na
+<span class="chordset">(G)</span>Tu Jaane Na <span class="chordset">(D)</span>Aa
+<span class="chordset">(G)</span>Tu Jaane Na
 
-Mil Ke Bhi <span class="chordset">(G)</span>Hum Na Mi<span class="chordset">(D)</span>le<br>
-Tum <span class="chordset">(Em)</span>Se Na Jaane K<span class="chordset">(D)</span>yu<br>
-Milo Ke <span class="chordset">(G)</span>Hai Faas<span class="chordset">(C)</span>le<br>
-Tum <span class="chordset">(Am)</span>Se Na Jaane K<span class="chordset">(D)</span>yu<br><br>
+<span class="chordset">(G)</span>Mil Ke Bhi <span class="chordset">(D)</span>Hum Na Mi<span class="chordset">(Em)</span>le
+<span class="chordset">(D)</span>Tum Mil<span class="chordset">(G)</span>o Ke Hai Faas<span class="chordset">(C)</span>le
+<span class="chordset">(Am)</span>Tum <span class="chordset">(D)</span>Se Na Jaane K<span class="chordset">(G)</span>yu
 
-Anjaane <span class="chordset">(G)</span>Hai Silsi<span class="chordset">(D)</span>le<br>
-Tum <span class="chordset">(Em)</span>Se Na Jaane K<span class="chordset">(D)</span>yu<br>
-Sapne Hai <span class="chordset">(G)</span>Palko Ta<span class="chordset">(C)</span>le<br>
-Tum <span class="chordset">(Am)</span>Se Na Jaane K<span class="chordset">(D)</span>yu<br><br>
+<span class="chordset">(G)</span>Anjaane Hai Silsi<span class="chordset">(D)</span>le
+<span class="chordset">(Em)</span>Tum Se Na Jaane K<span class="chordset">(D)</span>yu
+<span class="chordset">(G)</span>Sapne Hai Palkon Ta<span class="chordset">(C)</span>le
+<span class="chordset">(Am)</span>Tum Se Na Jaane K<span class="chordset">(D)</span>yu
 
-<span class="chordset">(G)</span>Kaise Bataye <span class="chordset">(Em)</span>Kyu Tujhko Chahe<br>
-<span class="chordset">(Am)</span>Yaara Bata Naa <span class="chordset">(D)</span>Paye<br>
-<span class="chordset">(G)</span>Baate Dilo Ki <span class="chordset">(Em)</span>Dekho Zuban Ki<br>
-<span class="chordset">(Am)</span>Aankhe Tujhe Sam<span class="chordset">(D)</span>jhaye<br><br>
+<span class="chordset">(G)</span>Kaise Bataye <span class="chordset">(Em)</span>Kyu Tujhko Chahe
+<span class="chordset">(Am)</span>Yaara Bata Naa <span class="chordset">(D)</span>Paye
+<span class="chordset">(G)</span>Baate Dilo Ki <span class="chordset">(Em)</span>Dekho Zuban Ki
+<span class="chordset">(Am)</span>Aankhe Tujhe Sam<span class="chordset">(D)</span>jhaye
 
-Tu Jaane <span class="chordset">(G)</span>Na <span class="chordset">(D)</span>Aa<br>
-Tu Jaane <span class="chordset">(G)</span>Na<br>
-Tu Jaane <span class="chordset">(G)</span>Na <span class="chordset">(D)</span>Aa<br>
-Tu Jaane <span class="chordset">(G)</span>Na<br><br>
+<span class="chordset">(G)</span>Tu Jaane Na <span class="chordset">(D)</span>Aa
+<span class="chordset">(G)</span>Tu Jaane Na
+<span class="chordset">(G)</span>Tu Jaane Na <span class="chordset">(D)</span>Aa
+<span class="chordset">(G)</span>Tu Jaane Na
 
-<span class="chordset">(G)</span>Nigahon Mein Dekho Meri<br>
-<span class="chordset">(C)</span>Jo Hai Bas Gaya<br>
-<span class="chordset">(G)</span>Wo Hai Milta Tumse<br>
-Huba<span class="chordset">(D)</span>hoo Ooo<br><br>
+<span class="chordset">(G)</span>Nigahon Mein Dekho Meri
+<span class="chordset">(C)</span>Jo Hai Bas Gaya
+<span class="chordset">(G)</span>Wo Hai Milta Tumse Huba<span class="chordset">(D)</span>hoo Ooo
 
-<span class="chordset">(G)</span>Jaane Teri Aankhe Thi Ya<br>
-<span class="chordset">(C)</span>Baate Thi Wajah<br>
-<span class="chordset">(G)</span>Hue Tum Jo Dil Ki Aar<span class="chordset">(D)</span>zoo<br><br>
+<span class="chordset">(G)</span>Jaane Teri Aankhe Thi Ya
+<span class="chordset">(C)</span>Baate Thi Wajah
+<span class="chordset">(G)</span>Hue Tum Jo Dil Ki Aar<span class="chordset">(D)</span>zoo
 
-Tum Paas <span class="chordset">(C)</span>Hoke Bhi<br>
-Tum Aas <span class="chordset">(G)</span>Hoke Bhi<br>
-Ehsaas <span class="chordset">(C)</span>Hoke Bhi<br>
-Apne Na<span class="chordset">(G)</span>hi Aise Ho <span class="chordset">(D)</span><br><br>
+<span class="chordset">(C)</span>Tum Paas Hoke Bhi
+<span class="chordset">(G)</span>Tum Aas Hoke Bhi
+<span class="chordset">(C)</span>Ehsaas Hoke Bhi
+<span class="chordset">(G)</span>Apne Nahi Aise Ho <span class="chordset">(D)</span>
 
-Hum Ko Gi<span class="chordset">(D)</span>le<br>
-Tum <span class="chordset">(Em)</span>Se Na Jaane K<span class="chordset">(D)</span>yu<br>
-Milo Ke <span class="chordset">(G)</span>Hai Faas<span class="chordset">(C)</span>le<br>
-Tum <span class="chordset">(Am)</span>Se Na Jaane Kyu<span class="chordset">(D)</span>Uuu<br><br>
+<span class="chordset">(D)</span>Hum Ko Gi<span class="chordset">(Em)</span>le
+<span class="chordset">(D)</span>Tum Se Na Jaane K<span class="chordset">(D)</span>yu
+<span class="chordset">(G)</span>Milon Ke Hai Faas<span class="chordset">(C)</span>le
+<span class="chordset">(Am)</span>Tum Se Na Jaane K<span class="chordset">(D)</span>yu
 
-Tu Jaane <span class="chordset">(G)</span>Na <span class="chordset">(D)</span>Aa<br>
-Tu Jaane <span class="chordset">(G)</span>Na<br>
-Tu Jaane <span class="chordset">(G)</span>Na <span class="chordset">(D)</span>Aa<br>
-Tu Jaane <span class="chordset">(G)</span>Na<br><br>
+<span class="chordset">(G)</span>Anjaane Hai Silsi<span class="chordset">(D)</span>le
+<span class="chordset">(Em)</span>Tum Se Na Jaane K<span class="chordset">(D)</span>yu
+<span class="chordset">(G)</span>Sapne Hai Palkon Ta<span class="chordset">(C)</span>le
+<span class="chordset">(Am)</span>Tum Se Na Jaane K<span class="chordset">(D)</span>yu
 
-<span class="chordset">(G)</span>Khayalon Mein <span class="chordset">(D)</span>Laakhon Baate<br>
-<span class="chordset">(C)</span>Yun To Keh Gaya<br>
-<span class="chordset">(G)</span>Bola Kuch Na<br>
-<span class="chordset">(D)</span>Tere Saam<span class="chordset">(Em)</span>ne Ooo<br><br>
+<span class="chordset">(G)</span>Kaise Bataye <span class="chordset">(Em)</span>Kyu Tujhko Chahe
+<span class="chordset">(Am)</span>Yaara Bata Naa <span class="chordset">(D)</span>Paye
+<span class="chordset">(G)</span>Baate Dilo Ki <span class="chordset">(Em)</span>Dekho Zuban Ki
+<span class="chordset">(Am)</span>Aankhe Tujhe Sam<span class="chordset">(D)</span>jhaye
 
-<span class="chordset">(G)</span>Hue Na Be<span class="chordset">(D)</span>gaane Bhi Tum<br>
-<span class="chordset">(C)</span>Hoke Aur <span class="chordset">(D)</span>Ke<br>
-<span class="chordset">(G)</span>Dekho Tum Na<br>
-<span class="chordset">(D)</span>Mere Hi Ba<span class="chordset">(Em)</span>ne<br><br>
-
-Afsos <span class="chordset">(C)</span>Hota Hai<br>
-Dil Bhi Ye <span class="chordset">(G)</span>Rota Hai<br>
-Sapne San<span class="chordset">(C)</span>jota Hai<br>
-Badla Hua<span class="chordset">(G)</span>a Soche Ye<span class="chordset">(D)</span><br><br>
-
-Hum The Mi<span class="chordset">(D)</span>le<br>
-Tum <span class="chordset">(Em)</span>Se Na Jaane K<span class="chordset">(D)</span>yu<br>
-Milon Ke <span class="chordset">(G)</span>Hai Faas<span class="chordset">(C)</span>le<br>
-Tum <span class="chordset">(Am)</span>Se Na Jaane K<span class="chordset">(D)</span>yu<br><br>
-
-Anjaane<span class="chordset">(G)</span> Hai Silsi<span class="chordset">(D)</span>le<br>
-Tum <span class="chordset">(Em)</span>Se Na Jaane K<span class="chordset">(D)</span>yu<br>
-Sapne Hai<span class="chordset">(G)</span> Palkon Ta<span class="chordset">(C)</span>le<br>
-Tum <span class="chordset">(Am)</span>Se Na Jaane K<span class="chordset">(D)</span>yu<br><br>
-
-<span class="chordset">(G)</span>Kaise Bataye <span class="chordset">(Em)</span>Kyu Tujhko Chahe<br>
-<span class="chordset">(Am)</span>Yaara Bata Naa <span class="chordset">(D)</span>Paye<br>
-<span class="chordset">(G)</span>Baate Dilo Ki <span class="chordset">(Em)</span>Dekho Zuban Ki<br>
-<span class="chordset">(Am)</span>Aankhe Tujhe Sam<span class="chordset">(D)</span>jhaye<br><br>
-
-Tu Jaane <span class="chordset">(G)</span>Na <span class="chordset">(D)</span>Aa<br>
-Tu Jaane <span class="chordset">(G)</span>Na<br>
-Tu Jaane <span class="chordset">(G)</span>Na <span class="chordset">(D)</span>Aa<br>
-Tu Jaane <span class="chordset">(G)</span>Na
+<span class="chordset">(G)</span>Tu Jaane Na <span class="chordset">(D)</span>Aa
+<span class="chordset">(G)</span>Tu Jaane Na
+<span class="chordset">(G)</span>Tu Jaane Na <span class="chordset">(D)</span>Aa
+<span class="chordset">(G)</span>Tu Jaane Na
 </pre>
 
     </div>
@@ -11642,52 +11615,52 @@ Music : Ram Sampath
 Lyrics: Javed Akhtar
 Movie: Talaash</pre>
     <pre>
-    <span class="chordset">(Am)</span>Main hoon gumsum tu bhi<br>
-<span class="chordset">(C)</span>khaamosh <span class="chordset">(Em)</span>hai<br>
-<span class="chordset">(Am)</span>Sach hai samay ka hi<br>
-<span class="chordset">(C)</span>sab dosh <span class="chordset">(Em)</span>hai<br><br>
+<span class="chordset">(Am)</span>Main hoon gumsum tu bhi
+<span class="chordset">(C)</span>khaamosh <span class="chordset">(Em)</span>hai
+<span class="chordset">(Am)</span>Sach hai samay ka hi
+<span class="chordset">(C)</span>sab dosh <span class="chordset">(Em)</span>hai
 
-<span class="chordset">(Dm)</span>Dhadkan dhadkan<br>
-<span class="chordset">(F)</span>ik gam rehta <span class="chordset">(G)</span>hai<br>
-<span class="chordset">(Dm)</span>Jaane kyu phir<br>
-<span class="chordset">(F)</span>bhi dil kehta <span class="chordset">(G)</span>hai<br><br>
+<span class="chordset">(Dm)</span>Dhadkan dhadkan
+<span class="chordset">(F)</span>ik gam rehta <span class="chordset">(G)</span>hai
+<span class="chordset">(Dm)</span>Jaane kyu phir
+<span class="chordset">(F)</span>bhi dil kehta <span class="chordset">(G)</span>hai
 
-Jee le za<span class="chordset">(Am)</span>ra, jee le za<span class="chordset">(G)</span>ra<br>
-Kehta hai <span class="chordset">(Am)</span>dil, jee le za<span class="chordset">(G)</span>ra<br>
-<span class="chordset">(F)</span>Aye humsa<span class="chordset">(G)</span>far, aye humna<span class="chordset">(Am)</span>va<br>
-<span class="chordset">(F)</span>Aa paas <span class="chordset">(G)</span>aa, jee le za<span class="chordset">(Am)</span>ra<br><br>
+Jee le za<span class="chordset">(Am)</span>ra, jee le za<span class="chordset">(G)</span>ra
+Kehta hai <span class="chordset">(Am)</span>dil, jee le za<span class="chordset">(G)</span>ra
+<span class="chordset">(F)</span>Aye humsa<span class="chordset">(G)</span>far, aye humna<span class="chordset">(Am)</span>va
+<span class="chordset">(F)</span>Aa paas <span class="chordset">(G)</span>aa, jee le za<span class="chordset">(Am)</span>ra
 
-<span class="chordset">(Am)</span>Hai zindagi mana <span class="chordset">(G)</span>dard bhari<br>
-Phir bhi <span class="chordset">(F)</span>isme ye <span class="chordset">(G)</span>raahat<br>
-bhi <span class="chordset">(Am)</span>hai<br><br>
+<span class="chordset">(Am)</span>Hai zindagi mana <span class="chordset">(G)</span>dard bhari
+Phir bhi <span class="chordset">(F)</span>isme ye <span class="chordset">(G)</span>raahat
+bhi <span class="chordset">(Am)</span>hai
 
-<span class="chordset">(Am)</span>Main hoon tera aur <span class="chordset">(G)</span>tu hai meri<br>
-Yunhi ra<span class="chordset">(F)</span>he hum ye <span class="chordset">(G)</span>chahat<br>
-bhi <span class="chordset">(Am)</span>hai<br><br>
+<span class="chordset">(Am)</span>Main hoon tera aur <span class="chordset">(G)</span>tu hai meri
+Yunhi ra<span class="chordset">(F)</span>he hum ye <span class="chordset">(G)</span>chahat
+bhi <span class="chordset">(Am)</span>hai
 
-<span class="chordset">(Dm)</span>Phir dil ke dil se<br>
-<span class="chordset">(G)</span>pul kyu toote <span class="chordset">(Am)</span>hain<br>
-<span class="chordset">(Dm)</span>kyun hum jeene se<br>
-<span class="chordset">(G)</span>itne roothe <span class="chordset">(Am)</span>hain<br><br>
+<span class="chordset">(Dm)</span>Phir dil ke dil se
+<span class="chordset">(G)</span>pul kyu toote <span class="chordset">(Am)</span>hain
+<span class="chordset">(Dm)</span>kyun hum jeene se
+<span class="chordset">(G)</span>itne roothe <span class="chordset">(Am)</span>hain
 
-<span class="chordset">(Dm)</span>Aa dil ke dar<span class="chordset">(F)</span>waze<br>
-hum kho <span class="chordset">(G)</span>le<br>
-<span class="chordset">(Dm)</span>Aa hum dono <span class="chordset">(F)</span>jee bhar<br>
-ke ro <span class="chordset">(G)</span>le<br><br>
+<span class="chordset">(Dm)</span>Aa dil ke dar<span class="chordset">(F)</span>waze
+hum kho <span class="chordset">(G)</span>le
+<span class="chordset">(Dm)</span>Aa hum dono <span class="chordset">(F)</span>jee bhar
+ke ro <span class="chordset">(G)</span>le
 
-Jee le za<span class="chordset">(Am)</span>ra, jee le za<span class="chordset">(G)</span>ra<br>
-Kehta hai <span class="chordset">(Am)</span>dil, jee le za<span class="chordset">(G)</span>ra<br>
-<span class="chordset">(F)</span>Aye humsa<span class="chordset">(G)</span>far, aye humna<span class="chordset">(Am)</span>va<br>
-<span class="chordset">(F)</span>Aa paas <span class="chordset">(G)</span>aa, jee le za<span class="chordset">(Am)</span>ra<br><br>
+Jee le za<span class="chordset">(Am)</span>ra, jee le za<span class="chordset">(G)</span>ra
+Kehta hai <span class="chordset">(Am)</span>dil, jee le za<span class="chordset">(G)</span>ra
+<span class="chordset">(F)</span>Aye humsa<span class="chordset">(G)</span>far, aye humna<span class="chordset">(Am)</span>va
+<span class="chordset">(F)</span>Aa paas <span class="chordset">(G)</span>aa, jee le za<span class="chordset">(Am)</span>ra
 
-<span class="chordset">(Am)</span>Gam ke ye baadal gu<span class="chordset">(G)</span>zar jaane de<br>
-<span class="chordset">(Am)</span>Ab zindagi ko ni<span class="chordset">(G)</span>khar jaane de<br>
-<span class="chordset">(Dm)</span>Chod de ab yaa<span class="chordset">(F)</span>don ke dukh seh<span class="chordset">(G)</span>na<br>
-<span class="chordset">(Dm)</span>Sun bhi le jo <span class="chordset">(F)</span>dil ka hai keh<span class="chordset">(G)</span>na<br><br>
+<span class="chordset">(Am)</span>Gam ke ye baadal gu<span class="chordset">(G)</span>zar jaane de
+<span class="chordset">(Am)</span>Ab zindagi ko ni<span class="chordset">(G)</span>khar jaane de
+<span class="chordset">(Dm)</span>Chod de ab yaa<span class="chordset">(F)</span>don ke dukh seh<span class="chordset">(G)</span>na
+<span class="chordset">(Dm)</span>Sun bhi le jo <span class="chordset">(F)</span>dil ka hai keh<span class="chordset">(G)</span>na
 
-Jee le za<span class="chordset">(Am)</span>ra, jee le za<span class="chordset">(G)</span>ra<br>
-Kehta hai <span class="chordset">(Am)</span>dil, jee le za<span class="chordset">(G)</span>ra<br>
-<span class="chordset">(F)</span>Aye humsa<span class="chordset">(G)</span>far, aye humna<span class="chordset">(Am)</span>va<br>
+Jee le za<span class="chordset">(Am)</span>ra, jee le za<span class="chordset">(G)</span>ra
+Kehta hai <span class="chordset">(Am)</span>dil, jee le za<span class="chordset">(G)</span>ra
+<span class="chordset">(F)</span>Aye humsa<span class="chordset">(G)</span>far, aye humna<span class="chordset">(Am)</span>va
 <span class="chordset">(F)</span>Aa paas <span class="chordset">(G)</span>aa, jee le za<span class="chordset">(Am)</span>ra
 </pre>
 
@@ -11782,65 +11755,65 @@ Music : R.D Burman
 Lyrics: Majrooh Sultanpuri
 Movie: Hum Kisise kum nahi</pre>
     <pre>
-    <span class="chordset">(A#)</span>Kya hua tera <span class="chordset">(F)</span>vaada<br>
-woh ka<span class="chordset">(A#)</span>sam woh i<span class="chordset">(F)</span>rada<br><br>
+<span class="chordset">(A#)</span>Kya hua tera <span class="chordset">(F)</span>vaada
+woh ka<span class="chordset">(A#)</span>sam woh i<span class="chordset">(F)</span>rada
 
-<span class="chordset">(A#)</span>Kya hua tera <span class="chordset">(F)</span>vaada<br>
-woh ka<span class="chordset">(A#)</span>sam woh i<span class="chordset">(F)</span>rada<br>
-Bhoolega <span class="chordset">(F)</span>dil jis din tumhein<br>
-Woh din <span class="chordset">(C)</span>zindagi ka aakhiri<br>
-<span class="chordset">(F)</span>din hoga<br><br>
+<span class="chordset">(A#)</span>Kya hua tera <span class="chordset">(F)</span>vaada
+woh ka<span class="chordset">(A#)</span>sam woh i<span class="chordset">(F)</span>rada
+Bhoolega <span class="chordset">(F)</span>dil jis din tumhein
+Woh din <span class="chordset">(C)</span>zindagi ka aakhiri
+<span class="chordset">(F)</span>din hoga
 
-<span class="chordset">(A#)</span>Kya hua tera <span class="chordset">(F)</span>vaada<br>
-woh ka<span class="chordset">(A#)</span>sam woh i<span class="chordset">(F)</span>rada<br><br>
+<span class="chordset">(A#)</span>Kya hua tera <span class="chordset">(F)</span>vaada
+woh ka<span class="chordset">(A#)</span>sam woh i<span class="chordset">(F)</span>rada
 
-[Verse 1]<br>
-Yaad hai <span class="chordset">(Dm)</span>mujhko<br>
-toone ka<span class="chordset">(A#)</span>ha tha<br>
-Tumse na<span class="chordset">(Am)</span>hin roo<span class="chordset">(C)</span>thenge<br>
-ka<span class="chordset">(F)</span>bhi<br><br>
+[Verse 1]  
+Yaad hai <span class="chordset">(Dm)</span>mujhko  
+toone ka<span class="chordset">(A#)</span>ha tha  
+Tumse na<span class="chordset">(Am)</span>hin roo<span class="chordset">(C)</span>thenge  
+ka<span class="chordset">(F)</span>bhi
 
-Dil ki ta<span class="chordset">(Dm)</span>rah se<br>
-aaj mi<span class="chordset">(A#)</span>le hain<br>
-Kaise bha<span class="chordset">(Am)</span>la chhoo<span class="chordset">(C)</span>tenge<br>
-ka<span class="chordset">(F)</span>bhi<br><br>
+Dil ki ta<span class="chordset">(Dm)</span>rah se  
+aaj mi<span class="chordset">(A#)</span>le hain  
+Kaise bha<span class="chordset">(Am)</span>la chhoo<span class="chordset">(C)</span>tenge  
+ka<span class="chordset">(F)</span>bhi
 
-<span class="chordset">(F)</span>Teri baa<span class="chordset">(C)</span>hon mein<br>
-<span class="chordset">(F)</span>beeti har <span class="chordset">(C)</span>shaam<br>
-<span class="chordset">(A#)</span>Bewafa yeh bhi kya<br>
-<span class="chordset">(F)</span>ya<span class="chordset">(C)</span>d na<span class="chordset">(F)</span>hin<br><br>
+<span class="chordset">(F)</span>Teri baa<span class="chordset">(C)</span>hon mein  
+<span class="chordset">(F)</span>beeti har <span class="chordset">(C)</span>shaam  
+<span class="chordset">(A#)</span>Bewafa yeh bhi kya  
+<span class="chordset">(F)</span>ya<span class="chordset">(C)</span>d na<span class="chordset">(F)</span>hin
 
-<span class="chordset">(A#)</span>Kya hua tera <span class="chordset">(F)</span>vaada<br>
-woh ka<span class="chordset">(A#)</span>sam woh i<span class="chordset">(F)</span>rada<br>
-Bhoolega <span class="chordset">(F)</span>dil jis din tumhein<br>
-Woh din <span class="chordset">(C)</span>zindagi ka aakhiri<br>
-<span class="chordset">(F)</span>din hoga<br><br>
+<span class="chordset">(A#)</span>Kya hua tera <span class="chordset">(F)</span>vaada
+woh ka<span class="chordset">(A#)</span>sam woh i<span class="chordset">(F)</span>rada
+Bhoolega <span class="chordset">(F)</span>dil jis din tumhein
+Woh din <span class="chordset">(C)</span>zindagi ka aakhiri
+<span class="chordset">(F)</span>din hoga
 
-<span class="chordset">(A#)</span>Kya hua tera <span class="chordset">(F)</span>vaada<br>
-woh ka<span class="chordset">(A#)</span>sam woh i<span class="chordset">(F)</span>rada<br><br>
+<span class="chordset">(A#)</span>Kya hua tera <span class="chordset">(F)</span>vaada
+woh ka<span class="chordset">(A#)</span>sam woh i<span class="chordset">(F)</span>rada
 
-[Verse 2]<br>
-O kehne <span class="chordset">(A#)</span>waale<br>
-mujhko farebi<br>
-Kaun farebi<br>
-<span class="chordset">(C)</span>hai yeh ba<span class="chordset">(F)</span>ta<br><br>
+[Verse 2]  
+O kehne <span class="chordset">(A#)</span>waale  
+mujhko farebi  
+Kaun farebi  
+<span class="chordset">(C)</span>hai yeh ba<span class="chordset">(F)</span>ta
 
-Woh jisne <span class="chordset">(A#)</span>gham liya<br>
-pyaar ki khatir Ya jisne<br>
-<span class="chordset">(C)</span>pyaar ko bech di<span class="chordset">(F)</span>ya<br><br>
+Woh jisne <span class="chordset">(A#)</span>gham liya  
+pyaar ki khatir Ya jisne  
+<span class="chordset">(C)</span>pyaar ko bech di<span class="chordset">(F)</span>ya
 
-<span class="chordset">(F)</span>Nasha dau<span class="chordset">(C)</span>lat ka<br>
-<span class="chordset">(F)</span>aisa bhi <span class="chordset">(C)</span>kya<br>
-<span class="chordset">(A#)</span>Ke tujhe kuchh bhi<br>
-<span class="chordset">(F)</span>yaa<span class="chordset">(C)</span>d na<span class="chordset">(F)</span>hin<br><br>
+<span class="chordset">(F)</span>Nasha dau<span class="chordset">(C)</span>lat ka  
+<span class="chordset">(F)</span>aisa bhi <span class="chordset">(C)</span>kya  
+<span class="chordset">(A#)</span>Ke tujhe kuchh bhi  
+<span class="chordset">(F)</span>yaa<span class="chordset">(C)</span>d na<span class="chordset">(F)</span>hin
 
-<span class="chordset">(A#)</span>Kya hua tera <span class="chordset">(F)</span>vaada<br>
-woh ka<span class="chordset">(A#)</span>sam woh i<span class="chordset">(F)</span>rada<br>
-Bhoolega <span class="chordset">(F)</span>dil jis din tumhein<br>
-Woh din <span class="chordset">(C)</span>zindagi ka aakhiri<br>
-<span class="chordset">(F)</span>din hoga<br><br>
+<span class="chordset">(A#)</span>Kya hua tera <span class="chordset">(F)</span>vaada
+woh ka<span class="chordset">(A#)</span>sam woh i<span class="chordset">(F)</span>rada
+Bhoolega <span class="chordset">(F)</span>dil jis din tumhein
+Woh din <span class="chordset">(C)</span>zindagi ka aakhiri
+<span class="chordset">(F)</span>din hoga
 
-<span class="chordset">(A#)</span>Kya hua tera <span class="chordset">(F)</span>vaada<br>
+<span class="chordset">(A#)</span>Kya hua tera <span class="chordset">(F)</span>vaada
 woh ka<span class="chordset">(A#)</span>sam woh i<span class="chordset">(F)</span>rada
 </pre>
 
@@ -11935,100 +11908,100 @@ Music : Pritam
 Lyrics: Amitabh Bhattacharya
 Movie: Kalank</pre>
     <pre>
-    <span class="chordset">(A#)</span>(<span class="chordset">Gm</span>)(<span class="chordset">F#</span>)<br>
-<span class="chordset">(A#)</span>(<span class="chordset">Gm</span>)(<span class="chordset">F#</span>)<br><br>
+<span class="chordset">(A#)</span>(<span class="chordset">Gm</span>)(<span class="chordset">F#</span>)
+<span class="chordset">(A#)</span>(<span class="chordset">Gm</span>)(<span class="chordset">F#</span>)
 
-[VERSE 1]<br>
-Hawaao me bah<span class="chordset">(D#)</span>engey<br>
-Ghaaton me ra<span class="chordset">(F#)</span>henge<br>
-Tu barkhaa me<span class="chordset">(Gm)</span>ri<br>
-Me te<span class="chordset">(F#)</span>ra baadal pi<span class="chordset">(D#)</span>ya<br><br>
+[VERSE 1]
+Hawaao me bah<span class="chordset">(D#)</span>engey
+Ghaaton me ra<span class="chordset">(F#)</span>henge
+Tu barkhaa me<span class="chordset">(Gm)</span>ri
+Me te<span class="chordset">(F#)</span>ra baadal pi<span class="chordset">(D#)</span>ya
 
-Jo tere naa hu<span class="chordset">(D#)</span>e toh<br>
-Kisike naa rah<span class="chordset">(F#)</span>henge<br>
-Diwaani tu me<span class="chordset">(Gm)</span>ri<br>
-Main te<span class="chordset">(F#)</span>ra paagal pi<span class="chordset">(D#)</span>ya<br><br>
+Jo tere naa hu<span class="chordset">(D#)</span>e toh
+Kisike naa rah<span class="chordset">(F#)</span>henge
+Diwaani tu me<span class="chordset">(Gm)</span>ri
+Main te<span class="chordset">(F#)</span>ra paagal pi<span class="chordset">(D#)</span>ya
 
-[CHORUS]<br>
-Hazaaro meki<span class="chordset">(Gm)</span>si <span class="chordset">(D#)</span>ko<br>
-Takdeer <span class="chordset">(F#)</span>ai<span class="chordset">(A#)</span>si<br>
-Milli hai ek <span class="chordset">(Gm)</span>raan <span class="chordset">(D#)</span>jhaa<br>
-Aur heer <span class="chordset">(F#)</span>jai<span class="chordset">(A#)</span>si<br><br>
+[CHORUS]
+Hazaaro meki<span class="chordset">(Gm)</span>si <span class="chordset">(D#)</span>ko
+Takdeer <span class="chordset">(F#)</span>ai<span class="chordset">(A#)</span>si
+Milli hai ek <span class="chordset">(Gm)</span>raan <span class="chordset">(D#)</span>jhaa
+Aur heer <span class="chordset">(F#)</span>jai<span class="chordset">(A#)</span>si
 
-Naa jane yeh ja<span class="chordset">(D#)</span>maana<br>
-Kyu chahey yeh mi<span class="chordset">(F#)</span>taana<br>
-Kalank na<span class="chordset">(Gm)</span>hi ishq <span class="chordset">(F#)</span>hai<br>
-kaajal pi<span class="chordset">(D#)</span>ya<br>
-Kalank na<span class="chordset">(Gm)</span>hi ishq <span class="chordset">(F#)</span>hai<br>
-kajal pi<span class="chordset">(D#)</span>ya<br><br>
+Naa jane yeh ja<span class="chordset">(D#)</span>maana
+Kyu chahey yeh mi<span class="chordset">(F#)</span>taana
+Kalank na<span class="chordset">(Gm)</span>hi ishq <span class="chordset">(F#)</span>hai
+kaajal pi<span class="chordset">(D#)</span>ya
+Kalank na<span class="chordset">(Gm)</span>hi ishq <span class="chordset">(F#)</span>hai
+kajal pi<span class="chordset">(D#)</span>ya
 
-[Piya Re Part]<br>
-<span class="chordset">(Cm)</span>(<span class="chordset">F</span>)(<span class="chordset">Gm</span>)(<span class="chordset">D#</span>)<br>
-<span class="chordset">(Cm)</span>(<span class="chordset">F</span>)(<span class="chordset">Gm</span>)(<span class="chordset">D#</span>)<br>
-<span class="chordset">(A#)</span>(<span class="chordset">A#</span>)(<span class="chordset">D#</span>)(<span class="chordset">D#</span>)<br>
-<span class="chordset">(A#)</span>(<span class="chordset">A#</span>)(<span class="chordset">Gm</span>)(<span class="chordset">Cm</span>)<br><br>
+[Piya Re Part]
+<span class="chordset">(Cm)</span>(<span class="chordset">F</span>)(<span class="chordset">Gm</span>)(<span class="chordset">D#</span>)
+<span class="chordset">(Cm)</span>(<span class="chordset">F</span>)(<span class="chordset">Gm</span>)(<span class="chordset">D#</span>)
+<span class="chordset">(A#)</span>(<span class="chordset">A#</span>)(<span class="chordset">D#</span>)(<span class="chordset">D#</span>)
+<span class="chordset">(A#)</span>(<span class="chordset">A#</span>)(<span class="chordset">Gm</span>)(<span class="chordset">Cm</span>)
 
-INSTRUMENTAL<br>
-<span class="chordset">(Cm)</span>(<span class="chordset">F</span>)(<span class="chordset">Gm</span>)(<span class="chordset">D#</span>)<br>
-<span class="chordset">(Cm)</span>(<span class="chordset">F</span>)(<span class="chordset">Gm</span>)(<span class="chordset">D#</span>)<br><br>
+INSTRUMENTAL
+<span class="chordset">(Cm)</span>(<span class="chordset">F</span>)(<span class="chordset">Gm</span>)(<span class="chordset">D#</span>)
+<span class="chordset">(Cm)</span>(<span class="chordset">F</span>)(<span class="chordset">Gm</span>)(<span class="chordset">D#</span>)
 
-[VERSE 2]<br>
-<span class="chordset">(A#)</span>Duniya ki nazron mein<br>
-<span class="chordset">(A#m)</span>ye rog hai<br>
-<span class="chordset">(A#)</span>Ho jinko <span class="chordset">(Gm)</span>vo jaane<br>
-<span class="chordset">(A#)</span>ye jog hai<br><br>
+[VERSE 2]
+<span class="chordset">(A#)</span>Duniya ki nazron mein
+<span class="chordset">(A#m)</span>ye rog hai
+<span class="chordset">(A#)</span>Ho jinko <span class="chordset">(Gm)</span>vo jaane
+<span class="chordset">(A#)</span>ye jog hai
 
-<span class="chordset">(A#)</span>Ek tarfa shayad ho<br>
-<span class="chordset">(A#m)</span>dil ka bharam<br>
-<span class="chordset">(A#)</span>Do tarfa <span class="chordset">(Gm)</span>hai to ye<br>
-<span class="chordset">(A#)</span>sanjog hai<br><br>
+<span class="chordset">(A#)</span>Ek tarfa shayad ho
+<span class="chordset">(A#m)</span>dil ka bharam
+<span class="chordset">(A#)</span>Do tarfa <span class="chordset">(Gm)</span>hai to ye
+<span class="chordset">(A#)</span>sanjog hai
 
-Laai re humein <span class="chordset">(Cm)</span>zindgaani<br>
-<span class="chordset">(F#)</span>ki kahani <span class="chordset">(Cm)</span>kaise mod <span class="chordset">(A#)</span>pe<br>
-Huye re khud <span class="chordset">(Gm)</span>se paraaye<br>
-<span class="chordset">(F#)</span>Hum kisi se <span class="chordset">(Cm)</span>naata jod <span class="chordset">(A#)</span>ke<br><br>
+Laai re humein <span class="chordset">(Cm)</span>zindg
+<span class="chordset">(F#)</span>ki kahani <span class="chordset">(Cm)</span>kaise mod <span class="chordset">(A#)</spa
+Huye re khud <span class="chordset">(Gm)</span>se par
+<span class="chordset">(F#)</span>Hum kisi se <span class="chordset">(Cm)</span>naata jod <span class="chordset">(A#)</spa
 
-[CHORUS]<br>
-Hazaron mein ki<span class="chordset">(Gm)</span>si <span class="chordset">(D#)</span>ko<br>
-takdir <span class="chordset">(F#)</span>ai<span class="chordset">(A#)</span>si<br>
-Mili hai ek <span class="chordset">(Gm)</span>raan<span class="chordset">(D#)</span>Jha<br>
-aur heer <span class="chordset">(F#)</span>jai<span class="chordset">(A#)</span>si<br><br>
+[CHORUS]
+Hazaron mein ki<span class="chordset">(Gm)</span>si <span class="chordset">(D#)</span>ko
+takdir <span class="chordset">(F#)</span>ai<span class="chordset">(A#)</span>si
+Mili hai ek <span class="chordset">(Gm)</span>raan<span class="chordset">(D#)</span>Jha
+aur heer <span class="chordset">(F#)</span>jai<span class="chordset">(A#)</span>si
 
-Na jaane ye ja<span class="chordset">(D#)</span>maana,<br>
-kyun chaahe re mi<span class="chordset">(F#)</span>taana<br>
-Kalank na<span class="chordset">(Gm)</span>hi ishq <span class="chordset">(F#)</span>hai<br>
-kajal pi<span class="chordset">(A#)</span>ya<br>
-Kalank na<span class="chordset">(Gm)</span>hi ishq <span class="chordset">(F#)</span>hai<br>
-kajal pi<span class="chordset">(D#)</span>ya<br><br>
+Na jaane ye ja<span class="chordset">(D#)</span>maana,
+kyun chaahe re mi<span class="chordset">(F#)</span>taana
+Kalank na<span class="chordset">(Gm)</span>hi ishq <span class="chordset">(F#)</span>hai
+kajal pi<span class="chordset">(A#)</span>ya
+Kalank na<span class="chordset">(Gm)</span>hi ishq <span class="chordset">(F#)</span>hai
+kajal pi<span class="chordset">(D#)</span>ya
 
-[HOOK]<br>
-Me <span class="chordset">(Cm)</span>tera me… tera<br>
-me <span class="chordset">(F)</span>tera main<br>
-tera me <span class="chordset">(Gm)</span>tera<br>
-me <span class="chordset">(D#)</span>tera<br><br>
+[HOOK]
+Me <span class="chordset">(Cm)</span>tera me… tera
+me <span class="chordset">(F)</span>tera main
+tera me <span class="chordset">(Gm)</span>tera
+me <span class="chordset">(D#)</span>tera
 
-Main <span class="chordset">(Cm)</span>gehra tamas,<br>
-tu su<span class="chordset">(F)</span>nehra saveraa<br>
-Main <span class="chordset">(Gm)</span>tera, ho main <span class="chordset">(D#)</span>tera<br><br>
+Main <span class="chordset">(Cm)</span>gehra tamas,
+tu su<span class="chordset">(F)</span>nehra saveraa
+Main <span class="chordset">(Gm)</span>tera, ho main <span class="chordset">(D#)</span>tera
 
-Mu<span class="chordset">(Cm)</span>safir main bhatka,<br>
-tu <span class="chordset">(F)</span>mera baseraa<br>
-Main <span class="chordset">(Gm)</span>tera, ho main <span class="chordset">(D#)</span>tera<br><br>
+Mu<span class="chordset">(Cm)</span>safir main bhatka,
+tu <span class="chordset">(F)</span>mera baseraa
+Main <span class="chordset">(Gm)</span>tera, ho main <span class="chordset">(D#)</span>tera
 
-Tu <span class="chordset">(Cm)</span>jugnu chamkta,<br>
-main <span class="chordset">(F)</span>jungle ghanera<br>
-Main <span class="chordset">(Gm)</span>tera....<span class="chordset">(D#)</span><br><br>
+Tu <span class="chordset">(Cm)</span>jugnu chamkta,
+main <span class="chordset">(F)</span>jungle ghanera
+Main <span class="chordset">(Gm)</span>tera....<span class="chordset">(D#)</span>
 
-[OUTRO]<br>
-Ho, piya <span class="chordset">(Cm)</span>main <span class="chordset">(F)</span>tera,<br>
-main <span class="chordset">(Gm)</span>tera, main <span class="chordset">(D#)</span>tera<br>
-<span class="chordset">(Cm)</span>oo.. oo.. oo <span class="chordset">(F)</span>oh<br>
-Main <span class="chordset">(Gm)</span>tera, ho main <span class="chordset">(D#)</span>tera<br><br>
+[OUTRO]
+Ho, piya <span class="chordset">(Cm)</span>main <span class="chordset">(F)</span>tera,
+main <span class="chordset">(Gm)</span>tera, main <span class="chordset">(D#)</span>tera
+<span class="chordset">(Cm)</span>oo.. oo.. oo <span class="chordset">(F)</span>oh
+Main <span class="chordset">(Gm)</span>tera, ho main <span class="chordset">(D#)</span>tera
 
-<span class="chordset">(Cm)</span>oo.. oo.. oo <span class="chordset">(F)</span>oh<br>
-oh<span class="chordset">(Gm)</span>oo ho o… <span class="chordset">(D#)</span>o<br>
-<span class="chordset">(Cm)</span>oo.. oo.. oo <span class="chordset">(F)</span>oh<br>
-oh<span class="chordset">(Gm)</span>oo ho o… <span class="chordset">(D#)</span>o<br>
+<span class="chordset">(Cm)</span>oo.. oo.. oo <span class="chordset">(F)</span>oh
+oh<span class="chordset">(Gm)</span>oo ho o… <span class="chordset">(D#)</span>o
+<span class="chordset">(Cm)</span>oo.. oo.. oo <span class="chordset">(F)</span>oh
+oh<span class="chordset">(Gm)</span>oo ho o… <span class="chordset">(D#)</span>o
 Ooo<span class="chordset">(A#)</span>
 </pre>
 
@@ -12123,113 +12096,113 @@ Music : Chirantan
 Lyrics: Junaid Wasi
 Movie : 1920 Evil Returns</pre>
     <pre>
-    <span class="chordset">(Cm)</span>(<span class="chordset">Fm</span>)(<span class="chordset">G</span>)(<span class="chordset">G</span>)<br>
-<span class="chordset">(Cm)</span>(<span class="chordset">Fm</span>)(<span class="chordset">G</span>)(<span class="chordset">G</span>)<br><br>
+<span class="chordset">(Cm)</span>(<span class="chordset">Fm</span>)(<span class="chordset">G</span>)(<span class="chordset">G</span>)
+<span class="chordset">(Cm)</span>(<span class="chordset">Fm</span>)(<span class="chordset">G</span>)(<span class="chordset">G</span>)
 
-[Verse 1]<br>
-Meri <span class="chordset">(Cm)</span>Kismat Ke<br>
-Har Ek <span class="chordset">(Cm)</span>Panne Pe<br>
-Mere <span class="chordset">(Fm)</span>Jeete Ji<br>
-Baad <span class="chordset">(Fm)</span>Marne Ke<br><br>
+[Verse 1]
+Meri <span class="chordset">(Cm)</span>Kismat Ke
+Har Ek <span class="chordset">(Cm)</span>Panne Pe
+Mere <span class="chordset">(Fm)</span>Jeete Ji
+Baad <span class="chordset">(Fm)</span>Marne Ke
 
-Mere <span class="chordset">(G)</span>Har Ek Kal<br>
-Har Ek <span class="chordset">(Cm)</span>Lamhein Mein<br>
-Tu <span class="chordset">(A#)</span>Likh De <span class="chordset">(G#)</span>Mera U<span class="chordset">(G)</span><br><br>
+Mere <span class="chordset">(G)</span>Har Ek Kal
+Har Ek <span class="chordset">(Cm)</span>Lamhein Mein
+Tu <span class="chordset">(A#)</span>Likh De <span class="chordset">(G#)</span>Mera U<span class="chordset">(G)</span>
 
-Har Ka<span class="chordset">(Cm)</span>hani Mein<br>
-Saare <span class="chordset">(Cm)</span>Kisson Mein<br>
-Dil Ki <span class="chordset">(Fm)</span>Duniya Ke<br>
-Sacche <span class="chordset">(Fm)</span>Rishton Mein<br><br>
+Har Ka<span class="chordset">(Cm)</span>hani Mein
+Saare <span class="chordset">(Cm)</span>Kisson Mein
+Dil Ki <span class="chordset">(Fm)</span>Duniya Ke
+Sacche <span class="chordset">(Fm)</span>Rishton Mein
 
-Zinda<span class="chordset">(G)</span>gaani Ke<br>
-Saare <span class="chordset">(Cm)</span>Hisson Mein<br>
-Tu <span class="chordset">(A#)</span>Likh De <span class="chordset">(G#)</span>Mera U<span class="chordset">(G)</span><br><br>
+Zinda<span class="chordset">(G)</span>gaani Ke
+Saare <span class="chordset">(Cm)</span>Hisson Mein
+Tu <span class="chordset">(A#)</span>Likh De <span class="chordset">(G#)</span>Mera U<span class="chordset">(G)</span>
 
-[Chorus]<br>
-Aye Khu<span class="chordset">(Cm)</span>da Aye Khu<span class="chordset">(A#)</span>da<br>
-Jab Ba<span class="chordset">(G#)</span>na Uska Hi Ba<span class="chordset">(G)</span>na<br>
-Aye Khu<span class="chordset">(Cm)</span>da Aye Khu<span class="chordset">(A#)</span>da<br>
-Jab Ba<span class="chordset">(G#)</span>na Uska Hi Ba<span class="chordset">(G)</span>na<br><br>
+[Chorus]
+Aye Khu<span class="chordset">(Cm)</span>da Aye Khu<span class="chordset">(A#)</span>da
+Jab Ba<span class="chordset">(G#)</span>na Uska Hi Ba<span class="chordset">(G)</span>na
+Aye Khu<span class="chordset">(Cm)</span>da Aye Khu<span class="chordset">(A#)</span>da
+Jab Ba<span class="chordset">(G#)</span>na Uska Hi Ba<span class="chordset">(G)</span>na
 
-<span class="chordset">(Cm)</span>(<span class="chordset">G#</span>)(<span class="chordset">D#</span>)(<span class="chordset">A#</span>)<br>
-<span class="chordset">(Cm)</span>(<span class="chordset">G#</span>)(<span class="chordset">D#</span>)(<span class="chordset">A#</span>)<br><br>
+<span class="chordset">(Cm)</span>(<span class="chordset">G#</span>)(<span class="chordset">D#</span>)(<span class="chordset">A#</span>)
+<span class="chordset">(Cm)</span>(<span class="chordset">G#</span>)(<span class="chordset">D#</span>)(<span class="chordset">A#</span>)
 
-[Verse 2]<br>
-<span class="chordset">(Cm)</span>Uska Hoon Us<br>
-<span class="chordset">(Fm)</span>Main Hoon Usse Hoon<br>
-U<span class="chordset">(Gm)</span>si Ka Rehne <span class="chordset">(Cm)</span>De..<br><br>
+[Verse 2]
+<span class="chordset">(Cm)</span>Uska Hoon Us
+<span class="chordset">(Fm)</span>Main Hoon Usse Hoon
+U<span class="chordset">(Gm)</span>si Ka Rehne <span class="chordset">(Cm)</span>De..
 
-<span class="chordset">(Cm)</span>Main Toh Pyasa Hoon Hai<br>
-<span class="chordset">(Fm)</span>Dariya Wo Zariya Woh<br>
-<span class="chordset">(Gm)</span>Jeene Ka Me<span class="chordset">(Cm)</span>re<br><br>
+<span class="chordset">(Cm)</span>Main Toh Pyasa Hoon Hai
+<span class="chordset">(Fm)</span>Dariya Wo Zariya Woh
+<span class="chordset">(Gm)</span>Jeene Ka Me<span class="chordset">(Cm)</span>re
 
-<span class="chordset">(Cm)</span>Mujhe Ghar De<br>
-Ga<span class="chordset">(Fm)</span>li De Shehar De<br>
-U<span class="chordset">(Gm)</span>si Ke Naam <span class="chordset">(Cm)</span>Ke<br><br>
+<span class="chordset">(Cm)</span>Mujhe Ghar De
+Ga<span class="chordset">(Fm)</span>li De Shehar De
+U<span class="chordset">(Gm)</span>si Ke Naam <span class="chordset">(Cm)</span>Ke
 
-<span class="chordset">(Cm)</span>Kadam Yeh<br>
-Cha<span class="chordset">(Fm)</span>lein Ya Ruken Ab<br>
-U<span class="chordset">(Gm)</span>si Ke Vaas<span class="chordset">(Cm)</span>te<br><br>
+<span class="chordset">(Cm)</span>Kadam Yeh
+Cha<span class="chordset">(Fm)</span>lein Ya Ruken Ab
+U<span class="chordset">(Gm)</span>si Ke Vaas<span class="chordset">(Cm)</span>te
 
-Dil <span class="chordset">(A#)</span>Mujhe De A<span class="chordset">(G#)</span>gar<br>
-Dard <span class="chordset">(Gm)</span>De Uska <span class="chordset">(Cm)</span>Par<span class="chordset">(A#)</span><br>
-Uski <span class="chordset">(Gm)</span>Ho Woh Ha<span class="chordset">(G#)</span>si<br>
-Gunje <span class="chordset">(A#)</span>Jo Mera <span class="chordset">(G)</span>Ghar<br><br>
+Dil <span class="chordset">(A#)</span>Mujhe De A<span class="chordset">(G#)</span>gar
+Dard <span class="chordset">(Gm)</span>De Uska <span class="chordset">(Cm)</span>Par<span class="chordset">(A#)</span>
+Uski <span class="chordset">(Gm)</span>Ho Woh Ha<span class="chordset">(G#)</span>si
+Gunje <span class="chordset">(A#)</span>Jo Mera <span class="chordset">(G)</span>Ghar
 
-[Chorus]<br>
-Aye Khu<span class="chordset">(Cm)</span>da Aye Khu<span class="chordset">(A#)</span>da<br>
-Jab Ba<span class="chordset">(G#)</span>na Uska Hi Ba<span class="chordset">(G)</span>na<br>
-Aye Khu<span class="chordset">(Cm)</span>da Aye Khu<span class="chordset">(A#)</span>da<br>
-Jab Ba<span class="chordset">(G#)</span>na Uska Hi Ba<span class="chordset">(G)</span>na<br><br>
+[Chorus]
+Aye Khu<span class="chordset">(Cm)</span>da Aye Khu<span class="chordset">(A#)</span>da
+Jab Ba<span class="chordset">(G#)</span>na Uska Hi Ba<span class="chordset">(G)</span>na
+Aye Khu<span class="chordset">(Cm)</span>da Aye Khu<span class="chordset">(A#)</span>da
+Jab Ba<span class="chordset">(G#)</span>na Uska Hi Ba<span class="chordset">(G)</span>na
 
-<span class="chordset">(Cm)</span>(<span class="chordset">G#</span>)(<span class="chordset">D#</span>)(<span class="chordset">A#</span>)<br>
-<span class="chordset">(Cm)</span>(<span class="chordset">G#</span>)(<span class="chordset">D#</span>)(<span class="chordset">A#</span>)<br><br>
+<span class="chordset">(Cm)</span>(<span class="chordset">G#</span>)(<span class="chordset">D#</span>)(<span class="chordset">A#</span>)
+<span class="chordset">(Cm)</span>(<span class="chordset">G#</span>)(<span class="chordset">D#</span>)(<span class="chordset">A#</span>)
 
-[Verse 3]<br>
-<span class="chordset">(Cm)</span>Mere Hisse Ki<br>
-Khu<span class="chordset">(Fm)</span>shi Ko Hashi Ko Tu<br>
-<span class="chordset">(Gm)</span>Chaahe Aadha <span class="chordset">(Cm)</span>Kar<br><br>
+[Verse 3]
+<span class="chordset">(Cm)</span>Mere Hisse Ki
+Khu<span class="chordset">(Fm)</span>shi Ko Hashi Ko Tu
+<span class="chordset">(Gm)</span>Chaahe Aadha <span class="chordset">(Cm)</span>Kar
 
-<span class="chordset">(Cm)</span>Chahe Lele Tu<br>
-Me<span class="chordset">(Fm)</span>ri Zindagi Par<br>
-Ye <span class="chordset">(Gm)</span>Mujh Se Vaada <span class="chordset">(Cm)</span>Kar<br><br>
+<span class="chordset">(Cm)</span>Chahe Lele Tu
+Me<span class="chordset">(Fm)</span>ri Zindagi Par
+Ye <span class="chordset">(Gm)</span>Mujh Se Vaada <span class="chordset">(Cm)</span>Kar
 
-<span class="chordset">(Cm)</span>Uske Ashkon Pe<br>
-Gu<span class="chordset">(Fm)</span>mon Pe Dukhon Pe<br>
-Har <span class="chordset">(Gm)</span>Uske Zakhm <span class="chordset">(Cm)</span>Par<br><br>
+<span class="chordset">(Cm)</span>Uske Ashkon Pe
+Gu<span class="chordset">(Fm)</span>mon Pe Dukhon Pe
+Har <span class="chordset">(Gm)</span>Uske Zakhm <span class="chordset">(Cm)</span
 
-Haq Mera Hi<br>
-Ra<span class="chordset">(Fm)</span>he Har Jagah<br>
-Har Gha<span class="chordset">(Gm)</span>di Haan Umar <span class="chordset">(Cm)</span>Bhar<br><br>
+Haq Mera Hi
+Ra<span class="chordset">(Fm)</span>he Har Jagah
+Har Gha<span class="chordset">(Gm)</span>di Haan Umar <span class="chordset">(Cm)</span>Bhar
 
-Ab Fa<span class="chordset">(A#)</span>kht Ho Ye<span class="chordset">(G#)</span>hi<br>
-Woh Ra<span class="chordset">(Gm)</span>he Mujh Mein <span class="chordset">(Cm)</span>Hi<span class="chordset">(A#)</span><br>
-Woh Ju<span class="chordset">(Gm)</span>da Kehne <span class="chordset">(G#)</span>Ko<br>
-Bichjde <span class="chordset">(A#)</span>Na Par Ka<span class="chordset">(G)</span>hi<br><br>
+Ab Fa<span class="chordset">(A#)</span>kht Ho Ye<span class="chordset">(G#)</span>hi
+Woh Ra<span class="chordset">(Gm)</span>he Mujh Mein <span class="chordset">(Cm)</span>Hi<span class="chordset">(A#)</span>
+Woh Ju<span class="chordset">(Gm)</span>da Kehne <span class="chordset">(G#)</span>Ko
+Bichjde <span class="chordset">(A#)</span>Na Par Ka<span class="chordset">(G)</span>hi
 
-[Chorus]<br>
-Aye Khu<span class="chordset">(Cm)</span>da Aye Khu<span class="chordset">(A#)</span>da<br>
-Jab Ba<span class="chordset">(G#)</span>na Uska Hi Ba<span class="chordset">(G)</span>na<br>
-Aye Khu<span class="chordset">(Cm)</span>da Aye Khu<span class="chordset">(A#)</span>da<br>
-Jab Ba<span class="chordset">(G#)</span>na Uska Hi Ba<span class="chordset">(G)</span>na<br><br>
+[Chorus]
+Aye Khu<span class="chordset">(Cm)</span>da Aye Khu<span class="chordset">(A#)</span>da
+Jab Ba<span class="chordset">(G#)</span>na Uska Hi Ba<span class="chordset">(G)</span>na
+Aye Khu<span class="chordset">(Cm)</span>da Aye Khu<span class="chordset">(A#)</span>da
+Jab Ba<span class="chordset">(G#)</span>na Uska Hi Ba<span class="chordset">(G)</span>na
 
-[Verse 4]<br>
-Meri <span class="chordset">(Cm)</span>Kismat Ke<br>
-Har Ek <span class="chordset">(Cm)</span>Panne Pe<br>
-Mere <span class="chordset">(Fm)</span>Jeete Ji<br>
-Baad <span class="chordset">(Fm)</span>Marne Ke<br><br>
+[Verse 4]
+Meri <span class="chordset">(Cm)</span>Kismat Ke
+Har Ek <span class="chordset">(Cm)</span>Panne Pe
+Mere <span class="chordset">(Fm)</span>Jeete Ji
+Baad <span class="chordset">(Fm)</span>Marne Ke
 
-Mere <span class="chordset">(G)</span>Har Ek Kal<br>
-Har Ek <span class="chordset">(Cm)</span>Lamhein Mein<br>
-Tu <span class="chordset">(A#)</span>Likh De <span class="chordset">(G#)</span>Mera U<span class="chordset">(G)</span><br><br>
+Mere <span class="chordset">(G)</span>Har Ek Kal
+Har Ek <span class="chordset">(Cm)</span>Lamhein Mein
+Tu <span class="chordset">(A#)</span>Likh De <span class="chordset">(G#)</span>Mera U<span class="chordset">(G)</span>
 
-[Outro]<br>
-<span class="chordset">(Cm)</span>(<span class="chordset">Cm</span>)(<span class="chordset">Fm</span>)(<span class="chordset">Fm</span>)<br>
-(<span class="chordset">G</span>)(<span class="chordset">Cm</span>)(<span class="chordset">A#</span>)(<span class="chordset">G#</span>)(<span class="chordset">G</span>)<br>
-Aye Khu<span class="chordset">(Cm)</span>da Aye Khu<span class="chordset">(A#)</span>da<br>
-Aye Khu<span class="chordset">(A#)</span>da Aye Khu<span class="chordset">(G#)</span>da<br><br>
+[Outro]
+<span class="chordset">(Cm)</span>(<span class="chordset">Cm</span>)(<span class="chordset">Fm</span>)(<span class="chordset">Fm</span>)
+(<span class="chordset">G</span>)(<span class="chordset">Cm</span>)(<span class="chordset">A#</span>)(<span class="chordset">G#</span>)(<span class="chordset">G</span>)
+Aye Khu<span class="chordset">(Cm)</span>da Aye Khu<span class="chordset">(A#)</span>da
+Aye Khu<span class="chordset">(A#)</span>da Aye Khu<span class="chordset">(G#)</span>da
 
-(<span class="chordset">G#m</span>)(<span class="chordset">G</span>)(<span class="chordset">Cm</span>)(<span class="chordset">A#</span>)(<span class="chordset">G#</span>)<br>
+(<span class="chordset">G#m</span>)(<span class="chordset">G</span>)(<span class="chordset">Cm</span>)(<span class="chordset">A#</span>)(<span class="chordset">G#</span>)
 (<span class="chordset">G</span>)(<span class="chordset">Cm</span>)
 </pre>
 
@@ -12324,60 +12297,60 @@ Music :Ram Sampath
 Lyrics:Javed Akhtar
 Movie :Talaash</pre>
     <pre>
-    [Chorus]:<br>
-<span class="chordset">(A)</span>Lakh duniya ka<span class="chordset">(E)</span>he<br>
-Tum na<span class="chordset">(F#m)</span>hi ho<span class="chordset">(A)</span><br>
-Tum ya<span class="chordset">(D)</span>hin <span class="chordset">(E)</span>ho<br>
-Tum ya<span class="chordset">(A)</span>hin ho<br><br>
+[Chorus]
+<span class="chordset">(A)</span>Lakh duniya ka<span class="chordset">(E)</span>he
+Tum na<span class="chordset">(F#m)</span>hi ho<span class="chordset">(A)</span>
+Tum ya<span class="chordset">(D)</span>hin <span class="chordset">(E)</span>ho
+Tum ya<span class="chordset">(A)</span>hin ho
 
-<span class="chordset">(A)</span>Lakh duniya ka<span class="chordset">(E)</span>he<br>
-Tum na<span class="chordset">(F#m)</span>hi ho<span class="chordset">(A)</span><br>
-Tum ya<span class="chordset">(D)</span>hin <span class="chordset">(E)</span>ho<br>
-Tum ya<span class="chordset">(A)</span>hin ho<br><br>
+<span class="chordset">(A)</span>Lakh duniya ka<span class="chordset">(E)</span>he
+Tum na<span class="chordset">(F#m)</span>hi ho<span class="chordset">(A)</span>
+Tum ya<span class="chordset">(D)</span>hin <span class="chordset">(E)</span>ho
+Tum ya<span class="chordset">(A)</span>hin ho
 
-Meri <span class="chordset">(A)</span>har soch me<br>
-Meri <span class="chordset">(F#m)</span>har baat me<br>
-Mere <span class="chordset">(D)</span>ehsas me<br>
-Mere <span class="chordset">(E)</span>jazbat <span class="chordset">(A)</span>me<br><br>
+Meri <span class="chordset">(A)</span>har soch me
+Meri <span class="chordset">(F#m)</span>har baat me
+Mere <span class="chordset">(D)</span>ehsas me
+Mere <span class="chordset">(E)</span>jazbat <span class="chordset">(A)</span>me
 
-Tum hi <span class="chordset">(B)</span>tum ho<br>
-Tum har ka<span class="chordset">(E)</span>hin ho<br><br>
+Tum hi <span class="chordset">(B)</span>tum ho
+Tum har ka<span class="chordset">(E)</span>hin ho
 
-<span class="chordset">(A)</span>Lakh duniya ka<span class="chordset">(E)</span>he<br>
-Tum na<span class="chordset">(F#m)</span>hi ho<span class="chordset">(A)</span><br>
-Tum ya<span class="chordset">(D)</span>hin <span class="chordset">(E)</span>ho<br>
-Tum ya<span class="chordset">(A)</span>hin ho<br><br>
+<span class="chordset">(A)</span>Lakh duniya ka<span class="chordset">(E)</span>he
+Tum na<span class="chordset">(F#m)</span>hi ho<span class="chordset">(A)</span>
+Tum ya<span class="chordset">(D)</span>hin <span class="chordset">(E)</span>ho
+Tum ya<span class="chordset">(A)</span>hin ho
 
-<span class="chordset">(A)</span>Lakh duniya ka<span class="chordset">(E)</span>he<br>
-Tum na<span class="chordset">(F#m)</span>hi ho<span class="chordset">(A)</span><br>
-Tum ya<span class="chordset">(D)</span>hin <span class="chordset">(E)</span>ho<br>
-Tum ya<span class="chordset">(A)</span>hin ho<br><br>
+<span class="chordset">(A)</span>Lakh duniya ka<span class="chordset">(E)</span>he
+Tum na<span class="chordset">(F#m)</span>hi ho<span class="chordset">(A)</span>
+Tum ya<span class="chordset">(D)</span>hin <span class="chordset">(E)</span>ho
+Tum ya<span class="chordset">(A)</span>hin ho
 
-<span class="chordset">(A)</span>...(E)...(D)...(E)<br><br>
+<span class="chordset">(A)...(E)...(D)...(E)</span>
 
-Tumne <span class="chordset">(F#m)</span>choda hai,<br>
-<span class="chordset">(E)</span>Kab saath <span class="chordset">(A)</span>mera.<br>
-Thaame <span class="chordset">(D)</span>ho aaj <span class="chordset">(E)</span>bhi<br>
-Haath <span class="chordset">(A)</span>mera,<br><br>
+Tumne <span class="chordset">(F#m)</span>choda hai,
+<span class="chordset">(E)</span>Kab saath <span class="chordset">(A)</span>mera.
+Thaame <span class="chordset">(D)</span>ho aaj <span class="chordset">(E)</span>bhi
+Haath <span class="chordset">(A)</span>mera
 
-Koi <span class="chordset">(Bm)</span>manzil ko<span class="chordset">(E)</span>i<br>
-reh gu<span class="chordset">(A)</span>zar ho.<br>
-Aaj <span class="chordset">(D)</span>bhi tum me<span class="chordset">(E)</span>re<br>
-hum<span class="chordset">(A)</span>safar ho<br>
-Jaun <span class="chordset">(B)</span>chahe Jahan<br>
-tum wa<span class="chordset">(E)</span>hin ho...<br><br>
+Koi <span class="chordset">(Bm)</span>manzil ko<span class="chordset">(E)</span>i
+reh gu<span class="chordset">(A)</span>zar ho.
+Aaj <span class="chordset">(D)</span>bhi tum me<span class="chordset">(E)</span>re
+hum<span class="chordset">(A)</span>safar ho
+Jaun <span class="chordset">(B)</span>chahe Jahan
+tum wa<span class="chordset">(E)</span>hin ho...
 
-<span class="chordset">(A)</span>Lakh duniya ka<span class="chordset">(E)</span>he<br>
-Tum na<span class="chordset">(F#m)</span>hi ho<span class="chordset">(A)</span><br>
-Tum ya<span class="chordset">(D)</span>hin <span class="chordset">(E)</span>ho<br>
-Tum ya<span class="chordset">(A)</span>hin ho<br><br>
+<span class="chordset">(A)</span>Lakh duniya ka<span class="chordset">(E)</span>he
+Tum na<span class="chordset">(F#m)</span>hi ho<span class="chordset">(A)</span>
+Tum ya<span class="chordset">(D)</span>hin <span class="chordset">(E)</span>ho
+Tum ya<span class="chordset">(A)</span>hin ho
 
-<span class="chordset">(A)</span>Lakh duniya ka<span class="chordset">(E)</span>he<br>
-Tum na<span class="chordset">(F#m)</span>hi ho<span class="chordset">(A)</span><br>
-Tum ya<span class="chordset">(D)</span>hin <span class="chordset">(E)</span>ho<br>
-Tum ya<span class="chordset">(A)</span>hin ho<br><br>
+<span class="chordset">(A)</span>Lakh duniya ka<span class="chordset">(E)</span>he
+Tum na<span class="chordset">(F#m)</span>hi ho<span class="chordset">(A)</span>
+Tum ya<span class="chordset">(D)</span>hin <span class="chordset">(E)</span>ho
+Tum ya<span class="chordset">(A)</span>hin ho
 
-The rest of the song<br>
+The rest of the song
 is played in the same pattern...
 </pre>
 
@@ -12472,105 +12445,105 @@ Music : Kailash, Paresh, Naresh
 Lyrics: Kailash, Paresh, Naresh
 Movie: Album</pre>
     <pre>
-    <span class="chordset">(Em)</span>Preet ki lat mohe aisi laagi<br>
-<span class="chordset">(C)</span>Ho gayi main mat<span class="chordset">(Em)</span>waari<br>
-<span class="chordset">(D)</span>Bal bal jaau apne piya ko<br>
-Hey main <span class="chordset">(C)</span>jaau waari <span class="chordset">(Em)</span>waari<br><br>
+<span class="chordset">(Em)</span>Preet ki lat mohe aisi laagi
+<span class="chordset">(C)</span>Ho gayi main mat<span class="chordset">(Em)</span>waari
+<span class="chordset">(D)</span>Bal bal jaau apne piya ko
+Hey main <span class="chordset">(C)</span>jaau waari <span class="chordset">(Em)</span>waari
 
-<span class="chordset">(D)</span>Mohe <span class="chordset">(D)</span>sudh budh nahi rahi tan mann ki<br>
-<span class="chordset">(C)</span>Ye toh <span class="chordset">(Em)</span>jaane duniya saari<br>
-<span class="chordset">(C)</span>Be<span class="chordset">(D)</span>bas aur laa<span class="chordset">(D)</span>chaar phiru main<br>
-<span class="chordset">(D)</span>Haari main dil <span class="chordset">(Em)</span>haari<br>
-<span class="chordset">(D)</span>Haari main dil <span class="chordset">(Em)</span>haari<br><br>
+<span class="chordset">(D)</span>Mohe <span class="chordset">(D)</span>sudh budh nahi rahi tan mann ki
+<span class="chordset">(C)</span>Ye toh <span class="chordset">(Em)</span>jaane duniya saari
+<span class="chordset">(C)</span>Be<span class="chordset">(D)</span>bas aur laa<span class="chordset">(D)</span>chaar phiru main
+<span class="chordset">(D)</span>Haari main dil <span class="chordset">(Em)</span>haari
+<span class="chordset">(D)</span>Haari main dil <span class="chordset">(Em)</span>haari
 
-<span class="chordset">(D)</span>Tere naam se jee loon<br>
-<span class="chordset">(C)</span>Tere naam se mar jaau <span class="chordset">(Em)</span><br><br>
+<span class="chordset">(D)</span>Tere naam se jee loon
+<span class="chordset">(C)</span>Tere naam se mar jaau <span class="chordset">(Em)</span>
 
-<span class="chordset">(D)</span>Tere naam se jee loon<br>
-<span class="chordset">(C)</span>Tere naam se mar jaau<br>
-<span class="chordset">(D)</span>Teri jaan ke sadke main<br>
-<span class="chordset">(C)</span>Kuch aisa kar<span class="chordset">(Em)</span>jaau<br><br>
+<span class="chordset">(D)</span>Tere naam se jee loon
+<span class="chordset">(C)</span>Tere naam se mar jaau
+<span class="chordset">(D)</span>Teri jaan ke sadke main
+<span class="chordset">(C)</span>Kuch aisa kar<span class="chordset">(Em)</span>jaau
 
-<span class="chordset">(Em)</span>Tune kya <span class="chordset">(D)</span>kar daala<br>
-<span class="chordset">(C)</span>Mar gayi main <span class="chordset">(Bm)</span>mit gayi main<br>
-<span class="chordset">(Am)</span>Ho ji <span class="chordset">(G)</span>haan ji<br>
-<span class="chordset">(D)</span>ho gayi main <span class="chordset">(Em)</span><br><br>
+<span class="chordset">(Em)</span>Tune kya <span class="chordset">(D)</span>kar daala
+<span class="chordset">(C)</span>Mar gayi main <span class="chordset">(Bm)</span>mit gayi main
+<span class="chordset">(Am)</span>Ho ji <span class="chordset">(G)</span>haan ji
+<span class="chordset">(D)</span>ho gayi main <span class="chordset">(Em)</span>
 
-<span class="chordset">(D)</span>Teri <span class="chordset">(C)</span>deewani <span class="chordset">(Em)</span>deewani<br>
-<span class="chordset">(D)</span>Teri <span class="chordset">(C)</span>deewani <span class="chordset">(Em)</span>deewani<br><br>
+<span class="chordset">(D)</span>Teri <span class="chordset">(C)</span>deewani <span class="chordset">(Em)</span>deewani
+<span class="chordset">(D)</span>Teri <span class="chordset">(C)</span>deewani <span class="chordset">(Em)</span>deewani
 
-<span class="chordset">(Em)</span>Tune kya <span class="chordset">(D)</span>kar daala<br>
-<span class="chordset">(C)</span>Mar gayi main <span class="chordset">(Bm)</span>mit gayi main<br>
-<span class="chordset">(Am)</span>Ho ji <span class="chordset">(G)</span>haan ji<br>
-<span class="chordset">(D)</span>ho gayi main <span class="chordset">(Em)</span><br><br>
+<span class="chordset">(Em)</span>Tune kya <span class="chordset">(D)</span>kar daala
+<span class="chordset">(C)</span>Mar gayi main <span class="chordset">(Bm)</span>mit gayi main
+<span class="chordset">(Am)</span>Ho ji <span class="chordset">(G)</span>haan ji
+<span class="chordset">(D)</span>ho gayi main <span class="chordset">(Em)</span>
 
-<span class="chordset">(D)</span>Teri <span class="chordset">(C)</span>deewani <span class="chordset">(Em)</span>deewani<br>
-<span class="chordset">(D)</span>Teri <span class="chordset">(C)</span>deewani <span class="chordset">(Em)</span>deewani<br><br>
+<span class="chordset">(D)</span>Teri <span class="chordset">(C)</span>deewani <span class="chordset">(Em)</span>deewani
+<span class="chordset">(D)</span>Teri <span class="chordset">(C)</span>deewani <span class="chordset">(Em)</span>deewani
 
-<span class="chordset">(Em)</span>Ishq junoon jab had se<br>
-<span class="chordset">(C)</span>badh jaye<span class="chordset">(D)</span><br>
-<span class="chordset">(Em)</span>Ishq junoon jab had se<br>
-<span class="chordset">(C)</span>badh jaye<span class="chordset">(D)</span><br>
-<span class="chordset">(Em)</span>Haste haste aashiq<br>
-<span class="chordset">(C)</span>sooli chadh <span class="chordset">(Em)</span>jaye<br><br>
+<span class="chordset">(Em)</span>Ishq junoon jab had se
+<span class="chordset">(C)</span>badh jaye<span class="chordset">(D)</span>
+<span class="chordset">(Em)</span>Ishq junoon jab had se
+<span class="chordset">(C)</span>badh jaye<span class="chordset">(D)</span>
+<span class="chordset">(Em)</span>Haste haste aashiq
+<span class="chordset">(C)</span>sooli chadh <span class="chordset">(Em)</span>jaye
 
-<span class="chordset">(Em)</span>Ishq ka jadoo<br>
-<span class="chordset">(C)</span>sar chadh<span class="chordset">(D)</span>kar bole<br>
-<span class="chordset">(Em)</span>Ishq ka jadoo<br>
-<span class="chordset">(C)</span>sar chadh<span class="chordset">(D)</span>kar bole<br>
-<span class="chordset">(Em)</span>Khoob lagalo pehre<br>
-<span class="chordset">(C)</span>raste rab <span class="chordset">(Em)</span>khole<br><br>
+<span class="chordset">(Em)</span>Ishq ka jadoo
+<span class="chordset">(C)</span>sar chadh<span class="chordset">(D)</span>kar bole
+<span class="chordset">(Em)</span>Ishq ka jadoo
+<span class="chordset">(C)</span>sar chadh<span class="chordset">(D)</span>kar bole
+<span class="chordset">(Em)</span>Khoob lagalo pehre
+<span class="chordset">(C)</span>raste rab <span class="chordset">(Em)</span>khole
 
-<span class="chordset">(D)</span>Yahi ishq di marzi hai<br>
-<span class="chordset">(C)</span>Yahi rab di marzi hai <span class="chordset">(Em)</span><br><br>
+<span class="chordset">(D)</span>Yahi ishq di marzi hai
+<span class="chordset">(C)</span>Yahi rab di marzi hai <span class="chordset">(Em)</span>
 
-<span class="chordset">(D)</span>Yahi ishq di marzi hai<br>
-<span class="chordset">(C)</span>Yahi rab di marzi hai<br>
-<span class="chordset">(D)</span>Tere bin jina kaisa<br>
-<span class="chordset">(C)</span>Kya Kudgarzi Hai<br><br>
+<span class="chordset">(D)</span>Yahi ishq di marzi hai
+<span class="chordset">(C)</span>Yahi rab di marzi hai
+<span class="chordset">(D)</span>Tere bin jina kaisa
+<span class="chordset">(C)</span>Kya Kudgarzi Hai
 
-<span class="chordset">(Em)</span>Tune kya <span class="chordset">(D)</span>kar daala<br>
-<span class="chordset">(C)</span>Mar gayi main <span class="chordset">(Bm)</span>mit gayi main<br>
-<span class="chordset">(Am)</span>Ho ji <span class="chordset">(G)</span>haan ji<br>
-<span class="chordset">(D)</span>ho gayi main <span class="chordset">(Em)</span><br><br>
+<span class="chordset">(Em)</span>Tune kya <span class="chordset">(D)</span>kar daala
+<span class="chordset">(C)</span>Mar gayi main <span class="chordset">(Bm)</span>mit gayi main
+<span class="chordset">(Am)</span>Ho ji <span class="chordset">(G)</span>haan ji
+<span class="chordset">(D)</span>ho gayi main <span class="chordset">(Em)</span>
 
-<span class="chordset">(D)</span>Teri <span class="chordset">(C)</span>deewani <span class="chordset">(Em)</span>deewani<br>
-<span class="chordset">(D)</span>Teri <span class="chordset">(C)</span>deewani <span class="chordset">(Em)</span>deewani<br><br>
+<span class="chordset">(D)</span>Teri <span class="chordset">(C)</span>deewani <span class="chordset">(Em)</span>deewani
+<span class="chordset">(D)</span>Teri <span class="chordset">(C)</span>deewani <span class="chordset">(Em)</span>deewani
 
-<span class="chordset">(D)</span>(D)<br>
-<span class="chordset">(Em)</span>(Em)<br>
-<span class="chordset">(D)</span>(D)<br>
-<span class="chordset">(Em)</span>(Em)<br><br>
+<span class="chordset">(D)</span>(D)
+<span class="chordset">(Em)</span>(Em)
+<span class="chordset">(D)</span>(D)
+<span class="chordset">(Em)</span>(Em)
 
-<span class="chordset">(Em)</span>Aye main <span class="chordset">(Em)</span>rang rangeeli<br>
-<span class="chordset">(C)</span>deewa<span class="chordset">(D)</span>ni<br>
-<span class="chordset">(Em)</span>Aye main <span class="chordset">(Em)</span>rang rangeeli<br>
-<span class="chordset">(C)</span>deewa<span class="chordset">(D)</span>ni<br>
-<span class="chordset">(Em)</span>Aye main <span class="chordset">(Em)</span>albeli, main<br>
-<span class="chordset">(C)</span>mastaa<span class="chordset">(D)</span>ni<br><br>
+<span class="chordset">(Em)</span>Aye main <span class="chordset">(Em)</span>rang rangeeli
+<span class="chordset">(C)</span>deewa<span class="chordset">(D)</span>ni
+<span class="chordset">(Em)</span>Aye main <span class="chordset">(Em)</span>rang rangeeli
+<span class="chordset">(C)</span>deewa<span class="chordset">(D)</span>ni
+<span class="chordset">(Em)</span>Aye main <span class="chordset">(Em)</span>albeli, main
+<span class="chordset">(C)</span>mastaa<span class="chordset">(D)</span>ni
 
-<span class="chordset">(D)</span>Gau ba<span class="chordset">(C)</span>jaau<br>
-<span class="chordset">(Em)</span> sabko rijhau<br>
-<span class="chordset">(Em)</span>Aye main <span class="chordset">(Em)</span>din dharam se<br>
-<span class="chordset">(C)</span>begaani<span class="chordset">(D)</span><br>
-<span class="chordset">(Em)</span>Aye main <span class="chordset">(Em)</span>deewani main<br>
-<span class="chordset">(C)</span>deewani<br><br>
+<span class="chordset">(D)</span>Gau ba<span class="chordset">(C)</span>jaau
+<span class="chordset">(Em)</span> sabko rijhau
+<span class="chordset">(Em)</span>Aye main <span class="chordset">(Em)</span>din dharam se
+<span class="chordset">(C)</span>begaani<span class="chordset">(D)</span>
+<span class="chordset">(Em)</span>Aye main <span class="chordset">(Em)</span>deewani main
+<span class="chordset">(C)</span>deewani
 
-<span class="chordset">(D)</span>Tere naam se jee loon<br>
-<span class="chordset">(C)</span>Tere naam se mar jaau <span class="chordset">(Em)</span><br><br>
+<span class="chordset">(D)</span>Tere naam se jee loon
+<span class="chordset">(C)</span>Tere naam se mar jaau <span class="chordset">(Em)</span>
 
-<span class="chordset">(D)</span>Tere naam se jee loon<br>
-<span class="chordset">(C)</span>Tere naam se mar jaau<br>
-<span class="chordset">(D)</span>Teri jaan ke sadke main<br>
-<span class="chordset">(C)</span>Kuch aisa kar<span class="chordset">(Em)</span>jaau<br><br>
+<span class="chordset">(D)</span>Tere naam se jee loon
+<span class="chordset">(C)</span>Tere naam se mar jaau
+<span class="chordset">(D)</span>Teri jaan ke sadke main
+<span class="chordset">(C)</span>Kuch aisa kar<span class="chordset">(Em)</span>jaau
 
-<span class="chordset">(Em)</span>Tune kya <span class="chordset">(D)</span>kar daala<br>
-<span class="chordset">(C)</span>Mar gayi main <span class="chordset">(Bm)</span>mit gayi main<br>
-<span class="chordset">(Am)</span>Ho ji <span class="chordset">(G)</span>haan ji<br>
-<span class="chordset">(D)</span>ho gayi main <span class="chordset">(Em)</span><br><br>
+<span class="chordset">(Em)</span>Tune kya <span class="chordset">(D)</span>kar daala
+<span class="chordset">(C)</span>Mar gayi main <span class="chordset">(Bm)</span>mit gayi main
+<span class="chordset">(Am)</span>Ho ji <span class="chordset">(G)</span>haan ji
+<span class="chordset">(D)</span>ho gayi main <span class="chordset">(Em)</span>
 
-<span class="chordset">(D)</span>Teri <span class="chordset">(C)</span>deewani <span class="chordset">(Em)</span>deewani<br>
-<span class="chordset">(D)</span>Teri <span class="chordset">(C)</span>deewani <span class="chordset">(Em)</span>deewani<br>
+<span class="chordset">(D)</span>Teri <span class="chordset">(C)</span>deewani <span class="chordset">(Em)</span>deewani
+<span class="chordset">(D)</span>Teri <span class="chordset">(C)</span>deewani <span class="chordset">(Em)</span>deewani
 </pre>
 
     </div>
@@ -12664,78 +12637,78 @@ Music : Pritam
 Lyrics: Mayur Puri 
 Movie : Race 2</pre>
     <pre>
-    <span class="chordset">(Em)</span>Suno na kahe kya suno na<br>
-Dil mera <span class="chordset">(C)</span>suno na<br>
-Suno za<span class="chordset">(D)</span>ra<br>
-Teri <span class="chordset">(C)</span>baahon <span class="chordset">(D)</span>me<br>
-Mujhe <span class="chordset">(Em)</span>rehna hai <span class="chordset">(G)</span>raat bhar<br>
-Teri <span class="chordset">(C)</span>baahon <span class="chordset">(D)</span>me hogi su<span class="chordset">(Am)</span>bah<br><br>
+[Intro]
+<span class="chordset">(Em)</span>Suno na kahe kya suno na
+Dil mera <span class="chordset">(C)</span>suno na
+Suno za<span class="chordset">(D)</span>ra
+Teri <span class="chordset">(C)</span>baahon <span class="chordset">(D)</span>me
+Mujhe <span class="chordset">(Em)</span>rehna hai <span class="chordset">(G)</span>raat bhar
+Teri <span class="chordset">(C)</span>baahon <span class="chordset">(D)</span>me hogi su<span class="chordset">(Am)</span>bah
 
-<span class="chordset">[Chorus]</span><br>
-Be inte<span class="chordset">(G)</span>haan be inte<span class="chordset">(Em)</span>haan<br>
-Yun pyaar <span class="chordset">(C)</span>kar be inte<span class="chordset">(D)</span>haan<br>
-Dekha ka<span class="chordset">(G)</span>run saari u<span class="chordset">(Em)</span>mar<br>
-Tere ni<span class="chordset">(C)</span>shaan be inte<span class="chordset">(D)</span>haan<br><br>
+[Chorus]
+Be inte<span class="chordset">(G)</span>haan be inte<span class="chordset">(Em)</span>haan
+Yun pyaar <span class="chordset">(C)</span>kar be inte<span class="chordset">(D)</span>haan
+Dekha ka<span class="chordset">(G)</span>run saari u<span class="chordset">(Em)</span>mar
+Tere ni<span class="chordset">(C)</span>shaan be inte<span class="chordset">(D)</span>haan
 
-Koi ka<span class="chordset">(C)</span>sar naa ra<span class="chordset">(D)</span>he<br>
-Meri kha<span class="chordset">(C)</span>bar naa rahe<br>
-Chhu le mu<span class="chordset">(Em)</span>jhe is ka<span class="chordset">(D)</span>dar<br>
-Be inte<span class="chordset">(C)</span>haan<br><br>
+Koi ka<span class="chordset">(C)</span>sar naa ra<span class="chordset">(D)</span>he
+Meri kha<span class="chordset">(C)</span>bar naa rahe
+Chhu le mu<span class="chordset">(Em)</span>jhe is ka<span class="chordset">(D)</span>dar
+Be inte<span class="chordset">(C)</span>haan
 
-<span class="chordset">[Verse 2]</span><br>
-Jab <span class="chordset">(Em)</span>saanson me teri<br>
-Saansen ghuli toh<br>
-<span class="chordset">(Am)</span>Phir sulagne la<span class="chordset">(Em)</span>ge<br>
-Eh<span class="chordset">(C)</span>saas mere <span class="chordset">(D)</span>mujhse kehne la<span class="chordset">(G)</span>ge<br><br>
+[Verse 2]
+Jab <span class="chordset">(Em)</span>saanson me teri
+Saansen ghuli toh
+<span class="chordset">(Am)</span>Phir sulagne la<span class="chordset">(Em)</span>ge
+Eh<span class="chordset">(C)</span>saas mere <span class="chordset">(D)</span>mujhse kehne la<span class="chordset">(G)</span>ge
 
-Haa <span class="chordset">(Em)</span>baahon me teri<br>
-aake jahaan do<br>
-<span class="chordset">(Am)</span>Yun simatne la<span class="chordset">(Em)</span>ge<br>
-Sai<span class="chordset">(C)</span>laab jaise <span class="chordset">(D)</span>koi behne la<span class="chordset">(G)</span>ge<br><br>
+Haa <span class="chordset">(Em)</span>baahon me teri
+aake jahaan do
+<span class="chordset">(Am)</span>Yun simatne la<span class="chordset">(Em)</span>ge
+Sai<span class="chordset">(C)</span>laab jaise <span class="chordset">(D)</span>koi behne la<span class="chordset">(G)</span>ge
 
-<span class="chordset">[Bridge]</span><br>
-Khoya hoon <span class="chordset">(C)</span>main aagosh <span class="chordset">(D)</span>mein<br>
-Tu bhi <span class="chordset">(C)</span>kahaan ab hosh <span class="chordset">(D)</span>mein<br>
-Makh<span class="chordset">(C)</span>mali raat <span class="chordset">(D)</span>ki ho naa su<span class="chordset">(Am)</span>bah<br><br>
+[Bridge]
+Khoya hoon <span class="chordset">(C)</span>main aagosh <span class="chordset">(D)</span>mein
+Tu bhi <span class="chordset">(C)</span>kahaan ab hosh <span class="chordset">(D)</span>mein
+Makh<span class="chordset">(C)</span>mali raat <span class="chordset">(D)</span>ki ho naa su<span class="chordset">(Am)</span>bah
 
-<span class="chordset">[Chorus]</span><br>
-Be inte<span class="chordset">(G)</span>haan be inte<span class="chordset">(Em)</span>haan<br>
-Yun pyaar <span class="chordset">(C)</span>kar be inte<span class="chordset">(D)</span>haan<br><br>
+[Chorus]
+Be inte<span class="chordset">(G)</span>haan be inte<span class="chordset">(Em)</span>haan
+Yun pyaar <span class="chordset">(C)</span>kar be inte<span class="chordset">(D)</span>haan
 
-<span class="chordset">[Bridge]</span><br>
-Gustakhi<span class="chordset">(Em)</span>yan kuch tum karo<br>
-Kuch hum ka<span class="chordset">(Am)</span>re iss ta<span class="chordset">(D)</span>rah<br>
-Sharrma ke <span class="chordset">(G)</span>do saaye hain <span class="chordset">(Am)</span>jo<br>
-Muh pher <span class="chordset">(D)</span>le hum se ya<span class="chordset">(Am)</span]haan<br><br>
+[Bridge]
+Gustakhi<span class="chordset">(Em)</span>yan kuch tum karo
+Kuch hum ka<span class="chordset">(Am)</span>re iss ta<span class="chordset">(D)</span>rah
+Sharrma ke <span class="chordset">(G)</span>do saaye hain <span class="chordset">(Am)</span>jo
+Muh pher <span class="chordset">(D)</span>le hum se ya<span class="chordset">(Am)</span]haan
 
-<span class="chordset">[Verse 3]</span><br>
-Haan <span class="chordset">(Em)</span>chhu toh liya<br>
-hai ye jism tune<br>
-<span class="chordset">(Am)</span>Rooh bhi choom <span class="chordset">(Em)</span>le<br>
-Al<span class="chordset">(C)</span>faaz bhige<br>
-<span class="chordset">(D)</span>bhige kyun hai me<span class="chordset">(G)</span>re<br><br>
+[Verse 3]
+Haan <span class="chordset">(Em)</span>chhu toh liya
+hai ye jism tune
+<span class="chordset">(Am)</span>Rooh bhi choom <span class="chordset">(Em)</span>le
+Al<span class="chordset">(C)</span>faaz bhige
+<span class="chordset">(D)</span>bhige kyun hai me<span class="chordset">(G)</span>re
 
-Haan <span class="chordset">(Em)</span>yun choor ho ke<br>
-majboor ho ke<br>
-<span class="chordset">(Am)</span>Qatra qatra ka<span class="chordset">(Em)</span>he<br>
-Eh<span class="chordset">(C)</span>saas bheege<br>
-<span class="chordset">(D)</span>bheege kyun hain me<span class="chordset">(G)</span>re<br><br>
+Haan <span class="chordset">(Em)</span>yun choor ho ke majboor ho ke
+<span class="chordset">(Am)</span>Qatra qatra ka<span class="chordset">(Em)</span>he
+Eh<span class="chordset">(C)</span>saas bheege
+<span class="chordset">(D)</span>bheege kyun hain me<span class="chordset">(G)</span>re
 
-<span class="chordset">[Bridge]</span><br>
-Do bekha<span class="chordset">(C)</span>bar bheege ba<span class="chordset">(D)</span>dan<br>
-Ho besa<span class="chordset">(C)</span>bar bheege ba<span class="chordset">(D)</span>dan<br>
-Le ra<span class="chordset">(C)</span>he raat <span class="chordset">(D)</span>bhar angdai<span class="chordset">(Am)</span>yaan<br><br>
+[Bridge]
+Do bekha<span class="chordset">(C)</span>bar bheege ba<span class="chordset">(D)</span>dan
+Ho besa<span class="chordset">(C)</span>bar bheege ba<span class="chordset">(D)</span>dan
+Le ra<span class="chordset">(C)</span>he raat <span class="chordset">(D)</span>bhar angdai<span class="chordset">(Am)</span>yaan
 
-<span class="chordset">[Chorus]</span><br>
-Be inte<span class="chordset">(G)</span>haan be inte<span class="chordset">(Em)</span>haan<br>
-Yun pyaar <span class="chordset">(C)</span>kar be inte<span class="chordset">(D)</span>haan<br>
-Dekha ka<span class="chordset">(G)</span>run saari u<span class="chordset">(Em)</span>mar<br>
-Tere ni<span class="chordset">(C)</span>shaan be inte<span class="chordset">(D)</span>haan<br><br>
+[Chorus]
+Be inte<span class="chordset">(G)</span>haan be inte<span class="chordset">(Em)</span>haan
+Yun pyaar <span class="chordset">(C)</span>kar be inte<span class="chordset">(D)</span>haan
+Dekha ka<span class="chordset">(G)</span>run saari u<span class="chordset">(Em)</span>mar
+Tere ni<span class="chordset">(C)</span>shaan be inte<span class="chordset">(D)</span>haan
 
-<span class="chordset">[Outro]</span><br>
-Koi ka<span class="chordset">(C)</span>sar naa ra<span class="chordset">(D)</span>he<br>
-Meri kha<span class="chordset">(C)</span>bar naa rahe<br>
-Chhu le mu<span class="chordset">(Em)</span>jhe is ka<span class="chordset">(D)</span>dar<br>
+[Outro]
+Koi ka<span class="chordset">(C)</span>sar naa ra<span class="chordset">(D)</span>he
+Meri kha<span class="chordset">(C)</span>bar naa rahe
+Chhu le mu<span class="chordset">(Em)</span>jhe is ka<span class="chordset">(D)</span>dar
 Be inte<span class="chordset">(C)</span>haan
 </pre>
 
@@ -12830,49 +12803,49 @@ Music : Jeet Ganguly
 Lyrics: Kausar Munir
 Movie: Youngistaan</pre>
     <pre>
-    <span class="chordset">[Chorus]</span><br>
-<span class="chordset">(Cm)</span>Suno na sange<span class="chordset">(A#)</span>marmar<br>
-<span class="chordset">(G#)</span>Ki yeh mi<span class="chordset">(Cm)</span>naare<br>
-<span class="chordset">(Cm)</span>Kuch bhi na<span class="chordset">(A#)</span>hi hai<br>
-<span class="chordset">(G#)</span>Aage tum<span class="chordset">(Cm)</span>haare<br><br>
+[Chorus]
+<span class="chordset">(Cm)</span>Suno na sange<span class="chordset">(A#)</span>marmar
+<span class="chordset">(G#)</span>Ki yeh mi<span class="chordset">(Cm)</span>naare
+<span class="chordset">(Cm)</span>Kuch bhi na<span class="chordset">(A#)</span>hi hai
+<span class="chordset">(G#)</span>Aage tum<span class="chordset">(Cm)</span>haare
 
-<span class="chordset">(Cm)</span>Aaj se <span class="chordset">(A#)</span>dil pe mere<br>
-<span class="chordset">(G#)</span>Raaj tum<span class="chordset">(D#)</span>haara<br>
-<span class="chordset">(G)</span>Taj tum<span class="chordset">(D#)</span>hara<br><br>
+<span class="chordset">(Cm)</span>Aaj se <span class="chordset">(A#)</span>dil pe mere
+<span class="chordset">(G#)</span>Raaj tum<span class="chordset">(D#)</span>haara
+<span class="chordset">(G)</span>Taj tum<span class="chordset">(D#)</span>hara
 
-<span class="chordset">(Cm)</span>Suno na sange<span class="chordset">(A#)</span>marmar<br>
-<span class="chordset">(G#)</span>Ki yeh mi<span class="chordset">(Cm)</span>naare<br><br>
+<span class="chordset">(Cm)</span>Suno na sange<span class="chordset">(A#)</span>marmar
+<span class="chordset">(G#)</span>Ki yeh mi<span class="chordset">(Cm)</span>naare
 
-<span class="chordset">[Verse 1]</span><br>
-Bin tere <span class="chordset">(D#)</span>maddham maddham<br>
-<span class="chordset">(A#)</span>Bhi chal ra<span class="chordset">(D#)</span>hi thi dhadkan<br>
-<span class="chordset">(F)</span>Jab se mi<span class="chordset">(A#)</span>le tum humein<br>
-<span class="chordset">(F)</span>Aanchal se <span class="chordset">(A#)</span>tere bandhe<br>
-<span class="chordset">(G)</span>Dil ud ra<span class="chordset">(D#)</span>ha hai<br><br>
+[Verse 1]
+Bin tere <span class="chordset">(D#)</span>maddham maddham
+<span class="chordset">(A#)</span>Bhi chal ra<span class="chordset">(D#)</span>hi thi dhadkan
+<span class="chordset">(F)</span>Jab se mi<span class="chordset">(A#)</span>le tum humein
+<span class="chordset">(F)</span>Aanchal se <span class="chordset">(A#)</span>tere bandhe
+<span class="chordset">(G)</span>Dil ud ra<span class="chordset">(D#)</span>ha hai
 
-<span class="chordset">[Chorus]</span><br>
-<span class="chordset">(Cm)</span>Suno na aas<span class="chordset">(A#)</span>maano<br>
-<span class="chordset">(G#)</span>ke yeh si<span class="chordset">(Cm)</span>tare<br>
-<span class="chordset">(Cm)</span>Kuch bhi na<span class="chordset">(A#)</span>hi hai<br>
-<span class="chordset">(G#)</span>Aage tum<span class="chordset">(Cm)</span>hare<br><br>
+[Chorus]
+<span class="chordset">(Cm)</span>Suno na aas<span class="chordset">(A#)</span>maano
+<span class="chordset">(G#)</span>ke yeh si<span class="chordset">(Cm)</span>tare
+<span class="chordset">(Cm)</span>Kuch bhi na<span class="chordset">(A#)</span>hi hai
+<span class="chordset">(G#)</span>Aage tum<span class="chordset">(Cm)</span>hare
 
-<span class="chordset">[Verse 2]</span><br>
-Yeh dekho <span class="chordset">(D#)</span>sapne mere<br>
-<span class="chordset">(A#)</span>Neendon se <span class="chordset">(D#)</span>hoke tere<br>
-<span class="chordset">(F)</span>Raaton se <span class="chordset">(A#)</span>kehte hain lo<br>
-<span class="chordset">(F)</span>Hum toh sa<span class="chordset">(A#)</span>vere hai wo<br>
-<span class="chordset">(G)</span>Sach gaye jo<span class="chordset">(D#)</span><br><br>
+[Verse 2]
+Yeh dekho <span class="chordset">(D#)</span>sapne mere
+<span class="chordset">(A#)</span>Neendon se <span class="chordset">(D#)</span>hoke tere
+<span class="chordset">(F)</span>Raaton se <span class="chordset">(A#)</span>kehte hain lo
+<span class="chordset">(F)</span>Hum toh sa<span class="chordset">(A#)</span>vere hai wo
+<span class="chordset">(G)</span>Sach gaye jo<span class="chordset">(D#)</span>
 
-<span class="chordset">[Outro]</span><br>
-<span class="chordset">(Cm)</span>Suno na do ja<span class="chordset">(A#)</span>hano<br>
-<span class="chordset">(G#)</span>Ke yeh na<span class="chordset">(Cm)</span>zare<br>
-<span class="chordset">(Cm)</span>Kuch bhi na<span class="chordset">(A#)</span>hi hai<br>
-<span class="chordset">(G#)</span>Aage tum<span class="chordset">(Cm)</span>hare<br><br>
+[Outro]
+<span class="chordset">(Cm)</span>Suno na do ja<span class="chordset">(A#)</span>hano
+<span class="chordset">(G#)</span>Ke yeh na<span class="chordset">(Cm)</span>zare
+<span class="chordset">(Cm)</span>Kuch bhi na<span class="chordset">(A#)</span>hi hai
+<span class="chordset">(G#)</span>Aage tum<span class="chordset">(Cm)</span>hare
 
-<span class="chordset">(Cm)</span>Aaj se <span class="chordset">(A#)</span>dil pe mere<br>
-<span class="chordset">(G#)</span>Raaj tum<span class="chordset">(Cm)</span>haara<br>
-<span class="chordset">(G)</span>Taj tum<span class="chordset">(D#)</span>hara<br>
-<span class="chordset">(Cm)</span>Suno na sange<span class="chordset">(A#)</span>marmar<br>
+<span class="chordset">(Cm)</span>Aaj se <span class="chordset">(A#)</span>dil pe mere
+<span class="chordset">(G#)</span>Raaj tum<span class="chordset">(Cm)</span>haara
+<span class="chordset">(G)</span>Taj tum<span class="chordset">(D#)</span>hara
+<span class="chordset">(Cm)</span>Suno na sange<span class="chordset">(A#)</span>marmar
 <span class="chordset">(G#)</span>Ki yeh mi<span class="chordset">(Cm)</span>naare
 </pre>
 
@@ -12967,88 +12940,88 @@ Music : Anurag Saikia
 Lyrics: Kunaal Vermaa
 Movie: Solo Album</pre>
     <pre>
-    <span class="chordset">[Verse 1]</span><br>
-<span class="chordset">(C)</span>Meri nazron ko tune<br>
-<span class="chordset">(Dm)</span>sapna dikhaya<br>
-<span class="chordset">(F)</span>Ja<span class="chordset">(G)</span>gaya mu<span class="chordset">(C)</span>jhe raaton<br>
-<span class="chordset">(C)</span>mein<br><br>
+[Verse 1]
+<span class="chordset">(C)</span>Meri nazron ko tune
+<span class="chordset">(Dm)</span>sapna dikhaya
+<span class="chordset">(F)</span>Ja<span class="chordset">(G)</span>gaya mu<span class="chordset">(C)</span>jhe raaton
+<span class="chordset">(C)</span>mein
 
-<span class="chordset">(C)</span>Dabi dabi saanson mein<br>
-<span class="chordset">(Dm)</span>khushboo le aaya<br>
-<span class="chordset">(F)</span>Ka<span class="chordset">(G)</span>bhi jo naa <span class="chordset">(C)</span>thi raahon<br>
-<span class="chordset">(C)</span>mein<br><br>
+<span class="chordset">(C)</span>Dabi dabi saanson mein
+<span class="chordset">(Dm)</span>khushboo le aaya
+<span class="chordset">(F)</span>Ka<span class="chordset">(G)</span>bhi jo naa <span class="chordset">(C)</span>thi raahon
+<span class="chordset">(C)</span>mein
 
-<span class="chordset">[Pre-Chorus]</span><br>
-<span class="chordset">(F)</span>Aisa mera <span class="chordset">(C)</span>dil kabhi na tha<br>
-<span class="chordset">(Dm)</span>Jai<span class="chordset">(F)</span>sa yeh ho gaya<br>
-<span class="chordset">(Dm)</span>Ka<span class="chordset">(F)</span>ramaat teri hai yeh<br><br>
+[Pre-Chorus]
+<span class="chordset">(F)</span>Aisa mera <span class="chordset">(C)</span>dil kabhi na tha
+<span class="chordset">(Dm)</span>Jai<span class="chordset">(F)</span>sa yeh ho gaya
+<span class="chordset">(Dm)</span>Ka<span class="chordset">(F)</span>ramaat teri hai yeh
 
-<span class="chordset">[Chorus]</span><br>
-<span class="chordset">(C)</span>Bas <span class="chordset">(Dm)</span>ek baar tumko<br>
-<span class="chordset">(F)</span>dekhne ko tarsun<br>
-<span class="chordset">(G)</span>Maano na <span class="chordset">(C)</span>kehna me<br><br>
+[Chorus]
+<span class="chordset">(C)</span>Bas <span class="chordset">(Dm)</span>ek baar tumko
+<span class="chordset">(F)</span>dekhne ko tarsun
+<span class="chordset">(G)</span>Maano na <span class="chordset">(C)</span>kehna me
 
-<span class="chordset">Main toh bas</span> <span class="chordset">(C)</span>ek baar tumko<br>
-<span class="chordset">(Dm)</span>dekhne ko tarsun<br>
-<span class="chordset">(F)</span>Kehta hai <span class="chordset">(G)</span>dil yeh <span class="chordset">(C)</span>mera<br><br>
-
-<span class="chordset">[Instrumental]</span><br>
-<span class="chordset">(Am)</span>(Em)<span class="chordset">(F)</span><br>
-<span class="chordset">(Am)</span>(Em)<span class="chordset">(F)</span><br><br>
-
-<span class="chordset">[Verse 2]</span><br>
-<span class="chordset">(C)</span>Aate aate <span class="chordset">(Am)</span>tum le aana<br>
-<span class="chordset">(Dm)</span>Be <span class="chordset">(G)</span>mausam ki<br>
-kuch baarishein yahaan<br><br>
-
-<span class="chordset">(C)</span>Aadhe aadhe <span class="chordset">(Am)</span>bheege dono<br>
-hon <span class="chordset">(Dm)</span>Phir apni<br>
-kuch <span class="chordset">(G)</span>khwahishein riha<br><br>
-
-<span class="chordset">[Pre-Chorus]</span><br>
-<span class="chordset">(F)</span>Aisa mera <span class="chordset">(C)</span>dil kabhi na tha<br>
-<span class="chordset">(Dm)</span>Hai<span class="chordset">(F)</span>raan bewajah<br>
-<span class="chordset">(Dm)</span>Saugaat teri hai yeh<br><br>
-
-<span class="chordset">[Chorus]</span><br>
-<span class="chordset">(C)</span>Bas <span class="chordset">(Dm)</span>ek baar tumko<br>
-<span class="chordset">(F)</span>dekhne ko tarsun<br>
-<span class="chordset">(G)</span>Kehta hai <span class="chordset">(C)</span>dil yeh mera<br><br>
-
-<span class="chordset">Haan bas</span> <span class="chordset">(C)</span>ek baar tumko<br>
-<span class="chordset">(Dm)</span>dekhne ko tarsun<br>
-<span class="chordset">(F)</span>Kehta hai <span class="chordset">(G)</span>dil yeh <span class="chordset">(C)</span>mera<br><br>
-
-<span class="chordset">[Instrumental]</span><br>
-<span class="chordset">(C)</span>(Em)<span class="chordset">(F)</span>(G)<br><br>
-
-<span class="chordset">[Bridge]</span><br>
-<span class="chordset">(C)</span>Baithe baithe <span class="chordset">(Am)</span>soche tumko<br>
-Do <span class="chordset">(Dm)</span>ankhein hi<br>
-<span class="chordset">(G)</span>bun<span class="chordset">(C)</span>ti kahaniyaan<br><br>
-
-<span class="chordset">(C)</span>Hanste hanste <span class="chordset">(Am)</span>baatein karte<br>
-Ik <span class="chordset">(Dm)</span>dooje se<br>
-<span class="chordset">(G)</span>khwaa<span class="chordset">(C)</span>bon ke darmiyaan<br><br>
-
-<span class="chordset">[Pre-Chorus]</span><br>
-<span class="chordset">(F)</span>Aisa mera <span class="chordset">(C)</span>dil kabhi na tha<br>
-<span class="chordset">(Dm)</span>Is <span class="chordset">(F)</span>baar ho gaya<br>
-<span class="chordset">(Dm)</span>Khu<span class="chordset">(F)</span>rafat teri hai yeh<br><br>
-
-<span class="chordset">[Chorus]</span><br>
-<span class="chordset">(C)</span>Bas <span class="chordset">(Dm)</span>ek baar tumko<br>
-<span class="chordset">(F)</span>dekhne ko tarsun<br>
-<span class="chordset">(G)</span>Kehta hai <span class="chordset">(C)</span>dil yeh mera<br><br>
-
-<span class="chordset">Haan bas</span> <span class="chordset">(C)</span>ek baar tumko<br>
-<span class="chordset">(Dm)</span>dekhne ko tarsun<br>
-<span class="chordset">(F)</span>Maano na <span class="chordset">(G)</span>kehna me<br><br>
-
-<span class="chordset">[Outro]</span><br>
-<span class="chordset">Main toh bas</span> <span class="chordset">(C)</span>ek baar tumko<br>
-<span class="chordset">(Dm)</span>dekhne ko tarsun<br>
+Main toh bas<span class="chordset">(C)</span>ek baar tumko
+<span class="chordset">(Dm)</span>dekhne ko tarsun
 <span class="chordset">(F)</span>Kehta hai <span class="chordset">(G)</span>dil yeh <span class="chordset">(C)</span>mera
+
+[Instrumental]
+<span class="chordset">(Am)</span>(Em)<span class="chordset">(F)</span>
+<span class="chordset">(Am)</span>(Em)<span class="chordset">(F)</span>
+
+[Verse 2]
+<span class="chordset">(C)</span>Aate aate <span class="chordset">(Am)</span>tum le aana
+<span class="chordset">(Dm)</span>Be <span class="chordset">(G)</span>mausam ki
+kuch baarishein yahaan<br>
+
+<span class="chordset">(C)</span>Aadhe aadhe <span class="chordset">(Am)</span>bheege dono
+hon <span class="chordset">(Dm)</span>Phir apni
+kuch <span class="chordset">(G)</span>khwahishein riha
+
+[Pre-Chorus]
+<span class="chordset">(F)</span>Aisa mera <span class="chordset">(C)</span>dil kabhi na tha
+<span class="chordset">(Dm)</span>Hai<span class="chordset">(F)</span>raan bewajah
+<span class="chordset">(Dm)</span>Saugaat teri hai yeh<br>
+
+[Chorus]
+<span class="chordset">(C)</span>Bas <span class="chordset">(Dm)</span>ek baar tumko
+<span class="chordset">(F)</span>dekhne ko tarsun
+<span class="chordset">(G)</span>Kehta hai <span class="chordset">(C)</span>dil yeh mera
+
+Haan bas<span class="chordset">(C)</span>ek baar tumko
+<span class="chordset">(Dm)</span>dekhne ko tarsun
+<span class="chordset">(F)</span>Kehta hai <span class="chordset">(G)</span>dil yeh <span class="chordset">(C)</span>mera
+
+[Instrumental
+<span class="chordset">(C)</span>(Em)<span class="chordset">(F)</span>(G)
+
+[Bridge]
+<span class="chordset">(C)</span>Baithe baithe <span class="chordset">(Am)</span>soche tumko
+Do <span class="chordset">(Dm)</span>ankhein hi
+<span class="chordset">(G)</span>bun<span class="chordset">(C)</span>ti kahaniyaan
+
+<span class="chordset">(C)</span>Hanste hanste <span class="chordset">(Am)</span>baatein karte
+Ik <span class="chordset">(Dm)</span>dooje se
+<span class="chordset">(G)</span>khwaa<span class="chordset">(C)</span>bon ke darmiyaan
+
+[Pre-Chorus]
+<span class="chordset">(F)</span>Aisa mera <span class="chordset">(C)</span>dil kabhi na tha
+<span class="chordset">(Dm)</span>Is <span class="chordset">(F)</span>baar ho gaya
+<span class="chordset">(Dm)</span>Khu<span class="chordset">(F)</span>rafat teri hai yeh
+
+[Chorus]
+<span class="chordset">(C)</span>Bas <span class="chordset">(Dm)</span>ek baar tumko
+<span class="chordset">(F)</span>dekhne ko tarsun
+<span class="chordset">(G)</span>Kehta hai <span class="chordset">(C)</span>dil yeh mera
+
+Haan bas <span class="chordset">(C)</span>ek baar tumko
+<span class="chordset">(Dm)</span>dekhne ko tarsun
+<span class="chordset">(F)</span>Maano na <span class="chordset">(G)</span>kehna me
+
+[Outro]
+Main toh bas<span class="chordset">(C)</span>ek baar tumko
+<span class="chordset">(Dm)</span>dekhne ko tarsun
+<span class="chordset">(F)</span>Kehta hai <span class="chordset">(G)</span>dil yeh <span class="chordset">(C)</span>
 </pre>
 
     </div>
@@ -13142,75 +13115,75 @@ Music : Sachin Jigar
 Lyrics: Priya Panchal 
 Movie : Tere Naal Love Ho Gaya</pre>
     <pre>
-    <span class="chordset">Main</span> <span class="chordset">(D)</span>vaari jawan<br>
-<span class="chordset">Main</span> <span class="chordset">(D)</span>vaari jawan<br>
-<span class="chordset">(Bm)</span>Saantho ki hoya ve ka<span class="chordset">(A)</span>soor re<br><br>
+Main<span class="chordset">(D)</span>vaari jawan
+Mai <span class="chordset">(D)</span>vaari jawan
+<span class="chordset">(Bm)</span>Saantho ki hoya ve ka<span class="chordset">(A)</span>soor re
 
-<span class="chordset">Main</span> <span class="chordset">(D)</span>vaari jawan<br>
-<span class="chordset">Main</span> <span class="chordset">(D)</span>vaari jawan<br>
-<span class="chordset">(Bm)</span>Dil toh hoya maj<span class="chordset">(A)</span>boor<br><br>
+Main <span class="chordset">(D)</span>vaari jawan
+Main <span class="chordset">(D)</span>vaari jawan
+<span class="chordset">(Bm)</span>Dil toh hoya maj<span class="chordset">(A)</span>boor
 
-<span class="chordset">Main</span> <span class="chordset">(D)</span>vaari jawan<br>
-<span class="chordset">Main</span> <span class="chordset">(D)</span>vaari jawan<br><br>
+Main <span class="chordset">(D)</span>vaari jawan
+Main <span class="chordset">(D)</span>vaari jawan
 
-<span class="chordset">(D)</span>Chhu liya tune<br>
-<span class="chordset">(Bm)</span>Labh se aankhon ko<br>
-<span class="chordset">(D)</span>Mannatein puri tum se <span class="chordset">(A)</span>hi<br><br>
+<span class="chordset">(D)</span>Chhu liya tune
+<span class="chordset">(Bm)</span>Labh se aankhon ko
+<span class="chordset">(D)</span>Mannatein puri tum se <span class="chordset">(A)</span>hi
 
-<span class="chordset">(D)</span>Tu mile jahan<br>
-<span class="chordset">(Bm)</span>Mera jahan hai wahan<br>
-<span class="chordset">(D)</span>Raunakein saari tum se <span class="chordset">(D)</span>hi<span class="chordset">(A)</span><span class="chordset">(G)</span><br><br>
+<span class="chordset">(D)</span>Tu mile jahan
+<span class="chordset">(Bm)</span>Mera jahan hai wahan
+<span class="chordset">(D)</span>Raunakein saari tum se <span class="chordset">(D)</span>hi<span class="chordset">(A)</span><span class="chordset">(G)</span>
 
-<span class="chordset">Hoo</span> <span class="chordset">(D)</span>chhu liya tune<br>
-<span class="chordset">(Bm)</span>Labh se aankhon ko<br>
-<span class="chordset">(D)</span>Mannatein puri tum se <span class="chordset">(A)</span>hi<br><br>
+Hoo <span class="chordset">(D)</span>chhu liya tune
+<span class="chordset">(Bm)</span>Labh se aankhon ko
+<span class="chordset">(D)</span>Mannatein puri tum se <span class="chordset">(A)</span>hi
 
-<span class="chordset">(D)</span>Tu mile jahan<br>
-<span class="chordset">(Bm)</span>Mera jahan hai wahan<br>
-<span class="chordset">(D)</span>Raunakein saari tum se <span class="chordset">(A)</span>hi<br><br>
+<span class="chordset">(D)</span>Tu mile jahan
+<span class="chordset">(Bm)</span>Mera jahan hai wahan
+<span class="chordset">(D)</span>Raunakein saari tum se <span class="chordset">(A)</span>hi
 
-<span class="chordset">Pi</span><span class="chordset">(D)</span>ya o're pi<span class="chordset">(G)</span>ya<br>
-<span class="chordset">Pi</span><span class="chordset">(Bm)</span>ya re pi<span class="chordset">(A)</span>ya re pi<span class="chordset">(D)</span>ya<br>
-<span class="chordset">Pi</span><span class="chordset">(D)</span>ya o're pi<span class="chordset">(G)</span>ya<br>
-<span class="chordset">Pi</span><span class="chordset">(Bm)</span>ya re pi<span class="chordset">(F#)</span>ya re pi<span class="chordset">(D)</span>ya<br><br>
+Pi<span class="chordset">(D)</span>ya o're pi<span class="chordset">(G)</span>ya
+Pi<span class="chordset">(Bm)</span>ya re pi<span class="chordset">(A)</span>ya re pi<span class="chordset">(D)</span>ya
+Pi<span class="chordset">(D)</span>ya o're pi<span class="chordset">(G)</span>ya
+Pi<span class="chordset">(Bm)</span>ya re pi<span class="chordset">(F#)</span>ya re pi<span class="chordset">(D)</span>ya
 
-<span class="chordset">(Bm)</span>In dooriyon ne<br>
-<span class="chordset">(G)</span>Nazdikeinyon se<br>
-<span class="chordset">(A)</span>Sauda koyi kar li<span class="chordset">(D)</span>ya<br><br>
+<span class="chordset">(Bm)</span>In dooriyon ne
+<span class="chordset">(G)</span>Nazdikeinyon se
+<span class="chordset">(A)</span>Sauda koyi kar li<span class="chordset">(D)</span>ya<br>
 
-<span class="chordset">Hoo</span> <span class="chordset">(Bm)</span>jhukke nigahon ne<br>
-<span class="chordset">(G)</span>Dil se ishq ka<br>
-<span class="chordset">(A)</span>Waada koyi kar li<span class="chordset">(D)</span>ya<br><br>
+Hoo<span class="chordset">(Bm)</span>jhukke nigahon ne
+<span class="chordset">(G)</span>Dil se ishq ka
+<span class="chordset">(A)</span>Waada koyi kar li<span class="chordset">(D)</span>ya
 
-<span class="chordset">Main</span> <span class="chordset">(D)</span>vaari jawan<br>
-<span class="chordset">Main</span> <span class="chordset">(D)</span>vaari jawan<br>
-<span class="chordset">(G)</span>Saantho ki hoya ve ka<span class="chordset">(A)</span>soor re<br><br>
+Main <span class="chordset">(D)</span>vaari jawan
+Main <span class="chordset">(D)</span>vaari jawan
+<span class="chordset">(G)</span>Saantho ki hoya ve ka<span class="chordset">(A)</span>soor re
 
-<span class="chordset">(D)</span>Sau sau taaron se<br>
-Bhar <span class="chordset">(Bm)</span>ke yeh daaman<br>
-<span class="chordset">(D)</span>Le chal mukhe kahin <span class="chordset">(A)</span>door<br><br>
+<span class="chordset">(D)</span>Sau sau taaron se
+Bhar <span class="chordset">(Bm)</span>ke yeh daaman
+<span class="chordset">(D)</span>Le chal mukhe kahin <span class="chordset">(A)</span>door
 
-<span class="chordset">Pi</span><span class="chordset">(D)</span>ya o're pi<span class="chordset">(G)</span>ya<br>
-<span class="chordset">Pi</span><span class="chordset">(Bm)</span>ya re pi<span class="chordset">(F#)</span>ya re pi<span class="chordset">(D)</span>ya<br>
-<span class="chordset">Pi</span><span class="chordset">(D)</span>ya o're pi<span class="chordset">(G)</span>ya<br>
-<span class="chordset">Pi</span><span class="chordset">(Bm)</span>ya re pi<span class="chordset">(F#)</span>ya re pi<span class="chordset">(D)</span>ya<br><br>
+Pi<span class="chordset">(D)</span>ya o're pi<span class="chordset">(G)</span>ya
+Pi<span class="chordset">(Bm)</span>ya re pi<span class="chordset">(F#)</span>ya re pi<span class="chordset">(D)</span>ya
+Pi<span class="chordset">(D)</span>ya o're pi<span class="chordset">(G)</span>ya
+Pi<span class="chordset">(Bm)</span>ya re pi<span class="chordset">(F#)</span>ya re pi<span class="chordset">(D)</span>ya
 
-<span class="chordset">(D)</span>Koyi kami si thi <span class="chordset">(Bm)</span>jeene mein<br>
-<span class="chordset">(C)</span>Jana yeh humne ka<span class="chordset">(D)</span>han<br>
-<span class="chordset">(D)</span>Aise mile ho <span class="chordset">(Bm)</span>jaise humpe<br>
-<span class="chordset">(F#)</span>Ho mehere<span class="chordset">(F)</span>ban<span class="chordset">(G)</span> yeh khu<span class="chordset">(D)</span>da<br><br>
+<span class="chordset">(D)</span>Koyi kami si thi <span class="chordset">(Bm)</span>jeene mein
+<span class="chordset">(C)</span>Jana yeh humne ka<span class="chordset">(D)</span>han
+<span class="chordset">(D)</span>Aise mile ho <span class="chordset">(Bm)</span>jaise humpe
+<span class="chordset">(F#)</span>Ho mehere<span class="chordset">(F)</span>ban<span class="chordset">(G)</span> yeh khu<span class="chordset">(D)</span>da
 
-<span class="chordset">Ho</span> <span class="chordset">Main</span> <span class="chordset">(D)</span>vaari jawan<br>
-<span class="chordset">Main</span> <span class="chordset">(D)</span>vaari jawan<br>
-<span class="chordset">(Bm)</span>Saantho ki hoya ve ka<span class="chordset">(A)</span>soor re<br><br>
+Ho Main <span class="chordset">(D)</span>vaari jawan
+Main<span class="chordset">(D)</span>vaari jawan
+<span class="chordset">(Bm)</span>Saantho ki hoya ve ka<span class="chordset">(A)</span>soor re
 
-<span class="chordset">Rab</span> <span class="chordset">(D)</span>di marzi hai ap<span class="chordset">(Bm)</span>na yeh milna<br>
-<span class="chordset">(G)</span>Barsa hai humpe uska <span class="chordset">(A)</span>noor<br><br>
+Rab <span class="chordset">(D)</span>di marzi hai ap<span class="chordset">(Bm)</span>na yeh milna
+<span class="chordset">(G)</span>Barsa hai humpe uska <span class="chordset">(A)</span>noor
 
-<span class="chordset">Pi</span><span class="chordset">(D)</span>ya o're pi<span class="chordset">(G)</span>ya<br>
-<span class="chordset">Pi</span><span class="chordset">(Bm)</span>ya re pi<span class="chordset">(F#)</span>ya re pi<span class="chordset">(D)</span>ya<br>
-<span class="chordset">Pi</span><span class="chordset">(D)</span>ya o're pi<span class="chordset">(G)</span>ya<br>
-<span class="chordset">Pi</span><span class="chordset">(Bm)</span>ya re pi<span class="chordset">(F#)</span>ya re pi<span class="chordset">(D)</span>ya
+Pi<span class="chordset">(D)</span>ya o're pi<span class="chordset">(G)</span>ya
+Pi<span class="chordset">(Bm)</span>ya re pi<span class="chordset">(F#)</span>ya re pi<span class="chordset">(D)</span>ya
+Pi<span class="chordset">(D)</span>ya o're pi<span class="chordset">(G)</span>ya
+Pi<span class="chordset">(Bm)</span>ya re pi<span class="chordset">(F#)</span>ya re pi<span class="chordset">(D)</span>ya
 </pre>
 
     </div>
