@@ -9791,9 +9791,9 @@ Music : A.R.Rahman
 Lyrics: Javed Akhtar 
 Movie : Jodhaa Akbar</pre>
     <pre>
-<span class="chordset">(A)</span> Kehne Ko Jashan-<span class="chordset">(G)</span>-<span class="chordset">(B)</span>ahara Hai
+<span class="chordset">(A)</span> Kehne Ko Jashan<span class="chordset">(G)</span>Bahara Hai
 <span class="chordset">(D)</span> Ishq Yeh Dekhke Hairaan Hai
-<span class="chordset">(F#m)</span> Kehne Ko Jashan-<span class="chordset">(G)</span>-<span class="chordset">(B)</span>ahara Hai
+<span class="chordset">(F#m)</span> Kehne Ko Jashan-<span class="chordset">(G)</span>Bahara Hai
 <span class="chordset">(D)</span> Ishq Yeh Dekhke Hairaan Hai
 
 <span class="chordset">(F#m)</span> Phool Se Khusboo <span class="chordset">(E)</span> Khafa Khafa Hai
