@@ -9161,9 +9161,9 @@ Music : Ajay-Atul
 Lyrics: Sanjay Patil
 Movie : Jogwa</pre>
     <pre>
-<span class="chordset">Jiv (Bm)</span> Rangala gungala rangala
-a<span class="chordset">(Em)</span> sa piramachi aas <span class="chordset">(Bm)</span> tu..<span class="chordset">(F#)</span>
-<span class="chordset">Jiv (Bm)</span> lagala laabhala dhyass ho <span class="chordset">(Em)</span> tuja
+Jiv <span class="chordset">(Bm)</span> Rangala gungala rangala
+a <span class="chordset">(Em)</span> sa piramachi aas <span class="chordset">(Bm)</span> tu..<span class="chordset">(F#)</span>
+Jiv <span class="chordset">(Bm)</span> lagala laabhala dhyass ho <span class="chordset">(Em)</span> tuja
 gahiwarala shwas <span class="chordset">(Bm)</span> tu..<span class="chordset">(F#)</span>
 
 <span class="chordset">(Bm)</span> Pailtira neshil saath mala deshil
@@ -9172,9 +9172,9 @@ gahiwarala shwas <span class="chordset">(Bm)</span> tu..<span class="chordset">(
 <span class="chordset">(E)</span> punawacha chand <span class="chordset">(F#)</span> tu..
 
 [CHORUS]
-<span class="chordset">Jiv (Bm)</span> Rangala gungala rangala
-a<span class="chordset">(Em)</span> sa piramachi aas <span class="chordset">(Bm)</span> tu..<span class="chordset">(F#)</span>
-<span class="chordset">Jiv (Bm)</span> lagala laabhala dhyass ho <span class="chordset">(Em)</span> tuja
+Jiv <span class="chordset">(Bm)</span> Rangala gungala rangala
+a <span class="chordset">(Em)</span> sa piramachi aas <span class="chordset">(Bm)</span> tu..<span class="chordset">(F#)</span>
+Jiv <span class="chordset">(Bm)</span> lagala laabhala dhyass ho <span class="chordset">(Em)</span> tuja
 gahiwarala shwas <span class="chordset">(Bm)</span> tu..<span class="chordset">(F#)</span>
 
 <span class="chordset">(B)</span> <span class="chordset">(Em)</span> <span class="chordset">(B)</span> <span class="chordset">(Em)</span>
@@ -9182,21 +9182,24 @@ gahiwarala shwas <span class="chordset">(Bm)</span> tu..<span class="chordset">(
 <span class="chordset">(G)</span> <span class="chordset">(F#)</span> <span class="chordset">(F#m)</span>
 
 [VERSE]
-<span class="chordset">Chand (Bm)</span> sugandha deil raat usasa deil
-Sari <span class="chordset">(E)</span> dharati <span class="chordset">(F#m)</span> tuji
-ruja<span class="chordset">(Bm)</span> vya <span class="chordset">(F#)</span> chi <span class="chordset">(E)</span> ma <span class="chordset">(F#m)</span> ti <span class="chordset">(Bm)</span> tu..
+Chand <span class="chordset">(Bm)</span> sugandha deil raat 
+usasa deil Sari <span class="chordset">(E)</span> dharati <span class="chordset">(F#m)</span> tuji
+ruja <span class="chordset">(Bm)</span> vya <span class="chordset">(F#)</span> chi <span class="chordset">(E)</span> ma <span class="chordset">(F#m)</span> ti <span class="chordset">(Bm)</span> tu..
 
-Khula <span class="chordset">(Bm)</span> aabhal dhagaal tyala rudhi cha vitaal
-Majhya <span class="chordset">(E)</span> raagh saja <span class="chordset">(F#m)</span> na hi
-<span class="chordset">(Bm)</span> kaka <span class="chordset">(F#)</span> nachi <span class="chordset">(E)</span> tod <span class="chordset">(F#)</span> maal <span class="chordset">(B)</span> tuu..
+Khula <span class="chordset">(Bm)</span> aabhal dhagaal tyala
+<span class="chordset">(Bm)</span> rudhi cha vital Majhya
+<span class="chordset">(E)</span> raagh saja <span class="chordset">(F#m)</span>na hi <span class="chordset">(Bm)</span> kaka <span class="chordset">(F#)</span> nachi
+<span class="chordset">(E)</span> tod <span class="chordset">(F#)</span> maal <span class="chordset">(Bm)</span> tuu..
 
-Khula <span class="chordset">(Bm)</span> kalija he <span class="chordset">(E)</span> majhe tula dila mi aan <span class="chordset">(F#)</span> dan
-Tujhya <span class="chordset">(Bm)</span> payav ma <span class="chordset">(E)</span> khil majhya janmacha gon <span class="chordset">(F#)</span> dhal
+Khula <span class="chordset">(Bm)</span> kalija he <span class="chordset">(E)</span> majhe tula 
+dila mi aan <span class="chordset">(F#)</span> dan
+Tujhya <span class="chordset">(Bm)</span> payav ma <span class="chordset">(E)</span> khil majhya 
+janmacha gon <span class="chordset">(F#)</span> dhal
 
 [CHORUS]
-<span class="chordset">Jiv (Bm)</span> Rangala gungala rangala
+Jiv <span class="chordset">(Bm)</span> Rangala gungala rangala
 a<span class="chordset">(Em)</span> sa piramachi aas <span class="chordset">(Bm)</span> tu..<span class="chordset">(F#)</span>
-<span class="chordset">Jiv (Bm)</span> lagala laabhala dhyass ho <span class="chordset">(Em)</span> tuja
+Jiv <span class="chordset">(Bm)</span> lagala laabhala dhyass ho <span class="chordset">(Em)</span> tuja
 gahiwarala shwas <span class="chordset">(Bm)</span> tu..<span class="chordset">(F#)</span>
 
 <span class="chordset">(Bm)</span> Pailtira neshil saath mala deshil
@@ -9205,9 +9208,9 @@ gahiwarala shwas <span class="chordset">(Bm)</span> tu..<span class="chordset">(
 <span class="chordset">(E)</span> punawacha chand <span class="chordset">(F#)</span> tu..
 
 [CHORUS]
-<span class="chordset">Jiv (Bm)</span> Rangala gungala rangala
-a<span class="chordset">(Em)</span> sa piramachi aas <span class="chordset">(Bm)</span> tu..<span class="chordset">(F#)</span>
-<span class="chordset">Jiv (Bm)</span> lagala laabhala dhyass ho <span class="chordset">(Em)</span> tuja
+Jiv <span class="chordset">(Bm)</span> Rangala gungala rangala
+a <span class="chordset">(Em)</span> sa piramachi aas <span class="chordset">(Bm)</span> tu..<span class="chordset">(F#)</span>
+Jiv <span class="chordset">(Bm)</span> lagala laabhala dhyass ho <span class="chordset">(Em)</span> tuja
 gahiwarala shwas <span class="chordset">(Bm)</span> tu..<span class="chordset">(F#)</span></pre>
 
     </div>
@@ -9302,7 +9305,7 @@ Music : Ajay Singha
 Lyrics: Omkar Mangesh Dutt
 Movie : Kaakan</pre>
     <pre>
-<span class="chordset">Jag (C)</span> nyaachi asha..
+Jag <span class="chordset">(C)</span> nyaachi asha..
 yaa ma<span class="chordset">(Am)</span> nachi bhaasha..
 Tu na <span class="chordset">(F)</span> bolta na aikta
 sam<span class="chordset">(G)</span> jun ghe na..
@@ -9321,8 +9324,8 @@ Dolaata <span class="chordset">(C)</span> tuuch saajani..
 sukhacha <span class="chordset">(C)</span> sparsh <span class="chordset">(E)</span> tu na<span class="chordset">(F)</span> va..
 Tujhya <span class="chordset">(Dm)</span> vina ure na arth jiv<span class="chordset">(G)</span> ana..
 
-Uja<span class="chordset">(A#)</span> le tuzhya ha<span class="chordset">(Fm)</span sune kan <span class="chordset">(C)</span> kan..
-An <span class="chordset">(A#)</span> chandra he haa<span class="chordset">(Fm)</span> ticha kaa<span class="chordset">(C)</span> kan..
+Uja <span class="chordset">(A#)</span> le tuzhya ha <span class="chordset">(Fm)</span> sune kan <span class="chordset">(C)</span> kan..
+An <span class="chordset">(A#)</span> chandra he haa <span class="chordset">(Fm)</span> ticha kaa<span class="chordset">(C)</span> kan..
 
 <span class="chordset">(Dm)</span> Bhetila aani tu navi kahani
 <span class="chordset">(G)</span> maalun shwaasat <span class="chordset">(C)</span> ye..
@@ -10405,7 +10408,7 @@ Tum <span class="chordset">(D)</span>se <span class="chordset">(G)</span>Hi Tum 
 
 <span class="chordset">(G)</span>Aadha Sa Wada Kabhi
 <span class="chordset">(Em)</span>Aadhe Se Jayada Kabhi
-<span class="chordset">(C)</span>Jee Chahe Karlu<br>
+<span class="chordset">(C)</span>Jee Chahe Karlu
 Is Ta<span class="chordset">(D)</span>rah Wa<span class="chordset">(G)</span>fa Ka
 
 <span class="chordset">(G)</span>Chode Na Chote Kabhi
@@ -11161,7 +11164,7 @@ Tere <span class="chordset">(C#)</span>hathon se mera <span class="chordset">(F#
 Chha<span class="chordset">(C#m)</span>aon mein teri bee<span class="chordset">(D)</span>ti hi nahi
 Wo <span class="chordset">(C#)</span>garmi ki baa<span class="chordset">(A)</span>tein
 Baa<span class="chordset">(C#m)</span>hon mein teri guz<span class="chordset">(D)</span>ri hi nahi
-Wo <span class="chordset">(C#)</span>sardi ki raa<span class="chordset">(A)</span)tein
+Wo <span class="chordset">(C#)</span>sardi ki raa<span class="chordset">(A)</span>tein
 
 [Chorus]
 Lo <span class="chordset">(F#m)</span>maan liya hum<span class="chordset">(Bm)</span>ne
@@ -11280,8 +11283,8 @@ Lyrics: Gulzar
 Movie: OK Jaanu</pre>
     <pre>
 [Intro]
-<span class="chordset">(Gm)</span><span class="chordset">(F)</span><span class="chordset">(D#)</span><span class="chordset">(F)</s
-<span class="chordset">(Gm)</span><span class="chordset">(F)</span><span class="chordset">(D#)</span><span class="chordset">(Dm)</s
+<span class="chordset">(Gm)</span><span class="chordset">(F)</span><span class="chordset">(D#)</span><span class="chordset">(F)</span>
+<span class="chordset">(Gm)</span><span class="chordset">(F)</span><span class="chordset">(D#)</span><span class="chordset">(Dm)</span>
 
 [Chorus]
 Enna <span class="chordset">(Gm)</span>sona kyun<span class="chordset">(F)</span>
@@ -11313,7 +11316,7 @@ Enna <span class="chordset">(D#)</span>Sona...<span class="chordset">(F)</span>
 
 [Instrumental]
 <span class="chordset">(C)</span><span class="chordset">(D#)</span><span class="chordset">(A#)</span><span class="chordset">(F)</span>
-<span class="chordset">(C)</span><span class="chordset">(D#)</span><span class="chordset">(Dm)</span><span class="chordset">(Gm/A#)</span>
+<span class="chordset">(C)</span><span class="chordset">(D#)</span><span class="chordset">(Dm)</span><span class="chordset">(Gm)(A#)</span>
 
 [Verse]
 Kol <span class="chordset">(F)</span>hove te<span class="chordset">(A#)</span>
@@ -11340,9 +11343,9 @@ Enna <span class="chordset">(Gm)</span>sona<span class="chordset">(F)</span>, en
 Enna <span class="chordset">(Gm)</span>sona<span class="chordset">(F)</span> <span class="chordset">(D#)</span>o…<span class="chordset">(Dm)</span>
 
 [Instrumental Solo]
-<span class="chordset">(Gm/D#)</span><span class="chordset">(F/A#)</span><span class="chordset">(Dm/Gm)</span><span class="chordset">(D#/F)</span>
-<span class="chordset">(Gm/D#)</span><span class="chordset">(F/A#)</span><span class="chordset">(F/D#)</span><span class="chordset">(Gm/A)</span>
-<span class="chordset">(Dm/F)</span><span class="chordset">(F/A#)</span>
+<span class="chordset">(Gm)(D#)</span><span class="chordset">(F)(A#)</span><span class="chordset">(Dm)(Gm)</span><span class="chordset">(D#)(F)</span>
+<span class="chordset">(Gm)(D#)</span><span class="chordset">(F)(A#)</span><span class="chordset">(F)(D#)</span><span class="chordset">(Gm)(A)</span>
+<span class="chordset">(Dm)(F)</span><span class="chordset">(F)(A#)</span>
 
 [Verse]
 Taap <span class="chordset">(F)</span>lagge na<span class="chordset">(A#)</span>
@@ -11956,10 +11959,10 @@ INSTRUMENTAL
 <span class="chordset">(A#)</span>Do tarfa <span class="chordset">(Gm)</span>hai to ye
 <span class="chordset">(A#)</span>sanjog hai
 
-Laai re humein <span class="chordset">(Cm)</span>zindg
-<span class="chordset">(F#)</span>ki kahani <span class="chordset">(Cm)</span>kaise mod <span class="chordset">(A#)</spa
-Huye re khud <span class="chordset">(Gm)</span>se par
-<span class="chordset">(F#)</span>Hum kisi se <span class="chordset">(Cm)</span>naata jod <span class="chordset">(A#)</spa
+Laai re humein <span class="chordset">(Cm)</span>zindgaani
+<span class="chordset">(F#)</span>ki kahani <span class="chordset">(Cm)</span>kaise mod <span class="chordset">(A#)</span>pe
+Huye re khud <span class="chordset">(Gm)</span>se paraaye
+<span class="chordset">(F#)</span>Hum kisi se <span class="chordset">(Cm)</span>naata jod <span class="chordset">(A#)</span>ke
 
 [CHORUS]
 Hazaron mein ki<span class="chordset">(Gm)</span>si <span class="chordset">(D#)</span>ko
@@ -12203,7 +12206,7 @@ Tu <span class="chordset">(A#)</span>Likh De <span class="chordset">(G#)</span>M
 Aye Khu<span class="chordset">(Cm)</span>da Aye Khu<span class="chordset">(A#)</span>da
 Aye Khu<span class="chordset">(A#)</span>da Aye Khu<span class="chordset">(G#)</span>da
 
-<span class="chordset">(G#m)</span>(<span class="chordset">(G)</span><span class="chordset">(Cm)</span><span class="chordset">(A#)</span><span class="chordset">(G#)</span>
+<span class="chordset">(G#m)</span><span class="chordset">(G)</span><span class="chordset">(Cm)</span><span class="chordset">(A#)</span><span class="chordset">(G#)</span>
 <span class="chordset">(G)</span><span class="chordset">(Cm)</span>
 </pre>
 
@@ -14612,7 +14615,7 @@ Bann,Rochak Kohli & Ayushmann Khurrana</p>
         </div>
     <div class="col-new">
             <div class="card-new card-bottom" onclick="chord('36')">
-                <img src="../assets/img/Tum se Hi.jpg" alt="Tum Se Hi">
+                <img src="../assets/img/tumsehi.jpg" alt="Tum Se Hi">
                 <div class="card-body-new">
                     <h5 class="card-title-new">Tum Se Hi - Jab We Met</h5>
                     <p class="card-meta-new">Mohit Chauhan </p>
@@ -14648,7 +14651,7 @@ Bann,Rochak Kohli & Ayushmann Khurrana</p>
         </div>
     <div class="col-new">
             <div class="card-new card-bottom" onclick="chord('39')">
-                <img src="../assets/img/in_dino.jpg" alt="In Dinoa">
+                <img src="../assets/img/indino.jpg" alt="In Dinoa">
                 <div class="card-body-new">
                     <h5 class="card-title-new">In Dino - Life in a Metro</h5>
                     <p class="card-meta-new">Soham & Pritam Chakraborty</p>
@@ -14708,7 +14711,7 @@ Bann,Rochak Kohli & Ayushmann Khurrana</p>
         </div>
     <div class="col-new">
             <div class="card-new card-bottom" onclick="chord('44')">
-                <img src="../assets/img/jee le zaraa.jpg" alt="Jee Le Zaraa">
+                <img src="../assets/img/jeelezaraa.jpg" alt="Jee Le Zaraa">
                 <div class="card-body-new">
                     <h5 class="card-title-new">Jee Le Zaraa - Talaash</h5>
                     <p class="card-meta-new">Vishal Dadlani</p>
