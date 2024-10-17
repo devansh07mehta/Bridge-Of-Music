@@ -5653,40 +5653,59 @@ Composer - Ajay-Atul
 Lyricist - Amitabh Bhattacharya
 Movie - Dhadak</pre>
     <pre>
-<span class="chordset">(Gm)</span> Marhami sa chaand hai <span class="chordset">(Dm)</span> tu
-Diljala <span class="chordset">(F)</span> sa main andhe<span class="chordset">(Gm)</span>ra<span class="chordset">(D)</span>
-Ek doo<span class="chordset">(Gm)</span>je ke liye <span class="chordset">(Dm)</span> hai
-Neend me<span class="chordset">(F)</span>ri,khwaab te<span class="chordset">(Gm)</span>ra
+Marhami <span class="chordset">(Gm)</span>sa
+chaand hai <span class="chordset">(Dm)</span>tu
+Diljala <span class="chordset">(F)</span>sa
+main andhe<span class="chordset">(Gm)</span>ra<span class="chordset">(D)</span>
 
-Tu ghata <span class="chordset">(Gm)</span> hai phu<span class="chordset">(Cm)</span>haar <span class="chordset">(F)</span> ki
-Main ghadi <span class="chordset">(F)</span> inte<span class="chordset">(A#)</span>zaar <span class="chordset">(D#)</span> ki
-<span class="chordset">(D#)</span> Apna milna likha
-<span class="chordset">(F)</span> Issi baras hai <span class="chordset">(D)</span> na
+Ek doo <span class="chordset">(Gm)</span>je
+ke liye <span class="chordset">(Dm)</span>hai
+Neend me<span class="chordset">(F)</span>ri
+khwaab te<span class="chordset">(Gm)</span>ra
 
-Jo <span class="chordset">(Gm)</span> meri manzilo ko jaati <span class="chordset">(Dm)</span> hai
-Tere <span class="chordset">(Cm)</span> naam ki koi sadak hai <span class="chordset">(Gm)</span>na<span class="chordset">(D)</span>
-Jo <span class="chordset">(Gm)</span> mere dil ko dil banaati <span class="chordset">(Dm)</span> hai
-Tere <span class="chordset">(Cm)</span> naam ki <span class="chordset">(D)</span> koi dhadak hai <span class="chordset">(Gm)</span> na
+Tu ghata <span class="chordset">(Gm)</span>hai
+phu<span class="chordset">(Cm)</span>haar <span class="chordset">(F)</span>ki
+Main ghadi <span class="chordset">(F)</span>inte<span class="chordset">(A#)</span>zaar <span class="chordset">(D#)</span>ki
+Apna mil <span class="chordset">(D#)</span> na likha
+Is <span class="chordset">(F)</span> si baras hai <span class="chordset">(D)</span>na
+
+Jo <span class="chordset">(Gm)</span> meri manzilo
+ko jaati <span class="chordset">(Dm)</span> hai
+Tere <span class="chordset">(Cm)</span> naam ki koi
+sadak hai <span class="chordset">(Gm)</span> na <span class="chordset">(D)</span>
+
+Jo <span class="chordset">(Gm)</span> mere dil ko
+dil banaati <span class="chordset">(Dm)</span> hai
+Tere <span class="chordset">(Cm)</span> naam ki <span class="chordset">(D)</span> koi
+dhadak hai <span class="chordset">(Gm)</span> na
 
 <span class="chordset">(G)</span> Koi baadhni joda odh ke
-<span class="chordset">(G)</span> Baabul ki <span class="chordset">(Cm)</span> gali
-<span class="chordset">(F)</span> aau chhod <span class="chordset">(A#)</span> ke <span class="chordset">(D)</span>
+<span class="chordset"> (G)</span> Baabul ki ga<span class="chordset">(Cm)</span>li
+<span class="chordset">(F) </span> aau chhod <span class="chordset">(A#)</span> ke <span class="chordset">(D)</span>
+
 <span class="chordset">(G)</span> Tere hi liye laungi piya
+<span class="chordset">(G)</span> Solah saal <span class="chordset">(Cm)</span> ke 
+<span class="chordset">(F)</span> saawan jod <span class="chordset">(A#)</span> ke
 
-<span class="chordset">(G)</span> Solah saal <span class="chordset">(Cm)</span> ke <span class="chordset">(F)</span> saawan jod <span class="chordset">(A#)</span> ke
-Pyaar se <span class="chordset">(D)</span> tham<span class="chordset">(Gm)</span>na dor
-ba<span class="chordset">(D)</span>rik <span class="chordset">(Gm)</span> hai
-Saat jan<span class="chordset">(D)</span>mon ki <span class="chordset">(Cm)</span> yeh
-pehli taa<span class="chordset">(A#)</span>rikh <span class="chordset">(D)</span> hai
+Pyaar se <span class="chordset">(D)</span> tham <span class="chordset">(Gm)</span> na
+dor ba <span class="chordset">(D)</span> rik <span class="chordset">(Gm)</span> hai
+Saat jan <span class="chordset">(D)</span> mon ki <span class="chordset">(Cm)</span> yeh
+pehli taa <span class="chordset">(A#)</span> rikh <span class="chordset">(D)</span> hai
 
-Dor ka <span class="chordset">(Gm)</span>ek <span class="chordset">(Cm)</span>main sir<span class="chordset">(F)</span>ra
+Dor ka <span class="chordset">(Gm)</span> ek <span class="chordset">(Cm)</span> main si<span class="chordset">(F)</span>ra
 Aur te<span class="chordset">(F)</span>ra hai <span class="chordset">(A#)</span>dus<span class="chordset">(D#)</span>ra
-Jud sake bich mein <span class="chordset">(F)</span> kayi tadap hai <span class="chordset">(D)</span> na
-Jo <span class="chordset">(Gm)</span> meri manzilon ko jati <span class="chordset">(Dm)</span> hai
+Jud sake <span class="chordset">(D#)</span> bich mein
+ka<span class="chordset">(F)</span>yi tadap hai <span class="chordset">(D)</span>na
 
-Tere <span class="chordset">(Cm)</span> naam ki koi sadak hai <span class="chordset">(Gm)</span>na<span class="chordset">(D)</span>
-Jo <span class="chordset">(Gm)</span> mere dil ko dil banaati <span class="chordset">(Dm)</span> hai
-Tere <span class="chordset">(Cm)</span> naam ki <span class="chordset">(D)</span> koi dhadak hai <span class="chordset">(Gm)</span> na</pre>
+Jo <span class="chordset">(Gm)</span> meri manzilon
+ko jati <span class="chordset">(Dm)</span> hai
+Tere <span class="chordset">(Cm)</span> naam ki koi
+sadak hai <span class="chordset">(Gm)</span>na<span class="chordset">(D)</span>
+
+Jo <span class="chordset">(Gm)</span> mere dil ko
+dil banaati <span class="chordset">(Dm)</span> hai
+Tere <span class="chordset">(Cm)</span> naam ki <span class="chordset">(D)</span> koi
+dhadak hai <span class="chordset">(Gm)</span> na</pre>
 
     </div>
     <div class="chord-func">
