@@ -251,8 +251,8 @@ exports.serveIt = async (configFile) => {
   mstream.get("/jyeinkyu", (req, res) => {
     res.sendFile(path.join(__dirname, "../webapp", "jyeinkyu.html"));
   });
-  mstream.get("/hawavein", (req, res) => {
-    res.sendFile(path.join(__dirname, "../webapp", "hawavein.html"));
+  mstream.get("/hawayein", (req, res) => {
+    res.sendFile(path.join(__dirname, "../webapp", "hawayein.html"));
   });
   mstream.get("/jashnebahara", (req, res) => {
     res.sendFile(path.join(__dirname, "../webapp", "jashnebahara.html"));
@@ -265,6 +265,18 @@ exports.serveIt = async (configFile) => {
   });
   mstream.get("/tumsehi", (req, res) => {
     res.sendFile(path.join(__dirname, "../webapp", "tumsehi.html"));
+  });
+  mstream.get("/ijazat", (req, res) => {
+    res.sendFile(path.join(__dirname, "../webapp", "ijazat.html"));
+  });
+  mstream.get("/beete-lamhein", (req, res) => {
+    res.sendFile(path.join(__dirname, "../webapp", "beetelamhe.html"));
+  });
+  mstream.get("/guzarish", (req, res) => {
+    res.sendFile(path.join(__dirname, "../webapp", "guzarish.html"));
+  });
+  mstream.get("/panidarang", (req, res) => {
+    res.sendFile(path.join(__dirname, "../webapp", "panidarang.html"));
   });
   mstream.get("/aajaomeritamanna", (req, res) => {
     res.sendFile(path.join(__dirname, "../webapp", "aajaomeritamanna.html"));

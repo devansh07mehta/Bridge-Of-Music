@@ -125,13 +125,16 @@ function escapeHtml(string) {
 
 function renderAlbum(id, artist, name, albumArtFile, year) {
   return `<li class="collection-item">
-    <div ${year ? `data-year="${year}"` : ""} ${artist ? `data-artist="${artist}"` : ""
-    } ${id ? `data-album="${id}"` : ""
-    } class="albumz flex2" onclick="getAlbumsOnClick(this);">
-        ${albumArtFile
-      ? `<img class="album-art-box" loading="lazy" src="${MSTREAMAPI.currentServer.host}album-art/${albumArtFile}?compress=s&token=${MSTREAMAPI.currentServer.token}">`
-      : '<svg xmlns="http://www.w3.org/2000/svg" class="album-art-box" viewBox="0 0 512 512" xml:space="preserve"><path d="M437 75C390.7 28.6 326.7 0 256 0 114.6 0 0 114.6 0 256c0 70.7 28.6 134.7 75 181s110.3 75 181 75c141.4 0 256-114.6 256-256 0-70.7-28.6-134.7-75-181zM256 477.9c-122.3 0-221.9-99.5-221.9-221.9S133.7 34.1 256 34.1 477.9 133.7 477.9 256 378.3 477.9 256 477.9z"/><path d="M256 145.1c-61.3 0-110.9 49.7-110.9 110.9S194.7 366.9 256 366.9 366.9 317.3 366.9 256c0-61.2-49.7-110.9-110.9-110.9zm0 187.7c-42.4 0-76.8-34.4-76.8-76.8s34.4-76.8 76.8-76.8 76.8 34.4 76.8 76.8-34.4 76.8-76.8 76.8z"/><path d="M238.9 238.9H273V273h-34.1zM256 102.4V68.3h-.6c-31 0-60.1 7.6-85.8 21l1-.5c-26 13.5-47.7 31.9-64.5 54.2l-.3.5 27.3 20.5c28.1-37.5 72.4-61.5 122.3-61.5l.6-.1z"/></svg>'
-    }
+    <div ${year ? `data-year="${year}"` : ""} ${
+    artist ? `data-artist="${artist}"` : ""
+  } ${
+    id ? `data-album="${id}"` : ""
+  } class="albumz flex2" onclick="getAlbumsOnClick(this);">
+        ${
+          albumArtFile
+            ? `<img class="album-art-box" loading="lazy" src="${MSTREAMAPI.currentServer.host}album-art/${albumArtFile}?compress=s&token=${MSTREAMAPI.currentServer.token}">`
+            : '<svg xmlns="http://www.w3.org/2000/svg" class="album-art-box" viewBox="0 0 512 512" xml:space="preserve"><path d="M437 75C390.7 28.6 326.7 0 256 0 114.6 0 0 114.6 0 256c0 70.7 28.6 134.7 75 181s110.3 75 181 75c141.4 0 256-114.6 256-256 0-70.7-28.6-134.7-75-181zM256 477.9c-122.3 0-221.9-99.5-221.9-221.9S133.7 34.1 256 34.1 477.9 133.7 477.9 256 378.3 477.9 256 477.9z"/><path d="M256 145.1c-61.3 0-110.9 49.7-110.9 110.9S194.7 366.9 256 366.9 366.9 317.3 366.9 256c0-61.2-49.7-110.9-110.9-110.9zm0 187.7c-42.4 0-76.8-34.4-76.8-76.8s34.4-76.8 76.8-76.8 76.8 34.4 76.8 76.8-34.4 76.8-76.8 76.8z"/><path d="M238.9 238.9H273V273h-34.1zM256 102.4V68.3h-.6c-31 0-60.1 7.6-85.8 21l1-.5c-26 13.5-47.7 31.9-64.5 54.2l-.3.5 27.3 20.5c28.1-37.5 72.4-61.5 122.3-61.5l.6-.1z"/></svg>'
+        }
         <span><b>${name}</b> ${year ? `<br>[${year}]` : ""}</span>
     </div>
   </li>`;
@@ -148,19 +151,22 @@ function renderFileWithMetadataHtml(filepath, lokiId, metadata) {
     
     <div data-file_location="${filepath}" class="filez flex">
     
-      <img class="album-art-box" loading="lazy" ${metadata["album-art"]
-      ? `src="${MSTREAMAPI.currentServer.host}album-art/${metadata["album-art"]}?compress=s&token=${MSTREAMAPI.currentServer.token}"`
-      : 'src="assets/img/default.png"'
-    }>
+      <img class="album-art-box" loading="lazy" ${
+        metadata["album-art"]
+          ? `src="${MSTREAMAPI.currentServer.host}album-art/${metadata["album-art"]}?compress=s&token=${MSTREAMAPI.currentServer.token}"`
+          : 'src="assets/img/default.png"'
+      }>
       <div>
-        <b><span>${!metadata || !metadata.title
-      ? filepath.split("/").pop()
-      : `${metadata.title}`
-    }</span></b>
-        ${metadata.artist
-      ? `</b><br><span style="font-size:15px;">${metadata.artist}</span>`
-      : ""
-    }
+        <b><span>${
+          !metadata || !metadata.title
+            ? filepath.split("/").pop()
+            : `${metadata.title}`
+        }</span></b>
+        ${
+          metadata.artist
+            ? `</b><br><span style="font-size:15px;">${metadata.artist}</span>`
+            : ""
+        }
       </div>
     </div>
   
@@ -175,16 +181,19 @@ function renderFileWithMetadataHtml(filepath, lokiId, metadata) {
 
 function createMusicFileHtml(fileLocation, title, aa, rating, subtitle) {
   return `<li class="collection-item">
-    <div data-file_location="${fileLocation}" class="filez ${aa ? "flex2" : ""
-    }"  id="newfileLocation" onclick="onFileClick(this);">
-      ${aa
-      ? `<img loading="lazy" class="album-art-box" ${aa}>`
-      : '<svg class="music-image" height="18" width="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><path d="M9 37.5c-3.584 0-6.5-2.916-6.5-6.5s2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V5.429l25-3.846V29c0 3.584-2.916 6.5-6.5 6.5s-6.5-2.916-6.5-6.5 2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V11.023l-19 2.931V31c0 3.584-2.916 6.5-6.5 6.5z" fill="#8A#7f0"/><path d="M37 2.166V29c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V10.441l-1.152.178-18 2.776-.848.13V31c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V5.858l24-3.692M38 1L12 5v19.683A6.962 6.962 0 009 24a7 7 0 107 7V14.383l18-2.776v11.076A6.962 6.962 0 0031 22a7 7 0 107 7V1z" fill="#4e7ab5"/></svg>'
-    } 
+    <div data-file_location="${fileLocation}" class="filez ${
+    aa ? "flex2" : ""
+  }"  id="newfileLocation" onclick="onFileClick(this);">
+      ${
+        aa
+          ? `<img loading="lazy" class="album-art-box" ${aa}>`
+          : '<svg class="music-image" height="18" width="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><path d="M9 37.5c-3.584 0-6.5-2.916-6.5-6.5s2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V5.429l25-3.846V29c0 3.584-2.916 6.5-6.5 6.5s-6.5-2.916-6.5-6.5 2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V11.023l-19 2.931V31c0 3.584-2.916 6.5-6.5 6.5z" fill="#8A#7f0"/><path d="M37 2.166V29c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V10.441l-1.152.178-18 2.776-.848.13V31c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V5.858l24-3.692M38 1L12 5v19.683A6.962 6.962 0 009 24a7 7 0 107 7V14.383l18-2.776v11.076A6.962 6.962 0 0031 22a7 7 0 107 7V1z" fill="#4e7ab5"/></svg>'
+      } 
       <span>
         ${subtitle !== undefined ? `<b>` : ""}
-        <span class="${aa ? "" : "item-text"}">${rating ? `[${rating}] ` : ""
-    }${title}</span>
+        <span class="${aa ? "" : "item-text"}">${
+    rating ? `[${rating}] ` : ""
+  }${title}</span>
         ${subtitle !== undefined ? `</b><br><span>${subtitle}</span>` : ""}
       </span>
     </div>
@@ -238,14 +247,14 @@ function renderPlaylist(playlistName) {
     playlistName
   )}" class="playlist_row_container">
     <span data-playlistname="${encodeURIComponent(
-    playlistName
-  )}" class="playlistz" onclick="onPlaylistClick(this);">${escapeHtml(
+      playlistName
+    )}" class="playlistz" onclick="onPlaylistClick(this);">${escapeHtml(
     playlistName
   )}</span>
     <div class="song-button-box">
       <span data-playlistname="${encodeURIComponent(
-    playlistName
-  )}" class="deletePlaylist" onclick="deletePlaylist(this);">Delete</span>
+        playlistName
+      )}" class="deletePlaylist" onclick="deletePlaylist(this);">Delete</span>
     </div>
   </li>`;
 }
@@ -513,12 +522,12 @@ async function init() {
       throw "bad!";
     }
     MSTREAMPLAYER.ignoreVPaths = ivp;
-  } catch (e) { }
+  } catch (e) {}
 
   try {
     // forced to an array to assure we're not stuffing nul values in here
     MSTREAMPLAYER.minRating = JSON.parse(localStorage.getItem("minRating"))[0];
-  } catch (e) { }
+  } catch (e) {}
 
   try {
     if (
@@ -534,7 +543,7 @@ async function init() {
     );
     MSTREAMPLAYER.transcodeOptions.selectedAlgo =
       localStorage.getItem("trans-algo-select");
-  } catch (e) { }
+  } catch (e) {}
 
   try {
     VUEPLAYERCORE.livePlaylist.name = localStorage.getItem(
@@ -568,7 +577,7 @@ async function init() {
         "Disable Live Playlist";
       document.getElementById("live-playlist-hide-these").hidden = true;
     }
-  } catch (err) { }
+  } catch (err) {}
 
   dbStatus();
 }
@@ -900,8 +909,8 @@ function deletePlaylist(el) {
             document
               .querySelector(
                 'li[data-playlistname="' +
-                encodeURIComponent(playlistname) +
-                '"]'
+                  encodeURIComponent(playlistname) +
+                  '"]'
               )
               .remove();
           } catch (err) {
@@ -1625,14 +1634,16 @@ function setupTranscodePanel() {
       <div>
         <label for="enable_transcoding_locally">
           <input type="checkbox" class="filled-in" onchange="toggleTranscoding(this);" id="enable_transcoding_locally" 
-          name="transcode" ${MSTREAMPLAYER.transcodeOptions.frontendEnabled ? "checked" : ""
-    }/>
+          name="transcode" ${
+            MSTREAMPLAYER.transcodeOptions.frontendEnabled ? "checked" : ""
+          }/>
           <span>Enable Transcoding</span>
         </label>
       </div>
       <p>
-        Default Codec:<br> <b>${MSTREAMPLAYER.transcodeOptions.defaultCodec} ${MSTREAMPLAYER.transcodeOptions.defaultBitrate
-    } ${MSTREAMPLAYER.transcodeOptions.defaultAlgo}</b>
+        Default Codec:<br> <b>${MSTREAMPLAYER.transcodeOptions.defaultCodec} ${
+    MSTREAMPLAYER.transcodeOptions.defaultBitrate
+  } ${MSTREAMPLAYER.transcodeOptions.defaultAlgo}</b>
       </p>
       <form>
         <label for="trans-codec-select">Codec</label>
@@ -1804,8 +1815,9 @@ function autoDjPanel() {
   newHtml +=
     '<h5>Minimum Rating</h5> <select class="browser-default" onchange="updateAutoDJRatings(this)" id="autodj-ratings">';
   for (let i = 0; i < 11; i++) {
-    newHtml += `<option ${Number(MSTREAMPLAYER.minRating) === i ? "selected" : ""
-      } value="${i}">${i === 0 ? "Disabled" : +(i / 2).toFixed(1)}</option>`;
+    newHtml += `<option ${
+      Number(MSTREAMPLAYER.minRating) === i ? "selected" : ""
+    } value="${i}">${i === 0 ? "Disabled" : +(i / 2).toFixed(1)}</option>`;
   }
   newHtml += "</select>";
   newHtml +=
@@ -1879,9 +1891,9 @@ function createJukeboxPanel() {
     <h4>Code: ${JUKEBOX.stats.adminCode}</h4>
     <h4><a target="_blank" href="${address}">${address}</a><h4>
     ${qrcodegen.QrCode.encodeText(
-    address,
-    qrcodegen.QrCode.Ecc.MEDIUM
-  ).toSvgString(2)}
+      address,
+      qrcodegen.QrCode.Ecc.MEDIUM
+    ).toSvgString(2)}
     </div>`;
 }
 
@@ -2010,23 +2022,27 @@ function setupSearchPanel(searchTerm) {
     </div>
     <div class="flex">
       <label class="grow" for="search-in-artists">
-        <input ${searchToggles.artists === true ? "checked" : ""
-    } id="search-in-artists" class="filled-in" type="checkbox">
+        <input ${
+          searchToggles.artists === true ? "checked" : ""
+        } id="search-in-artists" class="filled-in" type="checkbox">
         <span>Artists</span>
       </label>
       <label class="grow" for="search-in-albums">
-        <input ${searchToggles.albums === true ? "checked" : ""
-    } id="search-in-albums" class="filled-in" type="checkbox">
+        <input ${
+          searchToggles.albums === true ? "checked" : ""
+        } id="search-in-albums" class="filled-in" type="checkbox">
         <span>Albums</span>
       </label>
       <label class="grow" for="search-in-titles">
-        <input ${searchToggles.titles === true ? "checked" : ""
-    } id="search-in-titles" class="filled-in" type="checkbox">
+        <input ${
+          searchToggles.titles === true ? "checked" : ""
+        } id="search-in-titles" class="filled-in" type="checkbox">
         <span>Song Titles</span>
       </label>
       <label class="grow" for="search-in-filepaths">
-        <input ${searchToggles.files === true ? "checked" : ""
-    } id="search-in-filepaths" class="filled-in" type="checkbox">
+        <input ${
+          searchToggles.files === true ? "checked" : ""
+        } id="search-in-filepaths" class="filled-in" type="checkbox">
         <span>File Paths</span>
       </label>
     </div>
@@ -2100,13 +2116,16 @@ async function submitSearchForm() {
 
         // perform some operation on a value;
         searchList += `<li class="collection-item">
-          <div onclick="${searchMap[key].func}(this);" data-${searchMap[key].data
-          }="${value.filepath ? value.filepath : value.name}" class="${searchMap[key].class
-          } left">
+          <div onclick="${searchMap[key].func}(this);" data-${
+          searchMap[key].data
+        }="${value.filepath ? value.filepath : value.name}" class="${
+          searchMap[key].class
+        } left">
             <b>${searchMap[key].name}:</b> ${value.name}
           </div>
-          ${key === "files" || key === "title"
-            ? `<div class="song-button-box">
+          ${
+            key === "files" || key === "title"
+              ? `<div class="song-button-box">
             <span title="Play Now" onclick="playNow(this);" data-file_location="${value.filepath}" class="songDropdown">
               <svg xmlns="http://www.w3.org/2000/svg" height="12" width="12" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M15.5 5H11l5 7-5 7h4.5l5-7z"/><path d="M8.5 5H4l5 7-5 7h4.5l5-7z"/></svg>
             </span>
@@ -2114,7 +2133,7 @@ async function submitSearchForm() {
               <svg class="pop-f" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 292.362 292.362"><path class="pop-f" d="M286.935 69.377c-3.614-3.617-7.898-5.424-12.848-5.424H18.274c-4.952 0-9.233 1.807-12.85 5.424C1.807 72.998 0 77.279 0 82.228c0 4.948 1.807 9.229 5.424 12.847l127.907 127.907c3.621 3.617 7.902 5.428 12.85 5.428s9.233-1.811 12.847-5.428L286.935 95.074c3.613-3.617 5.427-7.898 5.427-12.847 0-4.948-1.814-9.229-5.427-12.85z"/></svg>
             </span>
           </div>`
-            : ""
+              : ""
           }
         </li>`;
       });
@@ -2164,8 +2183,9 @@ function setupLayoutPanel() {
     <div>
       <div class="switch">
         <label>
-          <input onchange="tglBookCtrls(this);" type="checkbox" ${VUEPLAYERCORE.altLayout.audioBookCtrls === true ? "checked" : ""
-    }>
+          <input onchange="tglBookCtrls(this);" type="checkbox" ${
+            VUEPLAYERCORE.altLayout.audioBookCtrls === true ? "checked" : ""
+          }>
           <span class="lever"></span>
           Audio Book Controls
         </label>
@@ -2173,8 +2193,9 @@ function setupLayoutPanel() {
       <br>
       <div class="switch">
         <label>
-          <input onchange="flipPlayer(this);" type="checkbox" ${VUEPLAYERCORE.altLayout.flipPlayer === true ? "checked" : ""
-    }>
+          <input onchange="flipPlayer(this);" type="checkbox" ${
+            VUEPLAYERCORE.altLayout.flipPlayer === true ? "checked" : ""
+          }>
           <span class="lever"></span>
           Player On Bottom
         </label>
@@ -2182,8 +2203,9 @@ function setupLayoutPanel() {
       <br>
       <div class="switch">
         <label>
-          <input onchange="tglMoveMetadata(this);" type="checkbox" ${VUEPLAYERCORE.altLayout.moveMeta === true ? "checked" : ""
-    }>
+          <input onchange="tglMoveMetadata(this);" type="checkbox" ${
+            VUEPLAYERCORE.altLayout.moveMeta === true ? "checked" : ""
+          }>
           <span class="lever"></span>
           Metadata in Queue
         </label>
@@ -2329,7 +2351,7 @@ function initElectron() {
       MSTREAMAPI.currentServer.token = curServer.token;
       MSTREAMAPI.currentServer.username = curServer.username;
     }
-  } catch (err) { }
+  } catch (err) {}
 
   // check if server
   if (!MSTREAMAPI.currentServer.host) {
@@ -9827,7 +9849,7 @@ Toh Jiyein <span class="chordset">(A)</span> kyun
   </div>
   </div>`;
 
-  const hawavein = `<div class="chord-main">
+  const hawayein = `<div class="chord-main">
     <div class="baarish" id="chord-lyrics">
     <pre class="song-details-pre">
 Song : Hawayein 
@@ -13664,7 +13686,7 @@ Pi<span class="chordset">(Bm)</span>ya re pi<span class="chordset">(F#)</span>ya
   function BeeteLamhe(chord) {
     document.getElementById("newcontent").innerHTML = chord;
 
-    const newUrl = window.location.origin + "/beete-lamhe";
+    const newUrl = window.location.origin + "/beete-lamhein";
     window.history.pushState({ path: newUrl }, "", newUrl);
   }
   function Ijazat(chord) {
@@ -13946,7 +13968,7 @@ Pi<span class="chordset">(Bm)</span>ya re pi<span class="chordset">(F#)</span>ya
   } else if (element == "31") {
     Jyeinkyu(jiyekyun);
   } else if (element == "32") {
-    Hawayein(hawavein);
+    Hawayein(hawayein);
   } else if (element == "33") {
     Jashnebahara(jashnebahara);
   } else if (element == "34") {
