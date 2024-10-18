@@ -125,13 +125,16 @@ function escapeHtml(string) {
 
 function renderAlbum(id, artist, name, albumArtFile, year) {
   return `<li class="collection-item">
-    <div ${year ? `data-year="${year}"` : ""} ${artist ? `data-artist="${artist}"` : ""
-    } ${id ? `data-album="${id}"` : ""
-    } class="albumz flex2" onclick="getAlbumsOnClick(this);">
-        ${albumArtFile
-      ? `<img class="album-art-box" loading="lazy" src="${MSTREAMAPI.currentServer.host}album-art/${albumArtFile}?compress=s&token=${MSTREAMAPI.currentServer.token}">`
-      : '<svg xmlns="http://www.w3.org/2000/svg" class="album-art-box" viewBox="0 0 512 512" xml:space="preserve"><path d="M437 75C390.7 28.6 326.7 0 256 0 114.6 0 0 114.6 0 256c0 70.7 28.6 134.7 75 181s110.3 75 181 75c141.4 0 256-114.6 256-256 0-70.7-28.6-134.7-75-181zM256 477.9c-122.3 0-221.9-99.5-221.9-221.9S133.7 34.1 256 34.1 477.9 133.7 477.9 256 378.3 477.9 256 477.9z"/><path d="M256 145.1c-61.3 0-110.9 49.7-110.9 110.9S194.7 366.9 256 366.9 366.9 317.3 366.9 256c0-61.2-49.7-110.9-110.9-110.9zm0 187.7c-42.4 0-76.8-34.4-76.8-76.8s34.4-76.8 76.8-76.8 76.8 34.4 76.8 76.8-34.4 76.8-76.8 76.8z"/><path d="M238.9 238.9H273V273h-34.1zM256 102.4V68.3h-.6c-31 0-60.1 7.6-85.8 21l1-.5c-26 13.5-47.7 31.9-64.5 54.2l-.3.5 27.3 20.5c28.1-37.5 72.4-61.5 122.3-61.5l.6-.1z"/></svg>'
-    }
+    <div ${year ? `data-year="${year}"` : ""} ${
+    artist ? `data-artist="${artist}"` : ""
+  } ${
+    id ? `data-album="${id}"` : ""
+  } class="albumz flex2" onclick="getAlbumsOnClick(this);">
+        ${
+          albumArtFile
+            ? `<img class="album-art-box" loading="lazy" src="${MSTREAMAPI.currentServer.host}album-art/${albumArtFile}?compress=s&token=${MSTREAMAPI.currentServer.token}">`
+            : '<svg xmlns="http://www.w3.org/2000/svg" class="album-art-box" viewBox="0 0 512 512" xml:space="preserve"><path d="M437 75C390.7 28.6 326.7 0 256 0 114.6 0 0 114.6 0 256c0 70.7 28.6 134.7 75 181s110.3 75 181 75c141.4 0 256-114.6 256-256 0-70.7-28.6-134.7-75-181zM256 477.9c-122.3 0-221.9-99.5-221.9-221.9S133.7 34.1 256 34.1 477.9 133.7 477.9 256 378.3 477.9 256 477.9z"/><path d="M256 145.1c-61.3 0-110.9 49.7-110.9 110.9S194.7 366.9 256 366.9 366.9 317.3 366.9 256c0-61.2-49.7-110.9-110.9-110.9zm0 187.7c-42.4 0-76.8-34.4-76.8-76.8s34.4-76.8 76.8-76.8 76.8 34.4 76.8 76.8-34.4 76.8-76.8 76.8z"/><path d="M238.9 238.9H273V273h-34.1zM256 102.4V68.3h-.6c-31 0-60.1 7.6-85.8 21l1-.5c-26 13.5-47.7 31.9-64.5 54.2l-.3.5 27.3 20.5c28.1-37.5 72.4-61.5 122.3-61.5l.6-.1z"/></svg>'
+        }
         <span><b>${name}</b> ${year ? `<br>[${year}]` : ""}</span>
     </div>
   </li>`;
@@ -148,19 +151,22 @@ function renderFileWithMetadataHtml(filepath, lokiId, metadata) {
     
     <div data-file_location="${filepath}" class="filez flex">
     
-      <img class="album-art-box" loading="lazy" ${metadata["album-art"]
-      ? `src="${MSTREAMAPI.currentServer.host}album-art/${metadata["album-art"]}?compress=s&token=${MSTREAMAPI.currentServer.token}"`
-      : 'src="assets/img/default.png"'
-    }>
+      <img class="album-art-box" loading="lazy" ${
+        metadata["album-art"]
+          ? `src="${MSTREAMAPI.currentServer.host}album-art/${metadata["album-art"]}?compress=s&token=${MSTREAMAPI.currentServer.token}"`
+          : 'src="assets/img/default.png"'
+      }>
       <div>
-        <b><span>${!metadata || !metadata.title
-      ? filepath.split("/").pop()
-      : `${metadata.title}`
-    }</span></b>
-        ${metadata.artist
-      ? `</b><br><span style="font-size:15px;">${metadata.artist}</span>`
-      : ""
-    }
+        <b><span>${
+          !metadata || !metadata.title
+            ? filepath.split("/").pop()
+            : `${metadata.title}`
+        }</span></b>
+        ${
+          metadata.artist
+            ? `</b><br><span style="font-size:15px;">${metadata.artist}</span>`
+            : ""
+        }
       </div>
     </div>
   
@@ -175,16 +181,19 @@ function renderFileWithMetadataHtml(filepath, lokiId, metadata) {
 
 function createMusicFileHtml(fileLocation, title, aa, rating, subtitle) {
   return `<li class="collection-item">
-    <div data-file_location="${fileLocation}" class="filez ${aa ? "flex2" : ""
-    }"  id="newfileLocation" onclick="onFileClick(this);">
-      ${aa
-      ? `<img loading="lazy" class="album-art-box" ${aa}>`
-      : '<svg class="music-image" height="18" width="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><path d="M9 37.5c-3.584 0-6.5-2.916-6.5-6.5s2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V5.429l25-3.846V29c0 3.584-2.916 6.5-6.5 6.5s-6.5-2.916-6.5-6.5 2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V11.023l-19 2.931V31c0 3.584-2.916 6.5-6.5 6.5z" fill="#8A#7f0"/><path d="M37 2.166V29c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V10.441l-1.152.178-18 2.776-.848.13V31c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V5.858l24-3.692M38 1L12 5v19.683A6.962 6.962 0 009 24a7 7 0 107 7V14.383l18-2.776v11.076A6.962 6.962 0 0031 22a7 7 0 107 7V1z" fill="#4e7ab5"/></svg>'
-    } 
+    <div data-file_location="${fileLocation}" class="filez ${
+    aa ? "flex2" : ""
+  }"  id="newfileLocation" onclick="onFileClick(this);">
+      ${
+        aa
+          ? `<img loading="lazy" class="album-art-box" ${aa}>`
+          : '<svg class="music-image" height="18" width="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><path d="M9 37.5c-3.584 0-6.5-2.916-6.5-6.5s2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V5.429l25-3.846V29c0 3.584-2.916 6.5-6.5 6.5s-6.5-2.916-6.5-6.5 2.916-6.5 6.5-6.5a6.43 6.43 0 012.785.634l.715.34V11.023l-19 2.931V31c0 3.584-2.916 6.5-6.5 6.5z" fill="#8A#7f0"/><path d="M37 2.166V29c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V10.441l-1.152.178-18 2.776-.848.13V31c0 3.308-2.692 6-6 6s-6-2.692-6-6 2.692-6 6-6a5.93 5.93 0 012.57.586l1.43.68V5.858l24-3.692M38 1L12 5v19.683A6.962 6.962 0 009 24a7 7 0 107 7V14.383l18-2.776v11.076A6.962 6.962 0 0031 22a7 7 0 107 7V1z" fill="#4e7ab5"/></svg>'
+      } 
       <span>
         ${subtitle !== undefined ? `<b>` : ""}
-        <span class="${aa ? "" : "item-text"}">${rating ? `[${rating}] ` : ""
-    }${title}</span>
+        <span class="${aa ? "" : "item-text"}">${
+    rating ? `[${rating}] ` : ""
+  }${title}</span>
         ${subtitle !== undefined ? `</b><br><span>${subtitle}</span>` : ""}
       </span>
     </div>
@@ -238,14 +247,14 @@ function renderPlaylist(playlistName) {
     playlistName
   )}" class="playlist_row_container">
     <span data-playlistname="${encodeURIComponent(
-    playlistName
-  )}" class="playlistz" onclick="onPlaylistClick(this);">${escapeHtml(
+      playlistName
+    )}" class="playlistz" onclick="onPlaylistClick(this);">${escapeHtml(
     playlistName
   )}</span>
     <div class="song-button-box">
       <span data-playlistname="${encodeURIComponent(
-    playlistName
-  )}" class="deletePlaylist" onclick="deletePlaylist(this);">Delete</span>
+        playlistName
+      )}" class="deletePlaylist" onclick="deletePlaylist(this);">Delete</span>
     </div>
   </li>`;
 }
@@ -513,12 +522,12 @@ async function init() {
       throw "bad!";
     }
     MSTREAMPLAYER.ignoreVPaths = ivp;
-  } catch (e) { }
+  } catch (e) {}
 
   try {
     // forced to an array to assure we're not stuffing nul values in here
     MSTREAMPLAYER.minRating = JSON.parse(localStorage.getItem("minRating"))[0];
-  } catch (e) { }
+  } catch (e) {}
 
   try {
     if (
@@ -534,7 +543,7 @@ async function init() {
     );
     MSTREAMPLAYER.transcodeOptions.selectedAlgo =
       localStorage.getItem("trans-algo-select");
-  } catch (e) { }
+  } catch (e) {}
 
   try {
     VUEPLAYERCORE.livePlaylist.name = localStorage.getItem(
@@ -568,7 +577,7 @@ async function init() {
         "Disable Live Playlist";
       document.getElementById("live-playlist-hide-these").hidden = true;
     }
-  } catch (err) { }
+  } catch (err) {}
 
   dbStatus();
 }
@@ -900,8 +909,8 @@ function deletePlaylist(el) {
             document
               .querySelector(
                 'li[data-playlistname="' +
-                encodeURIComponent(playlistname) +
-                '"]'
+                  encodeURIComponent(playlistname) +
+                  '"]'
               )
               .remove();
           } catch (err) {
@@ -1625,14 +1634,16 @@ function setupTranscodePanel() {
       <div>
         <label for="enable_transcoding_locally">
           <input type="checkbox" class="filled-in" onchange="toggleTranscoding(this);" id="enable_transcoding_locally" 
-          name="transcode" ${MSTREAMPLAYER.transcodeOptions.frontendEnabled ? "checked" : ""
-    }/>
+          name="transcode" ${
+            MSTREAMPLAYER.transcodeOptions.frontendEnabled ? "checked" : ""
+          }/>
           <span>Enable Transcoding</span>
         </label>
       </div>
       <p>
-        Default Codec:<br> <b>${MSTREAMPLAYER.transcodeOptions.defaultCodec} ${MSTREAMPLAYER.transcodeOptions.defaultBitrate
-    } ${MSTREAMPLAYER.transcodeOptions.defaultAlgo}</b>
+        Default Codec:<br> <b>${MSTREAMPLAYER.transcodeOptions.defaultCodec} ${
+    MSTREAMPLAYER.transcodeOptions.defaultBitrate
+  } ${MSTREAMPLAYER.transcodeOptions.defaultAlgo}</b>
       </p>
       <form>
         <label for="trans-codec-select">Codec</label>
@@ -1804,8 +1815,9 @@ function autoDjPanel() {
   newHtml +=
     '<h5>Minimum Rating</h5> <select class="browser-default" onchange="updateAutoDJRatings(this)" id="autodj-ratings">';
   for (let i = 0; i < 11; i++) {
-    newHtml += `<option ${Number(MSTREAMPLAYER.minRating) === i ? "selected" : ""
-      } value="${i}">${i === 0 ? "Disabled" : +(i / 2).toFixed(1)}</option>`;
+    newHtml += `<option ${
+      Number(MSTREAMPLAYER.minRating) === i ? "selected" : ""
+    } value="${i}">${i === 0 ? "Disabled" : +(i / 2).toFixed(1)}</option>`;
   }
   newHtml += "</select>";
   newHtml +=
@@ -1879,9 +1891,9 @@ function createJukeboxPanel() {
     <h4>Code: ${JUKEBOX.stats.adminCode}</h4>
     <h4><a target="_blank" href="${address}">${address}</a><h4>
     ${qrcodegen.QrCode.encodeText(
-    address,
-    qrcodegen.QrCode.Ecc.MEDIUM
-  ).toSvgString(2)}
+      address,
+      qrcodegen.QrCode.Ecc.MEDIUM
+    ).toSvgString(2)}
     </div>`;
 }
 
@@ -2010,23 +2022,27 @@ function setupSearchPanel(searchTerm) {
     </div>
     <div class="flex">
       <label class="grow" for="search-in-artists">
-        <input ${searchToggles.artists === true ? "checked" : ""
-    } id="search-in-artists" class="filled-in" type="checkbox">
+        <input ${
+          searchToggles.artists === true ? "checked" : ""
+        } id="search-in-artists" class="filled-in" type="checkbox">
         <span>Artists</span>
       </label>
       <label class="grow" for="search-in-albums">
-        <input ${searchToggles.albums === true ? "checked" : ""
-    } id="search-in-albums" class="filled-in" type="checkbox">
+        <input ${
+          searchToggles.albums === true ? "checked" : ""
+        } id="search-in-albums" class="filled-in" type="checkbox">
         <span>Albums</span>
       </label>
       <label class="grow" for="search-in-titles">
-        <input ${searchToggles.titles === true ? "checked" : ""
-    } id="search-in-titles" class="filled-in" type="checkbox">
+        <input ${
+          searchToggles.titles === true ? "checked" : ""
+        } id="search-in-titles" class="filled-in" type="checkbox">
         <span>Song Titles</span>
       </label>
       <label class="grow" for="search-in-filepaths">
-        <input ${searchToggles.files === true ? "checked" : ""
-    } id="search-in-filepaths" class="filled-in" type="checkbox">
+        <input ${
+          searchToggles.files === true ? "checked" : ""
+        } id="search-in-filepaths" class="filled-in" type="checkbox">
         <span>File Paths</span>
       </label>
     </div>
@@ -2100,13 +2116,16 @@ async function submitSearchForm() {
 
         // perform some operation on a value;
         searchList += `<li class="collection-item">
-          <div onclick="${searchMap[key].func}(this);" data-${searchMap[key].data
-          }="${value.filepath ? value.filepath : value.name}" class="${searchMap[key].class
-          } left">
+          <div onclick="${searchMap[key].func}(this);" data-${
+          searchMap[key].data
+        }="${value.filepath ? value.filepath : value.name}" class="${
+          searchMap[key].class
+        } left">
             <b>${searchMap[key].name}:</b> ${value.name}
           </div>
-          ${key === "files" || key === "title"
-            ? `<div class="song-button-box">
+          ${
+            key === "files" || key === "title"
+              ? `<div class="song-button-box">
             <span title="Play Now" onclick="playNow(this);" data-file_location="${value.filepath}" class="songDropdown">
               <svg xmlns="http://www.w3.org/2000/svg" height="12" width="12" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M15.5 5H11l5 7-5 7h4.5l5-7z"/><path d="M8.5 5H4l5 7-5 7h4.5l5-7z"/></svg>
             </span>
@@ -2114,7 +2133,7 @@ async function submitSearchForm() {
               <svg class="pop-f" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 292.362 292.362"><path class="pop-f" d="M286.935 69.377c-3.614-3.617-7.898-5.424-12.848-5.424H18.274c-4.952 0-9.233 1.807-12.85 5.424C1.807 72.998 0 77.279 0 82.228c0 4.948 1.807 9.229 5.424 12.847l127.907 127.907c3.621 3.617 7.902 5.428 12.85 5.428s9.233-1.811 12.847-5.428L286.935 95.074c3.613-3.617 5.427-7.898 5.427-12.847 0-4.948-1.814-9.229-5.427-12.85z"/></svg>
             </span>
           </div>`
-            : ""
+              : ""
           }
         </li>`;
       });
@@ -2164,8 +2183,9 @@ function setupLayoutPanel() {
     <div>
       <div class="switch">
         <label>
-          <input onchange="tglBookCtrls(this);" type="checkbox" ${VUEPLAYERCORE.altLayout.audioBookCtrls === true ? "checked" : ""
-    }>
+          <input onchange="tglBookCtrls(this);" type="checkbox" ${
+            VUEPLAYERCORE.altLayout.audioBookCtrls === true ? "checked" : ""
+          }>
           <span class="lever"></span>
           Audio Book Controls
         </label>
@@ -2173,8 +2193,9 @@ function setupLayoutPanel() {
       <br>
       <div class="switch">
         <label>
-          <input onchange="flipPlayer(this);" type="checkbox" ${VUEPLAYERCORE.altLayout.flipPlayer === true ? "checked" : ""
-    }>
+          <input onchange="flipPlayer(this);" type="checkbox" ${
+            VUEPLAYERCORE.altLayout.flipPlayer === true ? "checked" : ""
+          }>
           <span class="lever"></span>
           Player On Bottom
         </label>
@@ -2182,8 +2203,9 @@ function setupLayoutPanel() {
       <br>
       <div class="switch">
         <label>
-          <input onchange="tglMoveMetadata(this);" type="checkbox" ${VUEPLAYERCORE.altLayout.moveMeta === true ? "checked" : ""
-    }>
+          <input onchange="tglMoveMetadata(this);" type="checkbox" ${
+            VUEPLAYERCORE.altLayout.moveMeta === true ? "checked" : ""
+          }>
           <span class="lever"></span>
           Metadata in Queue
         </label>
@@ -2329,7 +2351,7 @@ function initElectron() {
       MSTREAMAPI.currentServer.token = curServer.token;
       MSTREAMAPI.currentServer.username = curServer.username;
     }
-  } catch (err) { }
+  } catch (err) {}
 
   // check if server
   if (!MSTREAMAPI.currentServer.host) {
@@ -14539,8 +14561,8 @@ function loadchordset() {
       <input type="text" placeholder="Search.." name="search" style="padding-left: 1rem;">
       <span class="clear-search">&times;</span>
       <button type="submit"><i class="fa fa-search"></i></button>
-  </div>
-    <div class="row-new task__contents">
+    </div>
+      <div class="row-new task__contents">
         <div class="col-new">
             <div class="card-new" onclick="chord('one')">
                 <img src="../assets/img/Baarish-thumbnail.JPEG.jpg" alt="Blog post image">
@@ -14760,7 +14782,7 @@ function loadchordset() {
             </div>
         </div>
         <div class="col-new">
-            <div class="card-new card-bottom" onclick="chord('19')">
+            <div class="card-new " onclick="chord('19')">
                 <img src="../assets/img/tuhhimeri.jpg" alt="Blog post image">
                 <div class="card-body-new">
                     <h5 class="card-title-new">Tu hi Meri Shab Hai - gangster</h5>
@@ -14772,22 +14794,20 @@ function loadchordset() {
             </div>
         </div>
         <div class="col-new">
-            <div class="card-new card-bottom" onclick="chord('20')">
+            <div class="card-new " onclick="chord('20')">
                 <img src="../assets/img/mereyaara.jpg" alt="Mere Yaara">
                 <div class="card-body-new">
                     <h5 class="card-title-new">Mere Yaaraa - Sooryavanshi</h5>
                     <p class="card-meta-new"> Arijit Singh & Neeti Mohan</p>
-                    <div class="badge-btns">
-                    <span class="badge-new badge-info-new">GUITAR CHORDS</span>
-                    <span class="badge-new badge-warning-new">PIANO CHORDS</span></div>
+                    
                 </div>
             </div>
         </div>
         <div class="col-new">
-            <div class="card-new card-bottom" onclick="chord('21')">
+            <div class="card-new " onclick="chord('21')">
                 <img src="../assets/img/beetelamhe.jpg" alt="Beete Lamhe">
                 <div class="card-body-new">
-                    <h5 class="card-title-new">Beete Lamhein - The Train- An Inspiration</h5>
+                    <h5 class="card-title-new">Beete Lamhein - The Train An Inspiration</h5>
                     <p class="card-meta-new"> KK & Mithoon</p>
                     <div class="badge-btns">
                     <span class="badge-new badge-info-new">GUITAR CHORDS</span>
@@ -14796,7 +14816,7 @@ function loadchordset() {
             </div>
         </div>
         <div class="col-new">
-            <div class="card-new card-bottom" onclick="chord('22')">
+            <div class="card-new " onclick="chord('22')">
                 <img src="../assets/img/ijazaat.jpg" alt="Ijazat">
                 <div class="card-body-new">
                     <h5 class="card-title-new">Ijazat - One Night Stand</h5>
@@ -14808,7 +14828,7 @@ function loadchordset() {
             </div>
         </div>
         <div class="col-new">
-            <div class="card-new card-bottom" onclick="chord('23')">
+            <div class="card-new " onclick="chord('23')">
                 <img src="../assets/img/guzarish.jpg" alt="Guzarish">
                 <div class="card-body-new">
                     <h5 class="card-title-new">Guzarish - Ghajini</h5>
@@ -14820,7 +14840,7 @@ function loadchordset() {
             </div>
         </div>
         <div class="col-new">
-            <div class="card-new card-bottom" onclick="chord('24')">
+            <div class="card-new " onclick="chord('24')">
                 <img src="../assets/img/paanida.jpg" alt="Pani Da Rang">
                 <div class="card-body-new">
                     <h5 class="card-title-new">Pani Da Rang - Vicky Donor</h5>
@@ -14833,7 +14853,7 @@ Bann,Rochak Kohli & Ayushmann Khurrana</p>
             </div>
         </div>
         <div class="col-new">
-            <div class="card-new card-bottom" onclick="chord('25')">
+            <div class="card-new " onclick="chord('25')">
                 <img src="../assets/img/humnava.jpg" alt="Humnava">
                 <div class="card-body-new">
                     <h5 class="card-title-new">Humnava - Hamari Adhuri Kahani</h5>
@@ -14845,7 +14865,7 @@ Bann,Rochak Kohli & Ayushmann Khurrana</p>
             </div>
         </div>
         <div class="col-new">
-            <div class="card-new card-bottom" onclick="chord('26')">
+            <div class="card-new " onclick="chord('26')">
                 <img src="../assets/img/subhanalla.jpg" alt="Subhnallah">
                 <div class="card-body-new">
                     <h5 class="card-title-new">Subhanallah - Hamari Adhuri Kahani</h5>
@@ -14857,7 +14877,7 @@ Bann,Rochak Kohli & Ayushmann Khurrana</p>
             </div>
         </div>
         <div class="col-new">
-            <div class="card-new card-bottom" onclick="chord('27')">
+            <div class="card-new " onclick="chord('27')">
                 <img src="../assets/img/banjara.jpg" alt="Banjaara">
                 <div class="card-body-new">
                     <h5 class="card-title-new">Banjaara - Ek Villain</h5>
@@ -14869,7 +14889,7 @@ Bann,Rochak Kohli & Ayushmann Khurrana</p>
             </div>
         </div>
         <div class="col-new">
-            <div class="card-new card-bottom" onclick="chord('28')">
+            <div class="card-new " onclick="chord('28')">
                 <img src="../assets/img/tiktikvajate.png" alt="Tik Tik Vajate Dokyat">
                 <div class="card-body-new">
                     <h5 class="card-title-new">Tik Tik Vajate Dokyat - Duniyadari</h5>
@@ -14881,7 +14901,7 @@ Bann,Rochak Kohli & Ayushmann Khurrana</p>
             </div>
       </div>
         <div class="col-new">
-            <div class="card-new card-bottom" onclick="chord('29')">
+            <div class="card-new " onclick="chord('29')">
                 <img src="../assets/img/jeevrangla.png" alt="Jeev Rangla">
                 <div class="card-body-new">
                     <h5 class="card-title-new">Jeev Rangla - Jogwa</h5>
@@ -14893,7 +14913,7 @@ Bann,Rochak Kohli & Ayushmann Khurrana</p>
             </div>
         </div>  
     <div class="col-new">
-            <div class="card-new card-bottom" onclick="chord('30')">
+            <div class="card-new " onclick="chord('30')">
                 <img src="../assets/img/kakaan.jpg" alt="Kaakan">
                 <div class="card-body-new">
                     <h5 class="card-title-new">Kaakan - Kaakan</h5>
@@ -14905,7 +14925,7 @@ Bann,Rochak Kohli & Ayushmann Khurrana</p>
             </div>
         </div>
     <div class="col-new">
-            <div class="card-new card-bottom" onclick="chord('31')">
+            <div class="card-new " onclick="chord('31')">
                 <img src="../assets/img/jyeinkyu.jpg" alt="Jyeikyu">
                 <div class="card-body-new">
                     <h5 class="card-title-new">Jiyein Kyun - Dum Maaro Dum</h5>
@@ -14917,7 +14937,7 @@ Bann,Rochak Kohli & Ayushmann Khurrana</p>
             </div>
         </div>
     <div class="col-new">
-            <div class="card-new card-bottom" onclick="chord('32')">
+            <div class="card-new " onclick="chord('32')">
                 <img src="../assets/img/hawayein.jpg" alt="Hawayein">
                 <div class="card-body-new">
                     <h5 class="card-title-new">Hawayein - Jab Harry Met Sejal</h5>
@@ -14929,7 +14949,7 @@ Bann,Rochak Kohli & Ayushmann Khurrana</p>
             </div>
         </div>
     <div class="col-new">
-            <div class="card-new card-bottom" onclick="chord('33')">
+            <div class="card-new " onclick="chord('33')">
                 <img src="../assets/img/jashnebahara.jpg" alt="Jashn-E-Bahaaraa">
                 <div class="card-body-new">
                     <h5 class="card-title-new">Jashn-E-Bahaaraa - Jodhaa Akbar</h5>
@@ -14941,7 +14961,7 @@ Bann,Rochak Kohli & Ayushmann Khurrana</p>
             </div>
         </div>
     <div class="col-new">
-            <div class="card-new card-bottom" onclick="chord('34')">
+            <div class="card-new " onclick="chord('34')">
                 <img src="../assets/img/tera_hone_laga_hu.jpg" alt="Tera Hone Laga Hu">
                 <div class="card-body-new">
                     <h5 class="card-title-new">Tera Hone Laga Hu - Ajab Prem Ki Ghazab Kahani</h5>
@@ -14953,7 +14973,7 @@ Bann,Rochak Kohli & Ayushmann Khurrana</p>
             </div>
         </div>
     <div class="col-new">
-            <div class="card-new card-bottom" onclick="chord('35')">
+            <div class="card-new " onclick="chord('35')">
                 <img src="../assets/img/Quaafirana.jpg" alt="Quaafirana">
                 <div class="card-body-new">
                     <h5 class="card-title-new">Quaafirana - Kedarnath</h5>
@@ -14965,7 +14985,7 @@ Bann,Rochak Kohli & Ayushmann Khurrana</p>
             </div>
         </div>
     <div class="col-new">
-            <div class="card-new card-bottom" onclick="chord('36')">
+            <div class="card-new " onclick="chord('36')">
                 <img src="../assets/img/tumsehi.jpg" alt="Tum Se Hi">
                 <div class="card-body-new">
                     <h5 class="card-title-new">Tum Se Hi - Jab We Met</h5>
@@ -14977,7 +14997,7 @@ Bann,Rochak Kohli & Ayushmann Khurrana</p>
             </div>
         </div>
     <div class="col-new">
-            <div class="card-new card-bottom" onclick="chord('37')">
+            <div class="card-new " onclick="chord('37')">
                 <img src="../assets/img/aajao_mere_tamanna.jpg" alt="Aa Jao Meri Tamanna">
                 <div class="card-body-new">
                     <h5 class="card-title-new">Aa Jao Meri Tamanna - Ajab Prem Ki Ghazab Kahani</h5>
@@ -14989,7 +15009,7 @@ Bann,Rochak Kohli & Ayushmann Khurrana</p>
             </div>
         </div>
     <div class="col-new">
-            <div class="card-new card-bottom" onclick="chord('38')">
+            <div class="card-new " onclick="chord('38')">
                 <img src="../assets/img/agar_tum_sath_ho.jpg" alt="Agar Tum Sath Ho">
                 <div class="card-body-new">
                     <h5 class="card-title-new">Agar Tum Sath Ho - Tamasha</h5>
@@ -15001,7 +15021,7 @@ Bann,Rochak Kohli & Ayushmann Khurrana</p>
             </div>
         </div>
     <div class="col-new">
-            <div class="card-new card-bottom" onclick="chord('39')">
+            <div class="card-new " onclick="chord('39')">
                 <img src="../assets/img/indino.jpg" alt="In Dinoa">
                 <div class="card-body-new">
                     <h5 class="card-title-new">In Dino - Life in a Metro</h5>
@@ -15013,7 +15033,7 @@ Bann,Rochak Kohli & Ayushmann Khurrana</p>
             </div>
         </div>
     <div class="col-new">
-            <div class="card-new card-bottom" onclick="chord('40')">
+            <div class="card-new " onclick="chord('40')">
                 <img src="../assets/img/mere bina.jpg" alt="Mere Bina">
                 <div class="card-body-new">
                     <h5 class="card-title-new">Mere Bina - Crook</h5>
@@ -15025,7 +15045,7 @@ Bann,Rochak Kohli & Ayushmann Khurrana</p>
             </div>
         </div>
     <div class="col-new">
-            <div class="card-new card-bottom" onclick="chord('41')">
+            <div class="card-new " onclick="chord('41')">
                 <img src="../assets/img/lo maan liya.jpg" alt="Lo Maan Liya">
                 <div class="card-body-new">
                     <h5 class="card-title-new">Lo Maan Liya - Raaz Reboot</h5>
@@ -15037,7 +15057,7 @@ Bann,Rochak Kohli & Ayushmann Khurrana</p>
             </div>
         </div>
     <div class="col-new">
-            <div class="card-new card-bottom" onclick="chord('42')">
+            <div class="card-new " onclick="chord('42')">
                 <img src="../assets/img/Enna_sona.jpg" alt="Enna Sona">
                 <div class="card-body-new">
                     <h5 class="card-title-new">Enna Sona - OK Jaanu</h5>
@@ -15049,7 +15069,7 @@ Bann,Rochak Kohli & Ayushmann Khurrana</p>
             </div>
         </div>
     <div class="col-new">
-            <div class="card-new card-bottom" onclick="chord('43')">
+            <div class="card-new " onclick="chord('43')">
                 <img src="../assets/img/Tu_jane_naa.jpg" alt="Tu Jaane Na">
                 <div class="card-body-new">
                     <h5 class="card-title-new">Tu Jaane Na - Ajab Prem Ki Ghazab Kahani</h5>
@@ -15061,7 +15081,7 @@ Bann,Rochak Kohli & Ayushmann Khurrana</p>
             </div>
         </div>
     <div class="col-new">
-            <div class="card-new card-bottom" onclick="chord('44')">
+            <div class="card-new " onclick="chord('44')">
                 <img src="../assets/img/jeelezaraa.jpg" alt="Jee Le Zaraa">
                 <div class="card-body-new">
                     <h5 class="card-title-new">Jee Le Zaraa - Talaash</h5>
@@ -15073,7 +15093,7 @@ Bann,Rochak Kohli & Ayushmann Khurrana</p>
             </div>
         </div>
     <div class="col-new">
-            <div class="card-new card-bottom" onclick="chord('45')">
+            <div class="card-new " onclick="chord('45')">
                 <img src="../assets/img/kya_hua_tera_wada.jpg" alt="Kya Hua Tera Wada">
                 <div class="card-body-new">
                     <h5 class="card-title-new">Kya Hua Tera Wada - Hum Kisise kum nahi</h5>
@@ -15085,7 +15105,7 @@ Bann,Rochak Kohli & Ayushmann Khurrana</p>
             </div>
         </div>
     <div class="col-new">
-            <div class="card-new card-bottom" onclick="chord('46')">
+            <div class="card-new " onclick="chord('46')">
                 <img src="../assets/img/Kalank.jpg" alt="Kalank">
                 <div class="card-body-new">
                     <h5 class="card-title-new">Kalank - Kalank</h5>
@@ -15097,7 +15117,7 @@ Bann,Rochak Kohli & Ayushmann Khurrana</p>
             </div>
         </div>
     <div class="col-new">
-            <div class="card-new card-bottom" onclick="chord('47')">
+            <div class="card-new " onclick="chord('47')">
                 <img src="../assets/img/uska he bana.jpg" alt="Uska Hi Banana">
                 <div class="card-body-new">
                     <h5 class="card-title-new">Uska Hi Banana - 1920 Evil Returns</h5>
@@ -15109,7 +15129,7 @@ Bann,Rochak Kohli & Ayushmann Khurrana</p>
             </div>
         </div>
     <div class="col-new">
-            <div class="card-new card-bottom" onclick="chord('48')">
+            <div class="card-new " onclick="chord('48')">
                 <img src="../assets/img/lakh duniya kahe.jpg" alt="Lakh Duniya Kahe">
                 <div class="card-body-new">
                     <h5 class="card-title-new">Lakh Duniya Kahe - Talaash</h5>
@@ -15121,7 +15141,7 @@ Bann,Rochak Kohli & Ayushmann Khurrana</p>
             </div>
         </div>
     <div class="col-new">
-            <div class="card-new card-bottom" onclick="chord('49')">
+            <div class="card-new " onclick="chord('49')">
                 <img src="../assets/img/terideewani.jpg" alt="Teri Deewani">
                 <div class="card-body-new">
                     <h5 class="card-title-new">Teri Deewani - Album</h5>
@@ -15133,7 +15153,7 @@ Bann,Rochak Kohli & Ayushmann Khurrana</p>
             </div>
         </div>
     <div class="col-new">
-            <div class="card-new card-bottom" onclick="chord('50')">
+            <div class="card-new " onclick="chord('50')">
                 <img src="../assets/img/be_inteha.jpg" alt="Be Intehaan">
                 <div class="card-body-new">
                     <h5 class="card-title-new">Be Intehaan - Race 2</h5>
@@ -15145,7 +15165,7 @@ Bann,Rochak Kohli & Ayushmann Khurrana</p>
             </div>
         </div>
     <div class="col-new">
-            <div class="card-new card-bottom" onclick="chord('51')">
+            <div class="card-new " onclick="chord('51')">
                 <img src="../assets/img/sunonasangemarmar.jpg" alt="Suno Na Sangemarmar">
                 <div class="card-body-new">
                     <h5 class="card-title-new">Suno Na Sangemarmar - Youngistaan</h5>
@@ -15157,7 +15177,7 @@ Bann,Rochak Kohli & Ayushmann Khurrana</p>
             </div>
         </div>
     <div class="col-new">
-            <div class="card-new card-bottom" onclick="chord('52')">
+            <div class="card-new " onclick="chord('52')">
                 <img src="../assets/img/bas_ek_bar.jpg" alt="Bas Ek Baar">
                 <div class="card-body-new">
                     <h5 class="card-title-new">Bas Ek Baar - Solo Album</h5>
